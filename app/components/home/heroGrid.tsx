@@ -17,7 +17,7 @@ export default function HeroGrid() {
       {/* ── Header ─────────────────────────────────────────── */}
       <div className="relative overflow-visible flex items-center justify-between px-6 md:px-10 py-4 border-b border-gray-200 bg-white rounded-t-lg">
         <Image
-          src="/images/common/sa26.svg"
+          src="/images/logo.png"
           alt="SA"
           width={40}
           height={40}

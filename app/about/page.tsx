@@ -75,34 +75,13 @@ export default function About() {
 
         {/* ── Logo ─────────────────────────────────────────────── */}
         <div className="mb-6 mt-2 flex justify-center md:hidden">
-        <div style={{ position: "relative", display: "inline-block" }}>
           <Image
-            src="/images/HomeImages/Satish-logo-kannada.svg"
-            alt="Satish in Kannada"
-            width={70}
-            height={26}
-            style={{
-              opacity: logoHovered ? 0 : 1,
-              transition: "opacity 0.15s ease",
-              position: "relative",
-              filter: "brightness(0) opacity(0.5)",
-            }}
+            src="/images/logo.png"
+            alt="Shubham Sah"
+            width={48}
+            height={48}
+            style={{ opacity: 0.6 }}
           />
-          <Image
-            src="/images/HomeImages/satish-logo-english.svg"
-            alt="Satish"
-            width={70}
-            height={26}
-            style={{
-              opacity: logoHovered ? 1 : 0,
-              transition: "opacity 0.15s ease",
-              position: "absolute",
-              top: 0,
-              left: 0,
-              filter: "brightness(0) opacity(0.5)",
-            }}
-          />
-        </div>
         </div>
 
         {/* ── Section 1: intro + photo ─────────────────────────── */}

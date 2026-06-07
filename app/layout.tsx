@@ -18,7 +18,7 @@ export const metadata: Metadata = {
   title: "Shubham Sah - Portfolio",
   description: "Product Designer with 6+ years of experience designing at the intersection of technology, business, and human behavior. SaaS, AI, Fintech, Enterprise, and Health-Tech.",
   icons: {
-    icon: '/images/common/sa26-white.svg',
+    icon: '/images/logo.png',
   },
   openGraph: {
     title: "Shubham Sah - Portfolio",

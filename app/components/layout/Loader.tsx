@@ -74,7 +74,7 @@ export default function Loader() {
       style={{ zIndex: 99999 }}
     >
       <Image
-        src="/images/common/sa26.svg"
+        src="/images/logo.png"
         alt="SA"
         width={48}
         height={48}

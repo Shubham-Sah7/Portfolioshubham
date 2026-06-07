@@ -281,7 +281,7 @@ export default function Navbar() {
             >
               {item.name === "Home" ? (
                 <Image
-                  src="/images/common/sa26-filled.svg"
+                  src="/images/logo.png"
                   alt="Home"
                   width={22}
                   height={22}

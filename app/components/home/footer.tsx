@@ -30,7 +30,7 @@ export default function Footer() {
             Let&apos;s Work Together
           </p>
           <Image
-            src="/images/common/sa26.svg"
+            src="/images/logo.png"
             alt="Satish"
             width={56}
             height={56}

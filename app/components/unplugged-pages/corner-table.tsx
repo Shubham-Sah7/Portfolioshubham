@@ -167,7 +167,7 @@ const CornerTable = () => {
             The Corner table
           </h1>
           <Image 
-            src="/images/common/sa26-white.svg" 
+            src="/images/logo.png" 
             alt="SA Logo" 
             width={32}
             height={32}

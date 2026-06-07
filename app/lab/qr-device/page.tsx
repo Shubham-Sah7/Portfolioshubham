@@ -1570,7 +1570,7 @@ export default function QR2() {
                           display:'flex', alignItems:'center', justifyContent:'center',
                           background:'linear-gradient(145deg, #2a2a2a, #0a0a0a)',
                           transition:'all 0.15s' }}>
-                        <img src="/images/common/sa26-white.svg" width="15" height="15"
+                        <img src="/images/logo.png" width="15" height="15"
                           style={{ display:'block', opacity:0.7 }}/>
                       </button>
                     </div>

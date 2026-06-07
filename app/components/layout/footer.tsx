@@ -84,7 +84,7 @@ export default function Footer() {
           {/* Logo + year */}
           <div className="flex items-center gap-3">
             <Image
-              src="/images/common/sa26.svg"
+              src="/images/logo.png"
               alt="SA26"
               width={28}
               height={28}
