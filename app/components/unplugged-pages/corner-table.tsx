@@ -343,10 +343,10 @@ const CornerTable = () => {
         <section className="text-center space-y-4 pb-8">
           <div className="w-full">
             <Image 
-              src="/images/shubham-sah.png"
+              src="/images/shubham-sah.jpg"
               alt="Shubham Sah"
               width={420}
-              height={310}
+              height={432}
               className="w-full h-auto rounded-lg"
             />
           </div>

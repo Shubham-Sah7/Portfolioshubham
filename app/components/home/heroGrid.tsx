@@ -141,10 +141,10 @@ export default function HeroGrid() {
         {/* Right: photo */}
         <div className="flex items-end justify-center overflow-hidden border-t md:border-t-0">
           <Image
-            src="/images/shubham-sah.png"
+            src="/images/shubham-sah.jpg"
             alt="Shubham Sah"
-            width={580}
-            height={430}
+            width={400}
+            height={411}
             className="object-contain object-bottom w-auto max-h-[360px] md:max-h-[460px]"
             priority
           />

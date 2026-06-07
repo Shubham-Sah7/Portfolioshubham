@@ -216,10 +216,10 @@ export default function About() {
             ))}
 
             <Image
-              src="/images/shubham-sah.png"
+              src="/images/shubham-sah.jpg"
               alt="Shubham Sah"
               width={260}
-              height={195}
+              height={267}
               className="object-contain"
               style={{ maxWidth: '260px', width: '100%', position: "relative", zIndex: 1 }}
             />
