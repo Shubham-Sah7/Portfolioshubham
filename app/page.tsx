@@ -4,7 +4,7 @@ import WorkGallery from "./components/home/workGallery"
 import MouseColorBloom from "./components/home/MouseColorBloom"
 import ParallaxImages from "./components/home/ParallaxImages"
 import EmailSection from "./components/home/EmailSection"
-import UnpluggedGallery from "./components/home/unpluggedGallery"
+// import UnpluggedGallery from "./components/home/unpluggedGallery"
 import VisualIdentityGallery from "./components/home/visualIdentityGallery"
 import ProposalsGallery from "./components/home/proposalsGallery"
 import PageBranches from "./components/home/PageBranches"
@@ -86,10 +86,10 @@ export default function Home() {
           <ProposalsGallery />
         </div>
 
-        {/* Unplugged section */}
-        <div data-section="unplugged">
+        {/* Unplugged section — commented out, revisit later */}
+        {/* <div data-section="unplugged">
           <UnpluggedGallery />
-        </div>
+        </div> */}
 
       </div>
 
