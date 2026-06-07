@@ -18,7 +18,7 @@ const proposals = [
     year: '2024',
     tag: 'UX Design',
     external: true,
-    bigLogo: false,
+    bigLogo: true,
   },
   {
     num: '002',
