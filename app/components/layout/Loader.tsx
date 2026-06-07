@@ -75,10 +75,10 @@ export default function Loader() {
     >
       <Image
         src="/images/logo.png"
-        alt="SA"
-        width={48}
-        height={48}
-        className="w-10 h-10 object-contain opacity-80 mb-5"
+        alt="Shubham Sah"
+        width={80}
+        height={80}
+        className="w-16 h-16 object-contain mb-5"
       />
       <p
         className="text-sm text-gray-400 tabular-nums"
