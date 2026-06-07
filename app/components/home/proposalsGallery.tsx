@@ -140,29 +140,7 @@ export default function ProposalsGallery() {
               <Plus h="right" v="bottom" />
 
               {item.bigLogo ? (
-                <>
-                  <div
-                    className="absolute left-0 hidden md:block"
-                    style={{ bottom: -25, width: 90, height: 140, pointerEvents: 'none' }}
-                  >
-                    <Image
-                      src={item.logoColor}
-                      alt={item.title}
-                      fill
-                      sizes="90px"
-                      className="object-contain object-left-bottom"
-                    />
-                  </div>
-                  <div className="flex flex-row items-stretch md:pl-[110px]" style={{ minHeight: 80 }}>
-                    <div className="relative shrink-0 md:hidden self-stretch" style={{ width: 80 }}>
-                      <Image
-                        src={item.logoColor}
-                        alt={item.title}
-                        fill
-                        sizes="80px"
-                        className="object-contain"
-                      />
-                    </div>
+                <div className="flex flex-row items-stretch" style={{ minHeight: 80 }}>
                     <div className="flex flex-1 items-center justify-between px-4 md:px-7 gap-4 py-4 md:py-0">
                       <div className="flex flex-col gap-1 min-w-0">
                         <h3
@@ -188,21 +166,9 @@ export default function ProposalsGallery() {
                         </svg>
                       </span>
                     </div>
-                  </div>
-                </>
+                </div>
               ) : (
                 <div className="flex flex-row items-center">
-
-                  {/* Logo */}
-                  <div className="relative overflow-hidden shrink-0 flex items-center justify-center w-20 md:w-[110px] h-[72px]">
-                    <Image
-                      src={item.logoColor}
-                      alt={item.title}
-                      fill
-                      sizes="110px"
-                      className="object-contain p-3 md:p-4"
-                    />
-                  </div>
 
                   {/* Meta */}
                   <div className="flex flex-1 items-center justify-between px-4 md:px-7 gap-4 py-3 md:py-0">
