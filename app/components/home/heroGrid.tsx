@@ -141,7 +141,7 @@ export default function HeroGrid() {
         {/* Right: photo */}
         <div className="flex items-end justify-center overflow-hidden border-t md:border-t-0">
           <Image
-            src="/images/New images/Shubham Sah.png"
+            src="/images/shubham-sah.png"
             alt="Shubham Sah"
             width={580}
             height={430}

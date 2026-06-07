@@ -216,7 +216,7 @@ export default function About() {
             ))}
 
             <Image
-              src="/images/New images/Shubham Sah.png"
+              src="/images/shubham-sah.png"
               alt="Shubham Sah"
               width={260}
               height={195}
