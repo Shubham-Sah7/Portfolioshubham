@@ -295,7 +295,7 @@ export default function WorkGallery() {
               href={work.href ?? '#'}
               target="_blank"
               rel="noopener noreferrer"
-              className="relative overflow-hidden order-1 md:order-2 aspect-square block bg-gray-100"
+              className="relative overflow-hidden order-1 md:order-2 aspect-video block bg-gray-100"
             >
               {work.image && (
                 <Image

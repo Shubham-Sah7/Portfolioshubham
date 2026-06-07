@@ -216,11 +216,11 @@ export default function About() {
             ))}
 
             <Image
-              src="/images/HomeImages/Satish-about.png"
-              alt="Satish"
+              src="/images/New images/Shubham Sah.png"
+              alt="Shubham Sah"
               width={260}
-              height={320}
-              className="object-cover"
+              height={195}
+              className="object-contain"
               style={{ maxWidth: '260px', width: '100%', position: "relative", zIndex: 1 }}
             />
           </div>
