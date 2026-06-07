@@ -1,5 +1,5 @@
 import Image from "next/image"
-import Loader from "./components/layout/Loader"
+// import Loader from "./components/layout/Loader"
 import WorkGallery from "./components/home/workGallery"
 import MouseColorBloom from "./components/home/MouseColorBloom"
 import ParallaxImages from "./components/home/ParallaxImages"
@@ -14,7 +14,7 @@ export default function Home() {
   return (
     <div className="bg-white relative">
 
-      <Loader />
+      {/* <Loader /> */}
       <PageBranches />
 
       {/* ── Pillar decorations — fixed to viewport edges ─────── */}
