@@ -1,0 +1,77 @@
+/* heroAnimations.css */
+
+/* Wiggle animation for SA icon */
+@keyframes wiggle {
+  0% { transform: rotate(0deg); }
+  25% { transform: rotate(5deg); }
+  50% { transform: rotate(-5deg); }
+  75% { transform: rotate(5deg); }
+  100% { transform: rotate(0deg); }
+}
+
+.wiggle-on-hover:hover {
+  animation: wiggle 0.5s ease-in-out;
+}
+
+/* Breathing gradient animation for Product Designer text */
+.gradient-text {
+  color: rgba(0,0,0,0);
+  background: linear-gradient(
+    90deg, 
+    #9364ff, 
+    #4e6ccd, 
+    #45d1d1, 
+    #65ecad, 
+    #feca57, 
+    #ff9ff3, 
+    #54a0ff, 
+    #5f27cd, 
+    #ff6868
+  );
+  background-size: 400% 100%;
+  background-position: 0% 50%;
+  -webkit-background-clip: text;
+  -moz-background-clip: text;
+  background-clip: text;    
+  -webkit-animation: gradientFlow 20s ease-in-out infinite; 
+  animation: gradientFlow 20s ease-in-out infinite;
+  transition: all 2s ease;
+  text-shadow: 
+    0 0 10px rgba(255, 0, 0, 0.3),
+    0 0 20px rgba(162, 233, 228, 0.2),
+    0 0 30px rgba(171, 233, 247, 0.1);
+}
+
+.gradient-text-inactive {
+  color: inherit;
+  background: none;
+  -webkit-background-clip: initial;
+  -moz-background-clip: initial;
+  background-clip: initial;
+  animation: none;
+  text-shadow: none;
+}
+
+@-webkit-keyframes gradientFlow {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@keyframes gradientFlow {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
