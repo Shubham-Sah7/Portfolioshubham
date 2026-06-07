@@ -1453,7 +1453,7 @@ const SmartNation = () => {
             {copied === 'email' ? 'Copied!' : 'satishdezn@gmail.com'}
           </button>
           <a
-            href="https://www.linkedin.com/in/satish-hebbal/"
+            href="https://www.linkedin.com/in/shubhamdesign/"
             target="_blank"
             rel="noopener noreferrer"
             className="w-full flex items-center gap-3 px-5 py-3 border border-gray-200 text-gray-500 text-xs tracking-wide hover:border-gray-400 hover:text-gray-700 transition-colors duration-200"

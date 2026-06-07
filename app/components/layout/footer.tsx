@@ -5,9 +5,10 @@ import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 
 const links = [
-  { label: 'LinkedIn',  href: 'https://www.linkedin.com/in/shubhamsah' },
-  { label: 'Instagram', href: 'https://www.instagram.com/shubhamsah' },
-  { label: 'GitHub',    href: 'https://github.com/shubhamsah' },
+  { label: 'LinkedIn',  href: 'https://www.linkedin.com/in/shubhamdesign/' },
+  { label: 'Instagram', href: 'https://www.instagram.com/designseven07_/' },
+  { label: 'Twitter',   href: 'https://x.com/Shubham80374184' },
+  { label: 'GitHub',    href: 'https://github.com/Shubham-Sah7' },
 ]
 
 const navLinks = [

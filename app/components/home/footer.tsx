@@ -63,7 +63,7 @@ export default function Footer() {
             {copied === 'email' ? 'Copied!' : 'sahshubham953@gmail.com'}
           </button>
           <a
-            href="https://www.linkedin.com/in/shubhamsah"
+            href="https://www.linkedin.com/in/shubhamdesign/"
             target="_blank"
             rel="noopener noreferrer"
             className="w-full flex items-center gap-3 px-5 py-3 border border-gray-200 text-gray-500 text-xs tracking-wide hover:border-gray-400 hover:text-gray-700 transition-colors duration-200"
@@ -90,10 +90,9 @@ export default function Footer() {
           </p>
           <div className="flex items-center gap-4">
             {[
-              { href: 'https://www.linkedin.com/in/shubhamsah',     src: '/images/HomeImages/social/linkedin.svg',  alt: 'LinkedIn'  },
-              { href: 'https://www.behance.net/shubhamsah',         src: '/images/HomeImages/social/behance.svg',   alt: 'Behance'   },
-              { href: 'https://dribbble.com/shubhamsah',            src: '/images/HomeImages/social/dribbble.svg',  alt: 'Dribbble'  },
-              { href: 'https://www.instagram.com/shubhamsah',       src: '/images/HomeImages/social/instagram.svg', alt: 'Instagram' },
+              { href: 'https://www.linkedin.com/in/shubhamdesign/',      src: '/images/HomeImages/social/linkedin.svg',  alt: 'LinkedIn'  },
+              { href: 'https://www.instagram.com/designseven07_/',    src: '/images/HomeImages/social/instagram.svg', alt: 'Instagram' },
+              { href: 'https://github.com/Shubham-Sah7',              src: '/images/HomeImages/social/behance.svg',   alt: 'GitHub'    },
             ].map((s) => (
               <Link key={s.alt} href={s.href} target="_blank" rel="noopener noreferrer">
                 <Image

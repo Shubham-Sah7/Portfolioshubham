@@ -832,7 +832,7 @@ export default function XPayProposal() {
               <EmailCopyButton />
               {/* LinkedIn button */}
               <a
-                href="https://www.linkedin.com/in/satish-hebbal/"
+                href="https://www.linkedin.com/in/shubhamdesign/"
                 target="_blank"
                 rel="noopener noreferrer"
                 style={{
