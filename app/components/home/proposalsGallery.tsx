@@ -13,23 +13,17 @@ const proposals = [
     num: '001',
     title: 'MedEase — Health-Tech Product',
     description: "Redesigned patient-facing flows for a Health-Tech product. Simplified onboarding, reduced drop-off, improved care plan adherence.",
-    logoColor: '/images/proposals/Xpay/Xpay-logo.png',
     href: 'https://www.behance.net/gallery/180887605/MedEase-App',
-    year: '2024',
-    tag: 'UX Design',
+    photo: null,
     external: true,
-    bigLogo: true,
   },
   {
     num: '002',
     title: 'Branding Projects',
     description: "Visual identity, brand systems, and design language built for startups across multiple sectors.",
-    logoColor: '/images/proposals/Xpay/hero-asset-1.png',
     href: 'https://www.behance.net/gallery/195327435/Brand-Strategy-Case-Study',
-    year: '2022 - Present',
-    tag: 'Brand Identity',
+    photo: '/images/shubham-sah.jpg',
     external: true,
-    bigLogo: true,
   },
 ]
 
@@ -139,36 +133,18 @@ export default function ProposalsGallery() {
               <Plus h="left" v="bottom" />
               <Plus h="right" v="bottom" />
 
-              {item.bigLogo ? (
-                <div className="flex flex-row items-stretch" style={{ minHeight: 80 }}>
-                    <div className="flex flex-1 items-center justify-between px-4 md:px-7 gap-4 py-4 md:py-0">
-                      <div className="flex flex-col gap-1 min-w-0">
-                        <h3
-                          className="text-sm md:text-lg font-light text-black leading-tight"
-                          style={{ fontFamily: 'SatishSans, sans-serif' }}
-                        >
-                          {item.title}
-                        </h3>
-                        <p
-                          className="text-xs text-gray-400 leading-snug line-clamp-2"
-                          style={{ fontFamily: 'FunnelDisplay, sans-serif', fontWeight: 300 }}
-                        >
-                          {item.description}
-                        </p>
-                      </div>
-                      <span
-                        className="text-xs text-black shrink-0 group-hover:translate-x-1 transition-transform duration-200 inline-flex items-center gap-1"
-                        style={{ fontFamily: 'FunnelDisplay, sans-serif' }}
-                      >
-                        View
-                        <svg width="11" height="11" viewBox="0 0 16 16" fill="none">
-                          <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-                        </svg>
-                      </span>
-                    </div>
-                </div>
-              ) : (
-                <div className="flex flex-row items-center">
+              <div className="flex flex-row items-center" style={{ minHeight: 80 }}>
+                {item.photo && (
+                  <div className="relative shrink-0 overflow-hidden" style={{ width: 72, height: 80 }}>
+                    <Image
+                      src={item.photo}
+                      alt={item.title}
+                      fill
+                      sizes="72px"
+                      className="object-cover object-top"
+                    />
+                  </div>
+                )}
 
                   {/* Meta */}
                   <div className="flex flex-1 items-center justify-between px-4 md:px-7 gap-4 py-3 md:py-0">
@@ -198,7 +174,6 @@ export default function ProposalsGallery() {
                   </div>
 
                 </div>
-              )}
             </>
           )
 
