@@ -22,7 +22,7 @@ const proposals = [
     title: 'Branding Projects',
     description: "Visual identity, brand systems, and design language built for startups across multiple sectors.",
     href: 'https://www.behance.net/gallery/195327435/Brand-Strategy-Case-Study',
-    photo: '/images/shubham-sah.jpg',
+    photo: null,
     external: true,
   },
 ]
