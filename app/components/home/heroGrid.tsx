@@ -145,7 +145,7 @@ export default function HeroGrid() {
             alt="Shubham Sah"
             width={580}
             height={430}
-            className="object-contain object-bottom w-full h-auto max-h-[360px] md:max-h-[500px]"
+            className="object-contain object-bottom w-auto max-h-[360px] md:max-h-[460px]"
             priority
           />
         </div>

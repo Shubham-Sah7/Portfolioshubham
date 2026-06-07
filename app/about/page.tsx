@@ -218,10 +218,10 @@ export default function About() {
             <Image
               src="/images/shubham-sah.png"
               alt="Shubham Sah"
-              width={480}
-              height={356}
+              width={260}
+              height={195}
               className="object-contain"
-              style={{ maxWidth: '480px', width: '100%', position: "relative", zIndex: 1 }}
+              style={{ maxWidth: '260px', width: '100%', position: "relative", zIndex: 1 }}
             />
           </div>
         </div>
