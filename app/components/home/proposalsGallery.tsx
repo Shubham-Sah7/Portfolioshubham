@@ -25,6 +25,38 @@ const proposals = [
     photo: null,
     external: true,
   },
+  {
+    num: '003',
+    title: 'Product Gallery',
+    description: "Behance for vibe coders and AI product builders.",
+    href: '#',
+    photo: null,
+    external: true,
+  },
+  {
+    num: '004',
+    title: 'Karixa Design',
+    description: "AI agent for medicine factory operations and workflow management.",
+    href: '#',
+    photo: null,
+    external: true,
+  },
+  {
+    num: '005',
+    title: 'Hanomi',
+    description: "AI platform that converts 2D engineering drawings into accurate 3D models.",
+    href: '#',
+    photo: null,
+    external: true,
+  },
+  {
+    num: '006',
+    title: 'Cricket Analytics Platform',
+    description: "Cricket intelligence dashboard for player performance, match analytics, and insights.",
+    href: '#',
+    photo: null,
+    external: true,
+  },
 ]
 
 // Corner plus marker
@@ -127,7 +159,7 @@ export default function ProposalsGallery() {
       </div>
 
       {/* Cards */}
-      <div className="flex flex-col gap-3">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
         {proposals.map((item) => {
           const inner = (
             <>
@@ -136,7 +168,7 @@ export default function ProposalsGallery() {
               <Plus h="left" v="bottom" />
               <Plus h="right" v="bottom" />
 
-              <div className="flex flex-row items-center" style={{ minHeight: 80 }}>
+              <div className="flex flex-row items-center h-full" style={{ minHeight: 80 }}>
                 {item.photo && (
                   <div className="relative shrink-0 overflow-hidden" style={{ width: 72, height: 80 }}>
                     <Image
@@ -180,7 +212,7 @@ export default function ProposalsGallery() {
             </>
           )
 
-          const cardClass = `group block relative border border-gray-200 bg-white hover:border-gray-400 transition-colors duration-300`
+          const cardClass = `group block relative border border-gray-200 bg-white hover:border-gray-400 transition-colors duration-300 h-full`
 
           return item.external ? (
             <a
