@@ -159,7 +159,7 @@ export default function ProposalsGallery() {
       </div>
 
       {/* Cards */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-6 md:gap-x-12 md:gap-y-8">
         {proposals.map((item) => {
           const inner = (
             <>
@@ -168,7 +168,7 @@ export default function ProposalsGallery() {
               <Plus h="left" v="bottom" />
               <Plus h="right" v="bottom" />
 
-              <div className="flex flex-row items-center h-full" style={{ minHeight: 80 }}>
+              <div className="flex flex-row items-center h-full" style={{ minHeight: 100 }}>
                 {item.photo && (
                   <div className="relative shrink-0 overflow-hidden" style={{ width: 72, height: 80 }}>
                     <Image
@@ -182,7 +182,7 @@ export default function ProposalsGallery() {
                 )}
 
                   {/* Meta */}
-                  <div className="flex flex-1 items-center justify-between px-4 md:px-7 gap-4 py-3 md:py-0">
+                  <div className="flex flex-1 items-center justify-between px-6 md:px-8 py-5 md:py-6 gap-6">
                     <div className="flex flex-col gap-1 min-w-0">
                       <h3
                         className="text-sm md:text-lg font-light text-black leading-tight"
