@@ -7,7 +7,7 @@ import { usePathname } from 'next/navigation'
 const links = [
   { label: 'LinkedIn',  href: 'https://www.linkedin.com/in/shubhamdesign/' },
   { label: 'Instagram', href: 'https://www.instagram.com/designseven07_/' },
-  { label: 'Twitter',   href: 'https://x.com/Shubham80374184' },
+  { label: 'Twitter',   href: 'https://x.com/Shubhammcr7_' },
   { label: 'GitHub',    href: 'https://github.com/Shubham-Sah7' },
 ]
 

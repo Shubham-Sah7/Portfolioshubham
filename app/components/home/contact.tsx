@@ -81,7 +81,7 @@ const Contact = () => {
                       <Link href="https://www.linkedin.com/in/shubhamdesign/" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-blue-600 transition-colors duration-200">
                         <Image src="/images/HomeImages/social/linkedin.svg" alt="LinkedIn" width={40} height={40} className="w-10 h-10 md:w-12 md:h-12" />
                       </Link>
-                      <Link href="https://x.com/Shubham80374184" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-sky-500 transition-colors duration-200">
+                      <Link href="https://x.com/Shubhammcr7_" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-sky-500 transition-colors duration-200">
                         <Image src="/images/HomeImages/social/dribbble.svg" alt="Twitter" width={40} height={40} className="w-10 h-10 md:w-12 md:h-12" />
                       </Link>
                       <Link href="https://github.com/Shubham-Sah7" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-gray-800 transition-colors duration-200">
