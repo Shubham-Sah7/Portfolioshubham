@@ -57,7 +57,7 @@ export default function Footer() {
             className="mt-4 text-sm text-gray-400"
             style={{ fontFamily: 'FunnelDisplay, sans-serif', fontWeight: 300 }}
           >
-            Product Designer · IIT Patna
+            Product Designer · Builder · IIT Patna
           </p>
           </div>
 
