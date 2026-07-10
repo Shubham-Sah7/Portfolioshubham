@@ -18,22 +18,24 @@ export default function Home() {
       <PageBranches />
 
       {/* ── Pillar decorations - fixed to viewport edges ─────── */}
-      <Image
-        src="/images/HomeImages/piller-v.svg"
-        alt=""
-        width={120}
-        height={800}
-        className="fixed top-0 h-screen w-auto object-contain object-top pointer-events-none select-none hidden md:block"
-        style={{ zIndex: 0, opacity: 0.18, left: '-70px' }}
-      />
-      <Image
-        src="/images/HomeImages/piller-2-v.svg"
-        alt=""
-        width={120}
-        height={800}
-        className="fixed top-0 h-screen w-auto object-contain object-top pointer-events-none select-none hidden md:block"
-        style={{ zIndex: 0, opacity: 0.18, right: '-40px' }}
-      />
+      <div className="fixed top-0 h-screen hidden md:block group/left-pillar" style={{ zIndex: 0, left: '-70px' }}>
+        <Image
+          src="/images/HomeImages/piller-v.svg"
+          alt=""
+          width={120}
+          height={800}
+          className="h-screen w-auto object-contain object-top select-none transition-opacity duration-700 opacity-[0.18] group-hover/left-pillar:opacity-[0.23]"
+        />
+      </div>
+      <div className="fixed top-0 h-screen hidden md:block group/right-pillar" style={{ zIndex: 0, right: '-40px' }}>
+        <Image
+          src="/images/HomeImages/piller-2-v.svg"
+          alt=""
+          width={120}
+          height={800}
+          className="h-screen w-auto object-contain object-top select-none transition-opacity duration-700 opacity-[0.18] group-hover/right-pillar:opacity-[0.23]"
+        />
+      </div>
 
       <div className="max-w-5xl mx-auto px-6 md:px-10">
 
