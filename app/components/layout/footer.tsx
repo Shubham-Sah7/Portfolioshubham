@@ -79,13 +79,6 @@ export default function Footer() {
 
           {/* Logo + year */}
           <div className="flex items-center gap-3">
-            <Image
-              src="/images/logo.png"
-              alt="SA26"
-              width={28}
-              height={28}
-              className="opacity-40"
-            />
             <span
               className="text-xs text-gray-400"
               style={{ fontFamily: 'FunnelDisplay, sans-serif' }}
