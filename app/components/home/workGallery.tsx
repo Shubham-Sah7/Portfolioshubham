@@ -1,7 +1,7 @@
 "use client"
 
 import Image from 'next/image'
-import { useRef, useEffect, useState } from 'react'
+import { useRef, useEffect } from 'react'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 
@@ -96,57 +96,6 @@ export default function WorkGallery() {
   const worksEl    = useRef<HTMLHeadingElement>(null)
   const lineEl     = useRef<HTMLDivElement>(null)
   const branchContainerRef = useRef<HTMLDivElement>(null)
-
-  const cursorRef = useRef<HTMLDivElement>(null)
-  const [hoveredWork, setHoveredWork] = useState<string | null>(null)
-
-  const getCursorText = (title: string) => {
-    const t = title.toLowerCase()
-    if (t.includes('unscript') || t.includes('design system')) {
-      return 'See Case Study'
-    }
-    return 'See Live Prototype'
-  }
-
-  const handleMouseEnter = (title: string) => {
-    setHoveredWork(title)
-    gsap.to(cursorRef.current, {
-      scale: 1,
-      duration: 0.3,
-      ease: 'back.out(1.5)',
-      overwrite: 'auto'
-    })
-  }
-
-  const handleMouseLeave = () => {
-    gsap.to(cursorRef.current, {
-      scale: 0,
-      duration: 0.2,
-      ease: 'power2.inOut',
-      overwrite: 'auto',
-      onComplete: () => setHoveredWork(null),
-    })
-  }
-
-  useEffect(() => {
-    const cursor = cursorRef.current
-    if (!cursor) return
-
-    const moveCursor = (e: MouseEvent) => {
-      gsap.to(cursor, {
-        x: e.clientX,
-        y: e.clientY,
-        duration: 0.4,
-        ease: 'power3.out',
-        overwrite: 'auto',
-      })
-    }
-
-    window.addEventListener('mousemove', moveCursor)
-    return () => {
-      window.removeEventListener('mousemove', moveCursor)
-    }
-  }, [])
 
   // Parallax + tilt for all branches via data attributes
   useEffect(() => {
@@ -349,9 +298,7 @@ export default function WorkGallery() {
               href={work.href ?? '#'}
               target="_blank"
               rel="noopener noreferrer"
-              className="relative overflow-hidden order-1 md:order-2 aspect-video block bg-gray-100 md:cursor-none"
-              onMouseEnter={() => handleMouseEnter(work.title)}
-              onMouseLeave={handleMouseLeave}
+              className="relative overflow-hidden order-1 md:order-2 aspect-video block bg-gray-100"
             >
               {work.image && (
                 <Image
@@ -368,27 +315,6 @@ export default function WorkGallery() {
       </div>
 
       </div>{/* end relative wrapper */}
-
-      {/* Custom Cursor Follower (Desktop only) */}
-      <div
-        ref={cursorRef}
-        className="hidden md:flex fixed pointer-events-none z-50 items-center justify-center rounded-full bg-black text-white text-[10px] font-medium tracking-wider text-center uppercase p-4"
-        style={{
-          width: '110px',
-          height: '110px',
-          top: 0,
-          left: 0,
-          transform: 'translate(-50%, -50%) scale(0)',
-          transformOrigin: 'center center',
-          fontFamily: 'FunnelDisplay, sans-serif',
-          boxShadow: '0 12px 40px rgba(0,0,0,0.3)',
-          border: '1px solid rgba(255,255,255,0.15)',
-        }}
-      >
-        <span className="block w-full text-center leading-tight">
-          {hoveredWork && getCursorText(hoveredWork)}
-        </span>
-      </div>
 
     </div>
   )
