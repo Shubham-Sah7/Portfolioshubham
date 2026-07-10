@@ -75,10 +75,10 @@ export default function Footer() {
         <div className="border-t border-gray-100" />
 
         {/* Bottom row */}
-        <div className="py-5 flex flex-col md:flex-row items-center justify-between gap-6">
+        <div className="py-5 flex flex-col md:grid md:grid-cols-3 items-center gap-6 w-full">
 
           {/* Logo + year */}
-          <div className="flex items-center gap-3">
+          <div className="flex justify-center md:justify-start items-center w-full">
             <span
               className="text-xs text-gray-400"
               style={{ fontFamily: 'FunnelDisplay, sans-serif' }}
@@ -88,12 +88,12 @@ export default function Footer() {
           </div>
 
           {/* Email button */}
-          <div className="flex justify-center items-center">
+          <div className="flex justify-center items-center w-full">
             <EmailCopy />
           </div>
 
           {/* Social links */}
-          <div className="flex items-center gap-6">
+          <div className="flex justify-center md:justify-end items-center gap-6 w-full">
             {links.map((l) => (
               <a
                 key={l.label}
