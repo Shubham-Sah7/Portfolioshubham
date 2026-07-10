@@ -162,6 +162,31 @@ export default function Lab() {
           </CardContainer>
         </Link>
 
+        {/* Playground */}
+        <Link href="/lab/playground" style={{ textDecoration: 'none', display: 'block' }}>
+          <CardContainer containerClassName="w-full p-0" className="w-full">
+            <CardBody className="w-full h-[220px] relative border border-gray-200 overflow-hidden px-6 py-8"
+              style={{ background: 'linear-gradient(135deg, #f0f4ff 0%, #ffffff 60%)', borderRadius: 0 }}>
+              <CardItem translateZ={50} className="block"
+                style={{ fontFamily: 'SatishSans, sans-serif', fontSize: '1.5rem', fontWeight: 300, letterSpacing: '-0.01em', color: '#111' }}>
+                Playground
+              </CardItem>
+              <CardItem translateZ={60} as="p" className="block mt-3"
+                style={{ fontSize: '0.75rem', color: 'rgba(0,0,0,0.4)', letterSpacing: '0.02em', lineHeight: 1.5 }}>
+                A canvas to draw, sketch, and<br />mess around freely
+              </CardItem>
+              <CardItem translateZ={100} className="absolute" style={{ bottom: 14, right: 14, opacity: 0.15 }}>
+                <svg width="120" height="120" viewBox="0 0 24 24" fill="none" stroke="#000" strokeWidth="1">
+                  <path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 013 3L7 19l-4 1 1-4L16.5 3.5z"/>
+                </svg>
+              </CardItem>
+              <CardItem translateZ={30} className="absolute" style={{ bottom: 20, right: 20, zIndex: 1 }}>
+                <ArrowBtn />
+              </CardItem>
+            </CardBody>
+          </CardContainer>
+        </Link>
+
       </div>
     </div>
   )

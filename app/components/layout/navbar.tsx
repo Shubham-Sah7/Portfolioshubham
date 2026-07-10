@@ -317,14 +317,14 @@ export default function Navbar() {
           <div key={item.name} className={`flex items-center ${isMounted ? "gap-0.5 md:gap-3" : "gap-0.5"}`}>
             <button
               onClick={(e) => handleNavigation(item, e)}
-              className={`cursor-pointer font-light transition-all duration-300 relative hover:text-orange-500 hover:scale-105 py-2 px-2.5 md:py-1 md:px-2 ${
+              className={`cursor-pointer font-light transition-all duration-300 relative hover:text-black hover:scale-105 py-2 px-2.5 md:py-1 md:px-2 ${
                 isMounted ? "text-xs md:text-sm" : "text-sm"
               } ${
                 (pathname === item.href) ||
                 (item.name === "Work" && pathname.startsWith('/works/'))
-                  ? "text-orange-500"
+                  ? "text-black"
                   : (item.name === "Unplug" && pathname.startsWith('/unplugged/'))
-                    ? "text-orange-400"
+                    ? "text-zinc-700"
                     : (pathname.startsWith('/unplugged/') || showWhiteNav)
                       ? "text-white"
                       : "text-zinc-700"
@@ -427,19 +427,19 @@ export default function Navbar() {
                     <div className="text-[10px] sm:text-[11px] text-zinc-500 flex flex-wrap justify-center items-center gap-x-2 gap-y-0.5 mb-2" style={{ fontFamily: 'FunnelDisplay, sans-serif' }}>
                       <span>Bangalore, India</span>
                       <span className="text-zinc-350">•</span>
-                      <a href="mailto:sahshubham953@gmail.com" className="hover:text-orange-500 transition-colors font-medium">sahshubham953@gmail.com</a>
+                      <a href="mailto:sahshubham953@gmail.com" className="hover:text-black transition-colors font-medium">sahshubham953@gmail.com</a>
                       <span className="text-zinc-350">•</span>
-                      <a href="tel:+918101803745" className="hover:text-orange-500 transition-colors">+91 81018 03745</a>
+                      <a href="tel:+918101803745" className="hover:text-black transition-colors">+91 81018 03745</a>
                     </div>
                     
                     <div className="text-[10px] sm:text-[11px] font-semibold text-zinc-650 flex flex-wrap justify-center items-center gap-x-2.5 gap-y-0.5" style={{ fontFamily: 'FunnelDisplay, sans-serif' }}>
-                      <a href="https://www.shubhamsah.com" target="_blank" rel="noopener noreferrer" className="hover:text-orange-500 hover:underline transition-all">Portfolio</a>
+                      <a href="https://www.shubhamsah.com" target="_blank" rel="noopener noreferrer" className="hover:text-black hover:underline transition-all">Portfolio</a>
                       <span className="text-zinc-300">|</span>
-                      <a href="https://www.linkedin.com/in/shubham-sah/" target="_blank" rel="noopener noreferrer" className="hover:text-orange-500 hover:underline transition-all">LinkedIn</a>
+                      <a href="https://www.linkedin.com/in/shubham-sah/" target="_blank" rel="noopener noreferrer" className="hover:text-black hover:underline transition-all">LinkedIn</a>
                       <span className="text-zinc-300">|</span>
-                      <a href="https://www.behance.net/sahshubham" target="_blank" rel="noopener noreferrer" className="hover:text-orange-500 hover:underline transition-all">Behance</a>
+                      <a href="https://www.behance.net/sahshubham" target="_blank" rel="noopener noreferrer" className="hover:text-black hover:underline transition-all">Behance</a>
                       <span className="text-zinc-300">|</span>
-                      <a href="https://bento.me/shubhamsah" target="_blank" rel="noopener noreferrer" className="hover:text-orange-500 hover:underline transition-all">Bento</a>
+                      <a href="https://bento.me/shubhamsah" target="_blank" rel="noopener noreferrer" className="hover:text-black hover:underline transition-all">Bento</a>
                     </div>
                   </div>
 

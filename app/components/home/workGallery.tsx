@@ -4,6 +4,7 @@ import Image from 'next/image'
 import { useRef, useEffect } from 'react'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
+import { CardContainer, CardBody, CardItem } from '@/components/ui/3d-card'
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -242,75 +243,80 @@ export default function WorkGallery() {
 
       <div className="flex flex-col gap-10 md:gap-16">
         {works.map((work) => (
-          <div
-            key={work.num}
-            className="relative border border-gray-200 grid grid-cols-1 md:grid-cols-2"
-          >
-            {/* Corner plus markers */}
-            <Plus h="left"  v="top" />
-            <Plus h="right" v="top" />
-            <Plus h="left"  v="bottom" />
-            <Plus h="right" v="bottom" />
+          <CardContainer key={work.num} containerClassName="w-full p-0" className="w-full">
+            <CardBody className="relative border border-gray-200 grid grid-cols-1 md:grid-cols-2 w-full">
 
-            {/* Info - left on desktop, below image on mobile */}
-            <div className="p-6 md:p-10 flex flex-col justify-between order-2 md:order-1">
-              <div>
-                <h3
-                  className="text-2xl md:text-3xl font-light text-black mb-4"
-                  style={{ fontFamily: 'SatishSans, sans-serif' }}
-                >
-                  {work.title}
-                </h3>
-                <p
-                  className="text-sm text-gray-400 leading-relaxed max-w-sm"
-                  style={{ fontFamily: 'FunnelDisplay, sans-serif' }}
-                >
-                  {work.description}
-                </p>
-              </div>
+              {/* Corner plus markers */}
+              <Plus h="left"  v="top" />
+              <Plus h="right" v="top" />
+              <Plus h="left"  v="bottom" />
+              <Plus h="right" v="bottom" />
 
-              <div className="mt-8 flex items-end justify-between">
-                <span
-                  className="text-xs text-gray-400"
-                  style={{ fontFamily: 'FunnelDisplay, sans-serif' }}
-                >
-                  {work.year}
-                </span>
-                {work.available && work.href && (
-                  <a
-                    href={work.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="px-4 py-2 border border-gray-900 text-xs text-gray-900 hover:bg-gray-900 hover:text-white transition-colors duration-200 shrink-0 flex items-center gap-2"
+              {/* Info */}
+              <div className="p-6 md:p-10 flex flex-col justify-between order-2 md:order-1">
+                <div>
+                  <CardItem translateZ={5} as="h3"
+                    className="text-2xl md:text-3xl font-light text-black mb-4 block"
+                    style={{ fontFamily: 'SatishSans, sans-serif' }}
+                  >
+                    {work.title}
+                  </CardItem>
+                  <CardItem translateZ={3} as="p"
+                    className="text-sm text-gray-400 leading-relaxed max-w-sm block"
                     style={{ fontFamily: 'FunnelDisplay, sans-serif' }}
                   >
-                    View Work
-                    <svg xmlns="http://www.w3.org/2000/svg" height="14px" viewBox="0 -960 960 960" width="14px" fill="currentColor">
-                      <path d="M251.77-254.23 210-296l393.62-394H245.77v-60h460v460h-60v-357.85l-394 393.62Z"/>
-                    </svg>
-                  </a>
-                )}
-              </div>
-            </div>
+                    {work.description}
+                  </CardItem>
+                </div>
 
-            {/* Image - right on desktop, above info on mobile */}
-            <a
-              href={work.href ?? '#'}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="relative overflow-hidden order-1 md:order-2 aspect-video block bg-gray-100"
-            >
-              {work.image && (
-                <Image
-                  src={work.image}
-                  alt={work.title}
-                  fill
-                  sizes="(max-width: 768px) 100vw, 50vw"
-                  className="object-cover"
-                />
-              )}
-            </a>
-          </div>
+                <div className="mt-8 flex items-end justify-between">
+                  <CardItem translateZ={2} as="span"
+                    className="text-xs text-gray-400 block"
+                    style={{ fontFamily: 'FunnelDisplay, sans-serif' }}
+                  >
+                    {work.year}
+                  </CardItem>
+                  {work.available && work.href && (
+                    <CardItem translateZ={7}>
+                      <a
+                        href={work.href}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="px-4 py-2 border border-gray-900 text-xs text-gray-900 hover:bg-gray-900 hover:text-white transition-colors duration-200 shrink-0 flex items-center gap-2"
+                        style={{ fontFamily: 'FunnelDisplay, sans-serif' }}
+                      >
+                        View Work
+                        <svg xmlns="http://www.w3.org/2000/svg" height="14px" viewBox="0 -960 960 960" width="14px" fill="currentColor">
+                          <path d="M251.77-254.23 210-296l393.62-394H245.77v-60h460v460h-60v-357.85l-394 393.62Z"/>
+                        </svg>
+                      </a>
+                    </CardItem>
+                  )}
+                </div>
+              </div>
+
+              {/* Image */}
+              <CardItem translateZ={9} className="relative overflow-hidden order-1 md:order-2 aspect-video block bg-gray-100">
+                <a
+                  href={work.href ?? '#'}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="absolute inset-0"
+                >
+                  {work.image && (
+                    <Image
+                      src={work.image}
+                      alt={work.title}
+                      fill
+                      sizes="(max-width: 768px) 100vw, 50vw"
+                      className="object-cover"
+                    />
+                  )}
+                </a>
+              </CardItem>
+
+            </CardBody>
+          </CardContainer>
         ))}
       </div>
 

@@ -8,6 +8,8 @@ import EmailSection from "./components/home/EmailSection"
 import VisualIdentityGallery from "./components/home/visualIdentityGallery"
 import ProposalsGallery from "./components/home/proposalsGallery"
 import PageBranches from "./components/home/PageBranches"
+import LifeCarousel from "./components/home/LifeCarousel"
+import FooterPlayground from "./components/home/FooterPlayground"
 
 
 export default function Home() {
@@ -24,7 +26,7 @@ export default function Home() {
           alt=""
           width={120}
           height={800}
-          className="h-screen w-auto object-contain object-top select-none transition-opacity duration-700 opacity-[0.18] group-hover/left-pillar:opacity-[0.23]"
+          className="h-screen w-auto object-contain object-top select-none transition-all duration-700 ease-out opacity-[0.18] scale-100 brightness-100 group-hover/left-pillar:opacity-[0.30] group-hover/left-pillar:scale-[1.04] group-hover/left-pillar:brightness-[1.2]"
         />
       </div>
       <div className="fixed top-0 h-screen hidden md:block group/right-pillar" style={{ zIndex: 0, right: '-40px' }}>
@@ -33,7 +35,7 @@ export default function Home() {
           alt=""
           width={120}
           height={800}
-          className="h-screen w-auto object-contain object-top select-none transition-opacity duration-700 opacity-[0.18] group-hover/right-pillar:opacity-[0.23]"
+          className="h-screen w-auto object-contain object-top select-none transition-all duration-700 ease-out opacity-[0.18] scale-100 brightness-100 group-hover/right-pillar:opacity-[0.30] group-hover/right-pillar:scale-[1.04] group-hover/right-pillar:brightness-[1.2]"
         />
       </div>
 
@@ -63,7 +65,7 @@ export default function Home() {
               className="text-sm md:text-base text-gray-400 leading-relaxed max-w-2xl flex flex-col items-center text-center gap-y-1 md:gap-y-0.5"
               style={{ fontFamily: 'FunnelDisplay, sans-serif', fontWeight: '300' }}
             >
-              <span className="block">Designing for YC & VC-backed Startups</span>
+              <span className="block">Building Products for Global Companies & Startups</span>
               <span className="flex flex-wrap justify-center gap-x-1.5 mt-0.5 md:mt-0">
                 <span className="whitespace-nowrap">25K+ on LinkedIn <span className="text-gray-300 ml-1.5">•</span></span>
                 <span className="whitespace-nowrap">Founded a 2K+ Design Community <span className="text-gray-300 ml-1.5">•</span></span>
@@ -98,8 +100,18 @@ export default function Home() {
           <UnpluggedGallery />
         </div> */}
 
+        {/* Life Carousel — commented out, test separately before adding back */}
+        {/* <div data-section="life">
+          <LifeCarousel />
+        </div> */}
+
+
       </div>
 
+      {/* Footer Playground — full-bleed, outside max-w container */}
+      <div data-section="playground">
+        <FooterPlayground />
+      </div>
 
     </div>
   )

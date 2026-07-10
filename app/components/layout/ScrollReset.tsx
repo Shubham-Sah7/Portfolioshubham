@@ -7,9 +7,15 @@ export default function ScrollReset() {
   const pathname = usePathname()
 
   useEffect(() => {
-    // Give the new page DOM a frame to mount, then jump to top immediately.
-    // Tries Lenis first (smooth scroll engine), falls back to native.
     requestAnimationFrame(() => {
+      // Reset main visibility — GSAP transition sets opacity:0/y:50 on exit
+      const main = document.querySelector('main') as HTMLElement | null
+      if (main) {
+        main.style.opacity = '1'
+        main.style.transform = 'none'
+      }
+
+      // Scroll to top
       const lenis = (window as any).__lenis
       if (lenis) {
         lenis.scrollTo(0, { immediate: true })

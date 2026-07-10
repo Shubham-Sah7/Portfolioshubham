@@ -1,0 +1,7 @@
+export default function PlaygroundLayout({ children }: { children: React.ReactNode }) {
+  return (
+    <div style={{ position: 'fixed', inset: 0, zIndex: 99999, background: '#fff' }}>
+      {children}
+    </div>
+  )
+}

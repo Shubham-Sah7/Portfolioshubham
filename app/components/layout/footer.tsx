@@ -19,6 +19,7 @@ export default function Footer() {
   const isProposalPage = pathname?.startsWith('/proposals')
 
   if (isProposalPage) return null
+  if (pathname === '/lab/playground') return null
 
   return (
     <footer className={`mt-16 relative overflow-visible${isUnpluggedPage ? ' md:hidden' : ''}`}>

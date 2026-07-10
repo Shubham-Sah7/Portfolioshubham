@@ -86,31 +86,31 @@ export default function ParallaxImages() {
       {/* ── Desktop ──────────────────────────────────────────── */}
       <div
         ref={abhayDesktop}
-        className="absolute h-auto hidden md:block pointer-events-none"
-        style={{ 
-          width: ABHAY.width, 
-          left: ABHAY.left, 
-          top: ABHAY.top, 
-          transform: `rotate(${ABHAY.rotate}deg)`, 
+        className="absolute h-auto hidden md:block"
+        style={{
+          width: ABHAY.width,
+          left: ABHAY.left,
+          top: ABHAY.top,
+          transform: `rotate(${ABHAY.rotate}deg)`,
           zIndex: 10,
-          willChange: 'transform' // Promote to GPU compositor
+          willChange: 'transform'
         }}
       >
-        <Image src={ABHAY.src} alt="Abhay" width={ABHAY.width} height={500} className="w-full h-auto object-contain block" />
+        <Image src={ABHAY.src} alt="Abhay" width={ABHAY.width} height={500} className="w-full h-auto object-contain block pointer-events-none" />
       </div>
       <div
         ref={tejasDesktop}
-        className="absolute h-auto hidden md:block pointer-events-none"
-        style={{ 
-          width: TEJAS.width, 
-          right: TEJAS.right, 
-          top: TEJAS.top, 
-          transform: `rotate(${TEJAS.rotate}deg)`, 
+        className="absolute h-auto hidden md:block"
+        style={{
+          width: TEJAS.width,
+          right: TEJAS.right,
+          top: TEJAS.top,
+          transform: `rotate(${TEJAS.rotate}deg)`,
           zIndex: 10,
-          willChange: 'transform' // Promote to GPU compositor
+          willChange: 'transform'
         }}
       >
-        <Image src={TEJAS.src} alt="Tejas" width={TEJAS.width} height={500} className="w-full h-auto object-contain block" />
+        <Image src={TEJAS.src} alt="Tejas" width={TEJAS.width} height={500} className="w-full h-auto object-contain block pointer-events-none" />
       </div>
 
       {/* ── Mobile - fixed to viewport, no container clipping ───────────────── */}
