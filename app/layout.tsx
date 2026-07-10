@@ -15,7 +15,7 @@ const siteUrl = 'https://www.shubhamsah.com'
 
 const title       = "Shubham Sah - Senior Product Designer"
 const description = "Senior Product Designer with 5+ years of experience designing AI, SaaS, Fintech, and Enterprise products. Building products from 0→1 and scaling experiences used by thousands."
-const ogImage     = `${siteUrl}/api/og`
+const ogImage     = `${siteUrl}/images/og.png`
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
