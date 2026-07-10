@@ -47,7 +47,7 @@ const SmartMCB: React.FC<SmartMCBProps> = ({ mcbState, onMCBToggle }) => {
       // Reverse at same real-time speed as forward playback
       const reverseDuration = startVideoTime * 1000;
       const startWallTime = performance.now();
-      const SEEK_INTERVAL = 1000 / 24; // cap seeks at 24fps — smooth but not CPU-heavy on mobile
+      const SEEK_INTERVAL = 1000 / 24; // cap seeks at 24fps - smooth but not CPU-heavy on mobile
       let lastSeek = -1;
 
       const tick = (now: number) => {

@@ -7,19 +7,22 @@ import Image from 'next/image';
 const ACCENT = '#1F9E6F';
 
 const Plus = ({ h, v = 'bottom' }: { h: 'left' | 'right'; v?: 'top' | 'bottom' }) => (
-  <span
+  <svg
+    width="11"
+    height="11"
+    viewBox="0 0 11 11"
+    fill="none"
     className="absolute select-none pointer-events-none"
     style={{
       [h]: 0,
       [v]: 0,
       transform: `translate(${h === 'left' ? '-50%' : '50%'}, ${v === 'top' ? '-50%' : '50%'})`,
-      fontFamily: 'monospace',
-      fontSize: '13px',
-      lineHeight: 1,
       color: '#9ca3af',
       zIndex: 10,
     }}
-  >+</span>
+  >
+    <path d="M5.5 0V11M0 5.5H11" stroke="currentColor" strokeWidth="1" />
+  </svg>
 );
 
 
@@ -208,7 +211,7 @@ export default function BlumeHealth() {
             </div>
           </div>
 
-          {/* Hero image — edge to edge */}
+          {/* Hero image - edge to edge */}
           <div className="relative overflow-visible border-b border-gray-200">
             <Image
               src="/images/WorkImages/blumeHealthImages/bh-01.png"
@@ -219,7 +222,7 @@ export default function BlumeHealth() {
             />
           </div>
 
-          {/* Overview — full width brief */}
+          {/* Overview - full width brief */}
           <div className="px-6 md:px-10 py-6 md:py-8">
             <SectionLabel>The Brief</SectionLabel>
             <SectionHeading>One profile. Everywhere patients search.</SectionHeading>
@@ -314,7 +317,7 @@ export default function BlumeHealth() {
             </p>
           </div>
           <div className="relative border-t border-gray-200">
-            {/* Left button — outside left border */}
+            {/* Left button - outside left border */}
             <button
               onClick={() => scrollOnboarding(-1)}
               disabled={onboardingSlide === 0}
@@ -328,7 +331,7 @@ export default function BlumeHealth() {
             >
               <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><polyline points="15 18 9 12 15 6"/></svg>
             </button>
-            {/* Right button — outside right border */}
+            {/* Right button - outside right border */}
             <button
               onClick={() => scrollOnboarding(1)}
               disabled={onboardingSlide === 1}
@@ -367,7 +370,7 @@ export default function BlumeHealth() {
           </div>
         </div>
 
-        {/* ── Onboarding cont. — Review + Submitted ───────────────────── */}
+        {/* ── Onboarding cont. - Review + Submitted ───────────────────── */}
         <div className="relative overflow-visible border-b border-gray-200">
           <Plus h="left"  v="top" />
           <Plus h="right" v="top" />
@@ -435,7 +438,7 @@ export default function BlumeHealth() {
           <div className="border-t border-gray-200">
             <Image
               src="/images/WorkImages/blumeHealthImages/BH-3B.png"
-              alt="Channel Store — Standard, Premium, Upcoming tiers"
+              alt="Channel Store - Standard, Premium, Upcoming tiers"
               width={2000}
               height={1200}
               className="w-full h-auto object-cover"

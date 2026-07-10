@@ -114,7 +114,7 @@ export default function VisualIdentityGallery() {
       {/* ── Desktop collage (md+) ─────────────────────────────── */}
       <div className="hidden md:flex gap-2">
 
-        {/* Left: cycling square — aspect-ratio makes it truly 1:1 */}
+        {/* Left: cycling square - aspect-ratio makes it truly 1:1 */}
         <div
           className="relative overflow-hidden bg-gray-50 shrink-0"
           style={{ flexBasis: 'calc(50% - 4px)', aspectRatio: '1 / 1' }}

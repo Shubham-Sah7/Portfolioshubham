@@ -4,7 +4,7 @@ import { useEffect, useRef } from 'react'
 
 // top = px from page top. edgeOffset = how far behind the screen edge to push it.
 const BRANCHES = [
-  // Left side — starts after hero, spaced ~1100px apart
+  // Left side - starts after hero, spaced ~1100px apart
   { side: 'left',  top: 1800, height: 370, rot: -25, speed: 0.08, tiltDir: -1, opacity: 0.09, flip: true,  edgeOffset: 105 },
   { side: 'left',  top: 3800, height: 360, rot: -22, speed: 0.07, tiltDir: -1, opacity: 0.08, flip: true,  edgeOffset: 100 },
   { side: 'right', top: 2700, height: 365, rot: -24, speed: 0.07, tiltDir:  1, opacity: 0.08, flip: false, edgeOffset: 110 },

@@ -91,7 +91,7 @@ export default function About() {
               className="text-2xl md:text-3xl leading-snug text-gray-800 mb-6"
               style={{ fontFamily: "SatishSans, serif", fontWeight: 400 }}
             >
-              Started on my mom's phone — just curiosity, sketches, and exploring apps.
+              Started on my mom's phone - just curiosity, sketches, and exploring apps.
             </p>
             <p className="text-base text-gray-500 leading-relaxed">
               That curiosity turned into product design, and today I build products used by real users, work with startups including fast-growing and venture-backed companies, and explore how AI can transform product experiences.
@@ -141,7 +141,7 @@ export default function About() {
               </div>
             ))}
 
-            {/* Floating images — each near its related chip */}
+            {/* Floating images - each near its related chip */}
             {[
               {
                 src: "/images/satish-image-hover-images/pen-tool.png",
@@ -233,7 +233,7 @@ export default function About() {
                   {/* Logo + chips wrapper */}
                   <div style={{ position: "relative", display: "flex", justifyContent: "center", width: "60px", height: "60px" }}>
 
-                    {/* Chips — behind logo, pop up on hover */}
+                    {/* Chips - behind logo, pop up on hover */}
                     {co.tags.map((tag, ti) => (
                       <div
                         key={ti}

@@ -11,7 +11,7 @@ gsap.registerPlugin(ScrollTrigger)
 const proposals = [
   {
     num: '001',
-    title: 'MedEase — Health-Tech Product',
+    title: 'MedEase - Health-Tech Product',
     description: "Redesigned patient-facing flows for a Health-Tech product. Simplified onboarding, reduced drop-off, improved care plan adherence.",
     href: 'https://www.behance.net/gallery/180887605/MedEase-App',
     photo: null,
@@ -29,19 +29,22 @@ const proposals = [
 
 // Corner plus marker
 const Plus = ({ h, v = 'bottom' }: { h: 'left' | 'right'; v?: 'top' | 'bottom' }) => (
-  <span
+  <svg
+    width="11"
+    height="11"
+    viewBox="0 0 11 11"
+    fill="none"
     className="absolute select-none pointer-events-none"
     style={{
       [h]: 0,
       [v]: 0,
       transform: `translate(${h === 'left' ? '-50%' : '50%'}, ${v === 'top' ? '-50%' : '50%'})`,
-      fontFamily: 'monospace',
-      fontSize: '13px',
-      lineHeight: 1,
       color: '#9ca3af',
       zIndex: 10,
     }}
-  >+</span>
+  >
+    <path d="M5.5 0V11M0 5.5H11" stroke="currentColor" strokeWidth="1" />
+  </svg>
 )
 
 export default function ProposalsGallery() {

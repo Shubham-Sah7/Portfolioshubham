@@ -217,7 +217,7 @@ export default function ColorGame() {
 
   const fetchLeaderboard = async () => {
     setShowLeaderboard(true)
-    // Refresh silently in background — no loading state
+    // Refresh silently in background - no loading state
     try {
       const res = await fetch('/api/scores')
       const data = await res.json()
@@ -376,10 +376,10 @@ export default function ColorGame() {
     linear-gradient(158deg, #c4c4c4 0%, #f2f2f2 14%, #a2a2a2 30%, #e8e8e8 46%, #ababab 61%, #f0f0f0 76%, #c0c0c0 100%)
   `
   const CARD_SHADOW = '0 32px 80px rgba(0,0,0,0.44), 0 16px 36px rgba(0,0,0,0.28), 0 6px 14px rgba(0,0,0,0.18)'
-  const BORDER = 6   // px — aluminum frame thickness
+  const BORDER = 6   // px - aluminum frame thickness
   const INNER_R = 16 - BORDER // inner border-radius
 
-  // The face IS the aluminum frame — rotates with the card in 3D
+  // The face IS the aluminum frame - rotates with the card in 3D
   const cardFace = (extra?: React.CSSProperties): React.CSSProperties => ({
     position: 'absolute', inset: 0,
     backfaceVisibility: 'hidden',
@@ -391,7 +391,7 @@ export default function ColorGame() {
     ...extra,
   })
 
-  // Inner content area — clips to rounded rect inside the aluminum
+  // Inner content area - clips to rounded rect inside the aluminum
   const cardInner = (extra?: React.CSSProperties): React.CSSProperties => ({
     width: '100%', height: '100%',
     borderRadius: `${INNER_R}px`,
@@ -413,7 +413,7 @@ export default function ColorGame() {
     <div style={{ height: '100vh', overflow: 'hidden', background: 'white', fontFamily: 'FunnelDisplay, sans-serif', position: 'relative' }}>
 
 
-      {/* Leaderboard button — fixed, centered, always above the card, never moves */}
+      {/* Leaderboard button - fixed, centered, always above the card, never moves */}
       <div style={{ position: 'absolute', top: 0, left: 0, right: 0, bottom: 0, display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', pointerEvents: 'none', zIndex: 10 }}>
         <div style={{ width: '100%', maxWidth: '560px', display: 'flex', justifyContent: 'center', marginBottom: '200px', pointerEvents: 'none' }}>
           <button
@@ -448,7 +448,7 @@ export default function ColorGame() {
             {showLeaderboard ? 'Back to game' : 'Leaderboard'}
           </button>
         </div>
-        {/* Spacer to push button above card — matches card height roughly */}
+        {/* Spacer to push button above card - matches card height roughly */}
         <div style={{ height: `${CARD_H}px`, width: '100%', maxWidth: '560px' }} />
         {/* Back to Lab link below card */}
         <div style={{ marginTop: '24px', pointerEvents: 'auto' }}>
@@ -462,7 +462,7 @@ export default function ColorGame() {
         </div>
       </div>
 
-      {/* Sliding track — two panels side by side, transitions on showLeaderboard */}
+      {/* Sliding track - two panels side by side, transitions on showLeaderboard */}
       <div style={{
         display: 'flex',
         width: '200%',
@@ -472,10 +472,10 @@ export default function ColorGame() {
         willChange: 'transform',
       }}>
 
-        {/* Panel 1 — Game */}
+        {/* Panel 1 - Game */}
         <div style={{ width: '50%', height: '100%', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', padding: '24px', gap: '16px' }}>
 
-      {/* START — flat card, no flip */}
+      {/* START - flat card, no flip */}
       {screen === 'start' && (
         <>
           <style>{GAME_CSS}</style>
@@ -525,7 +525,7 @@ export default function ColorGame() {
         </>
       )}
 
-      {/* GAME — flip card */}
+      {/* GAME - flip card */}
       {screen === 'game' && (
         <>
           <style>{GAME_CSS}</style>
@@ -696,7 +696,7 @@ export default function ColorGame() {
 
         </div>{/* end Panel 1 */}
 
-        {/* Panel 2 — Leaderboard */}
+        {/* Panel 2 - Leaderboard */}
         <div style={{ width: '50%', height: '100%', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', padding: '24px', background: 'white' }}>
           <div style={{ width: '100%', maxWidth: '400px' }}>
 

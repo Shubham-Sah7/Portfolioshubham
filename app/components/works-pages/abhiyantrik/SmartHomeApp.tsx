@@ -126,7 +126,7 @@ export default function MobileApp({ devices, toggleDevice, fanSpeed = 0, toggleA
             </div>
           </div>
 
-          {/* Device grid — scrollable, leaves room for bottom nav */}
+          {/* Device grid - scrollable, leaves room for bottom nav */}
           <div className="flex-1 overflow-y-auto pb-16">
             <div className="p-3 grid grid-cols-2 gap-2 border-t border-gray-100 rounded-3xl">
 
@@ -230,7 +230,7 @@ export default function MobileApp({ devices, toggleDevice, fanSpeed = 0, toggleA
             </div>
           </div>
 
-          {/* Bottom navigation — pinned to bottom */}
+          {/* Bottom navigation - pinned to bottom */}
           <div className="absolute bottom-0 left-0 right-0 flex justify-around py-4 border-t border-gray-100 bg-white">
             <button><Image src="/images/WorkImages/abhiyantrikImages/AppMedia/HomeIcon.svg" alt="Home" width={18} height={18} /></button>
             <button onClick={onMCBNav}><Image src="/images/WorkImages/abhiyantrikImages/AppMedia/MCBIcon.svg" alt="MCB" width={18} height={18} /></button>

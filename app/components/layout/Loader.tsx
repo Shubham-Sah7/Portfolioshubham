@@ -36,7 +36,7 @@ export default function Loader() {
 
     // Count already-loaded resources as a starting baseline
     let loadedCount = performance.getEntriesByType("resource").length
-    // Estimate total — we don't know the final count upfront so we use
+    // Estimate total - we don't know the final count upfront so we use
     // double the current count (or 30 minimum) as a working estimate
     const totalEstimate = Math.max(loadedCount * 2, 30)
 
@@ -46,7 +46,7 @@ export default function Loader() {
     // Watch each resource as it finishes loading
     const observer = new PerformanceObserver((list) => {
       loadedCount += list.getEntries().length
-      // Cap at 90 — the final 10 jumps to 100 only when everything is truly done
+      // Cap at 90 - the final 10 jumps to 100 only when everything is truly done
       const pct = Math.min(Math.floor((loadedCount / totalEstimate) * 90), 90)
       setProgress(pct)
     })

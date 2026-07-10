@@ -4,8 +4,8 @@ import { useRef, useEffect } from 'react'
 
 // ─── Bloom config ─────────────────────────────────────────────────────────────
 const BLOOM = {
-  radius:  140,                        // px — size of the color circle
-  color:   'rgba(59, 130, 246, 0.85)', // blue — change hue/opacity here
+  radius:  140,                        // px - size of the color circle
+  color:   'rgba(59, 130, 246, 0.85)', // blue - change hue/opacity here
   // Try: 'rgba(168, 85, 247, 0.8)'  → purple
   // Try: 'rgba(239, 68, 68, 0.8)'   → red
   // Try: 'rgba(16, 185, 129, 0.8)'  → green

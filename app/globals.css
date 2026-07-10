@@ -468,7 +468,7 @@ body::-webkit-scrollbar {
   }
 }
 
-/* Packaging image — very slow breathe zoom */
+/* Packaging image - very slow breathe zoom */
 @keyframes slow-zoom {
   0%   { transform: scale(1);    }
   50%  { transform: scale(1.8); }
@@ -479,7 +479,7 @@ body::-webkit-scrollbar {
   transform-origin: center center;
 }
 
-/* Switchboard ripple hint — water ripple: white border expands + fades */
+/* Switchboard ripple hint - water ripple: white border expands + fades */
 @keyframes ping-ring {
   0%   { transform: scale(1);    opacity: 0.55; }
   100% { transform: scale(1.07); opacity: 0;    }

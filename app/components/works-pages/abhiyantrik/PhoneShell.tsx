@@ -91,7 +91,7 @@ export default function PhoneShell({
           {/* Screen */}
           <div className="bg-white rounded-[38px] overflow-hidden flex flex-col" style={{ height: '580px' }}>
 
-            {/* ── FIXED: Status bar — never moves ── */}
+            {/* ── FIXED: Status bar - never moves ── */}
             <div className="flex justify-center items-center h-10 bg-white shrink-0">
               <div className="flex w-full justify-between items-center px-5">
                 <div className="text-black text-[12px] font-semibold opacity-75">9:41</div>
@@ -283,7 +283,7 @@ export default function PhoneShell({
               </div>
             </div>
 
-            {/* ── FIXED: Bottom nav — stays put, only icons change ── */}
+            {/* ── FIXED: Bottom nav - stays put, only icons change ── */}
             <div className="flex justify-around py-4 border-t border-gray-100 bg-white shrink-0">
               <button onClick={() => onNavigateTo('switch')}>
                 <Image

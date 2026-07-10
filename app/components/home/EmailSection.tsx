@@ -70,7 +70,7 @@ export default function EmailSection() {
         <EmailCopy />
       </div>
 
-      {/* Right branch — mirrored */}
+      {/* Right branch - mirrored */}
       <div
         ref={rightRef}
         style={{

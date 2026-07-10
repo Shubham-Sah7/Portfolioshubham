@@ -7,19 +7,22 @@ import Image from 'next/image';
 const ACCENT = '#3098FF';
 
 const Plus = ({ h, v = 'bottom' }: { h: 'left' | 'right'; v?: 'top' | 'bottom' }) => (
-  <span
+  <svg
+    width="11"
+    height="11"
+    viewBox="0 0 11 11"
+    fill="none"
     className="absolute select-none pointer-events-none"
     style={{
       [h]: 0,
       [v]: 0,
       transform: `translate(${h === 'left' ? '-50%' : '50%'}, ${v === 'top' ? '-50%' : '50%'})`,
-      fontFamily: 'monospace',
-      fontSize: '13px',
-      lineHeight: 1,
       color: '#9ca3af',
       zIndex: 10,
     }}
-  >+</span>
+  >
+    <path d="M5.5 0V11M0 5.5H11" stroke="currentColor" strokeWidth="1" />
+  </svg>
 );
 
 const SectionLabel = ({ children }: { children: React.ReactNode }) => (
@@ -159,7 +162,7 @@ export default function SkinSage() {
 
         {/* ── Project Header ──────────────────────────────────────────── */}
         <div className="relative overflow-visible flex items-center justify-between px-6 md:px-10 py-4 border-b border-gray-200 bg-white">
-          {/* App icon placeholder — replace with actual SkinSage logo when ready */}
+          {/* App icon placeholder - replace with actual SkinSage logo when ready */}
           <div
             className="w-10 h-10 md:w-12 md:h-12 flex items-center justify-center overflow-hidden"
             style={{ background: 'white', borderRadius: '10px', boxShadow: 'inset 0 0 24px 8px rgba(48,152,255,0.35)' }}
@@ -201,7 +204,7 @@ export default function SkinSage() {
             ))}
           </div>
 
-          {/* SS-01 — full-width cover image */}
+          {/* SS-01 - full-width cover image */}
           <div className="w-full border-b border-gray-200">
             <Image
               src="/images/WorkImages/skinSageImages/SS-01B.png"
@@ -212,7 +215,7 @@ export default function SkinSage() {
             />
           </div>
 
-          {/* Brief content — full width */}
+          {/* Brief content - full width */}
           <div className="border-b border-gray-200 px-6 md:px-10 py-8 md:py-12">
             <SectionLabel>The Brief</SectionLabel>
             <SectionHeading>Your skin, understood. Your routine, built for you.</SectionHeading>
@@ -372,7 +375,7 @@ export default function SkinSage() {
             />
           </div>
 
-          {/* SSL-1 & SSL-2 — Landing page */}
+          {/* SSL-1 & SSL-2 - Landing page */}
           <div id="ss-landing" className="border-t border-gray-200 px-6 md:px-10 pt-6 pb-4">
             <p className="text-sm text-gray-500 leading-relaxed" style={{ fontFamily: 'FunnelDisplay, sans-serif' }}>
               Landing page designed to communicate the product promise and convert visitors.

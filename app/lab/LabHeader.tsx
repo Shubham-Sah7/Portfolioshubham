@@ -23,7 +23,7 @@ export default function LabHeader() {
       gsap.set(leftLine,  { scaleX: 0, transformOrigin: 'right center', opacity: 0 })
       gsap.set(rightLine, { scaleX: 0, transformOrigin: 'left center',  opacity: 0 })
 
-      // Icons start pushed inward (no translateX — they're already next to the text)
+      // Icons start pushed inward (no translateX - they're already next to the text)
       // We'll animate them outward as the lines expand
       const tl = gsap.timeline({ defaults: { duration: 1.1, ease: 'power3.inOut' } })
 

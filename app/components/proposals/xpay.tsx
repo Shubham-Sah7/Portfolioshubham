@@ -433,7 +433,7 @@ function AfterPhone() {
               overflowY: 'auto',
             }}
           >
-            {/* Header — logo left, secure badge right */}
+            {/* Header - logo left, secure badge right */}
             <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
               <img
                 src="/images/proposals/Xpay/Xpay-logo.png"
@@ -630,7 +630,7 @@ export default function XPayProposal() {
                   A problem I found in your product.<br />And what I'd ship to fix it.
                 </p>
 
-                {/* Byline — Medium style */}
+                {/* Byline - Medium style */}
                 <div className="xpay-byline">
               <img
                 src="/images/common/Satish0profile.png"
@@ -723,12 +723,12 @@ export default function XPayProposal() {
                   lineHeight: 1.5,
                 }}
               >
-                What the customer actually sees — two pending charges, no explanation.
+                What the customer actually sees - two pending charges, no explanation.
               </figcaption>
             </figure>
 
             <p style={{ ...bodyText, marginBottom: 0 }}>
-              A successful payment becomes a chargeback. The problem isn't the mechanic — it's the silence around it.
+              A successful payment becomes a chargeback. The problem isn't the mechanic - it's the silence around it.
             </p>
           </FadeIn>
         </section>
@@ -763,7 +763,7 @@ export default function XPayProposal() {
             <div style={{ marginBottom: 48 }}>
               <SectionLabel strong>Why this screen exists</SectionLabel>
               <p style={bodyText}>
-                The authorization hold mechanic is technically necessary — card networks require it to guarantee the full balance is collectable before splitting payments. But it's completely invisible to the customer. That gap between what xPay does and what the customer understands is where support cost lives. One screen, placed at the right moment, closes it.
+                The authorization hold mechanic is technically necessary - card networks require it to guarantee the full balance is collectable before splitting payments. But it's completely invisible to the customer. That gap between what xPay does and what the customer understands is where support cost lives. One screen, placed at the right moment, closes it.
               </p>
             </div>
           </FadeIn>
@@ -773,7 +773,7 @@ export default function XPayProposal() {
             <div style={{ marginBottom: 48 }}>
               <SectionLabel strong>Why plain language over legal copy</SectionLabel>
               <p style={bodyText}>
-                The current notice likely says "authorization hold" — a term most consumers don't know and don't trust. Replacing it with "security check that releases automatically" removes the anxiety without removing the accuracy. The bank still sees the hold. The customer stops panicking. No legal change required.
+                The current notice likely says "authorization hold" - a term most consumers don't know and don't trust. Replacing it with "security check that releases automatically" removes the anxiety without removing the accuracy. The bank still sees the hold. The customer stops panicking. No legal change required.
               </p>
             </div>
           </FadeIn>
@@ -783,7 +783,7 @@ export default function XPayProposal() {
             <div>
               <SectionLabel strong>The business case</SectionLabel>
               <p style={bodyText}>
-                Fewer disputes means a lower chargeback rate, which means better standing with card networks. Higher EMI conversion because customers aren't scared off at the final step. This one screen sits at the intersection of revenue and ops cost — it's not a UX fix for its own sake.
+                Fewer disputes means a lower chargeback rate, which means better standing with card networks. Higher EMI conversion because customers aren't scared off at the final step. This one screen sits at the intersection of revenue and ops cost - it's not a UX fix for its own sake.
               </p>
             </div>
           </FadeIn>

@@ -72,19 +72,22 @@ const works = [
 
 // Corner plus marker
 const Plus = ({ h, v = 'bottom' }: { h: 'left' | 'right'; v?: 'top' | 'bottom' }) => (
-  <span
+  <svg
+    width="11"
+    height="11"
+    viewBox="0 0 11 11"
+    fill="none"
     className="absolute select-none pointer-events-none"
     style={{
       [h]: 0,
       [v]: 0,
       transform: `translate(${h === 'left' ? '-50%' : '50%'}, ${v === 'top' ? '-50%' : '50%'})`,
-      fontFamily: 'monospace',
-      fontSize: '13px',
-      lineHeight: 1,
       color: '#9ca3af',
       zIndex: 10,
     }}
-  >+</span>
+  >
+    <path d="M5.5 0V11M0 5.5H11" stroke="currentColor" strokeWidth="1" />
+  </svg>
 )
 
 export default function WorkGallery() {
@@ -126,7 +129,7 @@ export default function WorkGallery() {
     let tl: gsap.core.Timeline
 
     const setup = () => {
-      // Words are centered via CSS (justify-center) — this IS the initial state.
+      // Words are centered via CSS (justify-center) - this IS the initial state.
       // We calculate where they need to animate TO (left edge / right edge of content area).
       const cRect = header.getBoundingClientRect()
       const sRect = selected.getBoundingClientRect()
@@ -249,7 +252,7 @@ export default function WorkGallery() {
             <Plus h="left"  v="bottom" />
             <Plus h="right" v="bottom" />
 
-            {/* Info — left on desktop, below image on mobile */}
+            {/* Info - left on desktop, below image on mobile */}
             <div className="p-6 md:p-10 flex flex-col justify-between order-2 md:order-1">
               <div>
                 <h3
@@ -290,7 +293,7 @@ export default function WorkGallery() {
               </div>
             </div>
 
-            {/* Image — right on desktop, above info on mobile */}
+            {/* Image - right on desktop, above info on mobile */}
             <a
               href={work.href ?? '#'}
               target="_blank"

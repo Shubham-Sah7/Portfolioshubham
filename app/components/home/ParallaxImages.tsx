@@ -36,7 +36,7 @@ export default function ParallaxImages() {
         trigger: document.body,
         start: 'top top',
         end: 'bottom bottom',
-        scrub: true,
+        scrub: 1, // Smooth scrub with 1s lag for inertia
       }
 
       // Desktop: drift down + slide outward
@@ -44,12 +44,14 @@ export default function ParallaxImages() {
         y: () =>  window.innerHeight * 0.35,
         x: () => -window.innerWidth  * 0.25,
         ease: 'none',
+        force3D: true, // Force GPU layer creation
         scrollTrigger: st,
       })
       gsap.to(tejasDesktop.current, {
         y: () =>  window.innerHeight * 0.35,
         x: () =>  window.innerWidth  * 0.25,
         ease: 'none',
+        force3D: true, // Force GPU layer creation
         scrollTrigger: st,
       })
 
@@ -58,18 +60,20 @@ export default function ParallaxImages() {
         trigger: document.body,
         start:   'top top',
         end:     '25% top',
-        scrub:   true,
+        scrub:   1, // Smooth scrub with 1s lag for inertia
       }
       gsap.to(abhayMobile.current, {
         x:       () => -window.innerWidth * 0.6,
         opacity:  0,
         ease:    'none',
+        force3D:  true, // Force GPU layer creation
         scrollTrigger: mobileScrollST,
       })
       gsap.to(tejasMobile.current, {
         x:       () => window.innerWidth * 0.6,
         opacity:  0,
         ease:    'none',
+        force3D:  true, // Force GPU layer creation
         scrollTrigger: mobileScrollST,
       })
     })
@@ -83,30 +87,58 @@ export default function ParallaxImages() {
       <div
         ref={abhayDesktop}
         className="absolute h-auto hidden md:block pointer-events-none"
-        style={{ width: ABHAY.width, left: ABHAY.left, top: ABHAY.top, transform: `rotate(${ABHAY.rotate}deg)`, zIndex: 10 }}
+        style={{ 
+          width: ABHAY.width, 
+          left: ABHAY.left, 
+          top: ABHAY.top, 
+          transform: `rotate(${ABHAY.rotate}deg)`, 
+          zIndex: 10,
+          willChange: 'transform' // Promote to GPU compositor
+        }}
       >
         <Image src={ABHAY.src} alt="Abhay" width={ABHAY.width} height={500} className="w-full h-auto object-contain block" />
       </div>
       <div
         ref={tejasDesktop}
         className="absolute h-auto hidden md:block pointer-events-none"
-        style={{ width: TEJAS.width, right: TEJAS.right, top: TEJAS.top, transform: `rotate(${TEJAS.rotate}deg)`, zIndex: 10 }}
+        style={{ 
+          width: TEJAS.width, 
+          right: TEJAS.right, 
+          top: TEJAS.top, 
+          transform: `rotate(${TEJAS.rotate}deg)`, 
+          zIndex: 10,
+          willChange: 'transform' // Promote to GPU compositor
+        }}
       >
         <Image src={TEJAS.src} alt="Tejas" width={TEJAS.width} height={500} className="w-full h-auto object-contain block" />
       </div>
 
-      {/* ── Mobile — fixed to viewport, no container clipping ───────────────── */}
+      {/* ── Mobile - fixed to viewport, no container clipping ───────────────── */}
       <div
         ref={abhayMobile}
         className="fixed block md:hidden pointer-events-none"
-        style={{ width: 300, left: -135, top: '12vh', transform: 'rotate(22deg)', zIndex: 10 }}
+        style={{ 
+          width: 300, 
+          left: -135, 
+          top: '12vh', 
+          transform: 'rotate(22deg)', 
+          zIndex: 10,
+          willChange: 'transform, opacity' // Promote to GPU compositor
+        }}
       >
         <Image src={ABHAY.src} alt="Abhay" width={300} height={415} className="w-full h-auto object-contain block" />
       </div>
       <div
         ref={tejasMobile}
         className="fixed block md:hidden pointer-events-none"
-        style={{ width: 240, left: 'calc(100vw - 130px)', top: '22vh', transform: 'rotate(-18deg)', zIndex: 10 }}
+        style={{ 
+          width: 240, 
+          left: 'calc(100vw - 130px)', 
+          top: '22vh', 
+          transform: 'rotate(-18deg)', 
+          zIndex: 10,
+          willChange: 'transform, opacity' // Promote to GPU compositor
+        }}
       >
         <Image src={TEJAS.src} alt="Tejas" width={240} height={340} className="w-full h-auto object-contain block" />
       </div>

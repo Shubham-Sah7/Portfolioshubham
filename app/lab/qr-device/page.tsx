@@ -497,7 +497,7 @@ function HSBPicker({ value, onChange }: { value: string; onChange: (v: string) =
         onTouchStart={e => { e.preventDefault(); pickSBAt(e.touches[0].clientX, e.touches[0].clientY) }}
         onTouchMove={e => { e.preventDefault(); pickSBAt(e.touches[0].clientX, e.touches[0].clientY) }}
       />
-      {/* Hue slider — outer div has no overflow:hidden so knob isn't clipped */}
+      {/* Hue slider - outer div has no overflow:hidden so knob isn't clipped */}
       <div style={{ position:'relative', height:20 }}>
         <div style={{ position:'absolute', top:'50%', transform:'translateY(-50%)', left:0, right:0, height:14, borderRadius:7, overflow:'hidden',
           background:'linear-gradient(to right,#f00,#ff0,#0f0,#0ff,#00f,#f0f,#f00)' }}/>
@@ -630,7 +630,7 @@ function Knob({ value, onChange, min=0, max=360 }: { value: number; onChange: (v
       <div style={{ position:'absolute', top:-7, left:'50%', transform:'translateX(-50%)',
         width:2, height:6, borderRadius:1, background:'rgba(255,255,255,0.9)',
         zIndex:3, pointerEvents:'none' }}/>
-      {/* Inner disc — rotates with interaction, spun-metal conic texture */}
+      {/* Inner disc - rotates with interaction, spun-metal conic texture */}
       <div style={{ position:'absolute', inset:5, borderRadius:'50%',
         background:`conic-gradient(from 55deg,
           #b8b8b8 0deg,
@@ -949,7 +949,7 @@ function DrumTrack({ onNavigate, onTick }: { onNavigate: (dir: 1|-1) => void; on
         background: '#000',
         boxShadow: 'inset 0 2px 6px rgba(0,0,0,0.85)',
       }}>
-        {/* Centre glow layer — sits beneath the ticks */}
+        {/* Centre glow layer - sits beneath the ticks */}
         <div style={{
           position: 'absolute', top: 2, bottom: 2, left: 0, right: 0, pointerEvents: 'none',
           background: 'linear-gradient(to right, #333333 0%, #D6D6D6 50%, #333333 100%)',
@@ -969,7 +969,7 @@ function DrumTrack({ onNavigate, onTick }: { onNavigate: (dir: 1|-1) => void; on
             }} />
           )
         })}
-        {/* Edge depth fade — on top of ticks */}
+        {/* Edge depth fade - on top of ticks */}
         <div style={{
           position: 'absolute', inset: 0, pointerEvents: 'none',
           background: 'linear-gradient(to right, rgba(0,0,0,0.85) 0%, transparent 22%, transparent 78%, rgba(0,0,0,0.85) 100%)',
@@ -1003,7 +1003,7 @@ function ArcWheelPresets({
       onWheel={handleWheel}
       style={{ position: 'absolute', inset: 0, overflow: 'hidden', cursor: 'ns-resize' }}
     >
-      {/* Center highlight row — background and border both fade right */}
+      {/* Center highlight row - background and border both fade right */}
       <div style={{
         position: 'absolute', top: '50%', transform: 'translateY(-50%)',
         left: 8, right: 8, height: ITEM_H,
@@ -1225,7 +1225,7 @@ export default function QR2() {
     return () => el.removeEventListener('touchmove', prevent)
   }, [])
 
-  // Corner roundness slider — direct non-passive touch handler bypasses transform coordinate issues
+  // Corner roundness slider - direct non-passive touch handler bypasses transform coordinate issues
   useEffect(() => {
     const el = cornerSliderRef.current
     if (!el) return
@@ -1250,7 +1250,7 @@ export default function QR2() {
     setS(prev => ({ ...prev, ...patch }))
   }
 
-  // Sound — Web Audio API: each start() is an independent node, no reuse conflicts
+  // Sound - Web Audio API: each start() is an independent node, no reuse conflicts
   useEffect(() => {
     const ctx = new AudioContext()
     audioCtxRef.current = ctx
@@ -1401,7 +1401,7 @@ export default function QR2() {
       }
       .panel-scroll::-webkit-scrollbar { display: none; width: 0; height: 0; }
 
-      /* ── Mobile only — desktop untouched ── */
+      /* ── Mobile only - desktop untouched ── */
       @media (max-width: 540px) {
         .qr-bg-wrap {
           padding-top: 100px !important;
@@ -1415,7 +1415,7 @@ export default function QR2() {
           transform-origin: top center;
           margin-bottom: -110px;
         }
-        /* Picker below device, no z-index override — natural z-index:0 sits
+        /* Picker below device, no z-index override - natural z-index:0 sits
            behind the device (z-index:1) so closing rotation tucks it under */
         .qr-picker-anchor {
           right: auto !important;
@@ -1450,12 +1450,12 @@ export default function QR2() {
       padding: '60px 20px',
       position: 'relative',
     }}>
-      {/* subtle overlay — keeps desk visible, takes edge off harsh light */}
+      {/* subtle overlay - keeps desk visible, takes edge off harsh light */}
       <div style={{ position:'absolute', inset:0, background:'rgba(0,0,0,0.28)' }}/>
 
       <div ref={posWrapRef} className="qr-pos-wrap" style={{ position:'relative', zIndex:1 }}>
 
-        {/* ── Color picker panel — 2D pivot from top-right anchor ── */}
+        {/* ── Color picker panel - 2D pivot from top-right anchor ── */}
         <div
           className="qr-picker-anchor"
           style={{
@@ -1493,7 +1493,7 @@ export default function QR2() {
           </div>
         </div>
 
-        {/* ── Input module — separate physical unit above the device ── */}
+        {/* ── Input module - separate physical unit above the device ── */}
         <div style={{
           width: '82%', marginLeft: 'auto', marginRight: 'auto',
           marginBottom: 0,
@@ -1542,7 +1542,7 @@ export default function QR2() {
               const isScreenPanel = ['preset','texture','shape','finder','gradient'].includes(activePanel)
               return (
                 <div style={{ width:185, flexShrink:0, position:'relative', overflow:'hidden' }}>
-                  {/* Dock icons — left-aligned, slides out left when panel opens */}
+                  {/* Dock icons - left-aligned, slides out left when panel opens */}
                   <div style={{ position:'absolute', inset:0,
                     display:'flex', flexDirection:'column', alignItems:'flex-start', justifyContent:'center',
                     padding:'0 0 0 10px',
@@ -1575,7 +1575,7 @@ export default function QR2() {
                       </button>
                     </div>
                   </div>
-                  {/* Panel content — slides in from left */}
+                  {/* Panel content - slides in from left */}
                   <div style={{ position:'absolute', inset:0,
                     background: isScreenPanel
                       ? `linear-gradient(to right, rgba(0,0,0,0.5) 0%, transparent 75%),
@@ -1806,10 +1806,10 @@ export default function QR2() {
           {/* ── Controls body ── */}
           <div style={{ display:'flex', flexDirection:'column', gap:10 }}>
 
-            {/* Row 1: Color controls + nav — same column split as gradient/buttons below */}
+            {/* Row 1: Color controls + nav - same column split as gradient/buttons below */}
             <div style={{ display:'flex', gap:10, alignItems:'center' }}>
 
-              {/* Left: BG + FG + groove + Gradient — matches gradient panel width */}
+              {/* Left: BG + FG + groove + Gradient - matches gradient panel width */}
               <div style={{ flex:'0 0 185px', display:'flex', alignItems:'center', gap:8 }}>
 
                 {/* BG group: no-bg button + color dot inside a pill */}
@@ -1828,7 +1828,7 @@ export default function QR2() {
                   <span style={{ ...hw.label, color: activePanel==='bg' ? '#ffffff' : '#888' }}>Background</span>
                 </div>
 
-                {/* FG + line + Gradient — gap:0 so line physically touches both */}
+                {/* FG + line + Gradient - gap:0 so line physically touches both */}
                 <div style={{ display:'flex', alignItems:'center', gap:0 }}>
                   <div style={{ display:'flex', flexDirection:'column', alignItems:'center', gap:3 }}>
                     <div style={{ width:34, height:34, display:'flex', alignItems:'center', justifyContent:'center', paddingLeft:1, flexShrink:0,
@@ -1860,7 +1860,7 @@ export default function QR2() {
                 </div>
               </div>
 
-              {/* Right: Nav pill — flex:1 matches right column width exactly */}
+              {/* Right: Nav pill - flex:1 matches right column width exactly */}
               <div style={{ flex:1, display:'flex', alignItems:'center', gap:6,
                 background:'linear-gradient(160deg, #c8c8c8, #d8d8d8)',
                 boxShadow:'inset 3px 3px 8px rgba(0,0,0,0.18), inset -2px -2px 5px rgba(255,255,255,0.6)',
@@ -1883,7 +1883,7 @@ export default function QR2() {
               </div>
             </div>
 
-            {/* Row 2+3: Two-column — Gradient panel | 4 buttons */}
+            {/* Row 2+3: Two-column - Gradient panel | 4 buttons */}
             <div style={{ display:'flex', gap:8, alignItems:'stretch' }}>
 
               {/* Left: Gradient inset panel */}
@@ -1998,7 +1998,7 @@ export default function QR2() {
                   </div>
                 </div>
 
-                {/* Download — full width, pinned to bottom */}
+                {/* Download - full width, pinned to bottom */}
                 <button onClick={()=>{ playBtn(); downloadSVG() }}
                   style={{ ...hw.btn(false), borderRadius:22, padding:'11px 0', width:'100%', marginTop:'auto',
                     display:'flex', alignItems:'center', justifyContent:'center', gap:7, fontSize:11, fontWeight:500, letterSpacing:'0.03em' }}>

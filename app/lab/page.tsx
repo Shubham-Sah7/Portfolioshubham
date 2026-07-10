@@ -37,7 +37,7 @@ export default function Lab() {
           animation-play-state: running;
         }
 
-        /* Thumbnail positioning — CSS classes so media queries can override */
+        /* Thumbnail positioning - CSS classes so media queries can override */
         .walkman-thumb-wrap {
           position: absolute;
           top: -70px;

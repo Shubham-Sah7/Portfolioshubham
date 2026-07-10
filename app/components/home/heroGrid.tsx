@@ -43,7 +43,7 @@ export default function HeroGrid() {
       <div className="relative flex flex-wrap md:flex-nowrap items-stretch gap-0 border-b border-gray-200">
         {[
           { label: 'Role',     value: 'Product Designer' },
-          { label: 'Education', value: 'IIT Patna — PM' },
+          { label: 'Education', value: 'IIT Patna - PM' },
           { label: 'Status',   value: 'Available' },
         ].map((item, i) => (
           <div

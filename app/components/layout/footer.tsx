@@ -61,7 +61,7 @@ export default function Footer() {
           </p>
           </div>
 
-          {/* Right branch — mirrored */}
+          {/* Right branch - mirrored */}
           <img
             src="/images/HomeImages/branch.svg"
             aria-hidden="true"

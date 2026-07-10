@@ -8,22 +8,25 @@ import SmartMCB, { MCBState } from './abhiyantrik/SmartMCB'
 import PhoneShell from './abhiyantrik/PhoneShell'
 
 const Plus = ({ h, v = 'bottom' }: { h: 'left' | 'right'; v?: 'top' | 'bottom' }) => (
-  <span
+  <svg
+    width="11"
+    height="11"
+    viewBox="0 0 11 11"
+    fill="none"
     className="absolute select-none pointer-events-none"
     style={{
       [h]: 0,
       [v]: 0,
       transform: `translate(${h === 'left' ? '-50%' : '50%'}, ${v === 'top' ? '-50%' : '50%'})`,
-      fontFamily: 'monospace',
-      fontSize: '13px',
-      lineHeight: 1,
       color: '#9ca3af',
       zIndex: 10,
     }}
-  >+</span>
+  >
+    <path d="M5.5 0V11M0 5.5H11" stroke="currentColor" strokeWidth="1" />
+  </svg>
 )
 
-// Internal column-divider intersections — place at % positions along a border
+// Internal column-divider intersections - place at % positions along a border
 const PlusAt = ({ x, v = 'bottom', desktop = false }: { x: string; v?: 'top' | 'bottom'; desktop?: boolean }) => (
   <span
     className={`absolute select-none pointer-events-none${desktop ? ' hidden md:block' : ''}`}
@@ -266,7 +269,7 @@ const SmartNation = () => {
 
   return (
     <div className="bg-white min-h-screen mt-16 px-4 md:px-0">
-      {/* Sticky sidebar index — portalled to body so fixed positioning always works */}
+      {/* Sticky sidebar index - portalled to body so fixed positioning always works */}
       {mounted && createPortal(
         <>
           {/* Bracket shape: right edge aligns with + markers, curves hug nav items */}
@@ -364,7 +367,7 @@ const SmartNation = () => {
                 <span className="text-[11px] text-gray-700" style={{ fontFamily: 'FunnelDisplay, sans-serif' }}>{item.value}</span>
               </div>
             ))}
-            {/* Scope marquee — full row on mobile, inline on desktop */}
+            {/* Scope marquee - full row on mobile, inline on desktop */}
             <div className="flex items-center gap-2 w-full md:w-auto pl-6 md:pl-8 pr-6 py-3 border-t md:border-t-0 md:border-l border-gray-200 overflow-hidden min-w-0 md:flex-1">
               <span className="text-[9px] uppercase tracking-widest text-gray-400 shrink-0" style={{ fontFamily: 'FunnelDisplay, sans-serif' }}>Scope</span>
               <div className="overflow-hidden flex-1" style={{ maskImage: 'linear-gradient(to right, transparent 0%, black 12%, black 88%, transparent 100%)', WebkitMaskImage: 'linear-gradient(to right, transparent 0%, black 12%, black 88%, transparent 100%)' }}>
@@ -388,7 +391,7 @@ const SmartNation = () => {
             />
           </div>
 
-          {/* Brief heading — full width */}
+          {/* Brief heading - full width */}
           <div className="px-6 md:px-10 pt-8 md:pt-10 pb-4">
             <p className="text-[11px] uppercase tracking-widest text-gray-400 mb-4" style={{ fontFamily: 'FunnelDisplay, sans-serif' }}>The Brief</p>
             <h2 className="text-3xl md:text-4xl font-light leading-tight text-black" style={{ fontFamily: 'SatishSans, sans-serif' }}>
@@ -405,7 +408,7 @@ const SmartNation = () => {
                 Smart Nation&apos;s hardware fits into existing switchboards, enabling control of any connected device through one app, no rewiring, no replacing appliances. The goal was to create a simple experience with full control, reliable automations, and technology that works effortlessly in everyday life.
               </p>
             </div>
-            {/* Right panel — animation */}
+            {/* Right panel - animation */}
             <div className="relative overflow-hidden flex items-start justify-center px-6 md:px-10 pt-4 pb-8 md:pt-6 md:pb-12">
               <video className="w-full h-auto max-w-xs md:max-w-sm rounded-lg" autoPlay loop muted playsInline>
                 <source src="/images/WorkImages/smartNationImages/smart-nation-animation.mp4" type="video/mp4" />
@@ -487,10 +490,10 @@ const SmartNation = () => {
           </div>
 
           <div className="w-full">
-            <Image src="/images/HomeImages/SN-tumb-2.png" alt="Smart Nation App — 3-screen mockup" width={1200} height={800} className="w-full h-auto" />
+            <Image src="/images/HomeImages/SN-tumb-2.png" alt="Smart Nation App - 3-screen mockup" width={1200} height={800} className="w-full h-auto" />
           </div>
 
-          {/* Switch states — interactive */}
+          {/* Switch states - interactive */}
           <SwitchStatesSection />
           <Plus h="left" />
           <Plus h="right" />
@@ -522,7 +525,7 @@ const SmartNation = () => {
                 swipeTouchStartX.current = null;
               }}
             >
-              {/* Inner clip — height driven by aspect ratio, not by tallest sibling */}
+              {/* Inner clip - height driven by aspect ratio, not by tallest sibling */}
               <div className="relative w-full overflow-hidden" style={{ aspectRatio: '1 / 1' }}>
                 {[1, 2, 3, 4].map(i => (
                   <div
@@ -869,7 +872,7 @@ const SmartNation = () => {
           <div className="relative overflow-visible border-b border-gray-200">
             <p className="text-[10px] uppercase tracking-widest text-gray-400 px-6 md:px-10 pt-10 pb-8" style={{ fontFamily: 'FunnelDisplay, sans-serif' }}>Navigation Icons, Idle to Active</p>
 
-            {/* 4-col grid — label + idle + active all aligned */}
+            {/* 4-col grid - label + idle + active all aligned */}
             <div className="grid grid-cols-4 px-6 md:px-10 pb-10 md:pb-14 gap-2 md:gap-4">
               {[
                 { label: 'Home',       raw: '/images/WorkImages/smartNationImages/homeIcon-raw.png',    act: '/images/WorkImages/smartNationImages/homeIcon-act.png' },
@@ -885,7 +888,7 @@ const SmartNation = () => {
               ))}
             </div>
 
-            {/* Video — full bleed, no padding */}
+            {/* Video - full bleed, no padding */}
             <video className="w-full h-auto block" autoPlay loop muted playsInline>
               <source src="/images/WorkImages/smartNationImages/icon.mov" type="video/mp4" />
             </video>
@@ -896,7 +899,7 @@ const SmartNation = () => {
 
           {/* Logo Making Process */}
           <div className="relative overflow-visible border-b border-gray-200">
-            {/* Top strip — label + slide indicator */}
+            {/* Top strip - label + slide indicator */}
             <div className="px-6 md:px-10 py-4 border-b border-gray-200 flex items-center justify-between">
               <p className="text-[10px] uppercase tracking-widest text-gray-400" style={{ fontFamily: 'FunnelDisplay, sans-serif' }}>Logo Making Process</p>
               <div className="flex gap-1.5 items-center">
@@ -947,10 +950,10 @@ const SmartNation = () => {
                 <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><polyline points="9 18 15 12 9 6"/></svg>
               </button>
             </div>
-            {/* Bottom strip — slide label + description with border-edge nav buttons */}
+            {/* Bottom strip - slide label + description with border-edge nav buttons */}
             <div className="relative overflow-visible px-6 md:px-10 py-5 border-t border-gray-200">
               {/* Grid-stack trick: all slides occupy the same cell so the tallest one
-                  always defines the height — no layout shift on slide change */}
+                  always defines the height - no layout shift on slide change */}
               <div style={{ display: 'grid', width: '100%' }}>
                 {processSessions.map((session, i) => (
                   <div
@@ -971,7 +974,7 @@ const SmartNation = () => {
                   </div>
                 ))}
               </div>
-              {/* Left button — mobile only, on section border */}
+              {/* Left button - mobile only, on section border */}
               <button
                 onClick={() => setProcessSlide(s => Math.max(0, s - 1))}
                 disabled={processSlide === 0}
@@ -986,7 +989,7 @@ const SmartNation = () => {
               >
                 <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><polyline points="15 18 9 12 15 6"/></svg>
               </button>
-              {/* Right button — mobile only, on section border */}
+              {/* Right button - mobile only, on section border */}
               <button
                 onClick={() => setProcessSlide(s => Math.min(processSessions.length - 1, s + 1))}
                 disabled={processSlide === processSessions.length - 1}
@@ -1031,7 +1034,7 @@ const SmartNation = () => {
             </div>
           </div>
 
-          {/* Icon picker — vintage radio button console */}
+          {/* Icon picker - vintage radio button console */}
           <div className="relative overflow-visible border-t border-gray-200 py-8 px-6 md:px-10 flex justify-center">
             {/* Console panel */}
             <div
@@ -1051,7 +1054,7 @@ const SmartNation = () => {
                 const isSelected = selectedIcon.src === icon.src;
                 return (
                   <div key={index} className="flex items-center">
-                    {/* Groove divider — always on desktop, skip row-start on mobile */}
+                    {/* Groove divider - always on desktop, skip row-start on mobile */}
                     {index > 0 && (
                       <div
                         className={index % 4 === 0 ? 'hidden md:block' : ''}
@@ -1139,7 +1142,7 @@ const SmartNation = () => {
         </div>
 
         {/* ══════════════════════════════════════════════════════════════
-            ABHIYANTRIK WEBSITE — merged below brochures
+            ABHIYANTRIK WEBSITE - merged below brochures
         ══════════════════════════════════════════════════════════════ */}
 
         {/* ── Abhiyantrik · 01 · Landing Page ────────────────────────── */}
@@ -1195,7 +1198,7 @@ const SmartNation = () => {
               Traditional product pages tell. Interactive experiences sell. I built two core product demonstrations that let users actually feel the Smart Nation ecosystem right in their browser.
             </p>
           </div>
-          {/* Toggle — centered on the bottom border line */}
+          {/* Toggle - centered on the bottom border line */}
           <div className="absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-1/2 z-10">
             <div style={{ background: 'linear-gradient(160deg,#e8e8e8 0%,#c8c8c8 20%,#d8d8d8 40%,#b0b0b0 60%,#d0d0d0 80%,#e4e4e4 100%)', borderRadius: '999px', padding: '5px', boxShadow: '0 6px 20px rgba(0,0,0,0.35),0 2px 6px rgba(0,0,0,0.25),inset 0 1px 1px rgba(255,255,255,0.9),inset 0 -1px 1px rgba(0,0,0,0.15)', border: '1px solid rgba(90,90,90,0.35)' }}>
               <div className="relative flex items-center" style={{ background: 'linear-gradient(180deg,#787878 0%,#929292 50%,#888888 100%)', borderRadius: '999px', boxShadow: 'inset 0 3px 8px rgba(0,0,0,0.55),inset 0 1px 3px rgba(0,0,0,0.4),inset 0 -1px 2px rgba(255,255,255,0.08)', padding: '4px' }}>
@@ -1427,7 +1430,7 @@ const SmartNation = () => {
 
       </div>
 
-      {/* ── Let's Talk CTA — outside project box ────────────────────── */}
+      {/* ── Let's Talk CTA - outside project box ────────────────────── */}
       <div className="max-w-5xl mx-auto mt-10 mb-16 border border-gray-200 px-6 md:px-10 py-12 md:py-16 flex flex-col md:flex-row items-start md:items-center justify-between gap-8 relative overflow-visible">
         <Plus h="left" v="top" />
         <Plus h="right" v="top" />

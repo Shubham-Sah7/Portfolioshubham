@@ -876,7 +876,7 @@ function WalkmanModel({ onPasteClick, onPlayPause, onMuteToggle, onStop, onForwa
 
   // Html must be siblings of the pivot group (not children) so that
   // the world-space positions computed via getWorldPosition() are
-  // interpreted correctly — inside the group they would be local coords.
+  // interpreted correctly - inside the group they would be local coords.
   return (
     <>
       <group ref={pivotRef}>
@@ -992,7 +992,7 @@ function WalkmanLoaderOverlay({ darkBg }: { darkBg: boolean }) {
       transition: 'opacity 0.7s ease',
       pointerEvents: done ? 'none' : 'all',
     }}>
-      {/* Spinning arc — cassette reel feel */}
+      {/* Spinning arc - cassette reel feel */}
       <div style={{
         width: 38, height: 38,
         borderRadius: '50%',
@@ -1355,7 +1355,7 @@ export default function Walkman() {
   const processUrl = useCallback((trimmed: string) => {
     if (!trimmed) {
       updateDisplayRef.current?.('NO INPUT', true)
-      showToast('No tape loaded', 'Bring a YouTube URL — the Walkman does the rest.')
+      showToast('No tape loaded', 'Bring a YouTube URL - the Walkman does the rest.')
       setTimeout(() => updateDisplayRef.current?.('PASTE URL', true), 1500)
       return
     }
@@ -1470,7 +1470,7 @@ export default function Walkman() {
         <div id="yt-player" />
       </div>
 
-      {/* bg toggle — vertical pill */}
+      {/* bg toggle - vertical pill */}
       <div
         style={{
           position: 'fixed' as const, top: isMobile ? '4.5rem' : '1rem', right: '1rem', zIndex: 10010,
@@ -1483,7 +1483,7 @@ export default function Walkman() {
           overflow: 'hidden',
         }}
       >
-        {/* sun — light mode */}
+        {/* sun - light mode */}
         <button
           onClick={() => setDarkBg(false)}
           title="Light background"
@@ -1507,7 +1507,7 @@ export default function Walkman() {
           />
         </button>
 
-        {/* moon — dark mode */}
+        {/* moon - dark mode */}
         <button
           onClick={() => setDarkBg(true)}
           title="Dark background"
@@ -1532,7 +1532,7 @@ export default function Walkman() {
         </button>
       </div>
 
-      {/* Fullscreen toggle — desktop only, top-left */}
+      {/* Fullscreen toggle - desktop only, top-left */}
       {!isMobile && (
         <button
           onClick={toggleFullscreen}
@@ -1579,7 +1579,7 @@ export default function Walkman() {
         </button>
       )}
 
-      {/* Multi-blob ambient lighting — 5 independent colored glows, each drifting slowly */}
+      {/* Multi-blob ambient lighting - 5 independent colored glows, each drifting slowly */}
       {bgGlows.length > 0 && (
         <div
           key={glowKey}
@@ -1699,17 +1699,17 @@ export default function Walkman() {
         }}>
           {((isMobile
             ? [
-                { id: 'play',   icon: '►❚', label: 'play/pause', tip: 'Play or pause — press the bottom-right button on the Walkman' },
-                { id: 'rewind', icon: '◀◀', label: 'rewind', tip: 'Rewind 10s — press the second button from the right' },
-                { id: 'skip',   icon: '▶▶', label: 'skip',   tip: 'Skip 10s — press the second button from the left' },
-                { id: 'mute',   icon: '⊘',  label: isMuted ? 'muted' : 'mute', tip: 'Mute or unmute — click the orange button on the side of the Walkman' },
+                { id: 'play',   icon: '►❚', label: 'play/pause', tip: 'Play or pause - press the bottom-right button on the Walkman' },
+                { id: 'rewind', icon: '◀◀', label: 'rewind', tip: 'Rewind 10s - press the second button from the right' },
+                { id: 'skip',   icon: '▶▶', label: 'skip',   tip: 'Skip 10s - press the second button from the left' },
+                { id: 'mute',   icon: '⊘',  label: isMuted ? 'muted' : 'mute', tip: 'Mute or unmute - click the orange button on the side of the Walkman' },
               ]
             : [
-                { id: 'play',   icon: '►',  label: 'play',   tip: 'Play the song — press the bottom-right button on the Walkman' },
-                { id: 'pause',  icon: '❚❚', label: 'pause',  tip: 'Pause the song — press the bottom-right button on the Walkman' },
-                { id: 'rewind', icon: '◀◀', label: 'rewind', tip: 'Rewind 10s — press the second button from the right' },
-                { id: 'skip',   icon: '▶▶', label: 'skip',   tip: 'Skip 10s — press the second button from the left' },
-                { id: 'mute',   icon: '⊘',  label: isMuted ? 'muted' : 'mute', tip: 'Mute or unmute — click the orange button on the side of the Walkman' },
+                { id: 'play',   icon: '►',  label: 'play',   tip: 'Play the song - press the bottom-right button on the Walkman' },
+                { id: 'pause',  icon: '❚❚', label: 'pause',  tip: 'Pause the song - press the bottom-right button on the Walkman' },
+                { id: 'rewind', icon: '◀◀', label: 'rewind', tip: 'Rewind 10s - press the second button from the right' },
+                { id: 'skip',   icon: '▶▶', label: 'skip',   tip: 'Skip 10s - press the second button from the left' },
+                { id: 'mute',   icon: '⊘',  label: isMuted ? 'muted' : 'mute', tip: 'Mute or unmute - click the orange button on the side of the Walkman' },
               ]
           ) as { id: string; icon: string; label: string; tip: string }[]).map((ctrl, i, arr) => (
             <span key={ctrl.id} style={{ display: 'inline-flex', alignItems: 'center' }}>
@@ -1826,7 +1826,7 @@ export default function Walkman() {
 
       {/* <DevPanel devParamsRef={devParamsRef} onParamsChange={() => redrawCurrentRef.current?.()} /> */}
 
-      {/* Toast — slides in from top, stays until dismissed */}
+      {/* Toast - slides in from top, stays until dismissed */}
       {toast && (
         <div
           style={{

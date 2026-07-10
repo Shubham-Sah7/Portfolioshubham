@@ -10,37 +10,76 @@ import PostHogProvider from "./components/layout/PostHogProvider"
 
 const inter = Inter({ subsets: ["latin"] })
 
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL
-  ?? (process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : 'http://localhost:3000')
+// Hardcoded to production domain - prevents Vercel preview URLs leaking into OG tags
+const siteUrl = 'https://www.shubhamsah.com'
+
+const title       = "Shubham Sah - Senior Product Designer"
+const description = "Senior Product Designer with 5+ years of experience designing AI, SaaS, Fintech, and Enterprise products. Building products from 0→1 and scaling experiences used by thousands."
+const ogImage     = `${siteUrl}/api/og`
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
-  title: "Shubham Sah - Portfolio",
-  description: "Product Designer with 6+ years of experience designing at the intersection of technology, business, and human behavior. SaaS, AI, Fintech, Enterprise, and Health-Tech.",
-  icons: {
-    icon: '/images/logo.png',
+
+  title,
+  description,
+
+  // ── Canonical URL ────────────────────────────────────────────
+  alternates: {
+    canonical: siteUrl,
   },
+
+  // ── Open Graph (LinkedIn, Slack, Discord, WhatsApp, Facebook) ─
   openGraph: {
-    title: "Shubham Sah - Portfolio",
-    description: "Product Designer with 6+ years of experience designing at the intersection of technology, business, and human behavior. SaaS, AI, Fintech, Enterprise, and Health-Tech.",
+    title,
+    description,
     url: siteUrl,
     siteName: "Shubham Sah",
+    locale: "en_US",
+    type: "website",
     images: [
       {
-        url: '/images/og.png',
+        url: ogImage,
         width: 1200,
         height: 630,
-        alt: "Shubham Sah - Portfolio",
+        alt: "Shubham Sah - Senior Product Designer",
+        type: "image/png",
       },
     ],
-    type: "website",
   },
+
+  // ── Twitter / X Card ─────────────────────────────────────────
   twitter: {
     card: "summary_large_image",
-    title: "Shubham Sah - Portfolio",
-    description: "Product Designer with 6+ years of experience designing at the intersection of technology, business, and human behavior. SaaS, AI, Fintech, Enterprise, and Health-Tech.",
-    images: ['/images/og.png'],
+    title,
+    description,
+    images: [ogImage],
+    creator: "@shubhamsah",
+    site: "@shubhamsah",
   },
+
+  // ── Search engines ───────────────────────────────────────────
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
+
+  keywords: [
+    "Product Designer",
+    "Senior Product Designer",
+    "UI UX Designer",
+    "AI Product Design",
+    "SaaS Design",
+    "Fintech Design",
+    "Enterprise UX",
+    "Design Systems",
+    "Shubham Sah",
+  ],
 }
 
 export default function RootLayout({

@@ -17,14 +17,20 @@ const TickIcon = () => (
 )
 
 const Plus = ({ h, v }: { h: 'left' | 'right'; v: 'top' | 'bottom' }) => (
-  <span
+  <svg
+    width="11"
+    height="11"
+    viewBox="0 0 11 11"
+    fill="none"
     className="absolute select-none pointer-events-none"
     style={{
       [h]: 0, [v]: 0,
-      transform: `translate(${h === 'left' ? '-50%' : '50%'}, ${v === 'top' ? 'calc(-50% - 1px)' : '50%'})`,
-      fontFamily: 'monospace', fontSize: '13px', lineHeight: 1, color: '#9ca3af', zIndex: 10,
+      transform: `translate(${h === 'left' ? '-50%' : '50%'}, ${v === 'top' ? '-50%' : '50%'})`,
+      color: '#9ca3af', zIndex: 10,
     }}
-  >+</span>
+  >
+    <path d="M5.5 0V11M0 5.5H11" stroke="currentColor" strokeWidth="1" />
+  </svg>
 )
 
 export default function EmailCopy() {

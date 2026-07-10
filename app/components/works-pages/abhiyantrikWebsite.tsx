@@ -106,7 +106,7 @@ const AbhiyantrikWebsite = () => {
   return (
     <div className="bg-white min-h-screen mt-16">
 
-      {/* ── Sticky left sidebar — portalled to body ───────── */}
+      {/* ── Sticky left sidebar - portalled to body ───────── */}
       {mounted && createPortal(
         <>
           <div
@@ -165,7 +165,7 @@ const AbhiyantrikWebsite = () => {
       )}
 
       {/* ════════════════════════════════════════════════════
-          TOP SECTIONS — constrained box
+          TOP SECTIONS - constrained box
       ════════════════════════════════════════════════════ */}
       <div className="px-4 md:px-0">
         <div className="relative overflow-visible max-w-5xl mx-auto border-l border-r border-t border-gray-200 bg-white">
@@ -237,7 +237,7 @@ const AbhiyantrikWebsite = () => {
             <Plus h="left" /><Plus h="right" />
           </div>
 
-          {/* ── 03 · Interactive Product Experience — header + intro + toggle ── */}
+          {/* ── 03 · Interactive Product Experience - header + intro + toggle ── */}
           <div id="aby-03" className="relative overflow-visible">
             <div className="relative overflow-visible px-6 md:px-10 py-6 border-b border-gray-200 flex items-baseline gap-4">
               <h2 className="text-2xl md:text-3xl font-light text-black" style={{ fontFamily: 'Garamond, Georgia, serif' }}>Interactive Product Experience</h2>
@@ -322,15 +322,15 @@ const AbhiyantrikWebsite = () => {
       </div>
 
       {/* ════════════════════════════════════════════════════
-          FULL-WIDTH INTERACTIVE DEMO — Smart Touch Switch
+          FULL-WIDTH INTERACTIVE DEMO - Smart Touch Switch
       ════════════════════════════════════════════════════ */}
       <div className="w-full bg-white">
 
-        {/* ── Demo content — conditionally rendered ── */}
+        {/* ── Demo content - conditionally rendered ── */}
         <div className="flex justify-center py-12 px-6">
           <div className="flex flex-col md:flex-row items-center gap-8 md:gap-12 w-full max-w-5xl">
 
-            {/* Hardware — switches based on activeDemo */}
+            {/* Hardware - switches based on activeDemo */}
             <div className="flex-1 w-full order-1 md:order-1 flex flex-col gap-3">
               {activeDemo === 'switch' ? (
                 <>
@@ -350,7 +350,7 @@ const AbhiyantrikWebsite = () => {
               )}
             </div>
 
-            {/* Phone — always mounted, screens slide internally */}
+            {/* Phone - always mounted, screens slide internally */}
             <div className="shrink-0 order-2 md:order-2 flex flex-col gap-3 items-center">
               <p className="flex items-center gap-1.5 text-[10px] uppercase tracking-widest text-gray-400" style={{ fontFamily: 'FunnelDisplay, sans-serif' }}>
                 <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12.55a11 11 0 0 1 14.08 0"/><path d="M1.42 9a16 16 0 0 1 21.16 0"/><path d="M8.53 16.11a6 6 0 0 1 6.95 0"/><circle cx="12" cy="20" r="1" fill="currentColor"/></svg>
@@ -374,7 +374,7 @@ const AbhiyantrikWebsite = () => {
       </div>
 
       {/* ════════════════════════════════════════════════════
-          CONTINUE CONSTRAINED — MCB + 3D Mockup
+          CONTINUE CONSTRAINED - MCB + 3D Mockup
       ════════════════════════════════════════════════════ */}
       <div className="px-4 md:px-0">
         <div className="relative overflow-visible max-w-5xl mx-auto border-l border-r border-t border-gray-200">

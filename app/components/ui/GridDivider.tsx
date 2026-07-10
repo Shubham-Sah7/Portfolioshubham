@@ -1,5 +1,5 @@
 /**
- * GridDivider — 1px horizontal rule with + marks centred exactly on the
+ * GridDivider - 1px horizontal rule with + marks centred exactly on the
  * vertical guide lines (calc(50% ± 512px)).
  * + marks are only rendered at xl (1280px+) where the vertical lines are visible.
  */

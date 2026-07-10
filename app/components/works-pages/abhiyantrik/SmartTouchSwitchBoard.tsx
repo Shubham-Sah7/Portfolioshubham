@@ -135,7 +135,7 @@ const SmartTouchSwitchBoard: React.FC<SmartTouchSwitchBoardProps> = ({
           {/* Right edge chamfer */}
           <div className="absolute top-0 bottom-0 right-0 w-1" style={{ background: 'linear-gradient(270deg, rgba(255,255,255,0.15), transparent)' }} />
 
-          {/* Glossy frame — gradient border via padding trick */}
+          {/* Glossy frame - gradient border via padding trick */}
           <div className="absolute inset-0 mx-3 my-2 sm:mx-6 sm:my-3 md:mx-10 md:my-5" style={{
             background: 'linear-gradient(145deg, #ffffff 0%, #a0a0a0 30%, #e8e8e8 50%, #707070 70%, #d0d0d0 85%, #ffffff 100%)',
             borderRadius: '2px',

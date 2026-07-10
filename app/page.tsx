@@ -17,7 +17,7 @@ export default function Home() {
       <Loader />
       <PageBranches />
 
-      {/* ── Pillar decorations — fixed to viewport edges ─────── */}
+      {/* ── Pillar decorations - fixed to viewport edges ─────── */}
       <Image
         src="/images/HomeImages/piller-v.svg"
         alt=""
@@ -37,7 +37,7 @@ export default function Home() {
 
       <div className="max-w-5xl mx-auto px-6 md:px-10">
 
-        {/* First fold — name + description, full viewport height */}
+        {/* First fold - name + description, full viewport height */}
         <MouseColorBloom />
         <div className="relative min-h-[calc(100vh-120px)] flex flex-col justify-center items-center text-center gap-6 overflow-hidden md:overflow-visible">
 
@@ -58,14 +58,19 @@ export default function Home() {
               <span style={{ fontFamily: 'SatishCapsSans, sans-serif', fontSize: '1.5em' }}>S</span><span style={{ fontFamily: 'SatishSans, sans-serif', marginLeft: '4px' }}>ah</span>
             </h1>
             <p
-              className="text-sm md:text-base text-gray-400 leading-relaxed max-w-md"
+              className="text-sm md:text-base text-gray-400 leading-relaxed max-w-2xl flex flex-col items-center text-center gap-y-1 md:gap-y-0.5"
               style={{ fontFamily: 'FunnelDisplay, sans-serif', fontWeight: '300' }}
             >
-              Designing products at the intersection of technology, business, and human behavior.
+              <span className="block">Designing for YC & VC-backed Startups</span>
+              <span className="flex flex-wrap justify-center gap-x-1.5 mt-0.5 md:mt-0">
+                <span className="whitespace-nowrap">25K+ on LinkedIn <span className="text-gray-300 ml-1.5">•</span></span>
+                <span className="whitespace-nowrap">Founded a 2K+ Design Community <span className="text-gray-300 ml-1.5">•</span></span>
+                <span className="whitespace-nowrap">IIT Patna MBA</span>
+              </span>
             </p>
           </div>
 
-          {/* Email box — absolutely anchored to bottom of first fold, not part of centered group */}
+          {/* Email box - absolutely anchored to bottom of first fold, not part of centered group */}
           <div className="absolute bottom-28 md:bottom-20 left-0 right-0 flex justify-center items-center" style={{ zIndex: 5 }}>
             <EmailSection />
           </div>
@@ -86,7 +91,7 @@ export default function Home() {
           <ProposalsGallery />
         </div>
 
-        {/* Unplugged section — commented out, revisit later */}
+        {/* Unplugged section - commented out, revisit later */}
         {/* <div data-section="unplugged">
           <UnpluggedGallery />
         </div> */}

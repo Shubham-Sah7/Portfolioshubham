@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+
+# Allow OG image crawler access explicitly
+Allow: /api/og
+Allow: /images/
+
+Sitemap: https://www.shubhamsah.com/sitemap.xml
