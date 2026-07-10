@@ -11,11 +11,7 @@ const links = [
   { label: 'GitHub',    href: 'https://github.com/Shubham-Sah7' },
 ]
 
-const navLinks = [
-  { label: 'Works',     href: '/#work' },
-  { label: 'Unplugged', href: '/#unplugged' },
-  { label: 'About',     href: '/about' },
-]
+import EmailCopy from '../home/EmailCopy'
 
 export default function Footer() {
   const pathname = usePathname()
@@ -98,19 +94,10 @@ export default function Footer() {
             </span>
           </div>
 
-          {/* Nav links */}
-          <nav className="flex items-center gap-6">
-            {navLinks.map((l) => (
-              <Link
-                key={l.label}
-                href={l.href}
-                className="text-xs text-gray-400 hover:text-black transition-colors duration-200"
-                style={{ fontFamily: 'FunnelDisplay, sans-serif' }}
-              >
-                {l.label}
-              </Link>
-            ))}
-          </nav>
+          {/* Email button */}
+          <div className="flex justify-center items-center">
+            <EmailCopy />
+          </div>
 
           {/* Social links */}
           <div className="flex items-center gap-6">
