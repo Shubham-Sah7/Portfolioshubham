@@ -29,6 +29,7 @@ const works = [
     available: true,
     external: true,
   },
+  /*
   {
     num: '003',
     title: 'Roam IQ',
@@ -39,6 +40,7 @@ const works = [
     available: true,
     external: true,
   },
+  */
   {
     num: '004',
     title: 'Credit Lending Platform',
@@ -49,6 +51,7 @@ const works = [
     available: true,
     external: true,
   },
+  /*
   {
     num: '005',
     title: 'Signzy',
@@ -59,6 +62,7 @@ const works = [
     available: true,
     external: true,
   },
+  */
   {
     num: '006',
     title: 'AI Video Documentation Platform',
