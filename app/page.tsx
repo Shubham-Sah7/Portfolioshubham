@@ -104,10 +104,10 @@ export default function Home() {
           <UnpluggedGallery />
         </div> */}
 
-        {/* Life Carousel — commented out, test separately before adding back */}
-        {/* <div data-section="life">
+        {/* Life Carousel */}
+        <div data-section="life">
           <LifeCarousel />
-        </div> */}
+        </div>
 
 
       </div>
