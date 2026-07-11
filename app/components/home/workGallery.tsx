@@ -247,7 +247,7 @@ export default function WorkGallery() {
       <div className="flex flex-col gap-10 md:gap-16">
         {works.map((work) => (
           <CardContainer key={work.num} containerClassName="w-full p-0" className="w-full">
-            <CardBody className="relative border border-gray-200 grid grid-cols-1 md:grid-cols-2 w-full">
+            <CardBody className="relative border border-zinc-300 grid grid-cols-1 md:grid-cols-2 w-full items-stretch">
 
               {/* Corner plus markers */}
               <Plus h="left"  v="top" />
@@ -299,7 +299,7 @@ export default function WorkGallery() {
               </div>
 
               {/* Image */}
-              <CardItem translateZ={9} className="w-full relative overflow-hidden order-1 md:order-2 aspect-video block bg-gray-100">
+              <CardItem translateZ={9} className="w-full min-h-[280px] md:min-h-0 relative overflow-hidden order-1 md:order-2 block bg-zinc-50 border-l border-zinc-200">
                 <a
                   href={work.href ?? '#'}
                   target="_blank"
@@ -312,7 +312,7 @@ export default function WorkGallery() {
                       alt={work.title}
                       fill
                       sizes="(max-width: 768px) 100vw, 50vw"
-                      className="object-cover"
+                      className="object-cover object-top"
                     />
                   )}
                 </a>
