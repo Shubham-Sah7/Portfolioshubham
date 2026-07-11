@@ -48,9 +48,7 @@ export default function LifeCarousel() {
           <div className="relative flex justify-center">
             <h2 className="relative bg-white px-4 text-2xl md:text-3xl font-light text-black shrink-0 whitespace-nowrap">
               <span style={{ fontFamily: 'SatishCapsSans, sans-serif', fontSize: '1.5em' }}>L</span>
-              <span style={{ fontFamily: 'SatishSans, sans-serif' }}>ife </span>
-              <span style={{ fontFamily: 'SatishCapsSans, sans-serif', fontSize: '1.5em' }}>&amp;</span>
-              <span style={{ fontFamily: 'SatishSans, sans-serif' }}> Inspiration</span>
+              <span style={{ fontFamily: 'SatishSans, sans-serif' }}>ife &amp; Inspiration</span>
             </h2>
           </div>
         </div>
