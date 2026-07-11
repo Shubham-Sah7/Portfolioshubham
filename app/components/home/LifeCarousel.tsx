@@ -61,8 +61,8 @@ export default function LifeCarousel() {
         </p>
       </div>
 
-      {/* ── Full bleed marquee wrapper ────────────────────────── */}
-      <div className="relative w-full border-y border-gray-200 py-10 overflow-hidden bg-gray-50/40">
+      {/* ── Full bleed marquee wrapper (no background color) ────────────────── */}
+      <div className="relative w-full border-y border-gray-200 py-10 overflow-hidden bg-white">
         <Plus h="left" v="top" />
         <Plus h="right" v="top" />
         <Plus h="left" v="bottom" />
@@ -104,48 +104,28 @@ function Polaroid({ label, url, rot }: { label: string; url: string; rot: string
         transformOrigin: 'center bottom',
       }}
     >
-      {/* Clean White Card Frame */}
+      {/* Clean Polaroid Card Shape (no background color inside, just white card) */}
       <div
-        className="bg-white border border-zinc-200 shadow-[0_4px_16px_rgba(0,0,0,0.04)] group-hover/polaroid:shadow-[0_12px_28px_rgba(0,0,0,0.08)] group-hover/polaroid:-translate-y-4 group-hover/polaroid:rotate-0 flex flex-col transition-all duration-300 relative"
-        style={{ width: 210, padding: '12px 12px 28px 12px', borderRadius: 2 }}
+        className="bg-white border border-zinc-200 shadow-[0_4px_12px_rgba(0,0,0,0.03)] group-hover/polaroid:shadow-[0_12px_24px_rgba(0,0,0,0.08)] group-hover/polaroid:-translate-y-4 group-hover/polaroid:rotate-0 flex flex-col transition-all duration-300"
+        style={{ width: 200, padding: '10px 10px 24px 10px', borderRadius: 2 }}
       >
-        {/* Inner lining */}
-        <div className="absolute inset-1.5 border border-zinc-100 pointer-events-none rounded-[1px]" />
-        
-        {/* Corner dots */}
-        <span className="absolute top-3 left-3 text-[5px] text-zinc-300 select-none">•</span>
-        <span className="absolute top-3 right-3 text-[5px] text-zinc-300 select-none">•</span>
-        
-        {/* Photo container - Clean Temple Arch shape */}
-        <div 
-          className="w-full aspect-[4/5] rounded-t-[99px] rounded-b-[2px] overflow-hidden bg-zinc-50 relative border border-zinc-200"
-          style={{ zIndex: 1 }}
-        >
+        {/* Square Photo Cutout */}
+        <div className="w-full aspect-square overflow-hidden bg-zinc-50 border border-zinc-100">
           <img
             src={url}
             alt={label}
             className="w-full h-full object-cover grayscale opacity-90 group-hover/polaroid:grayscale-0 group-hover/polaroid:opacity-100 transition-all duration-500"
             loading="lazy"
           />
-          {/* Inner shade overlay */}
-          <div className="absolute inset-0 shadow-[inset_0_4px_12px_rgba(0,0,0,0.04)] pointer-events-none rounded-t-[99px]" />
         </div>
         
-        {/* Label & Accent dot */}
-        <div className="mt-4 text-center relative z-10 flex flex-col items-center">
-          <p
-            className="text-zinc-800 group-hover/polaroid:text-black text-[13px] font-light tracking-wide transition-colors"
-            style={{ fontFamily: 'SatishSans, sans-serif' }}
-          >
-            {label}
-          </p>
-          {/* Minimalist dot/line divider */}
-          <div className="flex items-center gap-1.5 mt-1.5 w-full justify-center opacity-60">
-            <div className="h-[0.5px] w-6 bg-zinc-200" />
-            <span className="text-[6px] text-zinc-350 select-none">•</span>
-            <div className="h-[0.5px] w-6 bg-zinc-200" />
-          </div>
-        </div>
+        {/* Label below */}
+        <p
+          className="mt-3 text-zinc-700 group-hover/polaroid:text-black text-xs font-light text-center tracking-wide"
+          style={{ fontFamily: 'FunnelDisplay, sans-serif' }}
+        >
+          {label}
+        </p>
       </div>
     </div>
   )
