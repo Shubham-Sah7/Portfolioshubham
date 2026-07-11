@@ -15,7 +15,6 @@ const CARDS = [
   { label: 'I Compete',  url: '/images/life/Sport.jpeg',    imgClass: 'object-top' },
   { label: 'I Climb',    url: '/images/life/k2.jpeg',       imgClass: 'object-center' },
   { label: 'I Lift',     url: '/images/life/Lift.jpeg',     imgClass: 'object-center' },
-  { label: 'I Risk',     url: '/images/life/Risk.jpeg',     imgClass: 'object-center' },
 ]
 
 // Duplicate track for seamless infinite horizontal scrolling
