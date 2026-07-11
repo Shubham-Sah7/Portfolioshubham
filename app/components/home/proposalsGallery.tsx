@@ -11,6 +11,14 @@ gsap.registerPlugin(ScrollTrigger)
 const proposals = [
   {
     num: '001',
+    title: 'MedEase - Health-Tech Product',
+    description: "Redesigned patient-facing flows for a Health-Tech product. Simplified onboarding, reduced drop-off, improved care plan adherence.",
+    href: 'https://www.behance.net/gallery/180887605/MedEase-App',
+    photo: null,
+    external: true,
+  },
+  {
+    num: '002',
     title: 'Branding Projects',
     description: "Visual identity, brand systems, and design language built for startups across multiple sectors.",
     href: 'https://www.behance.net/gallery/195327435/Brand-Strategy-Case-Study',
@@ -27,7 +35,7 @@ const proposals = [
   },
   {
     num: '004',
-    title: 'PharmaOS',
+    title: 'Karixa Design',
     description: "AI agent for medicine factory operations and workflow management.",
     href: 'https://karixadesign.vercel.app/',
     photo: null,
@@ -35,9 +43,17 @@ const proposals = [
   },
   {
     num: '005',
-    title: 'Engine3D AI',
+    title: 'Hanomi',
     description: "AI platform that converts 2D engineering drawings into accurate 3D models.",
     href: 'https://hanomi-zeta.vercel.app/',
+    photo: null,
+    external: true,
+  },
+  {
+    num: '006',
+    title: 'Cricket Analytics Platform',
+    description: "Cricket intelligence dashboard for player performance, match analytics, and insights.",
+    href: 'https://stancebeam.vercel.app/',
     photo: null,
     external: true,
   },
@@ -152,7 +168,7 @@ export default function ProposalsGallery() {
               <Plus h="left" v="bottom" />
               <Plus h="right" v="bottom" />
 
-              <div className="flex flex-row items-center h-full" style={{ minHeight: 100 }}>
+              <div className="flex flex-row items-center h-full min-h-[90px] md:min-h-[100px]">
                 {item.photo && (
                   <div className="relative shrink-0 overflow-hidden" style={{ width: 72, height: 80 }}>
                     <Image
@@ -166,7 +182,7 @@ export default function ProposalsGallery() {
                 )}
 
                   {/* Meta */}
-                  <div className="flex flex-1 items-center justify-between px-6 md:px-8 py-5 md:py-6 gap-6">
+                  <div className="flex flex-1 items-center justify-between px-4 md:px-8 py-4 md:py-6 gap-4 md:gap-6">
                     <div className="flex flex-col gap-1 min-w-0">
                       <h3
                         className="text-sm md:text-lg font-light text-black leading-tight"

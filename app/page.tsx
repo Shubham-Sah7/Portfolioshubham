@@ -54,8 +54,7 @@ export default function Home() {
               alt="SA26"
               width={48}
               height={48}
-              className="opacity-50"
-              style={{ marginBottom: '70px' }}
+              className="opacity-50 mb-6 md:mb-16"
             />
             <h1 className="text-4xl md:text-5xl tracking-tight text-black">
               <span style={{ fontFamily: 'SatishCapsSans, sans-serif', fontSize: '1.5em' }}>S</span><span style={{ fontFamily: 'SatishSans, sans-serif', marginLeft: '4px' }}>hubham </span>
@@ -72,10 +71,15 @@ export default function Home() {
                 <span className="whitespace-nowrap">IIT Patna MBA</span>
               </span>
             </p>
+
+            {/* Mobile Email Section: rendered in flow to prevent absolute overlap */}
+            <div className="block md:hidden mt-8">
+              <EmailSection />
+            </div>
           </div>
 
-          {/* Email box - absolutely anchored to bottom of first fold, not part of centered group */}
-          <div className="absolute bottom-28 md:bottom-20 left-0 right-0 flex justify-center items-center" style={{ zIndex: 5 }}>
+          {/* Desktop Email Section: absolutely anchored */}
+          <div className="hidden md:flex absolute bottom-20 left-0 right-0 justify-center items-center" style={{ zIndex: 5 }}>
             <EmailSection />
           </div>
         </div>

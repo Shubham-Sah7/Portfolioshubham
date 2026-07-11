@@ -60,7 +60,7 @@ export default function ParallaxImages() {
         trigger: document.body,
         start:   'top top',
         end:     '25% top',
-        scrub:   1, // Smooth scrub with 1s lag for inertia
+        scrub:   true, // Instant tracking, no lag/friction
       }
       gsap.to(abhayMobile.current, {
         x:       () => -window.innerWidth * 0.6,
@@ -116,13 +116,13 @@ export default function ParallaxImages() {
       {/* ── Mobile - fixed to viewport, no container clipping ───────────────── */}
       <div
         ref={abhayMobile}
-        className="fixed block md:hidden pointer-events-none"
+        className="fixed block md:hidden pointer-events-none opacity-[0.14]"
         style={{ 
           width: 300, 
           left: -135, 
           top: '12vh', 
           transform: 'rotate(22deg)', 
-          zIndex: 10,
+          zIndex: 1, // Render in background
           willChange: 'transform, opacity' // Promote to GPU compositor
         }}
       >
@@ -130,13 +130,13 @@ export default function ParallaxImages() {
       </div>
       <div
         ref={tejasMobile}
-        className="fixed block md:hidden pointer-events-none"
+        className="fixed block md:hidden pointer-events-none opacity-[0.14]"
         style={{ 
           width: 240, 
           left: 'calc(100vw - 130px)', 
           top: '22vh', 
           transform: 'rotate(-18deg)', 
-          zIndex: 10,
+          zIndex: 1, // Render in background
           willChange: 'transform, opacity' // Promote to GPU compositor
         }}
       >

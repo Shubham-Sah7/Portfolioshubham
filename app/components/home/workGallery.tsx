@@ -100,6 +100,9 @@ export default function WorkGallery() {
 
   // Parallax + tilt for all branches via data attributes
   useEffect(() => {
+    // Disable branch scroll tracking on mobile viewports
+    if (typeof window !== 'undefined' && window.innerWidth < 768) return
+
     const handleScroll = () => {
       const y = window.scrollY
       const tilt = Math.min(y * 0.015, 8)

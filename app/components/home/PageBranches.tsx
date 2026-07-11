@@ -15,6 +15,9 @@ export default function PageBranches() {
   const containerRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
+    // Disable scroll tracking on mobile viewports where branches are hidden
+    if (typeof window !== 'undefined' && window.innerWidth < 768) return
+
     const handleScroll = () => {
       const y    = window.scrollY
       const vh   = window.innerHeight
