@@ -3,12 +3,17 @@
 import { useRef } from 'react'
 
 const CARDS = [
-  { label: 'I Design',  url: '/images/life/Design.jpeg', rot: '-3deg' },
-  { label: 'I Ride',    url: '/images/life/Ride.jpeg',   rot: '2.5deg' },
-  { label: 'I Play',    url: '/images/life/Play.jpeg',   rot: '-1.5deg' },
-  { label: 'I Read',    url: '/images/life/Read.jpeg',   rot: '3deg' },
-  { label: 'I Explore', url: '/images/life/travel.jpeg', rot: '-2deg' },
-  { label: 'My Team',   url: '/images/life/Team.jpeg',   rot: '1.5deg' },
+  { label: 'I Design',   url: '/images/life/Design.jpeg',   rot: '-3deg' },
+  { label: 'I Ride',     url: '/images/life/Ride.jpeg',     rot: '2.5deg' },
+  { label: 'I Play',     url: '/images/life/Play.jpeg',     rot: '-1.5deg' },
+  { label: 'I Read',     url: '/images/life/Read.jpeg',     rot: '3deg' },
+  { label: 'I Explore',  url: '/images/life/travel.jpeg',   rot: '-2deg' },
+  { label: 'My Team',    url: '/images/life/Team.jpeg',     rot: '1.5deg' },
+  { label: 'I Wander',   url: '/images/life/Bhutan.jpeg',   rot: '-2.5deg' },
+  { label: 'I Meditate', url: '/images/life/Meditate.jpeg', rot: '2deg' },
+  { label: 'I Reflect',  url: '/images/life/Solo.jpeg',     rot: '-1deg' },
+  { label: 'I Compete',  url: '/images/life/Sport.jpeg',    rot: '3deg' },
+  { label: 'I Climb',    url: '/images/life/k2.jpeg',       rot: '-2deg' },
 ]
 
 // Duplicate track for seamless infinite horizontal scrolling
