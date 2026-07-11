@@ -27,6 +27,7 @@ const proposals = [
     photo: null,
     external: true,
   },
+  /*
   {
     num: '003',
     title: 'Design Community Platform',
@@ -35,6 +36,7 @@ const proposals = [
     photo: null,
     external: true,
   },
+  */
   {
     num: '004',
     title: 'AI Agent for Pharma Operations',
