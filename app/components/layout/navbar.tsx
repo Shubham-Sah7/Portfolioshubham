@@ -35,7 +35,7 @@ const navItems = [
   { name: "Home", href: "/" },
   { name: "Work", href: "/work" },
   { name: "About", href: "/about" },
-  { name: "Craft", href: "/lab" },
+  { name: "Craft", href: "/lab/playground" },
   { name: "Resume", href: "#resume" },
 ]
 
@@ -323,7 +323,8 @@ export default function Navbar() {
               } ${
                 (item.name === "Home" && pathname === '/') ||
                 (item.name !== "Home" && pathname === item.href) ||
-                (item.name === "Work" && pathname.startsWith('/works/'))
+                (item.name === "Work" && pathname.startsWith('/works/')) ||
+                (item.name === "Craft" && pathname.startsWith('/lab'))
                   ? "text-black"
                   : (item.name === "Unplug" && pathname.startsWith('/unplugged/'))
                     ? "text-zinc-700"
