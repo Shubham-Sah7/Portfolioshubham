@@ -99,7 +99,7 @@ function Polaroid({ label, url, rot }: { label: string; url: string; rot: string
       {/* Clean Polaroid Card Shape (no background color inside, just white card) */}
       <div
         className="bg-white border border-zinc-200 shadow-[0_4px_12px_rgba(0,0,0,0.03)] group-hover/polaroid:shadow-[0_12px_24px_rgba(0,0,0,0.08)] group-hover/polaroid:-translate-y-4 group-hover/polaroid:rotate-0 flex flex-col transition-all duration-300"
-        style={{ width: 200, padding: '10px 10px 24px 10px', borderRadius: 2 }}
+        style={{ width: 240, padding: '12px 12px 28px 12px', borderRadius: 2 }}
       >
         {/* Square Photo Cutout */}
         <div className="w-full aspect-square overflow-hidden bg-zinc-50 border border-zinc-100">
