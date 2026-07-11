@@ -10,7 +10,7 @@ const CARDS = [
   { label: 'I Explore',  sub: 'Solo',                                  url: '/images/life/travel.jpeg',   imgClass: 'object-top' },
   { label: 'Weekend',    sub: 'Badminton with the crew',              url: '/images/life/Team.jpeg',     imgClass: 'object-top' },
   { label: 'I Wander',   sub: 'Bhutan',                               url: '/images/life/Bhutan.jpeg',   imgClass: 'object-top' },
-  { label: 'I Create',   sub: 'Before AI Era',                        url: '/images/life/art.png',        imgClass: 'object-top' },
+  { label: 'I do art',   sub: 'Before AI Era',                        url: '/images/life/art.png',        imgClass: 'object-top' },
   { label: 'I Meditate', sub: 'Coimbatore, Isha Foundation',          url: '/images/life/Meditate2.jpeg', imgClass: 'object-top' },
   { label: 'I Click',    sub: 'Mountains and beaches',                 url: '/images/life/Click2.jpeg',   imgClass: 'object-top' },
   { label: 'I Reflect',  sub: 'Where I find peace',                   url: '/images/life/Solo.jpeg',     imgClass: 'object-center' },
