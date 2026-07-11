@@ -160,7 +160,7 @@ export default function FooterPlayground() {
     <div style={{ fontFamily: 'FunnelDisplay, sans-serif' }}>
 
       {/* ── Section header (matches workGallery / proposalsGallery style) */}
-      <div className="px-6 md:px-10 pb-8 md:pb-10 overflow-hidden">
+      <div className="px-6 md:px-10 pb-8 md:pb-10 overflow-hidden max-w-5xl mx-auto">
         <div className="relative">
           <div className="absolute inset-x-0 border-t border-gray-300" style={{ top: '50%' }} />
           <div className="relative flex items-baseline justify-center gap-2">

@@ -88,7 +88,7 @@ export default function UnpluggedGallery() {
       {/* ── Section header ──────────────────────────────────────── */}
       <div
         ref={headerRef}
-        className="px-6 md:px-10 pb-8 md:pb-12 overflow-hidden"
+        className="pb-8 md:pb-12 overflow-hidden"
       >
         <div className="relative">
           <div
