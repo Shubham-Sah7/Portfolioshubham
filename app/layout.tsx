@@ -7,6 +7,7 @@ import SmoothScroll from "./components/layout/SmoothScroll"
 import ScrollReset from "./components/layout/ScrollReset"
 import Footer from "./components/layout/footer"
 import PostHogProvider from "./components/layout/PostHogProvider"
+import AmbientSound from "./components/layout/AmbientSound"
 
 const inter = Inter({ subsets: ["latin"] })
 
@@ -94,6 +95,7 @@ export default function RootLayout({
           <SmoothScroll />
           <ScrollReset />
           <NavbarClient />
+          <AmbientSound />
           <main>
             {children}
             <Analytics />
