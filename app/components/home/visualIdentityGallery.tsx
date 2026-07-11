@@ -112,7 +112,7 @@ export default function VisualIdentityGallery() {
       </div>
 
       {/* ── Desktop collage (md+) ─────────────────────────────── */}
-      <div className="hidden md:flex gap-2">
+      <div className="hidden md:flex gap-2 px-6 md:px-10">
 
         {/* Left: cycling square - aspect-ratio makes it truly 1:1 */}
         <div
@@ -154,7 +154,7 @@ export default function VisualIdentityGallery() {
       </div>
 
       {/* ── Mobile collage ────────────────────────────────────── */}
-      <div className="grid md:hidden gap-1.5">
+      <div className="grid md:hidden gap-1.5 px-6 md:px-10">
         {/* Cycling box: full width, 1:1 */}
         <div className="relative overflow-hidden bg-gray-50" style={{ aspectRatio: '1/1' }}>
           {fuellstackImages.map((src, idx) => (

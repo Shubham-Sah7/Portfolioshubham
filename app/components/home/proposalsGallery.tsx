@@ -159,7 +159,7 @@ export default function ProposalsGallery() {
       </div>
 
       {/* Cards */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-6 md:gap-x-12 md:gap-y-8">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-6 md:gap-x-12 md:gap-y-8 px-6 md:px-10">
         {proposals.map((item) => {
           const inner = (
             <>
