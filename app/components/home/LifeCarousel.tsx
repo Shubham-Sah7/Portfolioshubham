@@ -10,7 +10,7 @@ const CARDS = [
   { label: 'I Explore',  url: '/images/life/travel.jpeg',   rot: '-2deg' },
   { label: 'My Team',    url: '/images/life/Team.jpeg',     rot: '1.5deg' },
   { label: 'I Wander',   url: '/images/life/Bhutan.jpeg',   rot: '-2.5deg' },
-  { label: 'I Meditate', url: '/images/life/Meditate.jpeg', rot: '2deg' },
+  { label: 'I Meditate', url: '/images/life/Meditate.jpeg', rot: '2deg', imgClass: 'object-top' },
   { label: 'I Reflect',  url: '/images/life/Solo.jpeg',     rot: '-1deg' },
   { label: 'I Compete',  url: '/images/life/Sport.jpeg',    rot: '3deg' },
   { label: 'I Climb',    url: '/images/life/k2.jpeg',       rot: '-2deg' },
