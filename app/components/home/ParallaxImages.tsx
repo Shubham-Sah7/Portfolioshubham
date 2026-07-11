@@ -11,7 +11,7 @@ gsap.registerPlugin(ScrollTrigger)
 const ABHAY = {
   src:    '/images/HomeImages/abhay-v.svg',
   width:  590,
-  left:   '-15%',
+  left:   '-35%',
   top:    '-2%',
   rotate: 35,
 }
@@ -19,7 +19,7 @@ const ABHAY = {
 const TEJAS = {
   src:    '/images/HomeImages/tejas-v.svg',
   width:  510,
-  right:  '-15%',
+  right:  '-35%',
   top:    '40%',
   rotate: -15,
 }
