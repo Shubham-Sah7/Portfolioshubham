@@ -52,8 +52,8 @@ export default function Home() {
             <Image
               src="/images/logo.png"
               alt="SCR7"
-              width={48}
-              height={48}
+              width={62}
+              height={62}
               className="mb-6 md:mb-16"
               style={{ mixBlendMode: 'multiply', filter: 'invert(1)' }}
             />
