@@ -32,6 +32,7 @@ const Plus = ({ h, v = 'bottom' }: { h: 'left' | 'right'; v?: 'top' | 'bottom' }
 )
 
 const navItems = [
+  { name: "Home", href: "/" },
   { name: "Work", href: "/work" },
   { name: "About", href: "/about" },
   { name: "Lab", href: "/lab" },
@@ -320,7 +321,8 @@ export default function Navbar() {
               className={`cursor-pointer font-light transition-all duration-300 relative hover:text-black hover:scale-105 py-2 px-2.5 md:py-1 md:px-2 ${
                 isMounted ? "text-xs md:text-sm" : "text-sm"
               } ${
-                (pathname === item.href) ||
+                (item.name === "Home" && pathname === '/') ||
+                (item.name !== "Home" && pathname === item.href) ||
                 (item.name === "Work" && pathname.startsWith('/works/'))
                   ? "text-black"
                   : (item.name === "Unplug" && pathname.startsWith('/unplugged/'))
