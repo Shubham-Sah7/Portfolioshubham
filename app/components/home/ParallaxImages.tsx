@@ -94,8 +94,8 @@ export default function ParallaxImages() {
         className="absolute block md:hidden pointer-events-none opacity-[0.22]"
         style={{ 
           width: 240, 
-          left: -70, 
-          top: '8%', 
+          left: -50, 
+          top: '15%', 
           transform: 'rotate(22deg)', 
           zIndex: 1,
         }}
@@ -106,8 +106,8 @@ export default function ParallaxImages() {
         className="absolute block md:hidden pointer-events-none opacity-[0.22]"
         style={{ 
           width: 200, 
-          right: -60, 
-          bottom: '12%', 
+          right: -45, 
+          top: '42%', 
           transform: 'rotate(-18deg)', 
           zIndex: 1,
         }}

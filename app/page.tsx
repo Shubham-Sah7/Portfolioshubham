@@ -43,7 +43,7 @@ export default function Home() {
 
         {/* First fold - name + description, full viewport height */}
         <MouseColorBloom />
-        <div className="relative min-h-[calc(100vh-120px)] flex flex-col justify-center items-center text-center gap-6 overflow-hidden md:overflow-visible">
+        <div className="relative min-h-[calc(100vh-120px)] flex flex-col justify-center items-center text-center gap-6 overflow-visible md:overflow-visible">
 
           <ParallaxImages />
 
