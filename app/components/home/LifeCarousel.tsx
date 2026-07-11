@@ -56,7 +56,7 @@ export default function LifeCarousel() {
           </div>
         </div>
         <p className="text-center text-xs text-gray-400 mt-4 leading-relaxed max-w-md mx-auto">
-          Snapshots of things I love, build, capture, and explore when I am not at my desk.
+          Generally a Jack of all trades, also master of some. Snapshots of things I love, build, capture, and explore when I am not at my desk.
         </p>
       </div>
 
