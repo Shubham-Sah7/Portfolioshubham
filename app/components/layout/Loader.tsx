@@ -14,6 +14,8 @@ export default function Loader() {
       if (exitedRef.current) return
       exitedRef.current = true
       setProgress(100)
+      // Signal AmbientSound that loading is complete (bell + fade)
+      window.dispatchEvent(new CustomEvent('loader-exit'))
       setTimeout(() => {
         if (loaderRef.current) {
           gsap.to(loaderRef.current, {
@@ -70,8 +72,9 @@ export default function Loader() {
   return (
     <div
       ref={loaderRef}
-      className="fixed inset-0 bg-white flex flex-col items-center justify-center"
+      className="fixed inset-0 bg-white flex flex-col items-center justify-center cursor-pointer"
       style={{ zIndex: 99999 }}
+      onClick={() => window.dispatchEvent(new CustomEvent('ambient-start'))}
     >
       <Image
         src="/images/logo.png"
