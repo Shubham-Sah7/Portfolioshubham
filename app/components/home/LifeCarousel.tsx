@@ -8,7 +8,7 @@ const CARDS = [
   { label: 'I Play',     url: '/images/life/Play.jpeg' },
   { label: 'I Read',     url: '/images/life/Read.jpeg' },
   { label: 'I Explore',  url: '/images/life/travel.jpeg' },
-  { label: 'My Team',    url: '/images/life/Team.jpeg' },
+  { label: 'Weekend',    url: '/images/life/Team.jpeg' },
   { label: 'I Wander',   url: '/images/life/Bhutan.jpeg' },
   { label: 'I Meditate', url: '/images/life/Meditate.jpeg', imgClass: 'object-top' },
   { label: 'I Reflect',  url: '/images/life/Solo.jpeg' },
