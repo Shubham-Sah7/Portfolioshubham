@@ -48,7 +48,7 @@ export default function Home() {
           <ParallaxImages />
 
           {/* Text isolated above the bloom layer so color blend doesn't affect it */}
-          <div className="relative flex flex-col items-center gap-6 md:bg-white md:px-6 md:py-4" style={{ zIndex: 5 }}>
+          <div className="relative flex flex-col items-center gap-6 md:bg-white md:px-6 md:py-4" style={{ zIndex: 20 }}>
             <Image
               src="/images/logo.png"
               alt="SCR7"
@@ -80,7 +80,7 @@ export default function Home() {
           </div>
 
           {/* Desktop Email Section: absolutely anchored */}
-          <div className="hidden md:flex absolute bottom-20 left-0 right-0 justify-center items-center" style={{ zIndex: 5 }}>
+          <div className="hidden md:flex absolute bottom-20 left-0 right-0 justify-center items-center" style={{ zIndex: 20 }}>
             <EmailSection />
           </div>
         </div>

@@ -68,7 +68,7 @@ export default function ParallaxImages() {
           left: ABHAY.left,
           top: ABHAY.top,
           transform: `rotate(${ABHAY.rotate}deg)`,
-          zIndex: 1,
+          zIndex: 10,
           willChange: 'transform'
         }}
       >
@@ -82,7 +82,7 @@ export default function ParallaxImages() {
           right: TEJAS.right,
           top: TEJAS.top,
           transform: `rotate(${TEJAS.rotate}deg)`,
-          zIndex: 1,
+          zIndex: 10,
           willChange: 'transform'
         }}
       >
