@@ -3,18 +3,18 @@
 import { useRef } from 'react'
 
 const CARDS = [
-  { label: 'I Design',   url: '/images/life/Design.jpeg',   imgClass: 'object-bottom' },
-  { label: 'I Ride',     url: '/images/life/Ride.jpeg',     imgClass: 'object-center' },
-  { label: 'I Play',     url: '/images/life/Play.jpeg',     imgClass: 'object-center' },
-  { label: 'I Read',     url: '/images/life/Read.jpeg',     imgClass: 'object-center' },
-  { label: 'I Explore',  url: '/images/life/travel.jpeg',   imgClass: 'object-top' },
-  { label: 'Weekend',    url: '/images/life/Team.jpeg',     imgClass: 'object-top' },
-  { label: 'I Wander',   url: '/images/life/Bhutan.jpeg',   imgClass: 'object-top' },
-  { label: 'I Meditate', url: '/images/life/Meditate.jpeg', imgClass: 'object-top' },
-  { label: 'I Reflect',  url: '/images/life/Solo.jpeg',     imgClass: 'object-center' },
-  { label: 'I Compete',  url: '/images/life/Sport.jpeg',    imgClass: 'object-top' },
-  { label: 'I Climb',    url: '/images/life/k2.jpeg',       imgClass: 'object-center' },
-  { label: 'I Lift',     url: '/images/life/Lift.jpeg',     imgClass: 'object-center' },
+  { label: 'I Design',   sub: 'probably 3am brainstorming',          url: '/images/life/Design.jpeg',   imgClass: 'object-bottom' },
+  { label: 'I Ride',     sub: 'highways and mountain passes',         url: '/images/life/Ride.jpeg',     imgClass: 'object-center' },
+  { label: 'I Play',     sub: 'every sport I could find',             url: '/images/life/Play.jpeg',     imgClass: 'object-center' },
+  { label: 'I Read',     sub: 'currently into neuroscience',          url: '/images/life/Read.jpeg',     imgClass: 'object-center' },
+  { label: 'I Explore',  sub: 'solo, always',                         url: '/images/life/travel.jpeg',   imgClass: 'object-top' },
+  { label: 'Weekend',    sub: 'badminton with the crew',              url: '/images/life/Team.jpeg',     imgClass: 'object-top' },
+  { label: 'I Wander',   sub: 'Bhutan, my neighbour country',         url: '/images/life/Bhutan.jpeg',   imgClass: 'object-top' },
+  { label: 'I Meditate', sub: 'Coimbatore, Isha Foundation',          url: '/images/life/Meditate.jpeg', imgClass: 'object-top' },
+  { label: 'I Reflect',  sub: 'where I find peace',                   url: '/images/life/Solo.jpeg',     imgClass: 'object-center' },
+  { label: 'I Compete',  sub: 'national level football, college team', url: '/images/life/Sport.jpeg',    imgClass: 'object-top' },
+  { label: 'I Climb',    sub: 'somewhere in Nepal',                   url: '/images/life/k2.jpeg',       imgClass: 'object-center' },
+  { label: 'I Lift',     sub: 'double my body weight',                url: '/images/life/Lift.jpeg',     imgClass: 'object-center' },
 ]
 
 // Duplicate track for seamless infinite horizontal scrolling
@@ -68,7 +68,7 @@ export default function LifeCarousel() {
             style={{ animation: 'life-scroll 45s linear infinite' }}
           >
             {TRACK.map((c, i) => (
-              <Polaroid key={i} label={c.label} url={c.url} imgClass={c.imgClass} />
+              <Polaroid key={i} label={c.label} sub={c.sub} url={c.url} imgClass={c.imgClass} />
             ))}
           </div>
         </div>
@@ -88,7 +88,7 @@ export default function LifeCarousel() {
   )
 }
 
-function Polaroid({ label, url, imgClass }: { label: string; url: string; imgClass?: string }) {
+function Polaroid({ label, sub, url, imgClass }: { label: string; sub?: string; url: string; imgClass?: string }) {
   return (
     <div className="shrink-0 select-none group/polaroid">
       <div
@@ -118,6 +118,14 @@ function Polaroid({ label, url, imgClass }: { label: string; url: string; imgCla
         >
           {label}
         </p>
+        {sub && (
+          <p
+            className="mt-1 text-zinc-400 text-[10px] font-light text-center tracking-wide leading-snug"
+            style={{ fontFamily: 'FunnelDisplay, sans-serif' }}
+          >
+            {sub}
+          </p>
+        )}
       </div>
     </div>
   )
