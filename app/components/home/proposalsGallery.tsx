@@ -14,7 +14,7 @@ const proposals = [
     title: 'MedEase - Health-Tech Product',
     description: "Redesigned patient-facing flows for a Health-Tech product. Simplified onboarding, reduced drop-off, improved care plan adherence.",
     href: 'https://www.behance.net/gallery/180887605/MedEase-App',
-    photo: null,
+    photo: '/images/New images/Medease.png',
     external: true,
   },
   {
@@ -22,7 +22,7 @@ const proposals = [
     title: 'Branding Projects',
     description: "Visual identity, brand systems, and design language built for startups across multiple sectors.",
     href: 'https://www.behance.net/gallery/195327435/Brand-Strategy-Case-Study',
-    photo: null,
+    photo: '/images/New images/Branding.png',
     external: true,
   },
   {

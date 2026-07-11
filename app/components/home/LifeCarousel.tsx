@@ -3,14 +3,12 @@
 import { useRef } from 'react'
 
 const CARDS = [
-  { label: 'I Design',  url: 'https://images.unsplash.com/photo-1513542789411-b6a5d4f31634?q=80&w=600&auto=format&fit=crop', rot: '-3deg' },
-  { label: 'I Ride',    url: 'https://images.unsplash.com/photo-1558981403-c5f9899a28bc?q=80&w=600&auto=format&fit=crop', rot: '2.5deg' },
-  { label: 'I Capture', url: 'https://images.unsplash.com/photo-1608958416738-9580b0bb1120?q=80&w=600&auto=format&fit=crop', rot: '-1.5deg' },
-  { label: 'I Coffee',  url: 'https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?q=80&w=600&auto=format&fit=crop', rot: '3deg' },
-  { label: 'I Read',    url: 'https://images.unsplash.com/photo-1506880018603-83d5b814b5a6?q=80&w=600&auto=format&fit=crop', rot: '-2deg' },
-  { label: 'I Explore', url: 'https://images.unsplash.com/photo-1548013146-72479768bada?q=80&w=600&auto=format&fit=crop', rot: '1.5deg' },
-  { label: 'I Paint',   url: 'https://images.unsplash.com/photo-1579783900882-c0d3dad7b119?q=80&w=600&auto=format&fit=crop', rot: '-2.5deg' },
-  { label: 'I Build',   url: 'https://images.unsplash.com/photo-1497032628192-86f99bcd76bc?q=80&w=600&auto=format&fit=crop', rot: '2.5deg' },
+  { label: 'I Design',  url: '/images/life/Design.jpeg', rot: '-3deg' },
+  { label: 'I Ride',    url: '/images/life/Ride.jpeg',   rot: '2.5deg' },
+  { label: 'I Play',    url: '/images/life/Play.jpeg',   rot: '-1.5deg' },
+  { label: 'I Read',    url: '/images/life/Read.jpeg',   rot: '3deg' },
+  { label: 'I Explore', url: '/images/life/travel.jpeg', rot: '-2deg' },
+  { label: 'My Team',   url: '/images/life/Team.jpeg',   rot: '1.5deg' },
 ]
 
 // Duplicate track for seamless infinite horizontal scrolling
