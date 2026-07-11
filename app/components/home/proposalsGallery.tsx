@@ -11,7 +11,7 @@ gsap.registerPlugin(ScrollTrigger)
 const proposals = [
   {
     num: '001',
-    title: 'MedEase - Health-Tech Product',
+    title: 'HealthTech Patient Experience',
     description: "Redesigned patient-facing flows for a Health-Tech product. Simplified onboarding, reduced drop-off, improved care plan adherence.",
     href: 'https://www.behance.net/gallery/180887605/MedEase-App',
     photo: null,
@@ -19,7 +19,7 @@ const proposals = [
   },
   {
     num: '002',
-    title: 'Branding Projects',
+    title: 'Brand Identity & Visual Systems',
     description: "Visual identity, brand systems, and design language built for startups across multiple sectors.",
     href: 'https://www.behance.net/gallery/195327435/Brand-Strategy-Case-Study',
     photo: null,
@@ -27,7 +27,7 @@ const proposals = [
   },
   {
     num: '003',
-    title: 'Product Gallery',
+    title: 'Design Community Platform',
     description: "Behance for vibe coders and AI product builders.",
     href: 'https://www.productgallery.in/',
     photo: null,
@@ -35,7 +35,7 @@ const proposals = [
   },
   {
     num: '004',
-    title: 'Karixa Design',
+    title: 'AI Agent for Pharma Operations',
     description: "AI agent for medicine factory operations and workflow management.",
     href: 'https://karixadesign.vercel.app/',
     photo: null,
@@ -43,7 +43,7 @@ const proposals = [
   },
   {
     num: '005',
-    title: 'Hanomi',
+    title: '2D to 3D Engineering AI',
     description: "AI platform that converts 2D engineering drawings into accurate 3D models.",
     href: 'https://hanomi-zeta.vercel.app/',
     photo: null,
@@ -51,7 +51,7 @@ const proposals = [
   },
   {
     num: '006',
-    title: 'Cricket Analytics Platform',
+    title: 'Sports Analytics Dashboard',
     description: "Cricket intelligence dashboard for player performance, match analytics, and insights.",
     href: 'https://stancebeam.vercel.app/',
     photo: null,
