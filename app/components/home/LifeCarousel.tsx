@@ -3,14 +3,14 @@
 import { useRef } from 'react'
 
 const CARDS = [
-  { label: 'I Design',  url: 'https://images.unsplash.com/photo-1581291518633-83b4ebd1d83e?q=80&w=600&auto=format&fit=crop', rot: '-3deg' },
-  { label: 'I Ride',    url: 'https://images.unsplash.com/photo-1558981806-ec527fa84c39?q=80&w=600&auto=format&fit=crop', rot: '2.5deg' },
-  { label: 'I Capture', url: 'https://images.unsplash.com/photo-1516035069371-29a1b244cc32?q=80&w=600&auto=format&fit=crop', rot: '-1.5deg' },
-  { label: 'I Coffee',  url: 'https://images.unsplash.com/photo-1497034825429-c343d7c6a68f?q=80&w=600&auto=format&fit=crop', rot: '3deg' },
-  { label: 'I Read',    url: 'https://images.unsplash.com/photo-1544947950-fa07a98d237f?q=80&w=600&auto=format&fit=crop', rot: '-2deg' },
-  { label: 'I Explore', url: 'https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?q=80&w=600&auto=format&fit=crop', rot: '1.5deg' },
-  { label: 'I Paint',   url: 'https://images.unsplash.com/photo-1513364776144-60967b0f800f?q=80&w=600&auto=format&fit=crop', rot: '-2.5deg' },
-  { label: 'I Build',   url: 'https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=600&auto=format&fit=crop', rot: '2.5deg' },
+  { label: 'I Design',  url: 'https://images.unsplash.com/photo-1513542789411-b6a5d4f31634?q=80&w=600&auto=format&fit=crop', rot: '-3deg' },
+  { label: 'I Ride',    url: 'https://images.unsplash.com/photo-1558981403-c5f9899a28bc?q=80&w=600&auto=format&fit=crop', rot: '2.5deg' },
+  { label: 'I Capture', url: 'https://images.unsplash.com/photo-1608958416738-9580b0bb1120?q=80&w=600&auto=format&fit=crop', rot: '-1.5deg' },
+  { label: 'I Coffee',  url: 'https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?q=80&w=600&auto=format&fit=crop', rot: '3deg' },
+  { label: 'I Read',    url: 'https://images.unsplash.com/photo-1506880018603-83d5b814b5a6?q=80&w=600&auto=format&fit=crop', rot: '-2deg' },
+  { label: 'I Explore', url: 'https://images.unsplash.com/photo-1548013146-72479768bada?q=80&w=600&auto=format&fit=crop', rot: '1.5deg' },
+  { label: 'I Paint',   url: 'https://images.unsplash.com/photo-1579783900882-c0d3dad7b119?q=80&w=600&auto=format&fit=crop', rot: '-2.5deg' },
+  { label: 'I Build',   url: 'https://images.unsplash.com/photo-1497032628192-86f99bcd76bc?q=80&w=600&auto=format&fit=crop', rot: '2.5deg' },
 ]
 
 // Duplicate track for seamless infinite horizontal scrolling
@@ -27,7 +27,7 @@ const Plus = ({ h, v = 'bottom' }: { h: 'left' | 'right'; v?: 'top' | 'bottom' }
       [h]: 0,
       [v]: 0,
       transform: `translate(${h === 'left' ? '-50%' : '50%'}, ${v === 'top' ? '-50%' : '50%'})`,
-      color: '#d1d5db',
+      color: '#c2b9a7',
       zIndex: 10,
     }}
   >
@@ -44,13 +44,13 @@ export default function LifeCarousel() {
       {/* ── Section header ──────────────────────────────────────── */}
       <div className="px-6 md:px-10 pb-8 md:pb-12 overflow-hidden max-w-5xl mx-auto">
         <div className="relative">
-          <div className="absolute inset-x-0 border-t border-gray-300" style={{ top: '50%' }} />
+          <div className="absolute inset-x-0 border-t border-[#d5cebf]" style={{ top: '50%' }} />
           <div className="relative flex items-baseline justify-center gap-2">
-            <h2 className="relative bg-white pr-3 text-2xl md:text-3xl font-light text-black shrink-0 whitespace-nowrap">
+            <h2 className="relative bg-white pr-3 text-2xl md:text-3xl font-light text-[#5c4d37] shrink-0 whitespace-nowrap">
               <span style={{ fontFamily: 'SatishCapsSans, sans-serif', fontSize: '1.5em' }}>L</span>
               <span style={{ fontFamily: 'SatishSans, sans-serif' }}>ife</span>
             </h2>
-            <h2 className="relative bg-white pl-3 text-2xl md:text-3xl font-light text-black shrink-0 whitespace-nowrap">
+            <h2 className="relative bg-white pl-3 text-2xl md:text-3xl font-light text-[#5c4d37] shrink-0 whitespace-nowrap">
               <span style={{ fontFamily: 'SatishCapsSans, sans-serif', fontSize: '1.5em' }}>&amp;</span>
               <span style={{ fontFamily: 'SatishSans, sans-serif' }}> Inspiration</span>
             </h2>
@@ -62,7 +62,7 @@ export default function LifeCarousel() {
       </div>
 
       {/* ── Full bleed marquee wrapper ────────────────────────── */}
-      <div className="relative w-full border-y border-gray-200 py-10 overflow-hidden bg-gray-50/50">
+      <div className="relative w-full border-y border-[#eae5da] py-10 overflow-hidden bg-[#faf9f5]">
         <Plus h="left" v="top" />
         <Plus h="right" v="top" />
         <Plus h="left" v="bottom" />
@@ -104,27 +104,50 @@ function Polaroid({ label, url, rot }: { label: string; url: string; rot: string
         transformOrigin: 'center bottom',
       }}
     >
-      {/* Polaroid frame */}
+      {/* Stone / Manuscript Frame */}
       <div
-        className="bg-white border border-gray-200/80 shadow-[0_4px_16px_rgba(0,0,0,0.06)] group-hover/polaroid:shadow-[0_12px_32px_rgba(0,0,0,0.12)] group-hover/polaroid:-translate-y-4 group-hover/polaroid:rotate-0 flex flex-col transition-all duration-300"
-        style={{ width: 200, padding: '10px 10px 24px 10px', borderRadius: 2 }}
+        className="bg-[#faf7f0] border border-[#dcd6c5] shadow-[0_4px_20px_rgba(40,30,20,0.06)] group-hover/polaroid:shadow-[0_12px_36px_rgba(40,30,20,0.12)] group-hover/polaroid:-translate-y-4 group-hover/polaroid:rotate-0 flex flex-col transition-all duration-300 relative"
+        style={{ width: 210, padding: '12px 12px 28px 12px', borderRadius: 4 }}
       >
-        {/* Photo container */}
-        <div className="w-full aspect-[4/5] rounded-[1px] overflow-hidden bg-gray-100 relative">
+        {/* Inner manuscript border lining */}
+        <div className="absolute inset-2 border border-[#eae3d2] pointer-events-none rounded-[3px]" />
+        
+        {/* Corner manuscript accents */}
+        <span className="absolute top-3.5 left-3.5 text-[8px] text-[#b5a687] select-none">✦</span>
+        <span className="absolute top-3.5 right-3.5 text-[8px] text-[#b5a687] select-none">✦</span>
+        
+        {/* Photo container - Temple Arch shape! */}
+        <div 
+          className="w-full aspect-[4/5] rounded-t-[99px] rounded-b-[4px] overflow-hidden bg-[#f0ede4] relative border border-[#e4decb]"
+          style={{ zIndex: 1 }}
+        >
           <img
             src={url}
             alt={label}
-            className="w-full h-full object-cover grayscale-[20%] group-hover/polaroid:grayscale-0 transition-all duration-500"
+            className="w-full h-full object-cover sepia-[15%] contrast-[105%] group-hover/polaroid:sepia-0 transition-all duration-500"
             loading="lazy"
           />
+          {/* Inner shadow overlay in the arch */}
+          <div className="absolute inset-0 shadow-[inset_0_4px_12px_rgba(0,0,0,0.06)] pointer-events-none rounded-t-[99px]" />
         </div>
-        {/* Label */}
-        <p
-          className="mt-3 text-black text-[13px] text-center font-light tracking-wide"
-          style={{ fontFamily: 'SatishSans, sans-serif' }}
-        >
-          {label}
-        </p>
+        
+        {/* Label & Ornate ornament */}
+        <div className="mt-4 text-center relative z-10 flex flex-col items-center">
+          <p
+            className="text-[#5c4d37] text-[13px] font-medium tracking-wide"
+            style={{ fontFamily: 'SatishSans, sans-serif' }}
+          >
+            {label}
+          </p>
+          {/* Classical Indian floral-like divider ornament */}
+          <div className="flex items-center gap-1.5 mt-1.5 w-full justify-center opacity-70">
+            <div className="h-[0.5px] w-8 bg-[#b5a687]" />
+            <svg width="5" height="5" viewBox="0 0 24 24" fill="#b5a687" className="rotate-45 shrink-0">
+              <rect width="24" height="24" />
+            </svg>
+            <div className="h-[0.5px] w-8 bg-[#b5a687]" />
+          </div>
+        </div>
       </div>
     </div>
   )
