@@ -50,11 +50,12 @@ export default function Home() {
           {/* Text isolated above the bloom layer so color blend doesn't affect it */}
           <div className="relative flex flex-col items-center gap-6 md:bg-white md:px-6 md:py-4" style={{ zIndex: 5 }}>
             <Image
-              src="/images/common/sa26.svg"
-              alt="SA26"
+              src="/images/logo.png"
+              alt="SCR7"
               width={48}
               height={48}
-              className="opacity-50 mb-6 md:mb-16"
+              className="mb-6 md:mb-16"
+              style={{ mixBlendMode: 'multiply', filter: 'invert(1)' }}
             />
             <h1 className="text-4xl md:text-5xl tracking-tight text-black">
               <span style={{ fontFamily: 'SatishCapsSans, sans-serif', fontSize: '1.5em' }}>S</span><span style={{ fontFamily: 'SatishSans, sans-serif', marginLeft: '4px' }}>hubham </span>
