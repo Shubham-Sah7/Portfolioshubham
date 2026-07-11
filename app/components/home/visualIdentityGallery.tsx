@@ -10,7 +10,6 @@ gsap.registerPlugin(ScrollTrigger)
 const symitaImages = [
   '/images/Visuals/symita-V/symita-icon.png',
   '/images/Visuals/symita-V/symita-logomark-06.png',
-  '/images/Visuals/symita-V/symita-logomark-05.png',
 ]
 
 export default function VisualIdentityGallery() {
@@ -23,7 +22,7 @@ export default function VisualIdentityGallery() {
   useEffect(() => {
     const id = setInterval(() => {
       setCycleIndex(i => (i + 1) % symitaImages.length)
-    }, 1500) // 1.5s per cycle for comfortable viewing
+    }, 2000)
     return () => clearInterval(id)
   }, [])
 
@@ -110,9 +109,9 @@ export default function VisualIdentityGallery() {
       {/* ── Desktop collage (md+) ─────────────────────────────── */}
       <div className="hidden md:flex gap-2">
 
-        {/* Left: cycling square - aspect-ratio makes it 1:1 */}
+        {/* Left: cycling square */}
         <div
-          className="relative overflow-hidden bg-[#12102A] border border-zinc-800 shrink-0"
+          className="relative overflow-hidden bg-white border border-zinc-100 shrink-0"
           style={{ flexBasis: 'calc(50% - 4px)', aspectRatio: '1 / 1' }}
         >
           {symitaImages.map((src, idx) => (
@@ -122,10 +121,11 @@ export default function VisualIdentityGallery() {
               alt="Symita Logo Variations"
               fill
               sizes="50vw"
-              className="object-contain p-10"
+              quality={100}
+              className="object-contain p-16"
               style={{
                 opacity: cycleIndex === idx ? 1 : 0,
-                transition: 'opacity 0.25s ease-in-out',
+                transition: 'opacity 0.6s ease-in-out',
                 position: 'absolute',
               }}
               priority={idx === 0}
@@ -175,7 +175,7 @@ export default function VisualIdentityGallery() {
       {/* ── Mobile collage ────────────────────────────────────── */}
       <div className="grid md:hidden gap-1.5">
         {/* Cycling box: full width, 1:1 */}
-        <div className="relative overflow-hidden bg-[#12102A] border border-zinc-800" style={{ aspectRatio: '1/1' }}>
+        <div className="relative overflow-hidden bg-white border border-zinc-100" style={{ aspectRatio: '1/1' }}>
           {symitaImages.map((src, idx) => (
             <Image
               key={src}
@@ -183,10 +183,11 @@ export default function VisualIdentityGallery() {
               alt="Symita Logo Variations"
               fill
               sizes="100vw"
-              className="object-contain p-10"
+              quality={100}
+              className="object-contain p-16"
               style={{
                 opacity: cycleIndex === idx ? 1 : 0,
-                transition: 'opacity 0.25s ease-in-out',
+                transition: 'opacity 0.6s ease-in-out',
                 position: 'absolute',
               }}
               priority={idx === 0}
