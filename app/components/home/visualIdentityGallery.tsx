@@ -98,12 +98,6 @@ export default function VisualIdentityGallery() {
           </div>
         </div>
 
-        {/* Small subtitle inside header area */}
-        <div className="relative flex justify-center mt-2">
-          <span className="relative bg-white px-3 text-[10px] text-gray-400 tracking-wider uppercase select-none">
-            Symita — Designed by me
-          </span>
-        </div>
       </div>
 
       {/* ── Desktop collage (md+) ─────────────────────────────── */}
