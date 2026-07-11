@@ -299,7 +299,7 @@ export default function WorkGallery() {
               </div>
 
               {/* Image */}
-              <CardItem translateZ={9} className="relative overflow-hidden order-1 md:order-2 aspect-video block bg-gray-100">
+              <CardItem translateZ={9} className="w-full relative overflow-hidden order-1 md:order-2 aspect-video block bg-gray-100">
                 <a
                   href={work.href ?? '#'}
                   target="_blank"
