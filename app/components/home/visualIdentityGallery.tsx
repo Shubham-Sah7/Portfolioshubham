@@ -1,17 +1,31 @@
 "use client"
 
 import Image from 'next/image'
-import { useRef, useEffect } from 'react'
+import { useRef, useEffect, useState } from 'react'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 
 gsap.registerPlugin(ScrollTrigger)
+
+const symitaImages = [
+  '/images/Visuals/symita-V/symita-icon.png',
+  '/images/Visuals/symita-V/symita-logomark-06.png',
+  '/images/Visuals/symita-V/symita-logomark-05.png',
+]
 
 export default function VisualIdentityGallery() {
   const headerRef  = useRef<HTMLDivElement>(null)
   const visualEl   = useRef<HTMLHeadingElement>(null)
   const identityEl = useRef<HTMLHeadingElement>(null)
   const lineEl     = useRef<HTMLDivElement>(null)
+  const [cycleIndex, setCycleIndex] = useState(0)
+
+  useEffect(() => {
+    const id = setInterval(() => {
+      setCycleIndex(i => (i + 1) % symitaImages.length)
+    }, 1500) // 1.5s per cycle for comfortable viewing
+    return () => clearInterval(id)
+  }, [])
 
   useEffect(() => {
     const header   = headerRef.current
@@ -88,7 +102,7 @@ export default function VisualIdentityGallery() {
         {/* Small subtitle inside header area */}
         <div className="relative flex justify-center mt-2">
           <span className="relative bg-white px-3 text-[10px] text-gray-400 tracking-wider uppercase select-none">
-            Aether — Designed by me
+            Symita — Designed by me
           </span>
         </div>
       </div>
@@ -96,50 +110,62 @@ export default function VisualIdentityGallery() {
       {/* ── Desktop collage (md+) ─────────────────────────────── */}
       <div className="hidden md:flex gap-2">
 
-        {/* Left: construction grid square - aspect-ratio makes it 1:1 */}
+        {/* Left: cycling square - aspect-ratio makes it 1:1 */}
         <div
-          className="relative overflow-hidden bg-gray-50 shrink-0"
+          className="relative overflow-hidden bg-[#12102A] border border-zinc-800 shrink-0"
           style={{ flexBasis: 'calc(50% - 4px)', aspectRatio: '1 / 1' }}
         >
-          <Image
-            src="/images/Visuals/aether-V/AE-grid.png"
-            alt="Aether Logo Construction Grid"
-            fill
-            sizes="50vw"
-            className="object-cover"
-            priority
-          />
+          {symitaImages.map((src, idx) => (
+            <Image
+              key={src}
+              src={src}
+              alt="Symita Logo Variations"
+              fill
+              sizes="50vw"
+              className="object-contain p-10"
+              style={{
+                opacity: cycleIndex === idx ? 1 : 0,
+                transition: 'opacity 0.25s ease-in-out',
+                position: 'absolute',
+              }}
+              priority={idx === 0}
+            />
+          ))}
         </div>
 
-        {/* Right column: landscape top + 2 squares bottom */}
+        {/* Right column: landscape top + 2 wordmarks bottom */}
         <div className="flex flex-col gap-2 flex-1">
-          <div className="relative overflow-hidden bg-gray-50 flex-1">
-            <Image 
-              src="/images/Visuals/aether-V/AE-hero.png" 
-              alt="Aether Hero Branding" 
-              fill 
-              sizes="50vw" 
-              className="object-cover" 
+          <div className="relative overflow-hidden bg-white flex-1 border border-zinc-100 flex items-center justify-center p-8">
+            <Image
+              src="/images/Visuals/symita-V/symita-grid.png"
+              alt="Symita Logo Construction Diagram"
+              fill
+              sizes="50vw"
+              className="object-contain p-6"
             />
           </div>
           <div className="flex gap-2">
-            <div className="relative overflow-hidden bg-gray-50 flex-1" style={{ aspectRatio: '1 / 1' }}>
-              <Image 
-                src="/images/Visuals/aether-V/AE-mobile.png" 
-                alt="Aether Mobile App UI" 
-                fill 
-                sizes="25vw" 
-                className="object-cover" 
-              />
+            <div className="relative overflow-hidden bg-white flex-1 border border-zinc-100" style={{ aspectRatio: '1 / 1' }}>
+              <div className="absolute inset-6">
+                <Image
+                  src="/images/Visuals/symita-V/symita-pink.png"
+                  alt="Symita Pink Wordmark"
+                  fill
+                  sizes="25vw"
+                  className="object-contain"
+                />
+              </div>
             </div>
-            <div className="relative overflow-hidden bg-gray-50 flex-1" style={{ aspectRatio: '1 / 1' }}>
-              <Image 
-                src="/images/Visuals/aether-V/AE-stationery.png" 
-                alt="Aether Branding Stationery" 
-                fill 
-                sizes="25vw" 
-                className="object-cover" 
-              />
+            <div className="relative overflow-hidden bg-white flex-1 border border-zinc-100" style={{ aspectRatio: '1 / 1' }}>
+              <div className="absolute inset-6">
+                <Image
+                  src="/images/Visuals/symita-V/symita-blue.png"
+                  alt="Symita Blue Wordmark"
+                  fill
+                  sizes="25vw"
+                  className="object-contain"
+                />
+              </div>
             </div>
           </div>
         </div>
@@ -148,46 +174,58 @@ export default function VisualIdentityGallery() {
 
       {/* ── Mobile collage ────────────────────────────────────── */}
       <div className="grid md:hidden gap-1.5">
-        {/* Left/Grid box: full width, 1:1 */}
-        <div className="relative overflow-hidden bg-gray-50" style={{ aspectRatio: '1/1' }}>
+        {/* Cycling box: full width, 1:1 */}
+        <div className="relative overflow-hidden bg-[#12102A] border border-zinc-800" style={{ aspectRatio: '1/1' }}>
+          {symitaImages.map((src, idx) => (
+            <Image
+              key={src}
+              src={src}
+              alt="Symita Logo Variations"
+              fill
+              sizes="100vw"
+              className="object-contain p-10"
+              style={{
+                opacity: cycleIndex === idx ? 1 : 0,
+                transition: 'opacity 0.25s ease-in-out',
+                position: 'absolute',
+              }}
+              priority={idx === 0}
+            />
+          ))}
+        </div>
+        {/* Wide rectangle: construction diagram */}
+        <div className="relative overflow-hidden bg-white border border-zinc-100" style={{ aspectRatio: '2/1' }}>
           <Image
-            src="/images/Visuals/aether-V/AE-grid.png"
-            alt="Aether Logo Construction Grid"
+            src="/images/Visuals/symita-V/symita-grid.png"
+            alt="Symita Logo Construction Diagram"
             fill
             sizes="100vw"
-            className="object-cover"
-            priority
+            className="object-contain p-4"
           />
         </div>
-        {/* Wide rectangle */}
-        <div className="relative overflow-hidden bg-gray-50" style={{ aspectRatio: '2/1' }}>
-          <Image 
-            src="/images/Visuals/aether-V/AE-hero.png" 
-            alt="Aether Hero Branding" 
-            fill 
-            sizes="100vw" 
-            className="object-cover" 
-          />
-        </div>
-        {/* Two small squares */}
+        {/* Two small squares: wordmarks */}
         <div className="grid grid-cols-2 gap-1.5">
-          <div className="relative overflow-hidden bg-gray-50" style={{ aspectRatio: '1/1' }}>
-            <Image 
-              src="/images/Visuals/aether-V/AE-mobile.png" 
-              alt="Aether Mobile App UI" 
-              fill 
-              sizes="50vw" 
-              className="object-cover" 
-            />
+          <div className="relative overflow-hidden bg-white border border-zinc-100" style={{ aspectRatio: '1/1' }}>
+            <div className="absolute inset-4">
+              <Image
+                src="/images/Visuals/symita-V/symita-pink.png"
+                alt="Symita Pink Wordmark"
+                fill
+                sizes="50vw"
+                className="object-contain"
+              />
+            </div>
           </div>
-          <div className="relative overflow-hidden bg-gray-50" style={{ aspectRatio: '1/1' }}>
-            <Image 
-              src="/images/Visuals/aether-V/AE-stationery.png" 
-              alt="Aether Branding Stationery" 
-              fill 
-              sizes="50vw" 
-              className="object-cover" 
-            />
+          <div className="relative overflow-hidden bg-white border border-zinc-100" style={{ aspectRatio: '1/1' }}>
+            <div className="absolute inset-4">
+              <Image
+                src="/images/Visuals/symita-V/symita-blue.png"
+                alt="Symita Blue Wordmark"
+                fill
+                sizes="50vw"
+                className="object-contain"
+              />
+            </div>
           </div>
         </div>
       </div>
