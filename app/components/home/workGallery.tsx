@@ -178,7 +178,7 @@ export default function WorkGallery() {
       {/* ── Section header ──────────────────────────────────────── */}
       <div
         ref={headerRef}
-        className="px-6 md:px-10 pb-8 md:pb-12 overflow-hidden"
+        className="pb-8 md:pb-12 overflow-hidden"
       >
         {/* Inner wrapper: height = text height only, so top:50% = text midline */}
         <div className="relative">
@@ -244,7 +244,7 @@ export default function WorkGallery() {
           style={{ width: 'auto', height: '390px', top: '85%', right: 'calc(50% - 50vw - 25px)', transform: 'translateY(0px) rotate(-18deg)', filter: 'brightness(0) opacity(0.10)' }}
         />
 
-      <div className="flex flex-col gap-10 md:gap-16 px-6 md:px-10">
+      <div className="flex flex-col gap-10 md:gap-16">
         {works.map((work) => (
           <CardContainer key={work.num} containerClassName="w-full p-0" className="w-full">
             <CardBody className="relative border border-gray-200 grid grid-cols-1 md:grid-cols-2 w-full">
