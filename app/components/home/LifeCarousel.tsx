@@ -3,19 +3,19 @@
 import { useRef } from 'react'
 
 const CARDS = [
-  { label: 'I Design',   sub: 'probably 3am brainstorming',          url: '/images/life/Design.jpeg',   imgClass: 'object-bottom' },
-  { label: 'I Ride',     sub: 'highways and mountain passes',         url: '/images/life/Ride.jpeg',     imgClass: 'object-center' },
-  { label: 'I Play',     sub: 'every sport I could find',             url: '/images/life/Play.jpeg',     imgClass: 'object-center' },
-  { label: 'I Read',     sub: 'currently into neuroscience',          url: '/images/life/Read.jpeg',     imgClass: 'object-center' },
+  { label: 'I Design',   sub: 'Probably 3am brainstorming',          url: '/images/life/Design.jpeg',   imgClass: 'object-bottom' },
+  { label: 'I Ride',     sub: 'Highways and mountain passes',         url: '/images/life/Ride.jpeg',     imgClass: 'object-center' },
+  { label: 'I Play',     sub: 'Every sport I could find',             url: '/images/life/Play.jpeg',     imgClass: 'object-center' },
+  { label: 'I Read',     sub: 'Currently into neuroscience',          url: '/images/life/Read.jpeg',     imgClass: 'object-center' },
   { label: 'I Explore',  sub: 'Solo',                                  url: '/images/life/travel.jpeg',   imgClass: 'object-top' },
-  { label: 'Weekend',    sub: 'badminton with the crew',              url: '/images/life/Team.jpeg',     imgClass: 'object-top' },
+  { label: 'Weekend',    sub: 'Badminton with the crew',              url: '/images/life/Team.jpeg',     imgClass: 'object-top' },
   { label: 'I Wander',   sub: 'Bhutan, my neighbour country',         url: '/images/life/Bhutan.jpeg',   imgClass: 'object-top' },
   { label: 'I Meditate', sub: 'Coimbatore, Isha Foundation',          url: '/images/life/Meditate2.jpeg', imgClass: 'object-top' },
   { label: 'I Click',    sub: 'Mountains and beaches',                 url: '/images/life/Click2.jpeg',   imgClass: 'object-top' },
-  { label: 'I Reflect',  sub: 'where I find peace',                   url: '/images/life/Solo.jpeg',     imgClass: 'object-center' },
-  { label: 'I Compete',  sub: 'national level football, college team', url: '/images/life/Sport.jpeg',    imgClass: 'object-top' },
-  { label: 'I Climb',    sub: 'somewhere in Nepal',                   url: '/images/life/k2.jpeg',       imgClass: 'object-center' },
-  { label: 'I Lift',     sub: 'double my body weight',                url: '/images/life/Lift.jpeg',     imgClass: 'object-center' },
+  { label: 'I Reflect',  sub: 'Where I find peace',                   url: '/images/life/Solo.jpeg',     imgClass: 'object-center' },
+  { label: 'I Compete',  sub: 'National level football, college team', url: '/images/life/Sport.jpeg',    imgClass: 'object-top' },
+  { label: 'I Climb',    sub: 'Somewhere in Nepal',                   url: '/images/life/k2.jpeg',       imgClass: 'object-center' },
+  { label: 'I Lift',     sub: 'Double my body weight',                url: '/images/life/Lift.jpeg',     imgClass: 'object-center' },
 ]
 
 // Duplicate track for seamless infinite horizontal scrolling
