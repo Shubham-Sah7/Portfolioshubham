@@ -55,7 +55,7 @@ export default function Home() {
               width={62}
               height={62}
               className="mb-6 md:mb-16"
-              style={{ mixBlendMode: 'multiply', filter: 'invert(1)' }}
+              style={{ mixBlendMode: 'multiply', filter: 'invert(1)', transform: 'rotate(180deg)' }}
             />
             <h1 className="text-4xl md:text-5xl tracking-tight text-black">
               <span style={{ fontFamily: 'SatishCapsSans, sans-serif', fontSize: '1.5em' }}>S</span><span style={{ fontFamily: 'SatishSans, sans-serif', marginLeft: '4px' }}>hubham </span>
