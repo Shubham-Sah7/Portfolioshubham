@@ -3,8 +3,8 @@
 import { useRef } from 'react'
 
 const CARDS = [
-  { label: 'I Design',   url: '/images/life/Design.jpeg',   rot: '-3deg' },
-  { label: 'I Ride',     url: '/images/life/Ride.jpeg',     rot: '2.5deg' },
+  { label: 'I Design',   url: '/images/life/Design.jpeg',   rot: '-3deg', imgClass: 'scale-[1.35] origin-bottom' },
+  { label: 'I Ride',     url: '/images/life/Ride.jpeg',     rot: '2.5deg', imgClass: 'scale-[1.3] origin-center' },
   { label: 'I Play',     url: '/images/life/Play.jpeg',     rot: '-1.5deg' },
   { label: 'I Read',     url: '/images/life/Read.jpeg',     rot: '3deg' },
   { label: 'I Explore',  url: '/images/life/travel.jpeg',   rot: '-2deg' },
@@ -70,7 +70,7 @@ export default function LifeCarousel() {
             style={{ animation: 'life-scroll 45s linear infinite' }}
           >
             {TRACK.map((c, i) => (
-              <Polaroid key={i} label={c.label} url={c.url} rot={c.rot} />
+              <Polaroid key={i} label={c.label} url={c.url} rot={c.rot} imgClass={c.imgClass} />
             ))}
           </div>
         </div>
@@ -90,7 +90,7 @@ export default function LifeCarousel() {
   )
 }
 
-function Polaroid({ label, url, rot }: { label: string; url: string; rot: string }) {
+function Polaroid({ label, url, rot, imgClass }: { label: string; url: string; rot: string; imgClass?: string }) {
   return (
     <div
       className="shrink-0 select-none group/polaroid transition-all duration-500 ease-out"
@@ -115,7 +115,7 @@ function Polaroid({ label, url, rot }: { label: string; url: string; rot: string
           <img
             src={url}
             alt={label}
-            className="w-full h-full object-cover grayscale opacity-90 group-hover/polaroid:grayscale-0 group-hover/polaroid:opacity-100 transition-all duration-500"
+            className={`w-full h-full object-cover grayscale opacity-90 group-hover/polaroid:grayscale-0 group-hover/polaroid:opacity-100 transition-all duration-500 ${imgClass || ''}`}
             loading="lazy"
           />
         </div>
