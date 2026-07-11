@@ -3,17 +3,17 @@
 import { useRef } from 'react'
 
 const CARDS = [
-  { label: 'I Design',   url: '/images/life/Design.jpeg',   rot: '-3deg', imgClass: 'scale-[1.35] origin-bottom' },
-  { label: 'I Ride',     url: '/images/life/Ride.jpeg',     rot: '2.5deg', imgClass: 'scale-[1.3] origin-center' },
-  { label: 'I Play',     url: '/images/life/Play.jpeg',     rot: '-1.5deg' },
-  { label: 'I Read',     url: '/images/life/Read.jpeg',     rot: '3deg' },
-  { label: 'I Explore',  url: '/images/life/travel.jpeg',   rot: '-2deg' },
-  { label: 'My Team',    url: '/images/life/Team.jpeg',     rot: '1.5deg' },
-  { label: 'I Wander',   url: '/images/life/Bhutan.jpeg',   rot: '-2.5deg' },
-  { label: 'I Meditate', url: '/images/life/Meditate.jpeg', rot: '2deg', imgClass: 'object-top' },
-  { label: 'I Reflect',  url: '/images/life/Solo.jpeg',     rot: '-1deg' },
-  { label: 'I Compete',  url: '/images/life/Sport.jpeg',    rot: '3deg' },
-  { label: 'I Climb',    url: '/images/life/k2.jpeg',       rot: '-2deg' },
+  { label: 'I Design',   url: '/images/life/Design.jpeg',   imgClass: 'scale-[1.35] origin-bottom' },
+  { label: 'I Ride',     url: '/images/life/Ride.jpeg',     imgClass: 'scale-[1.3] origin-center' },
+  { label: 'I Play',     url: '/images/life/Play.jpeg' },
+  { label: 'I Read',     url: '/images/life/Read.jpeg' },
+  { label: 'I Explore',  url: '/images/life/travel.jpeg' },
+  { label: 'My Team',    url: '/images/life/Team.jpeg' },
+  { label: 'I Wander',   url: '/images/life/Bhutan.jpeg' },
+  { label: 'I Meditate', url: '/images/life/Meditate.jpeg', imgClass: 'object-top' },
+  { label: 'I Reflect',  url: '/images/life/Solo.jpeg' },
+  { label: 'I Compete',  url: '/images/life/Sport.jpeg' },
+  { label: 'I Climb',    url: '/images/life/k2.jpeg' },
 ]
 
 // Duplicate track for seamless infinite horizontal scrolling
@@ -70,7 +70,7 @@ export default function LifeCarousel() {
             style={{ animation: 'life-scroll 45s linear infinite' }}
           >
             {TRACK.map((c, i) => (
-              <Polaroid key={i} label={c.label} url={c.url} rot={c.rot} imgClass={c.imgClass} />
+              <Polaroid key={i} label={c.label} url={c.url} imgClass={c.imgClass} />
             ))}
           </div>
         </div>
@@ -90,18 +90,11 @@ export default function LifeCarousel() {
   )
 }
 
-function Polaroid({ label, url, rot, imgClass }: { label: string; url: string; rot: string; imgClass?: string }) {
+function Polaroid({ label, url, imgClass }: { label: string; url: string; imgClass?: string }) {
   return (
-    <div
-      className="shrink-0 select-none group/polaroid transition-all duration-500 ease-out"
-      style={{
-        transform: `rotate(${rot})`,
-        transformOrigin: 'center bottom',
-      }}
-    >
-      {/* Clean Polaroid Card Shape (no background color inside, just white card) */}
+    <div className="shrink-0 select-none group/polaroid">
       <div
-        className="relative bg-white border border-zinc-300 shadow-[0_4px_12px_rgba(0,0,0,0.02)] group-hover/polaroid:shadow-[0_12px_24px_rgba(0,0,0,0.06)] group-hover/polaroid:-translate-y-4 group-hover/polaroid:rotate-0 flex flex-col transition-all duration-300"
+        className="relative bg-white border border-zinc-300 shadow-[0_4px_12px_rgba(0,0,0,0.04)] group-hover/polaroid:shadow-[0_12px_28px_rgba(0,0,0,0.08)] group-hover/polaroid:-translate-y-3 flex flex-col transition-all duration-300 ease-out"
         style={{ width: 264, padding: '14px 14px 30px 14px' }}
       >
         {/* Corner plus markers */}
