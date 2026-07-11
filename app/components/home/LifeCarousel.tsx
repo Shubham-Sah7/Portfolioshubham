@@ -58,6 +58,9 @@ export default function LifeCarousel() {
         <p className="text-center text-xs text-gray-400 mt-4 leading-relaxed max-w-md mx-auto">
           Generally a Jack of all trades, also master of some. Snapshots of things I love, build, capture, and explore when I am not at my desk.
         </p>
+        <p className="text-center text-[10.5px] text-zinc-400 mt-2 italic tracking-wider select-none">
+          Hover to add color to my life.
+        </p>
       </div>
 
       {/* ── Full bleed marquee wrapper (no borders, no background color) ──────── */}
