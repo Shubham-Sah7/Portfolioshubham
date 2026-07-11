@@ -21,7 +21,8 @@ export default function HeroGrid() {
           alt="SA"
           width={40}
           height={40}
-          className="w-8 h-8 md:w-10 md:h-10 object-contain opacity-80"
+          className="w-8 h-8 md:w-10 md:h-10 object-contain"
+          style={{ mixBlendMode: 'multiply', filter: 'invert(1)' }}
         />
         <h1
           className="text-2xl md:text-4xl font-light tracking-tight"

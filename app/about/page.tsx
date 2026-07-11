@@ -42,7 +42,7 @@ export default function About() {
             alt="Shubham Sah"
             width={48}
             height={48}
-            style={{ opacity: 0.6 }}
+            style={{ mixBlendMode: 'multiply', filter: 'invert(1)' }}
           />
         </div>
 

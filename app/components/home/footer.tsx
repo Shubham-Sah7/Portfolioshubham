@@ -34,7 +34,8 @@ export default function Footer() {
             alt="Satish"
             width={56}
             height={56}
-            className="w-12 h-12 mb-4 opacity-80"
+            className="w-12 h-12 mb-4"
+            style={{ mixBlendMode: 'multiply', filter: 'invert(1)' }}
           />
           <h3
             className="text-3xl md:text-4xl font-light text-gray-900 leading-snug"
