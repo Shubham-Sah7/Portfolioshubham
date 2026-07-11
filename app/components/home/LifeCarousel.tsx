@@ -66,7 +66,11 @@ export default function LifeCarousel() {
           <div
             ref={trackRef}
             className="flex gap-6 md:gap-8 w-max life-track"
-            style={{ animation: 'life-scroll 45s linear infinite' }}
+            style={{
+              animation: 'life-scroll 55s linear infinite',
+              willChange: 'transform',
+              transform: 'translateZ(0)',
+            }}
           >
             {TRACK.map((c, i) => (
               <Polaroid key={i} label={c.label} sub={c.sub} url={c.url} imgClass={c.imgClass} />
@@ -78,8 +82,8 @@ export default function LifeCarousel() {
       {/* ── Styles ──────────────────────────────────────────── */}
       <style>{`
         @keyframes life-scroll {
-          0%   { transform: translateX(0) }
-          100% { transform: translateX(-33.3333%) }
+          0%   { transform: translate3d(0, 0, 0) }
+          100% { transform: translate3d(-33.3333%, 0, 0) }
         }
         .life-track-container:hover .life-track {
           animation-play-state: paused;
@@ -108,7 +112,8 @@ function Polaroid({ label, sub, url, imgClass }: { label: string; sub?: string; 
             src={url}
             alt={label}
             className={`w-full h-full object-cover transition-all duration-500 ${imgClass || ''}`}
-            loading="lazy"
+            loading="eager"
+            decoding="async"
           />
         </div>
         
