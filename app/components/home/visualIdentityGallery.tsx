@@ -109,29 +109,34 @@ export default function VisualIdentityGallery() {
       {/* ── Desktop collage (md+) ─────────────────────────────── */}
       <div className="hidden md:flex gap-2">
 
-        {/* Left: cycling square */}
+        {/* Left: cycling square — pink always underneath, green fades on top */}
         <div
           className="relative overflow-hidden bg-[#0f0e17] shrink-0"
           style={{ flexBasis: 'calc(50% - 4px)', aspectRatio: '1 / 1' }}
         >
-          {symitaImages.map((src, idx) => (
-            <Image
-              key={src}
-              src={src}
-              alt="Symita Logo Variations"
-              fill
-              sizes="50vw"
-              quality={100}
-              className="object-contain p-12"
-              style={{
-                opacity: cycleIndex === idx ? 1 : 0,
-                transform: cycleIndex === idx ? 'scale(1)' : 'scale(0.94)',
-                transition: 'opacity 0.8s cubic-bezier(0.4,0,0.2,1), transform 0.8s cubic-bezier(0.4,0,0.2,1)',
-                position: 'absolute',
-              }}
-              priority={idx === 0}
-            />
-          ))}
+          {/* Pink — always visible at bottom */}
+          <Image
+            src="/images/Visuals/symita-V/symita-icon.png"
+            alt="Symita Pink Logo"
+            fill sizes="50vw" quality={100}
+            className="object-contain p-12"
+            style={{ position: 'absolute', zIndex: 1 }}
+            priority
+          />
+          {/* Green — fades in/out on top, no gap ever */}
+          <Image
+            src="/images/Visuals/symita-V/symita-logomark-06.png"
+            alt="Symita Green Logo"
+            fill sizes="50vw" quality={100}
+            className="object-contain p-12"
+            style={{
+              position: 'absolute',
+              zIndex: 2,
+              opacity: cycleIndex === 1 ? 1 : 0,
+              transform: cycleIndex === 1 ? 'scale(1)' : 'scale(0.96)',
+              transition: 'opacity 0.9s cubic-bezier(0.4,0,0.2,1), transform 0.9s cubic-bezier(0.4,0,0.2,1)',
+            }}
+          />
         </div>
 
         {/* Right column: landscape top + 2 wordmarks bottom */}
@@ -177,24 +182,27 @@ export default function VisualIdentityGallery() {
       <div className="grid md:hidden gap-1.5">
         {/* Cycling box: full width, 1:1 */}
         <div className="relative overflow-hidden bg-[#0f0e17]" style={{ aspectRatio: '1/1' }}>
-          {symitaImages.map((src, idx) => (
-            <Image
-              key={src}
-              src={src}
-              alt="Symita Logo Variations"
-              fill
-              sizes="100vw"
-              quality={100}
-              className="object-contain p-12"
-              style={{
-                opacity: cycleIndex === idx ? 1 : 0,
-                transform: cycleIndex === idx ? 'scale(1)' : 'scale(0.94)',
-                transition: 'opacity 0.8s cubic-bezier(0.4,0,0.2,1), transform 0.8s cubic-bezier(0.4,0,0.2,1)',
-                position: 'absolute',
-              }}
-              priority={idx === 0}
-            />
-          ))}
+          <Image
+            src="/images/Visuals/symita-V/symita-icon.png"
+            alt="Symita Pink Logo"
+            fill sizes="100vw" quality={100}
+            className="object-contain p-12"
+            style={{ position: 'absolute', zIndex: 1 }}
+            priority
+          />
+          <Image
+            src="/images/Visuals/symita-V/symita-logomark-06.png"
+            alt="Symita Green Logo"
+            fill sizes="100vw" quality={100}
+            className="object-contain p-12"
+            style={{
+              position: 'absolute',
+              zIndex: 2,
+              opacity: cycleIndex === 1 ? 1 : 0,
+              transform: cycleIndex === 1 ? 'scale(1)' : 'scale(0.96)',
+              transition: 'opacity 0.9s cubic-bezier(0.4,0,0.2,1), transform 0.9s cubic-bezier(0.4,0,0.2,1)',
+            }}
+          />
         </div>
         {/* Wide rectangle: construction diagram */}
         <div className="relative overflow-hidden bg-white border border-zinc-100" style={{ aspectRatio: '2/1' }}>
