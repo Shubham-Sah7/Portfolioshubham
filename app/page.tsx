@@ -99,17 +99,11 @@ export default function Home() {
           <ProposalsGallery />
         </div>
 
-        {/* Unplugged section - commented out, revisit later */}
-        {/* <div data-section="unplugged">
-          <UnpluggedGallery />
-        </div> */}
+      </div>
 
-        {/* Life Carousel */}
-        <div data-section="life">
-          <LifeCarousel />
-        </div>
-
-
+      {/* Life Carousel */}
+      <div data-section="life">
+        <LifeCarousel />
       </div>
 
       {/* Footer Playground — full-bleed, outside max-w container */}

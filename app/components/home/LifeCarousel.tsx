@@ -27,7 +27,7 @@ const Plus = ({ h, v = 'bottom' }: { h: 'left' | 'right'; v?: 'top' | 'bottom' }
       [h]: 0,
       [v]: 0,
       transform: `translate(${h === 'left' ? '-50%' : '50%'}, ${v === 'top' ? '-50%' : '50%'})`,
-      color: '#c2b9a7',
+      color: '#d4d4d8',
       zIndex: 10,
     }}
   >
@@ -44,13 +44,13 @@ export default function LifeCarousel() {
       {/* ── Section header ──────────────────────────────────────── */}
       <div className="px-6 md:px-10 pb-8 md:pb-12 overflow-hidden max-w-5xl mx-auto">
         <div className="relative">
-          <div className="absolute inset-x-0 border-t border-[#d5cebf]" style={{ top: '50%' }} />
+          <div className="absolute inset-x-0 border-t border-gray-200" style={{ top: '50%' }} />
           <div className="relative flex items-baseline justify-center gap-2">
-            <h2 className="relative bg-white pr-3 text-2xl md:text-3xl font-light text-[#5c4d37] shrink-0 whitespace-nowrap">
+            <h2 className="relative bg-white pr-3 text-2xl md:text-3xl font-light text-black shrink-0 whitespace-nowrap">
               <span style={{ fontFamily: 'SatishCapsSans, sans-serif', fontSize: '1.5em' }}>L</span>
               <span style={{ fontFamily: 'SatishSans, sans-serif' }}>ife</span>
             </h2>
-            <h2 className="relative bg-white pl-3 text-2xl md:text-3xl font-light text-[#5c4d37] shrink-0 whitespace-nowrap">
+            <h2 className="relative bg-white pl-3 text-2xl md:text-3xl font-light text-black shrink-0 whitespace-nowrap">
               <span style={{ fontFamily: 'SatishCapsSans, sans-serif', fontSize: '1.5em' }}>&amp;</span>
               <span style={{ fontFamily: 'SatishSans, sans-serif' }}> Inspiration</span>
             </h2>
@@ -62,7 +62,7 @@ export default function LifeCarousel() {
       </div>
 
       {/* ── Full bleed marquee wrapper ────────────────────────── */}
-      <div className="relative w-full border-y border-[#eae5da] py-10 overflow-hidden bg-[#faf9f5]">
+      <div className="relative w-full border-y border-gray-200 py-10 overflow-hidden bg-gray-50/40">
         <Plus h="left" v="top" />
         <Plus h="right" v="top" />
         <Plus h="left" v="bottom" />
@@ -104,48 +104,46 @@ function Polaroid({ label, url, rot }: { label: string; url: string; rot: string
         transformOrigin: 'center bottom',
       }}
     >
-      {/* Stone / Manuscript Frame */}
+      {/* Clean White Card Frame */}
       <div
-        className="bg-[#faf7f0] border border-[#dcd6c5] shadow-[0_4px_20px_rgba(40,30,20,0.06)] group-hover/polaroid:shadow-[0_12px_36px_rgba(40,30,20,0.12)] group-hover/polaroid:-translate-y-4 group-hover/polaroid:rotate-0 flex flex-col transition-all duration-300 relative"
-        style={{ width: 210, padding: '12px 12px 28px 12px', borderRadius: 4 }}
+        className="bg-white border border-zinc-200 shadow-[0_4px_16px_rgba(0,0,0,0.04)] group-hover/polaroid:shadow-[0_12px_28px_rgba(0,0,0,0.08)] group-hover/polaroid:-translate-y-4 group-hover/polaroid:rotate-0 flex flex-col transition-all duration-300 relative"
+        style={{ width: 210, padding: '12px 12px 28px 12px', borderRadius: 2 }}
       >
-        {/* Inner manuscript border lining */}
-        <div className="absolute inset-2 border border-[#eae3d2] pointer-events-none rounded-[3px]" />
+        {/* Inner lining */}
+        <div className="absolute inset-1.5 border border-zinc-100 pointer-events-none rounded-[1px]" />
         
-        {/* Corner manuscript accents */}
-        <span className="absolute top-3.5 left-3.5 text-[8px] text-[#b5a687] select-none">✦</span>
-        <span className="absolute top-3.5 right-3.5 text-[8px] text-[#b5a687] select-none">✦</span>
+        {/* Corner dots */}
+        <span className="absolute top-3 left-3 text-[5px] text-zinc-300 select-none">•</span>
+        <span className="absolute top-3 right-3 text-[5px] text-zinc-300 select-none">•</span>
         
-        {/* Photo container - Temple Arch shape! */}
+        {/* Photo container - Clean Temple Arch shape */}
         <div 
-          className="w-full aspect-[4/5] rounded-t-[99px] rounded-b-[4px] overflow-hidden bg-[#f0ede4] relative border border-[#e4decb]"
+          className="w-full aspect-[4/5] rounded-t-[99px] rounded-b-[2px] overflow-hidden bg-zinc-50 relative border border-zinc-200"
           style={{ zIndex: 1 }}
         >
           <img
             src={url}
             alt={label}
-            className="w-full h-full object-cover sepia-[15%] contrast-[105%] group-hover/polaroid:sepia-0 transition-all duration-500"
+            className="w-full h-full object-cover grayscale opacity-90 group-hover/polaroid:grayscale-0 group-hover/polaroid:opacity-100 transition-all duration-500"
             loading="lazy"
           />
-          {/* Inner shadow overlay in the arch */}
-          <div className="absolute inset-0 shadow-[inset_0_4px_12px_rgba(0,0,0,0.06)] pointer-events-none rounded-t-[99px]" />
+          {/* Inner shade overlay */}
+          <div className="absolute inset-0 shadow-[inset_0_4px_12px_rgba(0,0,0,0.04)] pointer-events-none rounded-t-[99px]" />
         </div>
         
-        {/* Label & Ornate ornament */}
+        {/* Label & Accent dot */}
         <div className="mt-4 text-center relative z-10 flex flex-col items-center">
           <p
-            className="text-[#5c4d37] text-[13px] font-medium tracking-wide"
+            className="text-zinc-800 group-hover/polaroid:text-black text-[13px] font-light tracking-wide transition-colors"
             style={{ fontFamily: 'SatishSans, sans-serif' }}
           >
             {label}
           </p>
-          {/* Classical Indian floral-like divider ornament */}
-          <div className="flex items-center gap-1.5 mt-1.5 w-full justify-center opacity-70">
-            <div className="h-[0.5px] w-8 bg-[#b5a687]" />
-            <svg width="5" height="5" viewBox="0 0 24 24" fill="#b5a687" className="rotate-45 shrink-0">
-              <rect width="24" height="24" />
-            </svg>
-            <div className="h-[0.5px] w-8 bg-[#b5a687]" />
+          {/* Minimalist dot/line divider */}
+          <div className="flex items-center gap-1.5 mt-1.5 w-full justify-center opacity-60">
+            <div className="h-[0.5px] w-6 bg-zinc-200" />
+            <span className="text-[6px] text-zinc-350 select-none">•</span>
+            <div className="h-[0.5px] w-6 bg-zinc-200" />
           </div>
         </div>
       </div>
