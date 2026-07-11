@@ -14,7 +14,7 @@ import FooterPlayground from "./components/home/FooterPlayground"
 
 export default function Home() {
   return (
-    <div className="bg-white relative flex flex-col gap-20 md:gap-28 overflow-x-clip w-full">
+    <div className="bg-white relative flex flex-col gap-20 md:gap-28 w-full">
 
       <Loader />
       <PageBranches />
