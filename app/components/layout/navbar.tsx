@@ -309,10 +309,10 @@ export default function Navbar() {
         }}
       >
         {/* Corner squares - half outside */}
-        <div className={`absolute -top-1 -left-1 w-2 h-2 ${showWhiteNav ? 'bg-white/25' : 'bg-zinc-300'}`} />
-        <div className={`absolute -top-1 -right-1 w-2 h-2 ${showWhiteNav ? 'bg-white/25' : 'bg-zinc-300'}`} />
-        <div className={`absolute -bottom-1 -left-1 w-2 h-2 ${showWhiteNav ? 'bg-white/25' : 'bg-zinc-300'}`} />
-        <div className={`absolute -bottom-1 -right-1 w-2 h-2 ${showWhiteNav ? 'bg-white/25' : 'bg-zinc-300'}`} />
+        <div className={`hidden md:block absolute -top-1 -left-1 w-2 h-2 ${showWhiteNav ? 'bg-white/25' : 'bg-zinc-300'}`} />
+        <div className={`hidden md:block absolute -top-1 -right-1 w-2 h-2 ${showWhiteNav ? 'bg-white/25' : 'bg-zinc-300'}`} />
+        <div className={`hidden md:block absolute -bottom-1 -left-1 w-2 h-2 ${showWhiteNav ? 'bg-white/25' : 'bg-zinc-300'}`} />
+        <div className={`hidden md:block absolute -bottom-1 -right-1 w-2 h-2 ${showWhiteNav ? 'bg-white/25' : 'bg-zinc-300'}`} />
          {navItems.map((item, index) => (
           <div key={item.name} className={`flex items-center ${isMounted ? "gap-0.5 md:gap-3" : "gap-0.5"}`}>
             <button
