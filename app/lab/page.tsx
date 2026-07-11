@@ -1,3 +1,13 @@
+// Lab index — temporarily showing Playground directly.
+// Original lab grid is commented out below.
+
+import Playground from './playground/page'
+
+export default function Lab() {
+  return <Playground />
+}
+
+/*
 import Link from 'next/link'
 import LabHeader from './LabHeader'
 import { CardContainer, CardBody, CardItem } from '@/components/ui/3d-card'
@@ -37,7 +47,6 @@ export default function Lab() {
           animation-play-state: running;
         }
 
-        /* Thumbnail positioning - CSS classes so media queries can override */
         .walkman-thumb-wrap {
           position: absolute;
           top: -70px;
@@ -58,7 +67,6 @@ export default function Lab() {
         }
 
         @media (max-width: 767px) {
-          /* Center thumbnails at bottom on mobile */
           .walkman-thumb-wrap {
             top: auto;
             right: auto;
@@ -78,7 +86,6 @@ export default function Lab() {
             width: 170px;
             margin: 0 auto;
           }
-          /* Full-width text on mobile */
           .qr-card-desc {
             max-width: 100%;
           }
@@ -89,7 +96,6 @@ export default function Lab() {
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
 
-        {/* Color Memo */}
         <Link href="/lab/color" className="color-wheel-card" style={{ textDecoration: 'none', display: 'block' }}>
           <CardContainer containerClassName="w-full p-0" className="w-full">
             <CardBody className="w-full h-[220px] relative border border-gray-200 overflow-hidden px-6 py-8"
@@ -114,7 +120,6 @@ export default function Lab() {
           </CardContainer>
         </Link>
 
-        {/* YT Walkman */}
         <Link href="/lab/walkman" style={{ textDecoration: 'none', display: 'block' }}>
           <CardContainer containerClassName="w-full p-0" className="w-full">
             <CardBody className="walkman-card-body w-full h-[220px] relative border border-gray-200 overflow-hidden px-6 py-8"
@@ -138,7 +143,6 @@ export default function Lab() {
           </CardContainer>
         </Link>
 
-        {/* QR Device */}
         <Link href="/lab/qr-device" style={{ textDecoration: 'none', display: 'block' }}>
           <CardContainer containerClassName="w-full p-0" className="w-full">
             <CardBody className="qr-card-body w-full h-[220px] relative border border-gray-200 overflow-hidden px-6 py-8"
@@ -162,7 +166,6 @@ export default function Lab() {
           </CardContainer>
         </Link>
 
-        {/* Playground */}
         <Link href="/lab/playground" style={{ textDecoration: 'none', display: 'block' }}>
           <CardContainer containerClassName="w-full p-0" className="w-full">
             <CardBody className="w-full h-[220px] relative border border-gray-200 overflow-hidden px-6 py-8"
@@ -191,3 +194,4 @@ export default function Lab() {
     </div>
   )
 }
+*/
