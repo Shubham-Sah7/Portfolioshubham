@@ -61,9 +61,9 @@ export default function LifeCarousel() {
       </div>
 
       {/* ── Full bleed marquee wrapper (no borders, no background color) ──────── */}
-      <div className="relative w-full py-10 overflow-hidden bg-white">
+      <div className="relative w-full py-16 overflow-hidden bg-white">
 
-        <div className="relative overflow-hidden w-full life-track-container">
+        <div className="relative overflow-visible w-full life-track-container">
           <div
             ref={trackRef}
             className="flex gap-6 md:gap-8 w-max life-track"
