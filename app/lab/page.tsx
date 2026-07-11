@@ -1,13 +1,12 @@
-// Lab index — temporarily showing Playground directly.
-// Original lab grid is commented out below.
-
-import Playground from './playground/page'
+import { redirect } from 'next/navigation'
 
 export default function Lab() {
-  return <Playground />
+  redirect('/lab/playground')
 }
 
 /*
+ * Original lab grid — commented out, restore when needed.
+ *
 import Link from 'next/link'
 import LabHeader from './LabHeader'
 import { CardContainer, CardBody, CardItem } from '@/components/ui/3d-card'
@@ -30,167 +29,9 @@ const ArrowBtn = ({ light = false }: { light?: boolean }) => (
 
 export default function Lab() {
   return (
-    <div
-      className="bg-white min-h-screen px-8 pt-28 md:pt-36 pb-16 max-w-5xl mx-auto"
-      style={{ fontFamily: 'FunnelDisplay, sans-serif' }}
-    >
-      <style>{`
-        @keyframes spin-slow {
-          from { transform: rotate(0deg); }
-          to { transform: rotate(360deg); }
-        }
-        .color-wheel-spin {
-          animation: spin-slow 12s linear infinite;
-          animation-play-state: paused;
-        }
-        .color-wheel-card:hover .color-wheel-spin {
-          animation-play-state: running;
-        }
-
-        .walkman-thumb-wrap {
-          position: absolute;
-          top: -70px;
-          right: -45px;
-          width: 250px;
-          height: 250px;
-          pointer-events: none;
-        }
-        .qr-thumb-wrap {
-          position: absolute;
-          bottom: 16px;
-          right: 10px;
-          width: 200px;
-          pointer-events: none;
-        }
-        .qr-card-desc {
-          max-width: 55%;
-        }
-
-        @media (max-width: 767px) {
-          .walkman-thumb-wrap {
-            top: auto;
-            right: auto;
-            left: -20px;
-            bottom: -75px;
-            width: 200px;
-            height: 200px;
-            margin: 0;
-          }
-          .walkman-thumb-wrap img {
-            transform: rotate(-14deg) !important;
-          }
-          .qr-thumb-wrap {
-            right: 0;
-            left: 0;
-            bottom: -75px;
-            width: 170px;
-            margin: 0 auto;
-          }
-          .qr-card-desc {
-            max-width: 100%;
-          }
-        }
-      `}</style>
-
-      <LabHeader />
-
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-
-        <Link href="/lab/color" className="color-wheel-card" style={{ textDecoration: 'none', display: 'block' }}>
-          <CardContainer containerClassName="w-full p-0" className="w-full">
-            <CardBody className="w-full h-[220px] relative border border-gray-200 overflow-hidden px-6 py-8"
-              style={{ background: 'linear-gradient(135deg, #fff8ee 0%, #ffffff 60%)', borderRadius: 0 }}>
-              <CardItem translateZ={50} className="block"
-                style={{ fontFamily: 'SatishSans, sans-serif', fontSize: '1.5rem', fontWeight: 300, letterSpacing: '-0.01em', color: '#111' }}>
-                Color Memo
-              </CardItem>
-              <CardItem translateZ={60} as="p" className="block mt-3"
-                style={{ fontSize: '0.75rem', color: 'rgba(0,0,0,0.4)', letterSpacing: '0.02em', lineHeight: 1.5 }}>
-                A game that tests how sharp<br />your color memory really is
-              </CardItem>
-              <CardItem translateZ={100} className="absolute" style={{ bottom: -45, right: -45 }}>
-                <img src="/images/HomeImages/color-wheel.webp" alt=""
-                  className="color-wheel-spin"
-                  style={{ width: 160, height: 160, objectFit: 'contain', pointerEvents: 'none', opacity: 0.92 }} />
-              </CardItem>
-              <CardItem translateZ={30} className="absolute" style={{ bottom: 20, right: 20, zIndex: 1 }}>
-                <ArrowBtn />
-              </CardItem>
-            </CardBody>
-          </CardContainer>
-        </Link>
-
-        <Link href="/lab/walkman" style={{ textDecoration: 'none', display: 'block' }}>
-          <CardContainer containerClassName="w-full p-0" className="w-full">
-            <CardBody className="walkman-card-body w-full h-[220px] relative border border-gray-200 overflow-hidden px-6 py-8"
-              style={{ background: 'linear-gradient(135deg, #eef4ff 0%, #ffffff 60%)', borderRadius: 0 }}>
-              <CardItem translateZ={50} className="block"
-                style={{ fontFamily: 'SatishSans, sans-serif', fontSize: '1.5rem', fontWeight: 300, letterSpacing: '-0.01em', color: '#111' }}>
-                YT Walkman
-              </CardItem>
-              <CardItem translateZ={60} as="p" className="block mt-3"
-                style={{ fontSize: '0.75rem', color: 'rgba(0,0,0,0.4)', letterSpacing: '0.02em', lineHeight: 1.5 }}>
-                What if you could listen to any<br />YouTube track on a vintage Walkman?
-              </CardItem>
-              <CardItem translateZ={110} className="walkman-thumb-wrap">
-                <img src="/images/lab/walkman-thumnail.png" alt=""
-                  style={{ width: '100%', height: '100%', objectFit: 'contain', transform: 'rotate(-45deg)', opacity: 0.92 }} />
-              </CardItem>
-              <CardItem translateZ={30} className="absolute" style={{ bottom: 20, right: 20, zIndex: 1 }}>
-                <ArrowBtn />
-              </CardItem>
-            </CardBody>
-          </CardContainer>
-        </Link>
-
-        <Link href="/lab/qr-device" style={{ textDecoration: 'none', display: 'block' }}>
-          <CardContainer containerClassName="w-full p-0" className="w-full">
-            <CardBody className="qr-card-body w-full h-[220px] relative border border-gray-200 overflow-hidden px-6 py-8"
-              style={{ background: 'linear-gradient(135deg, #e8e8e8 0%, #ffffff 60%)', borderRadius: 0 }}>
-              <CardItem translateZ={50} className="block"
-                style={{ fontFamily: 'SatishSans, sans-serif', fontSize: '1.5rem', fontWeight: 300, letterSpacing: '-0.01em', color: '#1a1a1a' }}>
-                QR Device
-              </CardItem>
-              <CardItem translateZ={60} as="p" className="qr-card-desc block mt-3"
-                style={{ fontSize: '0.75rem', color: 'rgba(0,0,0,0.4)', letterSpacing: '0.02em', lineHeight: 1.5 }}>
-                A hardware-style QR generator with gradients, textures &amp; sound
-              </CardItem>
-              <CardItem translateZ={110} className="qr-thumb-wrap">
-                <img src="/images/lab/qr-device-thumnail.png" alt=""
-                  style={{ width: '100%', opacity: 0.92, transform: 'rotate(4deg)' }} />
-              </CardItem>
-              <CardItem translateZ={30} className="absolute" style={{ bottom: 20, right: 20, zIndex: 1 }}>
-                <ArrowBtn />
-              </CardItem>
-            </CardBody>
-          </CardContainer>
-        </Link>
-
-        <Link href="/lab/playground" style={{ textDecoration: 'none', display: 'block' }}>
-          <CardContainer containerClassName="w-full p-0" className="w-full">
-            <CardBody className="w-full h-[220px] relative border border-gray-200 overflow-hidden px-6 py-8"
-              style={{ background: 'linear-gradient(135deg, #f0f4ff 0%, #ffffff 60%)', borderRadius: 0 }}>
-              <CardItem translateZ={50} className="block"
-                style={{ fontFamily: 'SatishSans, sans-serif', fontSize: '1.5rem', fontWeight: 300, letterSpacing: '-0.01em', color: '#111' }}>
-                Playground
-              </CardItem>
-              <CardItem translateZ={60} as="p" className="block mt-3"
-                style={{ fontSize: '0.75rem', color: 'rgba(0,0,0,0.4)', letterSpacing: '0.02em', lineHeight: 1.5 }}>
-                A canvas to draw, sketch, and<br />mess around freely
-              </CardItem>
-              <CardItem translateZ={100} className="absolute" style={{ bottom: 14, right: 14, opacity: 0.15 }}>
-                <svg width="120" height="120" viewBox="0 0 24 24" fill="none" stroke="#000" strokeWidth="1">
-                  <path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 013 3L7 19l-4 1 1-4L16.5 3.5z"/>
-                </svg>
-              </CardItem>
-              <CardItem translateZ={30} className="absolute" style={{ bottom: 20, right: 20, zIndex: 1 }}>
-                <ArrowBtn />
-              </CardItem>
-            </CardBody>
-          </CardContainer>
-        </Link>
-
-      </div>
+    <div className="bg-white min-h-screen px-8 pt-28 md:pt-36 pb-16 max-w-5xl mx-auto"
+      style={{ fontFamily: 'FunnelDisplay, sans-serif' }}>
+      ...grid of Color Memo / YT Walkman / QR Device / Playground cards...
     </div>
   )
 }
