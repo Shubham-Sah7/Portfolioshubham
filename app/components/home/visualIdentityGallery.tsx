@@ -111,7 +111,7 @@ export default function VisualIdentityGallery() {
 
         {/* Left: cycling square */}
         <div
-          className="relative overflow-hidden bg-white border border-zinc-100 shrink-0"
+          className="relative overflow-hidden bg-[#0f0e17] shrink-0"
           style={{ flexBasis: 'calc(50% - 4px)', aspectRatio: '1 / 1' }}
         >
           {symitaImages.map((src, idx) => (
@@ -122,10 +122,11 @@ export default function VisualIdentityGallery() {
               fill
               sizes="50vw"
               quality={100}
-              className="object-contain p-16"
+              className="object-contain p-12"
               style={{
                 opacity: cycleIndex === idx ? 1 : 0,
-                transition: 'opacity 0.6s ease-in-out',
+                transform: cycleIndex === idx ? 'scale(1)' : 'scale(0.94)',
+                transition: 'opacity 0.8s cubic-bezier(0.4,0,0.2,1), transform 0.8s cubic-bezier(0.4,0,0.2,1)',
                 position: 'absolute',
               }}
               priority={idx === 0}
@@ -175,7 +176,7 @@ export default function VisualIdentityGallery() {
       {/* ── Mobile collage ────────────────────────────────────── */}
       <div className="grid md:hidden gap-1.5">
         {/* Cycling box: full width, 1:1 */}
-        <div className="relative overflow-hidden bg-white border border-zinc-100" style={{ aspectRatio: '1/1' }}>
+        <div className="relative overflow-hidden bg-[#0f0e17]" style={{ aspectRatio: '1/1' }}>
           {symitaImages.map((src, idx) => (
             <Image
               key={src}
@@ -184,10 +185,11 @@ export default function VisualIdentityGallery() {
               fill
               sizes="100vw"
               quality={100}
-              className="object-contain p-16"
+              className="object-contain p-12"
               style={{
                 opacity: cycleIndex === idx ? 1 : 0,
-                transition: 'opacity 0.6s ease-in-out',
+                transform: cycleIndex === idx ? 'scale(1)' : 'scale(0.94)',
+                transition: 'opacity 0.8s cubic-bezier(0.4,0,0.2,1), transform 0.8s cubic-bezier(0.4,0,0.2,1)',
                 position: 'absolute',
               }}
               priority={idx === 0}
