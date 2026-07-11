@@ -52,14 +52,11 @@ export default function LifeCarousel() {
           <div className="absolute inset-x-0 border-t border-gray-200" style={{ top: '50%' }} />
           <div className="relative flex justify-center">
             <h2 className="relative bg-white px-4 text-2xl md:text-3xl font-light text-black shrink-0 whitespace-nowrap">
-              <span style={{ fontFamily: 'SatishCapsSans, sans-serif', fontSize: '1.5em' }}>L</span>
-              <span style={{ fontFamily: 'SatishSans, sans-serif' }}>ife &amp; Inspiration</span>
+              <span style={{ fontFamily: 'SatishCapsSans, sans-serif', fontSize: '1.5em' }}>J</span>
+              <span style={{ fontFamily: 'SatishSans, sans-serif' }}>ack of All Trades</span>
             </h2>
           </div>
         </div>
-        <p className="text-center text-xs text-gray-400 mt-4 leading-relaxed max-w-md mx-auto">
-          Generally a Jack of all trades, also master of some. Snapshots of things I love, build, capture, and explore when I am not at my desk.
-        </p>
       </div>
 
       {/* ── Full bleed marquee wrapper (no borders, no background color) ──────── */}
