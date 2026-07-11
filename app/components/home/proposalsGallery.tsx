@@ -9,6 +9,7 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger'
 gsap.registerPlugin(ScrollTrigger)
 
 const proposals = [
+  /*
   {
     num: '001',
     title: 'HealthTech Patient Experience',
@@ -17,6 +18,7 @@ const proposals = [
     photo: null,
     external: true,
   },
+  */
   {
     num: '002',
     title: 'Brand Identity & Visual Systems',
@@ -41,6 +43,7 @@ const proposals = [
     photo: null,
     external: true,
   },
+  /*
   {
     num: '005',
     title: '2D to 3D Engineering AI',
@@ -57,6 +60,7 @@ const proposals = [
     photo: null,
     external: true,
   },
+  */
 ]
 
 // Corner plus marker
