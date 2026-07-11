@@ -81,7 +81,7 @@ export default function VisualIdentityGallery() {
   }, [])
 
   return (
-    <div className="mt-20 md:mt-28">
+    <div>
 
       {/* ── Section header ──────────────────────────────────────── */}
       <div

@@ -157,7 +157,7 @@ export default function FooterPlayground() {
   const cursor = tool === 'eraser' ? 'cursor-cell' : 'cursor-crosshair'
 
   return (
-    <div className="mt-20 md:mt-28" style={{ fontFamily: 'FunnelDisplay, sans-serif' }}>
+    <div style={{ fontFamily: 'FunnelDisplay, sans-serif' }}>
 
       {/* ── Section header (matches workGallery / proposalsGallery style) */}
       <div className="px-6 md:px-10 pb-8 md:pb-10 overflow-hidden">

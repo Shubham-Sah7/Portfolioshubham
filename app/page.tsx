@@ -14,7 +14,7 @@ import FooterPlayground from "./components/home/FooterPlayground"
 
 export default function Home() {
   return (
-    <div className="bg-white relative">
+    <div className="bg-white relative flex flex-col gap-20 md:gap-28">
 
       <Loader />
       <PageBranches />
@@ -39,7 +39,7 @@ export default function Home() {
         />
       </div>
 
-      <div className="max-w-5xl mx-auto px-6 md:px-10">
+      <div className="max-w-5xl mx-auto px-6 md:px-10 flex flex-col gap-20 md:gap-28">
 
         {/* First fold - name + description, full viewport height */}
         <MouseColorBloom />

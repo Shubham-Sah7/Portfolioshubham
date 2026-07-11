@@ -39,7 +39,7 @@ export default function LifeCarousel() {
   const trackRef = useRef<HTMLDivElement>(null)
 
   return (
-    <section className="relative overflow-visible py-16 md:py-24 bg-white" style={{ fontFamily: 'FunnelDisplay, sans-serif' }}>
+    <section className="relative overflow-visible bg-white" style={{ fontFamily: 'FunnelDisplay, sans-serif' }}>
       
       {/* ── Section header ──────────────────────────────────────── */}
       <div className="px-6 md:px-10 pb-8 md:pb-12 overflow-hidden max-w-5xl mx-auto">

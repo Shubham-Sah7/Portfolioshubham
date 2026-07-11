@@ -128,7 +128,7 @@ export default function ProposalsGallery() {
   }, [])
 
   return (
-    <div className="mt-20 md:mt-28">
+    <div>
 
       {/* Section header */}
       <div
