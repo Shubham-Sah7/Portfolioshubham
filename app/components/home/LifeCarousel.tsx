@@ -108,7 +108,7 @@ function Polaroid({ label, url, imgClass }: { label: string; url: string; imgCla
           <img
             src={url}
             alt={label}
-            className={`w-full h-full object-cover grayscale opacity-90 group-hover/polaroid:grayscale-0 group-hover/polaroid:opacity-100 transition-all duration-500 ${imgClass || ''}`}
+            className={`w-full h-full object-cover transition-all duration-500 ${imgClass || ''}`}
             loading="lazy"
           />
         </div>
