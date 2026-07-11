@@ -3,17 +3,19 @@
 import { useRef } from 'react'
 
 const CARDS = [
-  { label: 'I Design',   url: '/images/life/Design.jpeg',   imgClass: 'scale-[1.35] origin-bottom' },
-  { label: 'I Ride',     url: '/images/life/Ride.jpeg',     imgClass: 'scale-[1.3] origin-center' },
-  { label: 'I Play',     url: '/images/life/Play.jpeg' },
-  { label: 'I Read',     url: '/images/life/Read.jpeg' },
-  { label: 'I Explore',  url: '/images/life/travel.jpeg' },
-  { label: 'Weekend',    url: '/images/life/Team.jpeg' },
-  { label: 'I Wander',   url: '/images/life/Bhutan.jpeg' },
+  { label: 'I Design',   url: '/images/life/Design.jpeg',   imgClass: 'object-bottom' },
+  { label: 'I Ride',     url: '/images/life/Ride.jpeg',     imgClass: 'object-center' },
+  { label: 'I Play',     url: '/images/life/Play.jpeg',     imgClass: 'object-center' },
+  { label: 'I Read',     url: '/images/life/Read.jpeg',     imgClass: 'object-center' },
+  { label: 'I Explore',  url: '/images/life/travel.jpeg',   imgClass: 'object-top' },
+  { label: 'Weekend',    url: '/images/life/Team.jpeg',     imgClass: 'object-top' },
+  { label: 'I Wander',   url: '/images/life/Bhutan.jpeg',   imgClass: 'object-top' },
   { label: 'I Meditate', url: '/images/life/Meditate.jpeg', imgClass: 'object-top' },
-  { label: 'I Reflect',  url: '/images/life/Solo.jpeg' },
-  { label: 'I Compete',  url: '/images/life/Sport.jpeg' },
-  { label: 'I Climb',    url: '/images/life/k2.jpeg' },
+  { label: 'I Reflect',  url: '/images/life/Solo.jpeg',     imgClass: 'object-center' },
+  { label: 'I Compete',  url: '/images/life/Sport.jpeg',    imgClass: 'object-top' },
+  { label: 'I Climb',    url: '/images/life/k2.jpeg',       imgClass: 'object-center' },
+  { label: 'I Lift',     url: '/images/life/Lift.jpeg',     imgClass: 'object-center' },
+  { label: 'I Risk',     url: '/images/life/Risk.jpeg',     imgClass: 'object-center' },
 ]
 
 // Duplicate track for seamless infinite horizontal scrolling
