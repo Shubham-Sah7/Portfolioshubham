@@ -27,8 +27,6 @@ const TEJAS = {
 export default function ParallaxImages() {
   const abhayDesktop = useRef<HTMLDivElement>(null)
   const tejasDesktop = useRef<HTMLDivElement>(null)
-  const abhayMobile  = useRef<HTMLDivElement>(null)
-  const tejasMobile  = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
     const ctx = gsap.context(() => {
@@ -54,28 +52,6 @@ export default function ParallaxImages() {
         force3D: true, // Force GPU layer creation
         scrollTrigger: st,
       })
-
-      // Mobile: slide off-screen to their respective sides on scroll
-      const mobileScrollST = {
-        trigger: document.body,
-        start:   'top top',
-        end:     '25% top',
-        scrub:   true, // Instant tracking, no lag/friction
-      }
-      gsap.to(abhayMobile.current, {
-        x:       () => -window.innerWidth * 0.6,
-        opacity:  0,
-        ease:    'none',
-        force3D:  true, // Force GPU layer creation
-        scrollTrigger: mobileScrollST,
-      })
-      gsap.to(tejasMobile.current, {
-        x:       () => window.innerWidth * 0.6,
-        opacity:  0,
-        ease:    'none',
-        force3D:  true, // Force GPU layer creation
-        scrollTrigger: mobileScrollST,
-      })
     })
 
     return () => ctx.revert()
@@ -92,7 +68,7 @@ export default function ParallaxImages() {
           left: ABHAY.left,
           top: ABHAY.top,
           transform: `rotate(${ABHAY.rotate}deg)`,
-          zIndex: 10,
+          zIndex: 1,
           willChange: 'transform'
         }}
       >
@@ -106,41 +82,37 @@ export default function ParallaxImages() {
           right: TEJAS.right,
           top: TEJAS.top,
           transform: `rotate(${TEJAS.rotate}deg)`,
-          zIndex: 10,
+          zIndex: 1,
           willChange: 'transform'
         }}
       >
         <Image src={TEJAS.src} alt="Tejas" width={TEJAS.width} height={500} className="w-full h-auto object-contain block pointer-events-none" />
       </div>
 
-      {/* ── Mobile - fixed to viewport, no container clipping ───────────────── */}
+      {/* ── Mobile - absolute to hero container, scrolls naturally with zero scroll friction ── */}
       <div
-        ref={abhayMobile}
-        className="fixed block md:hidden pointer-events-none opacity-[0.14]"
-        style={{ 
-          width: 300, 
-          left: -135, 
-          top: '12vh', 
-          transform: 'rotate(22deg)', 
-          zIndex: 1, // Render in background
-          willChange: 'transform, opacity' // Promote to GPU compositor
-        }}
-      >
-        <Image src={ABHAY.src} alt="Abhay" width={300} height={415} className="w-full h-auto object-contain block" />
-      </div>
-      <div
-        ref={tejasMobile}
-        className="fixed block md:hidden pointer-events-none opacity-[0.14]"
+        className="absolute block md:hidden pointer-events-none opacity-[0.22]"
         style={{ 
           width: 240, 
-          left: 'calc(100vw - 130px)', 
-          top: '22vh', 
-          transform: 'rotate(-18deg)', 
-          zIndex: 1, // Render in background
-          willChange: 'transform, opacity' // Promote to GPU compositor
+          left: -70, 
+          top: '8%', 
+          transform: 'rotate(22deg)', 
+          zIndex: 1,
         }}
       >
-        <Image src={TEJAS.src} alt="Tejas" width={240} height={340} className="w-full h-auto object-contain block" />
+        <Image src={ABHAY.src} alt="Abhay" width={240} height={330} className="w-full h-auto object-contain block" />
+      </div>
+      <div
+        className="absolute block md:hidden pointer-events-none opacity-[0.22]"
+        style={{ 
+          width: 200, 
+          right: -60, 
+          bottom: '12%', 
+          transform: 'rotate(-18deg)', 
+          zIndex: 1,
+        }}
+      >
+        <Image src={TEJAS.src} alt="Tejas" width={200} height={280} className="w-full h-auto object-contain block" />
       </div>
     </>
   )
