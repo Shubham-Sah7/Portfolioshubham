@@ -101,11 +101,17 @@ function Polaroid({ label, url, rot }: { label: string; url: string; rot: string
     >
       {/* Clean Polaroid Card Shape (no background color inside, just white card) */}
       <div
-        className="bg-white border border-zinc-200 shadow-[0_4px_12px_rgba(0,0,0,0.03)] group-hover/polaroid:shadow-[0_12px_24px_rgba(0,0,0,0.08)] group-hover/polaroid:-translate-y-4 group-hover/polaroid:rotate-0 flex flex-col transition-all duration-300"
-        style={{ width: 240, padding: '12px 12px 28px 12px', borderRadius: 2 }}
+        className="relative bg-white border border-zinc-300 shadow-[0_4px_12px_rgba(0,0,0,0.02)] group-hover/polaroid:shadow-[0_12px_24px_rgba(0,0,0,0.06)] group-hover/polaroid:-translate-y-4 group-hover/polaroid:rotate-0 flex flex-col transition-all duration-300"
+        style={{ width: 264, padding: '14px 14px 30px 14px' }}
       >
+        {/* Corner plus markers */}
+        <Plus h="left"  v="top" />
+        <Plus h="right" v="top" />
+        <Plus h="left"  v="bottom" />
+        <Plus h="right" v="bottom" />
+
         {/* Square Photo Cutout */}
-        <div className="w-full aspect-square overflow-hidden bg-zinc-50 border border-zinc-100">
+        <div className="w-full aspect-square overflow-hidden bg-zinc-50 border border-zinc-200">
           <img
             src={url}
             alt={label}
@@ -116,7 +122,7 @@ function Polaroid({ label, url, rot }: { label: string; url: string; rot: string
         
         {/* Label below */}
         <p
-          className="mt-3 text-zinc-700 group-hover/polaroid:text-black text-xs font-light text-center tracking-wide"
+          className="mt-4 text-zinc-700 group-hover/polaroid:text-black text-sm font-light text-center tracking-wide"
           style={{ fontFamily: 'FunnelDisplay, sans-serif' }}
         >
           {label}
