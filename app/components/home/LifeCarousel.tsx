@@ -1,10 +1,6 @@
 "use client"
 
-import { useRef, useEffect } from 'react'
-import { gsap } from 'gsap'
-import { ScrollTrigger } from 'gsap/ScrollTrigger'
-
-gsap.registerPlugin(ScrollTrigger)
+import { useRef } from 'react'
 
 const CARDS = [
   { label: 'I Design',   url: '/images/life/Design.jpeg',   rot: '-3deg', imgClass: 'scale-[1.35] origin-bottom' },
@@ -34,7 +30,7 @@ const Plus = ({ h, v = 'bottom' }: { h: 'left' | 'right'; v?: 'top' | 'bottom' }
       [h]: 0,
       [v]: 0,
       transform: `translate(${h === 'left' ? '-50%' : '50%'}, ${v === 'top' ? '-50%' : '50%'})`,
-      color: '#d4d4d8',
+      color: '#9ca3af',
       zIndex: 10,
     }}
   >
@@ -44,105 +40,9 @@ const Plus = ({ h, v = 'bottom' }: { h: 'left' | 'right'; v?: 'top' | 'bottom' }
 
 export default function LifeCarousel() {
   const trackRef = useRef<HTMLDivElement>(null)
-  const sectionRef = useRef<HTMLDivElement>(null)
-  const handRef = useRef<HTMLDivElement>(null)
-  const bubbleRef = useRef<HTMLDivElement>(null)
-
-  useEffect(() => {
-    if (!sectionRef.current || !handRef.current || !bubbleRef.current) return
-
-    const tl = gsap.timeline({
-      scrollTrigger: {
-        trigger: sectionRef.current,
-        start: 'top 75%',
-        toggleActions: 'play none none none',
-      }
-    })
-
-    // 1. Slide down hand and fade in
-    tl.to(handRef.current, {
-      top: '25px',
-      opacity: 0.22, // Faint, matches page decorations
-      duration: 0.8,
-      ease: 'back.out(1.2)'
-    })
-
-    // 2. Fade in speech bubble
-    tl.to(bubbleRef.current, {
-      opacity: 1,
-      scale: 1,
-      duration: 0.4,
-      ease: 'power2.out'
-    }, '-=0.2')
-
-    // 3. Subtle tap/point animation (pointing downwards)
-    tl.to(handRef.current, {
-      y: 12,
-      duration: 0.35,
-      yoyo: true,
-      repeat: 3,
-      ease: 'power1.inOut'
-    })
-
-    // 4. Hold
-    tl.to({}, { duration: 1.5 })
-
-    // 5. Fade out bubble and slide up hand
-    tl.to(bubbleRef.current, {
-      opacity: 0,
-      scale: 0.9,
-      duration: 0.3,
-      ease: 'power2.in'
-    })
-    tl.to(handRef.current, {
-      top: '-150px',
-      opacity: 0,
-      duration: 0.8,
-      ease: 'power2.in'
-    }, '-=0.1')
-
-  }, [])
 
   return (
-    <section ref={sectionRef} className="relative overflow-visible bg-white" style={{ fontFamily: 'FunnelDisplay, sans-serif' }}>
-      
-      {/* Floating Pointer Hand (Easter Egg) */}
-      <div 
-        ref={handRef}
-        className="absolute pointer-events-none select-none hidden md:block"
-        style={{
-          top: '-150px',
-          left: '50%',
-          transform: 'translateX(-50%) rotate(180deg)',
-          zIndex: 50,
-          width: '140px',
-          height: '140px',
-          opacity: 0,
-        }}
-      >
-        <img 
-          src="/images/HomeImages/HandC.svg" 
-          alt="" 
-          className="w-full h-full object-contain"
-          style={{ filter: 'brightness(0) opacity(0.7)' }}
-        />
-        
-        {/* Tooltip / Speech Bubble next to the hand */}
-        <div 
-          ref={bubbleRef}
-          className="absolute bg-black text-white text-[11px] font-light px-3 py-1.5 whitespace-nowrap rounded shadow-lg opacity-0"
-          style={{
-            top: '145px',
-            left: '50%',
-            transform: 'translateX(-50%) rotate(180deg)', // Un-rotate speech bubble so text reads normally
-            fontFamily: 'FunnelDisplay, sans-serif',
-          }}
-        >
-          Hover to add color!
-          {/* Small Speech Bubble Arrow pointing up */}
-          <div className="absolute -top-1 left-1/2 -translate-x-1/2 w-2 h-2 bg-black rotate-45" />
-        </div>
-      </div>
+    <section className="relative overflow-visible bg-white" style={{ fontFamily: 'FunnelDisplay, sans-serif' }}>
       
       {/* ── Section header ──────────────────────────────────────── */}
       <div className="px-6 md:px-10 pb-8 md:pb-12 overflow-hidden max-w-5xl mx-auto">
