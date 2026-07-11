@@ -54,6 +54,12 @@ export default function UnpluggedGallery() {
     let tl: gsap.core.Timeline
 
     const setup = () => {
+      if (window.innerWidth < 768) {
+        gsap.set(unplugged, { x: 0 })
+        gsap.set(line, { scaleX: 1, opacity: 1 })
+        return
+      }
+
       const cRect = header.getBoundingClientRect()
       const uRect = unplugged.getBoundingClientRect()
 

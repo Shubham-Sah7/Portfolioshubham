@@ -133,6 +133,13 @@ export default function WorkGallery() {
     let tl: gsap.core.Timeline
 
     const setup = () => {
+      if (window.innerWidth < 768) {
+        gsap.set(selected, { x: 0 })
+        gsap.set(worksH, { x: 0 })
+        gsap.set(line, { scaleX: 1, opacity: 1 })
+        return
+      }
+
       // Words are centered via CSS (justify-center) - this IS the initial state.
       // We calculate where they need to animate TO (left edge / right edge of content area).
       const cRect = header.getBoundingClientRect()
@@ -204,6 +211,13 @@ export default function WorkGallery() {
               <span style={{ fontFamily: 'SatishCapsSans, sans-serif', fontSize: '1.5em' }}>W</span><span style={{ fontFamily: 'SatishSans, sans-serif' }}>orks</span>
             </h2>
           </div>
+        </div>
+
+        {/* Small subtitle or scroll tip inside header area */}
+        <div className="relative flex justify-center mt-2">
+          <span className="relative bg-white px-3 text-[10px] text-gray-400 tracking-wider uppercase select-none">
+            Swipe or Hover for Details
+          </span>
         </div>
       </div>
 
@@ -299,7 +313,7 @@ export default function WorkGallery() {
               </div>
 
               {/* Image */}
-              <CardItem translateZ={9} className="w-full min-h-[280px] md:min-h-0 relative overflow-hidden order-1 md:order-2 block bg-zinc-50 border-l border-zinc-200">
+              <CardItem translateZ={9} className="w-full min-h-[280px] md:min-h-0 relative overflow-hidden order-1 md:order-2 block bg-zinc-50 border-b md:border-b-0 md:border-l border-zinc-200">
                 <a
                   href={work.href ?? '#'}
                   target="_blank"
@@ -312,7 +326,7 @@ export default function WorkGallery() {
                       alt={work.title}
                       fill
                       sizes="(max-width: 768px) 100vw, 50vw"
-                      className="object-cover object-top"
+                      className="object-contain p-3 md:p-0 md:object-cover md:object-top"
                     />
                   )}
                 </a>
