@@ -69,7 +69,7 @@ const works = [
     description: 'Designed a platform that transforms workflows into professional video documentation, tutorials, onboarding guides, and product walkthroughs using AI-powered automation.',
     image: '/images/New images/AI Documentaion APP.png',
     href: 'https://trupeerai.vercel.app/',
-    year: '2024',
+    year: '2026',
     available: true,
     external: true,
   },
