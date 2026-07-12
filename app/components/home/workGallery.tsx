@@ -216,12 +216,6 @@ export default function WorkGallery() {
           </div>
         </div>
 
-        {/* Small subtitle or scroll tip inside header area */}
-        <div className="relative flex justify-center mt-2">
-          <span className="relative bg-white px-3 text-[10px] text-gray-400 tracking-wider uppercase select-none">
-            Swipe or Hover for Details
-          </span>
-        </div>
       </div>
 
       {/* ── Works list ─────────────────────────────────────── */}
