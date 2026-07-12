@@ -74,8 +74,8 @@ const Plus = ({ h, v = 'bottom' }: { h: 'left' | 'right'; v?: 'top' | 'bottom' }
     fill="none"
     className="absolute select-none pointer-events-none"
     style={{
-      [h]: 0,
-      [v]: 0,
+      [h]: '-1px',
+      [v]: '-1px',
       transform: `translate(${h === 'left' ? '-50%' : '50%'}, ${v === 'top' ? '-50%' : '50%'})`,
       color: '#9ca3af',
       zIndex: 10,
