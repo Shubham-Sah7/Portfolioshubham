@@ -195,7 +195,7 @@ export default function WorkGallery() {
           {/* Line: spans full content width, vertically centred with the text */}
           <div
             ref={lineEl}
-            className="absolute inset-x-0 border-t border-gray-300 hidden md:block"
+            className="absolute inset-x-0 border-t border-gray-300"
             style={{ top: '50%' }}
           />
 

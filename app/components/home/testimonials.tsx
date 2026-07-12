@@ -111,7 +111,7 @@ function TestimonialCard({
       onMouseUp={handleMouseUp}
       className="relative border border-zinc-200 p-6 md:p-8 flex flex-col justify-between h-full bg-white
         hover:border-zinc-950 hover:shadow-[0_24px_60px_rgba(0,0,0,0.08)] group/card cursor-default select-none"
-      style={{ transformStyle: "preserve-3d", willChange: "transform", opacity: 0, transform: "translateY(44px)" }}
+      style={{ transformStyle: "preserve-3d", willChange: "transform" }}
     >
       <Plus h="left"  v="top" />
       <Plus h="right" v="top" />
@@ -212,6 +212,7 @@ export default function Testimonials() {
       // Cards: staggered rise
       const cards = cardRefs.current.filter(Boolean)
       if (cards.length) {
+        gsap.set(cards, { opacity: 0, y: 44 })
         ScrollTrigger.create({
           trigger: cards[0],
           start: "top 90%",
@@ -242,7 +243,7 @@ export default function Testimonials() {
         <div className="relative">
           <div
             ref={lineRef}
-            className="absolute inset-x-0 border-t border-gray-200 hidden md:block"
+            className="absolute inset-x-0 border-t border-gray-200"
             style={{ top: "50%" }}
           />
           <div className="relative flex items-baseline justify-center gap-2">

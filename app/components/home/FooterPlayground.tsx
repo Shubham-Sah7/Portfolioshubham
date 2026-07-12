@@ -219,7 +219,7 @@ export default function FooterPlayground() {
       {/* ── Section header */}
       <div ref={headerRef} className="px-6 md:px-10 pb-8 md:pb-10 overflow-hidden max-w-5xl mx-auto">
         <div className="relative">
-          <div ref={lineEl} className="absolute inset-x-0 border-t border-gray-300 hidden md:block" style={{ top: '50%' }} />
+          <div ref={lineEl} className="absolute inset-x-0 border-t border-gray-300" style={{ top: '50%' }} />
           <div className="relative flex items-baseline justify-center gap-2">
             <h2 ref={footerEl} className="relative bg-white pr-3 text-2xl md:text-3xl font-light text-black shrink-0 whitespace-nowrap">
               <span style={{ fontFamily: 'SatishCapsSans, sans-serif', fontSize: '1.5em' }}>F</span>
