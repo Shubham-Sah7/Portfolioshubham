@@ -174,7 +174,8 @@ export default function FooterPlayground() {
         </div>
         <div className="flex items-center justify-center gap-4 mt-4">
           <p className="text-xs text-gray-400" style={{ fontFamily: 'FunnelDisplay, sans-serif' }}>
-            Draw, sketch, mess around — P / M / R / E tools · ⌘Z undo
+            <span className="hidden md:inline">Draw, sketch, mess around — P / M / R / E tools · ⌘Z undo</span>
+            <span className="md:hidden">Draw freely on the canvas</span>
           </p>
           <Link href="/lab/playground"
             className="text-xs text-gray-400 hover:text-gray-800 transition-colors duration-200 flex items-center gap-1 shrink-0"
@@ -190,42 +191,45 @@ export default function FooterPlayground() {
       {/* ── Canvas container — full bleed ────────────────────────── */}
       <div className="relative border-t border-gray-200 w-full" style={{ height: 560 }}>
 
-        {/* Toolbar — top right */}
-        <div className="absolute top-3 right-3 z-10 flex items-center gap-1 bg-white/95 backdrop-blur border border-gray-200 shadow-md rounded-2xl px-2.5 py-2">
+        {/* Toolbar — full-width scrollable on mobile, right-anchored on desktop */}
+        <div className="absolute top-3 left-2 right-2 md:left-auto md:right-3 z-10">
+          <div className="flex items-center gap-1 bg-white/95 backdrop-blur border border-gray-200 shadow-md rounded-2xl px-2 md:px-2.5 py-1.5 md:py-2 overflow-x-auto"
+            style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}>
 
-          {/* Tools */}
-          {(['pen', 'marker', 'rect', 'eraser'] as Tool[]).map(t => (
-            <button key={t} onClick={() => setTool(t)} title={t}
-              className={`w-8 h-8 flex items-center justify-center rounded-xl transition-all ${tool === t ? 'bg-gray-900 text-white' : 'text-gray-400 hover:text-gray-700 hover:bg-gray-100'}`}>
-              {t === 'pen'    && <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round"><path d="M17 3a2.85 2.83 0 114 4L7.5 20.5 2 22l1.5-5.5Z"/></svg>}
-              {t === 'marker' && <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round"><path d="m9.06 11.9 8.07-8.06a2.85 2.85 0 1 1 4.03 4.03l-8.06 8.08"/><path d="M7.07 14.94c-1.66 0-3 1.35-3 3.02 0 1.33-2.5 1.52-2 2.02 1 1 2.48 1.02 3.5 1.02 2.2 0 3-1.8 3-3.04 0-1.67-1.33-3.02-1.5-3.02z"/></svg>}
-              {t === 'rect'   && <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/></svg>}
-              {t === 'eraser' && <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round"><path d="m7 21-4.3-4.3c-1-1-1-2.5 0-3.4l9.6-9.6c1-1 2.5-1 3.4 0l5.6 5.6c1 1 1 2.5 0 3.4L13 21"/><path d="M22 21H7"/><path d="m5 11 9 9"/></svg>}
-            </button>
-          ))}
+            {/* Tools */}
+            {(['pen', 'marker', 'rect', 'eraser'] as Tool[]).map(t => (
+              <button key={t} onClick={() => setTool(t)} title={t}
+                className={`w-8 h-8 flex items-center justify-center rounded-xl transition-all shrink-0 ${tool === t ? 'bg-gray-900 text-white' : 'text-gray-400 hover:text-gray-700 hover:bg-gray-100'}`}>
+                {t === 'pen'    && <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round"><path d="M17 3a2.85 2.83 0 114 4L7.5 20.5 2 22l1.5-5.5Z"/></svg>}
+                {t === 'marker' && <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round"><path d="m9.06 11.9 8.07-8.06a2.85 2.85 0 1 1 4.03 4.03l-8.06 8.08"/><path d="M7.07 14.94c-1.66 0-3 1.35-3 3.02 0 1.33-2.5 1.52-2 2.02 1 1 2.48 1.02 3.5 1.02 2.2 0 3-1.8 3-3.04 0-1.67-1.33-3.02-1.5-3.02z"/></svg>}
+                {t === 'rect'   && <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/></svg>}
+                {t === 'eraser' && <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round"><path d="m7 21-4.3-4.3c-1-1-1-2.5 0-3.4l9.6-9.6c1-1 2.5-1 3.4 0l5.6 5.6c1 1 1 2.5 0 3.4L13 21"/><path d="M22 21H7"/><path d="m5 11 9 9"/></svg>}
+              </button>
+            ))}
 
-          <Divider />
+            <Divider />
 
-          {/* Sizes */}
-          {SIZES.map(s => (
-            <button key={s} onClick={() => setSize(s)}
-              className={`w-8 h-8 flex items-center justify-center rounded-xl transition-all ${size === s ? 'bg-gray-100 ring-1 ring-gray-300' : 'hover:bg-gray-50'}`}>
-              <div className="rounded-full bg-gray-900" style={{ width: Math.min(s * 2.4, 18), height: Math.min(s * 2.4, 18) }} />
-            </button>
-          ))}
+            {/* Sizes */}
+            {SIZES.map(s => (
+              <button key={s} onClick={() => setSize(s)}
+                className={`w-8 h-8 flex items-center justify-center rounded-xl transition-all shrink-0 ${size === s ? 'bg-gray-100 ring-1 ring-gray-300' : 'hover:bg-gray-50'}`}>
+                <div className="rounded-full bg-gray-900" style={{ width: Math.min(s * 2.4, 18), height: Math.min(s * 2.4, 18) }} />
+              </button>
+            ))}
 
-          <Divider />
+            <Divider />
 
-          {/* Colors */}
-          {COLORS.map(c => (
-            <button key={c} onClick={() => setColor(c)}
-              className={`rounded-full transition-all hover:scale-110 shrink-0 ${color === c ? 'ring-2 ring-offset-1 ring-gray-400 scale-110' : ''}`}
-              style={{ width: 22, height: 22, background: c }} />
-          ))}
-          <label className={`rounded-full cursor-pointer hover:scale-110 transition-all overflow-hidden shrink-0 ${!COLORS.includes(color) ? 'ring-2 ring-offset-1 ring-gray-400 scale-110' : ''}`}
-            style={{ width: 22, height: 22, background: 'conic-gradient(red,yellow,green,cyan,blue,magenta,red)' }}>
-            <input type="color" className="opacity-0 absolute w-0 h-0" value={color} onChange={e => setColor(e.target.value)} />
-          </label>
+            {/* Colors */}
+            {COLORS.map(c => (
+              <button key={c} onClick={() => setColor(c)}
+                className={`rounded-full transition-all hover:scale-110 shrink-0 ${color === c ? 'ring-2 ring-offset-1 ring-gray-400 scale-110' : ''}`}
+                style={{ width: 22, height: 22, background: c }} />
+            ))}
+            <label className={`rounded-full cursor-pointer hover:scale-110 transition-all overflow-hidden shrink-0 ${!COLORS.includes(color) ? 'ring-2 ring-offset-1 ring-gray-400 scale-110' : ''}`}
+              style={{ width: 22, height: 22, background: 'conic-gradient(red,yellow,green,cyan,blue,magenta,red)' }}>
+              <input type="color" className="opacity-0 absolute w-0 h-0" value={color} onChange={e => setColor(e.target.value)} />
+            </label>
+          </div>
         </div>
 
         {/* Grid */}
