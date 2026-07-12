@@ -10,7 +10,7 @@ gsap.registerPlugin(ScrollTrigger)
 const TESTIMONIALS = [
   {
     quote: "Shubham is a top-tier designer who knows how to shape products from the early stages. He took complete ownership of our GenAI platform's interface, delivering intuitive experience layouts that our 100K+ creators love.",
-    author: "Ritwika",
+    author: "Ritwika Chowdhury",
     role: "Founder, Unscript",
   },
   {
@@ -20,7 +20,7 @@ const TESTIMONIALS = [
   },
   {
     quote: "Shubham helped us redesign our patient management workflows into a clean, modern digital platform. His design thinking was invaluable as we scaled our product and pitched on Shark Tank India.",
-    author: "Saket",
+    author: "Saket Asati",
     role: "CEO, DigiQure (Featured on Shark Tank India)",
   },
 ]
