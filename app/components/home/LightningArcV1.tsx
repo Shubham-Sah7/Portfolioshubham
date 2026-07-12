@@ -172,9 +172,16 @@ export default function LightningArcV1() {
         const fx2 = r2.left + r2.width / 2
         const fy2 = r2.top + r2.height / 2
 
-        // Center meeting point (near the S-logo)
-        const cx = canvas.width / 2
-        const cy = canvas.height / 2 - 60
+        // Center meeting point (exactly on the Logo)
+        const logo = document.querySelector('img[alt="Logo"]')
+        let cx = canvas.width / 2
+        let cy = canvas.height / 2 - 60
+
+        if (logo) {
+          const rect = logo.getBoundingClientRect()
+          cx = rect.left + rect.width / 2
+          cy = rect.top + rect.height / 2
+        }
 
         // Only draw lightning 85% of frames to simulate electric flickering
         if (Math.random() < 0.90) {

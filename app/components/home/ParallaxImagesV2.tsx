@@ -72,7 +72,7 @@ export default function ParallaxImagesV2() {
         <div className="relative w-full h-full">
           <Image src={ABHAY.src} alt="Abhay" width={ABHAY.width} height={500} className="w-full h-auto object-contain block pointer-events-none" />
           {/* Fingertip Marker */}
-          <div id="left-fingertip" className="absolute w-2 h-2 rounded-full" style={{ right: '0%', top: '40%', opacity: 0 }} />
+          <div id="left-fingertip" className="absolute w-2 h-2 rounded-full" style={{ right: '0%', top: '36.3%', opacity: 0 }} />
         </div>
       </div>
       <div
@@ -90,7 +90,7 @@ export default function ParallaxImagesV2() {
         <div className="relative w-full h-full">
           <Image src={TEJAS.src} alt="Tejas" width={TEJAS.width} height={500} className="w-full h-auto object-contain block pointer-events-none" />
           {/* Fingertip Marker */}
-          <div id="right-fingertip" className="absolute w-2 h-2 rounded-full" style={{ left: '0%', top: '42%', opacity: 0 }} />
+          <div id="right-fingertip" className="absolute w-2 h-2 rounded-full" style={{ left: '0%', top: '5.5%', opacity: 0 }} />
         </div>
       </div>
 
