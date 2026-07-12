@@ -12,11 +12,10 @@ import AmbientSound from "./components/layout/AmbientSound"
 const inter = Inter({ subsets: ["latin"] })
 
 // Hardcoded to production domain - prevents Vercel preview URLs leaking into OG tags
-const siteUrl = 'https://www.shubhamsah.com'
+const siteUrl = 'https://shubhamsah.com'
 
 const title       = "Shubham Sah - Senior Product Designer"
 const description = "Senior Product Designer with 5+ years of experience designing AI, SaaS, Fintech, and Enterprise products. Building products from 0→1 and scaling experiences used by thousands."
-const ogImage     = `${siteUrl}/images/og.png`
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
@@ -37,15 +36,6 @@ export const metadata: Metadata = {
     siteName: "Shubham Sah",
     locale: "en_US",
     type: "website",
-    images: [
-      {
-        url: ogImage,
-        width: 1200,
-        height: 630,
-        alt: "Shubham Sah - Senior Product Designer",
-        type: "image/png",
-      },
-    ],
   },
 
   // ── Twitter / X Card ─────────────────────────────────────────
@@ -53,9 +43,8 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title,
     description,
-    images: [ogImage],
-    creator: "@shubhamsah",
-    site: "@shubhamsah",
+    creator: "@Shubhammcr7_",
+    site: "@Shubhammcr7_",
   },
 
   // ── Search engines ───────────────────────────────────────────
