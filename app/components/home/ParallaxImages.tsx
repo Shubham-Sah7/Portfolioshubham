@@ -91,28 +91,28 @@ export default function ParallaxImages() {
 
       {/* ── Mobile - absolute to hero container, scrolls naturally with zero scroll friction ── */}
       <div
-        className="absolute block md:hidden pointer-events-none opacity-[0.22]"
-        style={{ 
-          width: 240, 
-          left: -50, 
-          top: '15%', 
-          transform: 'rotate(22deg)', 
+        className="absolute block md:hidden pointer-events-none opacity-[0.16]"
+        style={{
+          width: 210,
+          left: -40,
+          top: '8%',
+          transform: 'rotate(22deg)',
           zIndex: 1,
         }}
       >
-        <Image src={ABHAY.src} alt="Abhay" width={240} height={330} className="w-full h-auto object-contain block" />
+        <Image src={ABHAY.src} alt="Abhay" width={210} height={290} className="w-full h-auto object-contain block" />
       </div>
       <div
-        className="absolute block md:hidden pointer-events-none opacity-[0.22]"
-        style={{ 
-          width: 200, 
-          right: -45, 
-          top: '42%', 
-          transform: 'rotate(-18deg)', 
+        className="absolute block md:hidden pointer-events-none opacity-[0.16]"
+        style={{
+          width: 180,
+          right: -40,
+          top: '55%',
+          transform: 'rotate(-18deg)',
           zIndex: 1,
         }}
       >
-        <Image src={TEJAS.src} alt="Tejas" width={200} height={280} className="w-full h-auto object-contain block" />
+        <Image src={TEJAS.src} alt="Tejas" width={180} height={250} className="w-full h-auto object-contain block" />
       </div>
     </>
   )

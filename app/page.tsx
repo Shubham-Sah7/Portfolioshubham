@@ -49,13 +49,13 @@ export default function Home() {
           <ParallaxImages />
 
           {/* Text isolated above the bloom layer so color blend doesn't affect it */}
-          <div className="relative flex flex-col items-center gap-6 md:px-6 md:py-4" style={{ zIndex: 20 }}>
+          <div className="relative flex flex-col items-center gap-3 md:gap-6 md:px-6 md:py-4" style={{ zIndex: 20 }}>
             <Image
               src="/images/logo.png"
               alt="SCR7"
               width={62}
               height={62}
-              className="mb-6 md:mb-16"
+              className="mb-0 md:mb-16"
               style={{ mixBlendMode: 'multiply', filter: 'invert(1)', transform: 'rotate(180deg)' }}
             />
             <h1 className="text-4xl md:text-5xl tracking-tight text-black">
@@ -75,7 +75,7 @@ export default function Home() {
             </p>
 
             {/* Mobile Email Section: rendered in flow to prevent absolute overlap */}
-            <div className="block md:hidden mt-8">
+            <div className="block md:hidden mt-3">
               <EmailSection />
             </div>
           </div>
