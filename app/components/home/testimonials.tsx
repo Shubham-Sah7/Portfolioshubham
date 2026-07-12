@@ -5,19 +5,16 @@ import { Plus } from "../ui/Markers"
 
 const TESTIMONIALS = [
   {
-    num: "01",
     quote: "Shubham is a top-tier designer who knows how to shape products from the early stages. He took complete ownership of our GenAI platform's interface, delivering intuitive experience layouts that our 100K+ creators love.",
     author: "Ritwika",
     role: "Founder, Unscript"
   },
   {
-    num: "02",
     quote: "A designer who moves incredibly fast without losing depth. Shubham's work on our maternal healthcare visual systems and interactive prototypes was invaluable to our scaling journey.",
     author: "Love Beejal",
     role: "Founder, Symita Inc."
   },
   {
-    num: "03",
     quote: "Shubham helped us redesign our patient management workflows into a clean, modern digital platform. His design thinking was invaluable as we scaled our product and pitched on Shark Tank India.",
     author: "Saket",
     role: "CEO, DigiQure (Featured on Shark Tank India)"
@@ -85,17 +82,7 @@ export default function Testimonials() {
             <Plus h="left"  v="bottom" />
             <Plus h="right" v="bottom" />
 
-            {/* Background watermark number */}
-            <span 
-              className="absolute right-6 bottom-4 text-[90px] font-extralight text-zinc-100 select-none pointer-events-none leading-none z-0 transition-all duration-500 group-hover/card:text-zinc-200/50 group-hover/card:scale-105"
-              style={{ fontFamily: "SatishSans, sans-serif" }}
-            >
-              {t.num}
-            </span>
-
-            <div className="relative z-10 flex-1 flex flex-col">
-              {/* Premium micro accent line */}
-              <div className="w-5 h-[1px] bg-amber-500 mb-6 transition-all duration-500 group-hover/card:w-10" />
+            <div className="relative z-10 flex-1 flex flex-col pt-2">
 
               {/* Quote block */}
               <div className="relative flex-1">
