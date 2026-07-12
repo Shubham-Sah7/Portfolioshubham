@@ -82,11 +82,10 @@ const Plus = ({ h, v = 'bottom' }: { h: 'left' | 'right'; v?: 'top' | 'bottom' }
     height="11"
     viewBox="0 0 11 11"
     fill="none"
-    className="absolute select-none pointer-events-none"
+    className="absolute select-none pointer-events-none text-zinc-400 group-hover/card:text-zinc-950 transition-colors duration-500"
     style={{
       [h]: '-6px',
       [v]: '-6px',
-      color: '#9ca3af',
       zIndex: 10,
     }}
   >
@@ -258,7 +257,7 @@ export default function WorkGallery() {
       <div className="flex flex-col gap-10 md:gap-16">
         {works.map((work) => (
           <CardContainer key={work.num} containerClassName="w-full p-0" className="w-full">
-            <CardBody className="relative border border-zinc-300 grid grid-cols-1 md:grid-cols-2 w-full items-stretch">
+            <CardBody className="relative border border-zinc-300 grid grid-cols-1 md:grid-cols-2 w-full items-stretch group/card">
 
               {/* Corner plus markers */}
               <Plus h="left"  v="top" />
@@ -310,7 +309,7 @@ export default function WorkGallery() {
               </div>
 
               {/* Image */}
-              <CardItem translateZ={9} className="w-full min-h-[280px] md:min-h-0 relative overflow-hidden order-1 md:order-2 block bg-zinc-50 border-b md:border-b-0 md:border-l border-zinc-200">
+              <CardItem translateZ={9} className="w-full min-h-[280px] md:min-h-0 relative overflow-hidden order-1 md:order-2 block bg-zinc-50 border-b md:border-b-0 md:border-l border-zinc-300">
                 <a
                   href={work.href ?? '#'}
                   target="_blank"

@@ -27,11 +27,10 @@ const Plus = ({ h, v = 'bottom' }: { h: 'left' | 'right'; v?: 'top' | 'bottom' }
     height="11"
     viewBox="0 0 11 11"
     fill="none"
-    className="absolute select-none pointer-events-none"
+    className="absolute select-none pointer-events-none text-zinc-400 group-hover/card:text-zinc-950 transition-colors duration-500"
     style={{
       [h]: '-6px',
       [v]: '-6px',
-      color: '#9ca3af',
       zIndex: 10,
     }}
   >

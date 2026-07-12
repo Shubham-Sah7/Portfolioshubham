@@ -22,10 +22,10 @@ const Plus = ({ h, v }: { h: 'left' | 'right'; v: 'top' | 'bottom' }) => (
     height="11"
     viewBox="0 0 11 11"
     fill="none"
-    className="absolute select-none pointer-events-none"
+    className="absolute select-none pointer-events-none text-zinc-400 group-hover/card:text-zinc-950 transition-colors duration-500"
     style={{
       [h]: '-6px', [v]: '-6px',
-      color: '#9ca3af', zIndex: 10,
+      zIndex: 10,
     }}
   >
     <path d="M5.5 0V11M0 5.5H11" stroke="currentColor" strokeWidth="1" />
@@ -55,11 +55,10 @@ export default function EmailCopy() {
 
   return (
     <div
-      className="relative border cursor-pointer transition-colors duration-300"
+      className={`relative border cursor-pointer transition-all duration-500 group/card ${copied ? 'border-zinc-950' : 'border-zinc-300 hover:border-zinc-950'}`}
       style={{
         fontFamily: 'FunnelDisplay, sans-serif',
         background: copied ? '#111' : 'white',
-        borderColor: copied ? '#111' : '#e5e7eb',
         overflow: 'visible',
         WebkitTapHighlightColor: 'transparent',
       }}
