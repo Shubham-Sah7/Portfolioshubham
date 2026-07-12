@@ -227,7 +227,7 @@ export default function LightningArcV1() {
   return (
     <canvas
       ref={canvasRef}
-      className="absolute inset-0 w-full h-full pointer-events-none"
+      className="fixed inset-0 w-screen h-screen pointer-events-none"
       style={{ zIndex: 11 }} // Layer above pillars and deities, but below text
     />
   )

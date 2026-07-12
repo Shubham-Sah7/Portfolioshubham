@@ -246,7 +246,7 @@ export default function LightningStrikeV2() {
       {/* Dynamic Lightning Canvas */}
       <canvas
         ref={canvasRef}
-        className="absolute inset-0 w-full h-full pointer-events-none"
+        className="fixed inset-0 w-screen h-screen pointer-events-none"
         style={{ zIndex: 11 }}
       />
     </>
