@@ -150,7 +150,7 @@ export default function ProposalsGallery() {
         <div className="relative">
           <div
             ref={lineEl}
-            className="absolute inset-x-0 border-t border-gray-300"
+            className="absolute inset-x-0 border-t border-gray-300 hidden md:block"
             style={{ top: '50%' }}
           />
           <div className="relative flex items-baseline justify-center gap-2">

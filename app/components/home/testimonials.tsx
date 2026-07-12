@@ -242,7 +242,7 @@ export default function Testimonials() {
         <div className="relative">
           <div
             ref={lineRef}
-            className="absolute inset-x-0 border-t border-gray-200"
+            className="absolute inset-x-0 border-t border-gray-200 hidden md:block"
             style={{ top: "50%" }}
           />
           <div className="relative flex items-baseline justify-center gap-2">
