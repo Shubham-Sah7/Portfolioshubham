@@ -6,18 +6,18 @@ import { Plus } from "../ui/Markers"
 const TESTIMONIALS = [
   {
     quote: "Shubham is a top-tier designer who knows how to shape products from the early stages. He took complete ownership of our GenAI platform's interface, delivering intuitive experience layouts that our 100K+ creators love.",
-    author: "Love",
-    role: "Founder & CEO, Unscript"
+    author: "Ritwika",
+    role: "Founder, Unscript"
   },
   {
-    quote: "Shubham's focus on user workflows and rapid prototyping speed made a huge difference in our cycle. He is highly structured, moves fast, and brings immense visual polish to everything he touches.",
-    author: "Ritwika",
-    role: "Product Lead, Unscript"
+    quote: "A designer who moves incredibly fast without losing depth. Shubham's work on our maternal healthcare visual systems and interactive prototypes was invaluable to our scaling journey.",
+    author: "Love Beejal",
+    role: "Founder, Symita Inc."
   },
   {
     quote: "Shubham helped us redesign our patient management workflows into a clean, modern digital platform. His design thinking was invaluable as we scaled our product and pitched on Shark Tank India.",
     author: "Saket",
-    role: "Co-Founder, DigiQure (Featured on Shark Tank India)"
+    role: "CEO, DigiQure (Featured on Shark Tank India)"
   }
 ]
 
