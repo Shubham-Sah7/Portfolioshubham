@@ -1,86 +1,79 @@
-import { Plus, PlusAt } from '../ui/Markers'
+"use client"
 
-const testimonials = [
+import React from "react"
+import { Plus } from "../ui/Markers"
+
+const TESTIMONIALS = [
   {
-    id: 1,
-    quote: "Shubham brought structure to our chaos. Before him, we were shipping screens without a real system. He helped us define our design language from scratch, and it gave the whole team clarity.",
-    name: 'Founder, Early-stage SaaS',
-    role: 'Placeholder · Replace with real',
+    quote: "Shubham's ability to translate complex SaaS requirements into clean, structured design systems is phenomenal. He has a rare blend of aesthetic mastery and product design logic.",
+    author: "Apuroop",
+    role: "Founder & CEO, Unscript"
   },
   {
-    id: 2,
-    quote: "What stood out was how fast he grasped our product context. Within days he was designing flows that felt native to our users. We went from concept to testable prototype in two weeks.",
-    name: 'Co-founder, B2B Product',
-    role: 'Placeholder · Replace with real',
+    quote: "An absolute powerhouse of product design. Shubham helped us redefine our credit risk workflows and design a scalable onboarding experience that boosted activation rate.",
+    author: "Pranay",
+    role: "Product Lead, Fintech App"
   },
   {
-    id: 3,
-    quote: "He doesn't just hand off screens. He thinks about the whole experience. Working with Shubham felt like having a design co-founder on the team.",
-    name: 'CEO, Consumer App',
-    role: 'Placeholder · Replace with real',
-  },
+    quote: "A designer who moves incredibly fast without losing depth. Shubham's work on our visual systems and interactive prototypes helped us secure our latest round of funding.",
+    author: "Anjali",
+    role: "Co-Founder, Symita Inc."
+  }
 ]
 
 export default function Testimonials() {
   return (
-    <div className="relative overflow-visible border-b border-gray-200">
-
-      {/* ── Section header ─────────────────────────────────── */}
-      <div className="relative overflow-visible px-6 md:px-10 py-6 border-b border-gray-200 flex items-baseline gap-4">
-        <span
-          className="text-[10px] uppercase tracking-widest text-gray-400"
-          style={{ fontFamily: 'Poppins, sans-serif' }}
-        >
-          02
-        </span>
-        <h2
-          className="text-2xl md:text-3xl font-light text-black"
-          style={{ fontFamily: 'Garamond, Georgia, serif' }}
-        >
-          Kind Words
-        </h2>
-        <Plus h="left" />
-        <Plus h="right" />
-        <PlusAt x="33.33%" desktop />
-        <PlusAt x="66.66%" desktop />
+    <section className="relative w-full max-w-5xl mx-auto px-6 md:px-10 py-4">
+      {/* ── Header ─────────────────────────────────────────── */}
+      <div className="pb-8 md:pb-12 overflow-hidden">
+        <div className="relative">
+          <div className="absolute inset-x-0 border-t border-gray-250" style={{ top: "50%" }} />
+          <div className="relative flex justify-center">
+            <h2 className="relative bg-white px-4 text-2xl md:text-3xl font-light text-black shrink-0 whitespace-nowrap">
+              <span style={{ fontFamily: "SatishCapsSans, sans-serif", fontSize: "1.5em" }}>T</span>
+              <span style={{ fontFamily: "SatishSans, sans-serif" }}>estimonials</span>
+            </h2>
+          </div>
+        </div>
       </div>
 
-      {/* ── 3-col grid ─────────────────────────────────────── */}
-      <div className="relative overflow-visible grid grid-cols-1 md:grid-cols-3">
-        <PlusAt x="33.33%" desktop />
-        <PlusAt x="66.66%" desktop />
-
-        {testimonials.map((t, i) => (
+      {/* ── Testimonials Grid ───────────────────────────────── */}
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 w-full items-stretch">
+        {TESTIMONIALS.map((t, i) => (
           <div
-            key={t.id}
-            className={`px-6 md:px-10 py-10 flex flex-col justify-between gap-6 border-b md:border-b-0 border-gray-200 last:border-b-0 ${i < 2 ? 'md:border-r border-gray-200' : ''}`}
+            key={i}
+            className="relative border border-zinc-300 p-6 md:p-8 flex flex-col justify-between h-full bg-white"
           >
-            <p
-              className="text-base md:text-lg font-light leading-relaxed text-gray-700"
-              style={{ fontFamily: 'Garamond, Georgia, serif' }}
+            {/* Corner plus markers */}
+            <Plus h="left"  v="top" />
+            <Plus h="right" v="top" />
+            <Plus h="left"  v="bottom" />
+            <Plus h="right" v="bottom" />
+
+            <div
+              className="text-sm text-gray-500 italic leading-relaxed"
+              style={{ fontFamily: "FunnelDisplay, sans-serif", fontWeight: 300 }}
             >
-              &ldquo;{t.quote}&rdquo;
-            </p>
-            <div>
-              <p
-                className="text-xs text-gray-700"
-                style={{ fontFamily: 'Poppins, sans-serif' }}
+              "{t.quote}"
+            </div>
+
+            <div className="mt-8">
+              <div
+                className="text-sm font-semibold text-black"
+                style={{ fontFamily: "SatishSans, sans-serif" }}
               >
-                {t.name}
-              </p>
-              <p
-                className="text-[10px] text-gray-400 uppercase tracking-widest mt-0.5"
-                style={{ fontFamily: 'Poppins, sans-serif' }}
+                {t.author}
+              </div>
+              <div
+                className="text-xs text-gray-400 mt-1"
+                style={{ fontFamily: "FunnelDisplay, sans-serif", fontWeight: 300 }}
               >
                 {t.role}
-              </p>
+              </div>
             </div>
           </div>
         ))}
-
-        <Plus h="left" />
-        <Plus h="right" />
       </div>
-    </div>
+    </section>
   )
 }

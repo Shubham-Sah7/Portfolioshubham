@@ -10,6 +10,7 @@ import ProposalsGallery from "./components/home/proposalsGallery"
 import PageBranches from "./components/home/PageBranches"
 import LifeCarousel from "./components/home/LifeCarousel"
 import FooterPlayground from "./components/home/FooterPlayground"
+import Testimonials from "./components/home/testimonials"
 
 
 export default function Home() {
@@ -105,6 +106,11 @@ export default function Home() {
       {/* Life Carousel */}
       <div data-section="life">
         <LifeCarousel />
+      </div>
+
+      {/* Testimonials */}
+      <div data-section="testimonials">
+        <Testimonials />
       </div>
 
       {/* Footer Playground — full-bleed, outside max-w container */}
