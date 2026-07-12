@@ -23,11 +23,11 @@ const TESTIMONIALS = [
 
 export default function Testimonials() {
   return (
-    <section className="relative w-full max-w-5xl mx-auto px-6 md:px-10 py-4">
+    <section className="relative w-full max-w-5xl mx-auto px-6 md:px-10 py-16 md:py-24">
       {/* ── Header ─────────────────────────────────────────── */}
       <div className="pb-8 md:pb-12 overflow-hidden">
         <div className="relative">
-          <div className="absolute inset-x-0 border-t border-gray-250" style={{ top: "50%" }} />
+          <div className="absolute inset-x-0 border-t border-gray-200" style={{ top: "50%" }} />
           <div className="relative flex justify-center">
             <h2 className="relative bg-white px-4 text-2xl md:text-3xl font-light text-black shrink-0 whitespace-nowrap">
               <span style={{ fontFamily: "SatishCapsSans, sans-serif", fontSize: "1.5em" }}>T</span>
@@ -50,14 +50,19 @@ export default function Testimonials() {
             <Plus h="left"  v="bottom" />
             <Plus h="right" v="bottom" />
 
-            <div
-              className="text-sm text-gray-500 italic leading-relaxed"
-              style={{ fontFamily: "FunnelDisplay, sans-serif", fontWeight: 300 }}
-            >
-              "{t.quote}"
+            {/* Quote block */}
+            <div className="relative">
+              <span className="text-4xl text-zinc-200 font-serif absolute -top-4 -left-2 select-none">“</span>
+              <p
+                className="text-sm text-zinc-600 leading-relaxed pl-5 relative z-10"
+                style={{ fontFamily: "FunnelDisplay, sans-serif", fontWeight: 300 }}
+              >
+                {t.quote}
+              </p>
             </div>
 
-            <div className="mt-8">
+            {/* Author block */}
+            <div className="mt-8 pl-5">
               <div
                 className="text-sm font-semibold text-black"
                 style={{ fontFamily: "SatishSans, sans-serif" }}
