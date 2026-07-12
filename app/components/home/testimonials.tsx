@@ -213,7 +213,7 @@ export default function Testimonials() {
   return (
     <section
       ref={sectionRef}
-      className="relative w-full max-w-5xl mx-auto px-6 md:px-10 pt-2 pb-6 md:pb-8"
+      className="relative w-full max-w-5xl mx-auto px-6 md:px-10"
     >
       {/* ── Header ───────────────────────────────────────────── */}
       <div ref={headerRef} className="pb-8 md:pb-12 overflow-hidden">
