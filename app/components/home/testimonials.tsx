@@ -163,27 +163,49 @@ function TestimonialCard({
 }
 
 export default function Testimonials() {
-  const sectionRef = useRef<HTMLDivElement>(null)
-  const headerRef  = useRef<HTMLDivElement>(null)
-  const headingRef = useRef<HTMLHeadingElement>(null)
-  const lineRef    = useRef<HTMLDivElement>(null)
-  const cardRefs   = useRef<(HTMLDivElement | null)[]>([])
+  const sectionRef  = useRef<HTMLDivElement>(null)
+  const headerRef   = useRef<HTMLDivElement>(null)
+  const foundersRef = useRef<HTMLHeadingElement>(null)
+  const sayRef      = useRef<HTMLHeadingElement>(null)
+  const lineRef     = useRef<HTMLDivElement>(null)
+  const cardRefs    = useRef<(HTMLDivElement | null)[]>([])
 
   useEffect(() => {
     const ctx = gsap.context(() => {
-      // Initial states (elements start hidden via inline style, this reinforces)
-      gsap.set(headingRef.current, { opacity: 0, y: 22 })
-      gsap.set(lineRef.current, { scaleX: 0, transformOrigin: "center center" })
+      gsap.set(lineRef.current, { scaleX: 0, transformOrigin: "center center", opacity: 0 })
 
-      // Header: line expands from center, heading rises up through it
+      // Header: same split-to-edges animation as other sections
       ScrollTrigger.create({
         trigger: headerRef.current,
         start: "top 87%",
         once: true,
         onEnter: () => {
-          gsap.timeline()
-            .to(lineRef.current,    { scaleX: 1, duration: 0.9, ease: "power3.inOut" })
-            .to(headingRef.current, { opacity: 1, y: 0, duration: 0.65, ease: "power3.out" }, "-=0.6")
+          const header   = headerRef.current
+          const founders = foundersRef.current
+          const say      = sayRef.current
+          const line     = lineRef.current
+          if (!header || !founders || !say || !line) return
+
+          if (window.innerWidth < 768) {
+            gsap.set(line, { scaleX: 1, opacity: 1 })
+            return
+          }
+
+          const cRect = header.getBoundingClientRect()
+          const fRect = founders.getBoundingClientRect()
+          const sRect = say.getBoundingClientRect()
+
+          const paddingX     = parseFloat(window.getComputedStyle(header).paddingLeft)
+          const contentLeft  = cRect.left + paddingX
+          const contentRight = cRect.right - paddingX
+
+          const foundersFinalX = contentLeft - fRect.left
+          const sayFinalX      = (contentRight - sRect.width) - sRect.left
+
+          gsap.timeline({ defaults: { duration: 1.1, ease: "power3.inOut" } })
+            .to(founders, { x: foundersFinalX }, 0)
+            .to(line,     { scaleX: 1, opacity: 1, ease: "power2.inOut" }, 0)
+            .to(say,      { x: sayFinalX }, 0)
         },
       })
 
@@ -223,14 +245,18 @@ export default function Testimonials() {
             className="absolute inset-x-0 border-t border-gray-200"
             style={{ top: "50%" }}
           />
-          <div className="relative flex justify-center overflow-hidden">
+          <div className="relative flex items-baseline justify-center gap-2">
             <h2
-              ref={headingRef}
-              className="relative bg-white px-4 text-2xl md:text-3xl font-light text-black shrink-0 whitespace-nowrap"
-              style={{ opacity: 0 }}
+              ref={foundersRef}
+              className="relative bg-white pr-3 text-2xl md:text-3xl font-light text-black shrink-0 whitespace-nowrap"
             >
               <span style={{ fontFamily: "SatishCapsSans, sans-serif", fontSize: "1.5em" }}>F</span>
-              <span style={{ fontFamily: "SatishSans, sans-serif" }}>ounders </span>
+              <span style={{ fontFamily: "SatishSans, sans-serif" }}>ounders</span>
+            </h2>
+            <h2
+              ref={sayRef}
+              className="relative bg-white pl-3 text-2xl md:text-3xl font-light text-black shrink-0 whitespace-nowrap"
+            >
               <span style={{ fontFamily: "SatishCapsSans, sans-serif", fontSize: "1.5em" }}>S</span>
               <span style={{ fontFamily: "SatishSans, sans-serif" }}>ay</span>
             </h2>

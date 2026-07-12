@@ -1,6 +1,10 @@
 "use client"
 
-import { useRef } from 'react'
+import { useRef, useEffect } from 'react'
+import { gsap } from 'gsap'
+import { ScrollTrigger } from 'gsap/ScrollTrigger'
+
+gsap.registerPlugin(ScrollTrigger)
 
 const CARDS = [
   { label: 'I Design',   sub: 'Probably 3am brainstorming',          url: '/images/life/Design.jpeg',   imgClass: 'object-bottom' },
@@ -41,19 +45,76 @@ const Plus = ({ h, v = 'bottom' }: { h: 'left' | 'right'; v?: 'top' | 'bottom' }
 )
 
 export default function LifeCarousel() {
-  const trackRef = useRef<HTMLDivElement>(null)
+  const trackRef  = useRef<HTMLDivElement>(null)
+  const headerRef = useRef<HTMLDivElement>(null)
+  const leftEl    = useRef<HTMLHeadingElement>(null)
+  const rightEl   = useRef<HTMLHeadingElement>(null)
+  const lineEl    = useRef<HTMLDivElement>(null)
+
+  useEffect(() => {
+    const header = headerRef.current
+    const left   = leftEl.current
+    const right  = rightEl.current
+    const line   = lineEl.current
+    if (!header || !left || !right || !line) return
+
+    let tl: gsap.core.Timeline
+
+    const setup = () => {
+      if (window.innerWidth < 768) {
+        gsap.set(left,  { x: 0 })
+        gsap.set(right, { x: 0 })
+        gsap.set(line,  { scaleX: 1, opacity: 1 })
+        return
+      }
+
+      const cRect = header.getBoundingClientRect()
+      const lRect = left.getBoundingClientRect()
+      const rRect = right.getBoundingClientRect()
+
+      const paddingX    = parseFloat(window.getComputedStyle(header).paddingLeft)
+      const contentLeft  = cRect.left + paddingX
+      const contentRight = cRect.right - paddingX
+
+      const leftFinalX  = contentLeft - lRect.left
+      const rightFinalX = (contentRight - rRect.width) - rRect.left
+
+      gsap.set(line, { scaleX: 0, transformOrigin: 'center center', opacity: 0 })
+
+      tl = gsap.timeline({
+        defaults: { duration: 1.1, ease: 'power3.inOut' },
+        scrollTrigger: {
+          trigger: header,
+          start: 'top 80%',
+          toggleActions: 'play none none reverse',
+        },
+      })
+
+      tl.to(left,  { x: leftFinalX }, 0)
+        .to(line,  { scaleX: 1, opacity: 1, ease: 'power2.inOut' }, 0)
+        .to(right, { x: rightFinalX }, 0)
+    }
+
+    document.fonts.ready.then(() => requestAnimationFrame(setup))
+
+    return () => { tl?.kill() }
+  }, [])
 
   return (
     <section className="relative overflow-visible bg-white" style={{ fontFamily: 'FunnelDisplay, sans-serif' }}>
-      
+
       {/* ── Section header ──────────────────────────────────────── */}
-      <div className="px-6 md:px-10 pb-8 md:pb-12 overflow-hidden max-w-5xl mx-auto">
+      <div ref={headerRef} className="px-6 md:px-10 pb-8 md:pb-12 overflow-hidden max-w-5xl mx-auto">
         <div className="relative">
-          <div className="absolute inset-x-0 border-t border-gray-200" style={{ top: '50%' }} />
-          <div className="relative flex justify-center">
-            <h2 className="relative bg-white px-4 text-2xl md:text-3xl font-light text-black shrink-0 whitespace-nowrap">
+          <div ref={lineEl} className="absolute inset-x-0 border-t border-gray-200" style={{ top: '50%' }} />
+          <div className="relative flex items-baseline justify-center gap-2">
+            <h2 ref={leftEl} className="relative bg-white pr-3 text-2xl md:text-3xl font-light text-black shrink-0 whitespace-nowrap">
               <span style={{ fontFamily: 'SatishCapsSans, sans-serif', fontSize: '1.5em' }}>J</span>
-              <span style={{ fontFamily: 'SatishSans, sans-serif' }}>ack of All Trades</span>
+              <span style={{ fontFamily: 'SatishSans, sans-serif' }}>ack of All</span>
+            </h2>
+            <h2 ref={rightEl} className="relative bg-white pl-3 text-2xl md:text-3xl font-light text-black shrink-0 whitespace-nowrap">
+              <span style={{ fontFamily: 'SatishCapsSans, sans-serif', fontSize: '1.5em' }}>T</span>
+              <span style={{ fontFamily: 'SatishSans, sans-serif' }}>rades</span>
             </h2>
           </div>
         </div>
