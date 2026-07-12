@@ -86,7 +86,7 @@ export default function Testimonials() {
 
               {/* Quote block */}
               <div className="relative flex-1">
-                <span className="text-4xl text-zinc-200 font-serif absolute -top-4 -left-2 select-none pointer-events-none group-hover/card:text-amber-200/50 transition-colors duration-500">
+                <span className="text-4xl text-zinc-200 font-serif absolute -top-4 -left-2 select-none pointer-events-none transition-colors duration-500">
                   “
                 </span>
                 <p
@@ -101,7 +101,7 @@ export default function Testimonials() {
             {/* Author block */}
             <div className="mt-8 pl-5 relative z-10">
               <div
-                className="text-sm font-semibold text-black transition-colors duration-500 group-hover/card:text-amber-600"
+                className="text-sm font-semibold text-black transition-colors duration-500"
                 style={{ fontFamily: "SatishSans, sans-serif" }}
               >
                 {t.author}
