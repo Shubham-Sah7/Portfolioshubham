@@ -229,9 +229,11 @@ export default function Testimonials() {
               className="relative bg-white px-4 text-2xl md:text-3xl font-light text-black shrink-0 whitespace-nowrap"
               style={{ opacity: 0 }}
             >
-              <span style={{ fontFamily: "SatishSans, sans-serif" }}>Some </span>
-              <span style={{ fontFamily: "SatishCapsSans, sans-serif", fontSize: "1.5em" }}>T</span>
-              <span style={{ fontFamily: "SatishSans, sans-serif" }}>estimonials</span>
+              <span style={{ fontFamily: "SatishSans, sans-serif" }}>What </span>
+              <span style={{ fontFamily: "SatishCapsSans, sans-serif", fontSize: "1.5em" }}>F</span>
+              <span style={{ fontFamily: "SatishSans, sans-serif" }}>ounders </span>
+              <span style={{ fontFamily: "SatishCapsSans, sans-serif", fontSize: "1.5em" }}>S</span>
+              <span style={{ fontFamily: "SatishSans, sans-serif" }}>ay</span>
             </h2>
           </div>
         </div>
