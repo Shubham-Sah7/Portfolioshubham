@@ -1,16 +1,9 @@
-"use client"
-
 import Image from "next/image"
-import { useEffect } from "react"
-import { gsap } from "gsap"
-
 import Loader from "../components/layout/Loader"
 import WorkGallery from "../components/home/workGallery"
 import MouseColorBloom from "../components/home/MouseColorBloom"
 import ParallaxImagesV1 from "../components/home/ParallaxImagesV1"
-import MouseParticlesV1 from "../components/home/MouseParticlesV1"
-import Mouse3DTiltV1 from "../components/home/Mouse3DTiltV1"
-import LiquidGlassFilterV1 from "../components/home/LiquidGlassFilterV1"
+import LightningArcV1 from "../components/home/LightningArcV1"
 import EmailSection from "../components/home/EmailSection"
 import VisualIdentityGallery from "../components/home/visualIdentityGallery"
 import ProposalsGallery from "../components/home/proposalsGallery"
@@ -19,30 +12,10 @@ import LifeCarousel from "../components/home/LifeCarousel"
 import FooterPlayground from "../components/home/FooterPlayground"
 
 export default function HomeV1() {
-  useEffect(() => {
-    // Light-reflective Gold Shimmer Effect
-    const handleMouseMove = (e: MouseEvent) => {
-      const percentageX = (e.clientX / window.innerWidth) * 100
-      const percentageY = (e.clientY / window.innerHeight) * 100
-
-      gsap.to(".shimmer-gold-text", {
-        backgroundPosition: `${percentageX}% ${percentageY}%`,
-        duration: 0.6,
-        ease: "power2.out"
-      })
-    }
-
-    window.addEventListener("mousemove", handleMouseMove)
-    return () => window.removeEventListener("mousemove", handleMouseMove)
-  }, [])
-
   return (
     <div className="bg-white relative flex flex-col gap-20 md:gap-28 overflow-x-clip w-full">
       <Loader />
       <PageBranches />
-
-      {/* SVG Liquid Refraction Filter */}
-      <LiquidGlassFilterV1 />
 
       {/* ── Pillar decorations - fixed to viewport edges ─────── */}
       <div className="fixed top-0 h-screen hidden md:block group/left-pillar" style={{ zIndex: 0, left: '-70px' }}>
@@ -72,75 +45,47 @@ export default function HomeV1() {
           className="relative min-h-[calc(100vh-120px)] flex flex-col justify-center items-center text-center gap-6 overflow-visible md:overflow-visible" 
           style={{ zIndex: 2 }}
         >
-          {/* Active Canvas Background Particles */}
-          <MouseParticlesV1 />
+          {/* Active Canvas Continuous Lightning Arc */}
+          <LightningArcV1 />
 
-          {/* Holographic 3D Tilt Container Wrapper */}
-          <Mouse3DTiltV1>
-            {/* Interactive Mouse Parallax Deities (rendered inside 3D space) */}
-            <ParallaxImagesV1 />
+          {/* Interactive Parallax Deities with Fingertip Markers */}
+          <ParallaxImagesV1 />
 
-            {/* Upgraded Glassmorphic Hero Card with Liquid Lens Filter */}
-            <div 
-              className="relative flex flex-col items-center gap-6 md:bg-white/40 md:backdrop-blur-xl md:border md:border-white/50 md:shadow-2xl md:px-14 md:py-12 md:rounded-3xl transition-all duration-500 hover:shadow-orange-100/30" 
-              style={{ 
-                zIndex: 20,
-                transform: "translateZ(80px)", // Lift card above deities (z: 60)
-                transformStyle: "preserve-3d",
-                filter: "url(#liquid-glass-lens)"
-              }}
+          {/* Original Text Layer (ZIndex raised to render in front of lightning) */}
+          <div className="relative flex flex-col items-center gap-6 md:bg-white md:px-6 md:py-4" style={{ zIndex: 20 }}>
+            <Image
+              src="/images/logo.png"
+              alt="Logo"
+              width={62}
+              height={62}
+              className="mb-6 md:mb-16"
+              style={{ mixBlendMode: 'multiply', filter: 'invert(1)', transform: 'rotate(180deg)' }}
+            />
+            <h1 className="text-4xl md:text-5xl tracking-tight text-black">
+              <span style={{ fontFamily: 'SatishCapsSans, sans-serif', fontSize: '1.5em' }}>S</span><span style={{ fontFamily: 'SatishSans, sans-serif', marginLeft: '4px' }}>hubham </span>
+              <span style={{ fontFamily: 'SatishCapsSans, sans-serif', fontSize: '1.5em' }}>S</span><span style={{ fontFamily: 'SatishSans, sans-serif', marginLeft: '4px' }}>ah</span>
+            </h1>
+            <p
+              className="text-sm md:text-base text-gray-400 leading-relaxed max-w-2xl flex flex-col items-center text-center gap-y-1 md:gap-y-0.5"
+              style={{ fontFamily: 'FunnelDisplay, sans-serif', fontWeight: '300' }}
             >
-              {/* Pulsing Interlocking Loops Logo */}
-              <Image
-                src="/images/logo.png"
-                alt="Logo"
-                width={62}
-                height={62}
-                className="mb-6 md:mb-12"
-                style={{ 
-                  mixBlendMode: 'multiply', 
-                  filter: 'invert(1)', 
-                  transform: 'rotate(180deg) translateZ(40px)',
-                  animation: 'pulse 3.5s cubic-bezier(0.4, 0, 0.6, 1) infinite'
-                }}
-              />
-              {/* Shimmering Gold Text name */}
-              <h1 className="text-4xl md:text-5xl tracking-tight select-none" style={{ transform: "translateZ(30px)" }}>
-                <span className="shimmer-gold-text" style={{ fontFamily: 'SatishCapsSans, sans-serif', fontSize: '1.4em' }}>S</span>
-                <span className="shimmer-gold-text" style={{ fontFamily: 'SatishSans, sans-serif', marginLeft: '4px' }}>hubham </span>
-                <span className="shimmer-gold-text" style={{ fontFamily: 'SatishCapsSans, sans-serif', fontSize: '1.4em' }}>S</span>
-                <span className="shimmer-gold-text" style={{ fontFamily: 'SatishSans, sans-serif', marginLeft: '4px' }}>ah</span>
-              </h1>
-              <p
-                className="text-sm md:text-base text-gray-400 leading-relaxed max-w-2xl flex flex-col items-center text-center gap-y-1 md:gap-y-0.5"
-                style={{ fontFamily: 'FunnelDisplay, sans-serif', fontWeight: '300', transform: "translateZ(20px)" }}
-              >
-                <span className="block">Building Products for Global Companies & Startups</span>
-                <span className="flex flex-wrap justify-center gap-x-1.5 mt-0.5 md:mt-0">
-                  <span className="whitespace-nowrap">25K+ on LinkedIn <span className="text-gray-300 ml-1.5">•</span></span>
-                  <span className="whitespace-nowrap">Founded a 2K+ Design Community <span className="text-gray-300 ml-1.5">•</span></span>
-                  <span className="whitespace-nowrap">IIT Patna MBA</span>
-                </span>
-              </p>
+              <span className="block">Building Products for Global Companies & Startups</span>
+              <span className="flex flex-wrap justify-center gap-x-1.5 mt-0.5 md:mt-0">
+                <span className="whitespace-nowrap">25K+ on LinkedIn <span className="text-gray-300 ml-1.5">•</span></span>
+                <span className="whitespace-nowrap">Founded a 2K+ Design Community <span className="text-gray-300 ml-1.5">•</span></span>
+                <span className="whitespace-nowrap">IIT Patna MBA</span>
+              </span>
+            </p>
 
-              {/* Mobile Email Section */}
-              <div className="block md:hidden mt-8">
-                <EmailSection />
-              </div>
+            {/* Mobile Email Section */}
+            <div className="block md:hidden mt-8">
+              <EmailSection />
             </div>
-          </Mouse3DTiltV1>
+          </div>
 
           {/* Desktop Email Section */}
           <div className="hidden md:flex absolute bottom-20 left-0 right-0 justify-center items-center" style={{ zIndex: 20 }}>
             <EmailSection />
-          </div>
-
-          {/* Scroll Indicator */}
-          <div className="absolute bottom-6 flex flex-col items-center gap-2 pointer-events-none hidden md:flex" style={{ zIndex: 20 }}>
-            <span className="text-[9px] text-gray-400 tracking-widest uppercase" style={{ fontFamily: 'FunnelDisplay, sans-serif' }}>Scroll</span>
-            <div className="w-[16px] h-[26px] border border-gray-300 rounded-full flex justify-center p-0.5">
-              <div className="w-[3px] h-[5px] bg-gray-400 rounded-full animate-bounce" />
-            </div>
           </div>
         </div>
 
@@ -167,20 +112,6 @@ export default function HomeV1() {
 
       {/* Footer Playground */}
       <FooterPlayground />
-
-      {/* Inline styles for the light-reflective shimmering gold text */}
-      <style jsx global>{`
-        .shimmer-gold-text {
-          background: linear-gradient(135deg, #8a6f27 0%, #e8c86b 25%, #bfa145 50%, #f7df94 75%, #8a6f27 100%);
-          background-size: 200% 200%;
-          -webkit-background-clip: text;
-          -webkit-text-fill-color: transparent;
-          background-clip: text;
-          text-fill-color: transparent;
-          display: inline-block;
-          will-change: background-position;
-        }
-      `}</style>
     </div>
   )
 }

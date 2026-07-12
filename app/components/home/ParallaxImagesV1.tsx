@@ -28,16 +28,7 @@ export default function ParallaxImagesV1() {
   const tejasDesktop = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
-    const abhay = abhayDesktop.current
-    const tejas = tejasDesktop.current
-    if (!abhay || !tejas) return
-
     const ctx = gsap.context(() => {
-      // Set 3D depth offsets
-      gsap.set(abhay, { transformPerspective: 1200, z: 60 })
-      gsap.set(tejas, { transformPerspective: 1200, z: 60 })
-
-      // 1. Scroll-driven vertical drift
       const st = {
         trigger: document.body,
         start: 'top top',
@@ -45,64 +36,19 @@ export default function ParallaxImagesV1() {
         scrub: 1,
       }
 
-      gsap.to(abhay, {
-        y: () => window.innerHeight * 0.35,
-        x: () => -window.innerWidth * 0.25,
+      // Desktop scroll-driven drift
+      gsap.to(abhayDesktop.current, {
+        y: () =>  window.innerHeight * 0.35,
+        x: () => -window.innerWidth  * 0.25,
         ease: 'none',
         scrollTrigger: st,
       })
-
-      gsap.to(tejas, {
-        y: () => window.innerHeight * 0.35,
-        x: () => window.innerWidth * 0.25,
+      gsap.to(tejasDesktop.current, {
+        y: () =>  window.innerHeight * 0.35,
+        x: () =>  window.innerWidth  * 0.25,
         ease: 'none',
         scrollTrigger: st,
       })
-
-      // 2. Mouse-driven interactive tilt & drift
-      // We use GSAP quickTo for smooth spring-like mouse follow
-      const abhayMouseX = gsap.quickTo(abhay, "xPercent", { duration: 0.8, ease: "power2.out" })
-      const abhayMouseY = gsap.quickTo(abhay, "yPercent", { duration: 0.8, ease: "power2.out" })
-      const abhayMouseR = gsap.quickTo(abhay, "rotation", { duration: 0.8, ease: "power2.out" })
-
-      const tejasMouseX = gsap.quickTo(tejas, "xPercent", { duration: 0.8, ease: "power2.out" })
-      const tejasMouseY = gsap.quickTo(tejas, "yPercent", { duration: 0.8, ease: "power2.out" })
-      const tejasMouseR = gsap.quickTo(tejas, "rotation", { duration: 0.8, ease: "power2.out" })
-
-      const handleMouseMove = (e: MouseEvent) => {
-        // Calculate normalized cursor offset from screen center (-1 to 1)
-        const normX = (e.clientX / window.innerWidth) - 0.5
-        const normY = (e.clientY / window.innerHeight) - 0.5
-
-        // Move left deity: opposite to mouse, rotate slightly
-        abhayMouseX(normX * -15)
-        abhayMouseY(normY * -15)
-        abhayMouseR(ABHAY.rotate + (normX * 8))
-
-        // Move right deity: follows mouse, rotate slightly
-        tejasMouseX(normX * 15)
-        tejasMouseY(normY * 15)
-        tejasMouseR(TEJAS.rotate + (normX * -8))
-      }
-
-      const handleMouseLeave = () => {
-        // Reset to original positions
-        abhayMouseX(0)
-        abhayMouseY(0)
-        abhayMouseR(ABHAY.rotate)
-
-        tejasMouseX(0)
-        tejasMouseY(0)
-        tejasMouseR(TEJAS.rotate)
-      }
-
-      window.addEventListener("mousemove", handleMouseMove)
-      document.addEventListener("mouseleave", handleMouseLeave)
-
-      return () => {
-        window.removeEventListener("mousemove", handleMouseMove)
-        document.removeEventListener("mouseleave", handleMouseLeave)
-      }
     })
 
     return () => ctx.revert()
@@ -123,7 +69,11 @@ export default function ParallaxImagesV1() {
           willChange: 'transform'
         }}
       >
-        <Image src={ABHAY.src} alt="Abhay" width={ABHAY.width} height={500} className="w-full h-auto object-contain block pointer-events-none" />
+        <div className="relative w-full h-full">
+          <Image src={ABHAY.src} alt="Abhay" width={ABHAY.width} height={500} className="w-full h-auto object-contain block pointer-events-none" />
+          {/* Fingertip Marker */}
+          <div id="left-fingertip" className="absolute w-2 h-2 rounded-full" style={{ right: '0%', top: '40%', opacity: 0 }} />
+        </div>
       </div>
       <div
         ref={tejasDesktop}
@@ -137,10 +87,14 @@ export default function ParallaxImagesV1() {
           willChange: 'transform'
         }}
       >
-        <Image src={TEJAS.src} alt="Tejas" width={TEJAS.width} height={500} className="w-full h-auto object-contain block pointer-events-none" />
+        <div className="relative w-full h-full">
+          <Image src={TEJAS.src} alt="Tejas" width={TEJAS.width} height={500} className="w-full h-auto object-contain block pointer-events-none" />
+          {/* Fingertip Marker */}
+          <div id="right-fingertip" className="absolute w-2 h-2 rounded-full" style={{ left: '0%', top: '42%', opacity: 0 }} />
+        </div>
       </div>
 
-      {/* ── Mobile - absolute to hero container, scrolls natively with zero scroll friction ── */}
+      {/* ── Mobile ── */}
       <div
         className="absolute block md:hidden pointer-events-none opacity-[0.22]"
         style={{ 

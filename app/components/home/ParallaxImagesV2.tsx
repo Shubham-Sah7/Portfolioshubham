@@ -28,14 +28,6 @@ export default function ParallaxImagesV2() {
   const tejasDesktop = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
-    const abhay = abhayDesktop.current
-    const tejas = tejasDesktop.current
-    if (!abhay || !tejas) return
-
-    // Set initial low opacity
-    gsap.set(abhay, { opacity: 0.15 })
-    gsap.set(tejas, { opacity: 0.15 })
-
     const ctx = gsap.context(() => {
       const st = {
         trigger: document.body,
@@ -44,55 +36,19 @@ export default function ParallaxImagesV2() {
         scrub: 1.2, // Slightly slower lag for more cinematic weight
       }
 
-      // Desktop: deeper drift down + wider slide outward
-      gsap.to(abhay, {
+      // Desktop scroll-driven drift
+      gsap.to(abhayDesktop.current, {
         y: () =>  window.innerHeight * 0.45,
         x: () => -window.innerWidth  * 0.32,
         ease: 'none',
         scrollTrigger: st,
       })
-      gsap.to(tejas, {
+      gsap.to(tejasDesktop.current, {
         y: () =>  window.innerHeight * 0.45,
         x: () =>  window.innerWidth  * 0.32,
         ease: 'none',
         scrollTrigger: st,
       })
-
-      const handleMouseMove = (e: MouseEvent) => {
-        const rAbhay = abhay.getBoundingClientRect()
-        const rTejas = tejas.getBoundingClientRect()
-
-        const cAbhayX = rAbhay.left + rAbhay.width / 2
-        const cAbhayY = rAbhay.top + rAbhay.height / 2
-        const cTejasX = rTejas.left + rTejas.width / 2
-        const cTejasY = rTejas.top + rTejas.height / 2
-
-        const dAbhay = Math.sqrt((e.clientX - cAbhayX) ** 2 + (e.clientY - cAbhayY) ** 2)
-        const dTejas = Math.sqrt((e.clientX - cTejasX) ** 2 + (e.clientY - cTejasY) ** 2)
-
-        const maxDist = 550
-        const baseOpacity = 0.15
-        const targetOpacity = 0.95
-
-        const opAbhay = baseOpacity + Math.max(0, (maxDist - dAbhay) / maxDist) * (targetOpacity - baseOpacity)
-        const opTejas = baseOpacity + Math.max(0, (maxDist - dTejas) / maxDist) * (targetOpacity - baseOpacity)
-
-        gsap.to(abhay, { opacity: opAbhay, duration: 0.4, ease: "power1.out" })
-        gsap.to(tejas, { opacity: opTejas, duration: 0.4, ease: "power1.out" })
-      }
-
-      const handleMouseLeave = () => {
-        gsap.to(abhay, { opacity: 0.15, duration: 0.8 })
-        gsap.to(tejas, { opacity: 0.15, duration: 0.8 })
-      }
-
-      window.addEventListener("mousemove", handleMouseMove)
-      document.addEventListener("mouseleave", handleMouseLeave)
-
-      return () => {
-        window.removeEventListener("mousemove", handleMouseMove)
-        document.removeEventListener("mouseleave", handleMouseLeave)
-      }
     })
 
     return () => ctx.revert()
@@ -113,7 +69,11 @@ export default function ParallaxImagesV2() {
           willChange: 'transform'
         }}
       >
-        <Image src={ABHAY.src} alt="Abhay" width={ABHAY.width} height={500} className="w-full h-auto object-contain block pointer-events-none" />
+        <div className="relative w-full h-full">
+          <Image src={ABHAY.src} alt="Abhay" width={ABHAY.width} height={500} className="w-full h-auto object-contain block pointer-events-none" />
+          {/* Fingertip Marker */}
+          <div id="left-fingertip" className="absolute w-2 h-2 rounded-full" style={{ right: '0%', top: '40%', opacity: 0 }} />
+        </div>
       </div>
       <div
         ref={tejasDesktop}
@@ -127,10 +87,14 @@ export default function ParallaxImagesV2() {
           willChange: 'transform'
         }}
       >
-        <Image src={TEJAS.src} alt="Tejas" width={TEJAS.width} height={500} className="w-full h-auto object-contain block pointer-events-none" />
+        <div className="relative w-full h-full">
+          <Image src={TEJAS.src} alt="Tejas" width={TEJAS.width} height={500} className="w-full h-auto object-contain block pointer-events-none" />
+          {/* Fingertip Marker */}
+          <div id="right-fingertip" className="absolute w-2 h-2 rounded-full" style={{ left: '0%', top: '42%', opacity: 0 }} />
+        </div>
       </div>
 
-      {/* ── Mobile - absolute to hero container, scrolls naturally with zero scroll friction ── */}
+      {/* ── Mobile ── */}
       <div
         className="absolute block md:hidden pointer-events-none opacity-[0.22]"
         style={{ 
