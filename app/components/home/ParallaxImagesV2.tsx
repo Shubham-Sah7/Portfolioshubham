@@ -28,6 +28,14 @@ export default function ParallaxImagesV2() {
   const tejasDesktop = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
+    const abhay = abhayDesktop.current
+    const tejas = tejasDesktop.current
+    if (!abhay || !tejas) return
+
+    // Set initial low opacity
+    gsap.set(abhay, { opacity: 0.15 })
+    gsap.set(tejas, { opacity: 0.15 })
+
     const ctx = gsap.context(() => {
       const st = {
         trigger: document.body,
@@ -37,18 +45,54 @@ export default function ParallaxImagesV2() {
       }
 
       // Desktop: deeper drift down + wider slide outward
-      gsap.to(abhayDesktop.current, {
+      gsap.to(abhay, {
         y: () =>  window.innerHeight * 0.45,
         x: () => -window.innerWidth  * 0.32,
         ease: 'none',
         scrollTrigger: st,
       })
-      gsap.to(tejasDesktop.current, {
+      gsap.to(tejas, {
         y: () =>  window.innerHeight * 0.45,
         x: () =>  window.innerWidth  * 0.32,
         ease: 'none',
         scrollTrigger: st,
       })
+
+      const handleMouseMove = (e: MouseEvent) => {
+        const rAbhay = abhay.getBoundingClientRect()
+        const rTejas = tejas.getBoundingClientRect()
+
+        const cAbhayX = rAbhay.left + rAbhay.width / 2
+        const cAbhayY = rAbhay.top + rAbhay.height / 2
+        const cTejasX = rTejas.left + rTejas.width / 2
+        const cTejasY = rTejas.top + rTejas.height / 2
+
+        const dAbhay = Math.sqrt((e.clientX - cAbhayX) ** 2 + (e.clientY - cAbhayY) ** 2)
+        const dTejas = Math.sqrt((e.clientX - cTejasX) ** 2 + (e.clientY - cTejasY) ** 2)
+
+        const maxDist = 550
+        const baseOpacity = 0.15
+        const targetOpacity = 0.95
+
+        const opAbhay = baseOpacity + Math.max(0, (maxDist - dAbhay) / maxDist) * (targetOpacity - baseOpacity)
+        const opTejas = baseOpacity + Math.max(0, (maxDist - dTejas) / maxDist) * (targetOpacity - baseOpacity)
+
+        gsap.to(abhay, { opacity: opAbhay, duration: 0.4, ease: "power1.out" })
+        gsap.to(tejas, { opacity: opTejas, duration: 0.4, ease: "power1.out" })
+      }
+
+      const handleMouseLeave = () => {
+        gsap.to(abhay, { opacity: 0.15, duration: 0.8 })
+        gsap.to(tejas, { opacity: 0.15, duration: 0.8 })
+      }
+
+      window.addEventListener("mousemove", handleMouseMove)
+      document.addEventListener("mouseleave", handleMouseLeave)
+
+      return () => {
+        window.removeEventListener("mousemove", handleMouseMove)
+        document.removeEventListener("mouseleave", handleMouseLeave)
+      }
     })
 
     return () => ctx.revert()

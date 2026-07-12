@@ -9,6 +9,8 @@ import Loader from "../components/layout/Loader"
 import WorkGallery from "../components/home/workGallery"
 import MouseColorBloom from "../components/home/MouseColorBloom"
 import ParallaxImagesV2 from "../components/home/ParallaxImagesV2"
+import MultiColorBloomV2 from "../components/home/MultiColorBloomV2"
+import GeometryGridV2 from "../components/home/GeometryGridV2"
 import EmailSection from "../components/home/EmailSection"
 import VisualIdentityGallery from "../components/home/visualIdentityGallery"
 import ProposalsGallery from "../components/home/proposalsGallery"
@@ -117,7 +119,8 @@ export default function HomeV2() {
         transform: "translateY(24px)",
         fontFamily: char === "S" ? "SatishCapsSans, sans-serif" : "SatishSans, sans-serif",
         fontSize: char === "S" ? "1.4em" : "inherit",
-        marginRight: char === " " ? "12px" : "1px"
+        marginRight: char === " " ? "12px" : "1px",
+        color: "#1c1917"
       }}
     >
       {char}
@@ -125,18 +128,15 @@ export default function HomeV2() {
   ))
 
   return (
-    <div className="bg-white relative flex flex-col gap-20 md:gap-28 overflow-x-clip w-full">
+    <div className="bg-[#f5f2eb] relative flex flex-col gap-20 md:gap-28 overflow-x-clip w-full transition-colors duration-1000">
       <Loader />
       <PageBranches />
 
-      {/* ── Cinematic Vignette Background Overlay ──────────────── */}
-      <div 
-        className="absolute inset-0 h-screen pointer-events-none hidden md:block"
-        style={{
-          background: "radial-gradient(circle at center, rgba(255,255,255,0.4) 15%, rgba(248,246,242,0.6) 55%, rgba(225,220,208,0.4) 100%)",
-          zIndex: 0
-        }}
-      />
+      {/* ── Multi-Color Aurora Light Bloom ──────────────── */}
+      <MultiColorBloomV2 />
+
+      {/* ── Fine-Line Geometric Grid Background ───────────── */}
+      <GeometryGridV2 />
 
       {/* ── Pillar decorations - absolute with parallax drift ─────── */}
       <div ref={leftPillarRef} className="absolute top-0 h-[120vh] hidden md:block group/left-pillar" style={{ zIndex: 1, left: '-70px' }}>
@@ -145,7 +145,7 @@ export default function HomeV2() {
           alt=""
           width={120}
           height={800}
-          className="h-full w-auto object-contain object-top select-none transition-all duration-700 ease-out opacity-[0.18] scale-100 brightness-100 group-hover/left-pillar:opacity-[0.30] group-hover/left-pillar:scale-[1.04] group-hover/left-pillar:brightness-[1.2]"
+          className="h-full w-auto object-contain object-top select-none transition-all duration-700 ease-out opacity-[0.18] scale-100 brightness-95 group-hover/left-pillar:opacity-[0.30] group-hover/left-pillar:scale-[1.04]"
         />
       </div>
       <div ref={rightPillarRef} className="absolute top-0 h-[120vh] hidden md:block group/right-pillar" style={{ zIndex: 1, right: '-40px' }}>
@@ -154,14 +154,13 @@ export default function HomeV2() {
           alt=""
           width={120}
           height={800}
-          className="h-full w-auto object-contain object-top select-none transition-all duration-700 ease-out opacity-[0.18] scale-100 brightness-100 group-hover/right-pillar:opacity-[0.30] group-hover/right-pillar:scale-[1.04] group-hover/right-pillar:brightness-[1.2]"
+          className="h-full w-auto object-contain object-top select-none transition-all duration-700 ease-out opacity-[0.18] scale-100 brightness-95 group-hover/right-pillar:opacity-[0.30] group-hover/right-pillar:scale-[1.04]"
         />
       </div>
 
       <div className="max-w-5xl mx-auto px-6 md:px-10 flex flex-col gap-20 md:gap-28 z-10">
 
         {/* First fold - name + description, full viewport height */}
-        <MouseColorBloom />
         <div 
           className="relative min-h-[calc(100vh-120px)] flex flex-col justify-center items-center text-center gap-6 overflow-visible md:overflow-visible hero-container" 
           style={{ zIndex: 2 }}
@@ -177,13 +176,13 @@ export default function HomeV2() {
               ref={pathRef}
               d="M 500,0 L 500,230 C 440,250 440,310 500,330 C 560,310 560,250 500,230 L 500,650"
               fill="none"
-              stroke="#D4AF37"
-              strokeWidth="1.5"
-              strokeOpacity="0.35"
+              stroke="#bfa145"
+              strokeWidth="1.25"
+              strokeOpacity="0.45"
             />
           </svg>
 
-          {/* Upgraded Multi-Plane Parallax Deities */}
+          {/* Upgraded Multi-Plane Parallax Deities with Proximity Lighting */}
           <ParallaxImagesV2 />
 
           {/* Text layer styled with cinematic spacing */}
@@ -202,13 +201,13 @@ export default function HomeV2() {
               {nameLetters}
             </h1>
             <p
-              className="text-sm md:text-base text-gray-400 leading-relaxed max-w-2xl flex flex-col items-center text-center gap-y-1 md:gap-y-0.5"
+              className="text-sm md:text-base text-gray-500 leading-relaxed max-w-2xl flex flex-col items-center text-center gap-y-1 md:gap-y-0.5"
               style={{ fontFamily: 'FunnelDisplay, sans-serif', fontWeight: '300' }}
             >
-              <span className="block">Building Products for Global Companies & Startups</span>
-              <span className="flex flex-wrap justify-center gap-x-1.5 mt-0.5 md:mt-0">
-                <span className="whitespace-nowrap">25K+ on LinkedIn <span className="text-gray-300 ml-1.5">•</span></span>
-                <span className="whitespace-nowrap">Founded a 2K+ Design Community <span className="text-gray-300 ml-1.5">•</span></span>
+              <span className="block text-stone-700">Building Products for Global Companies & Startups</span>
+              <span className="flex flex-wrap justify-center gap-x-1.5 mt-0.5 md:mt-0 text-stone-500">
+                <span className="whitespace-nowrap">25K+ on LinkedIn <span className="text-stone-300 ml-1.5">•</span></span>
+                <span className="whitespace-nowrap">Founded a 2K+ Design Community <span className="text-stone-300 ml-1.5">•</span></span>
                 <span className="whitespace-nowrap">IIT Patna MBA</span>
               </span>
             </p>

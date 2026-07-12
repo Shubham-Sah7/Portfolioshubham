@@ -33,6 +33,10 @@ export default function ParallaxImagesV1() {
     if (!abhay || !tejas) return
 
     const ctx = gsap.context(() => {
+      // Set 3D depth offsets
+      gsap.set(abhay, { transformPerspective: 1200, z: 60 })
+      gsap.set(tejas, { transformPerspective: 1200, z: 60 })
+
       // 1. Scroll-driven vertical drift
       const st = {
         trigger: document.body,
