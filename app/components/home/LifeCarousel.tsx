@@ -120,7 +120,7 @@ export default function LifeCarousel() {
       </div>
 
       {/* ── Full bleed marquee wrapper (no borders, no background color) ──────── */}
-      <div className="relative w-full pt-10 md:pt-12 pb-0 overflow-hidden bg-white">
+      <div className="relative w-full pt-10 md:pt-12 pb-6 md:pb-8 overflow-hidden bg-white">
 
         <div className="relative overflow-visible w-full life-track-container">
           <div
