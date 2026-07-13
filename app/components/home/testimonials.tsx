@@ -113,8 +113,8 @@ function TestimonialCard({
       onMouseLeave={handleMouseLeave}
       onMouseDown={handleMouseDown}
       onMouseUp={handleMouseUp}
-      className="relative border border-zinc-200 p-6 md:p-8 flex flex-col justify-between h-full bg-white
-        hover:border-zinc-950 hover:shadow-[0_24px_60px_rgba(0,0,0,0.08)] group/card cursor-default select-none"
+      className="relative border border-zinc-200 p-6 md:p-8 flex flex-col justify-between h-full bg-transparent
+        hover:bg-white hover:border-zinc-950 hover:shadow-[0_24px_60px_rgba(0,0,0,0.08)] group/card cursor-default select-none transition-all duration-300"
       style={{ transformStyle: "preserve-3d", willChange: "transform" }}
     >
       <Plus h="left"  v="top" />
