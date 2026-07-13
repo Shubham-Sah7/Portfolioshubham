@@ -11,17 +11,36 @@ import PageBranches from "./components/home/PageBranches"
 import LifeCarousel from "./components/home/LifeCarousel"
 import FooterPlayground from "./components/home/FooterPlayground"
 import Testimonials from "./components/home/testimonials"
+import HeroLetsConnect from "./components/home/HeroLetsConnect"
 
+const Plus = ({ h, v }: { h: 'left' | 'right'; v: 'top' | 'bottom' }) => (
+  <svg
+    width="11"
+    height="11"
+    viewBox="0 0 11 11"
+    fill="none"
+    className="absolute select-none pointer-events-none text-zinc-300"
+    style={{
+      [h]: '-6px',
+      [v]: '-6px',
+      zIndex: 10,
+    }}
+  >
+    <path d="M5.5 0V11M0 5.5H11" stroke="currentColor" strokeWidth="1" />
+  </svg>
+)
 
 export default function Home() {
   return (
     <div className="bg-white relative flex flex-col gap-20 md:gap-28 w-full">
+      {/* Grid Background overlay (centered, matching max-w-5xl content bounds to clear decorative pillars) */}
+      <div className="absolute top-0 h-screen left-1/2 -translate-x-1/2 w-full max-w-5xl bg-grid-pattern pointer-events-none" style={{ zIndex: 0 }} />
 
       <Loader />
       <PageBranches />
 
       {/* ── Pillar decorations - fixed to viewport edges ─────── */}
-      <div className="fixed top-0 h-screen hidden md:block group/left-pillar" style={{ zIndex: 0, left: '-70px' }}>
+      <div className="fixed top-0 h-screen hidden md:block group/left-pillar" style={{ zIndex: 5, left: '-70px' }}>
         <Image
           src="/images/HomeImages/piller-v.svg"
           alt=""
@@ -30,7 +49,7 @@ export default function Home() {
           className="h-screen w-auto object-contain object-top select-none transition-all duration-700 ease-out opacity-[0.18] scale-100 brightness-100 group-hover/left-pillar:opacity-[0.30] group-hover/left-pillar:scale-[1.04] group-hover/left-pillar:brightness-[1.2]"
         />
       </div>
-      <div className="fixed top-0 h-screen hidden md:block group/right-pillar" style={{ zIndex: 0, right: '-40px' }}>
+      <div className="fixed top-0 h-screen hidden md:block group/right-pillar" style={{ zIndex: 5, right: '-40px' }}>
         <Image
           src="/images/HomeImages/piller-2-v.svg"
           alt=""
@@ -58,6 +77,17 @@ export default function Home() {
               className="mb-0 md:mb-16"
               style={{ mixBlendMode: 'multiply', filter: 'invert(1)', transform: 'rotate(180deg)' }}
             />
+            {/* DESIGNING PRODUCTS Badge Card (our style) */}
+            <div 
+              className="relative border border-zinc-200 bg-zinc-50/80 px-4 py-1 text-[9px] md:text-[10px] tracking-[0.18em] text-zinc-500 select-none mb-1 md:mb-3"
+              style={{ fontFamily: 'Poppins, sans-serif', fontWeight: '500' }}
+            >
+              <Plus h="left" v="top" />
+              <Plus h="right" v="top" />
+              <Plus h="left" v="bottom" />
+              <Plus h="right" v="bottom" />
+              <span>DESIGNING PRODUCTS</span>
+            </div>
             <h1 className="text-4xl md:text-5xl tracking-tight text-black">
               <span style={{ fontFamily: 'SatishCapsSans, sans-serif', fontSize: '1.5em' }}>S</span><span style={{ fontFamily: 'SatishSans, sans-serif', marginLeft: '4px' }}>hubham </span>
               <span style={{ fontFamily: 'SatishCapsSans, sans-serif', fontSize: '1.5em' }}>S</span><span style={{ fontFamily: 'SatishSans, sans-serif', marginLeft: '4px' }}>ah</span>
@@ -74,15 +104,10 @@ export default function Home() {
               </span>
             </p>
 
-            {/* Mobile Email Section: rendered in flow to prevent absolute overlap */}
-            <div className="block md:hidden mt-3">
-              <EmailSection />
+            {/* Centered "Let's Connect" CTA Section with Branches */}
+            <div className="mt-4 md:mt-8">
+              <HeroLetsConnect />
             </div>
-          </div>
-
-          {/* Desktop Email Section: absolutely anchored */}
-          <div className="hidden md:flex absolute bottom-20 left-0 right-0 justify-center items-center" style={{ zIndex: 20 }}>
-            <EmailSection />
           </div>
         </div>
 

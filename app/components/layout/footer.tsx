@@ -89,7 +89,7 @@ export default function Footer() {
           </div>
 
           {/* Email button */}
-          <div className="flex justify-center items-center w-full">
+          <div id="footer-email" className="flex justify-center items-center w-full">
             <EmailCopy />
           </div>
 
