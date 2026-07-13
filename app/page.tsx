@@ -12,6 +12,11 @@ import LifeCarousel from "./components/home/LifeCarousel"
 import FooterPlayground from "./components/home/FooterPlayground"
 import Testimonials from "./components/home/testimonials"
 import HeroLetsConnect from "./components/home/HeroLetsConnect"
+import HomeScrollTrigger from "./components/home/HomeScrollTrigger"
+
+interface HomeProps {
+  searchParams: Promise<{ scroll?: string }>
+}
 
 const Plus = ({ h, v }: { h: 'left' | 'right'; v: 'top' | 'bottom' }) => (
   <svg
@@ -30,9 +35,13 @@ const Plus = ({ h, v }: { h: 'left' | 'right'; v: 'top' | 'bottom' }) => (
   </svg>
 )
 
-export default function Home() {
+export default async function Home({ searchParams }: HomeProps) {
+  const resolvedParams = await searchParams
+  const scroll = resolvedParams?.scroll
+
   return (
     <div className="bg-white relative flex flex-col gap-20 md:gap-28 w-full">
+      <HomeScrollTrigger target={scroll} />
       {/* Grid Background overlay (centered, matching max-w-5xl content bounds to clear decorative pillars) */}
       <div className="absolute top-0 h-[calc(100vh-120px)] md:h-screen left-1/2 -translate-x-1/2 w-full max-w-5xl bg-grid-pattern pointer-events-none" style={{ zIndex: 0 }} />
 

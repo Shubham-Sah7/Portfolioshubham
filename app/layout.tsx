@@ -81,6 +81,31 @@ export default function RootLayout({
     <html lang="en">
       <body className={inter.className} suppressHydrationWarning>
         <PostHogProvider>
+          <script
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{
+              __html: JSON.stringify({
+                "@context": "https://schema.org",
+                "@type": "Person",
+                "name": "Shubham Sah",
+                "jobTitle": "Senior Product Designer",
+                "url": "https://shubhamsah.com",
+                "sameAs": [
+                  "https://www.linkedin.com/in/shubham-sah-designer",
+                  "https://twitter.com/Shubhammcr7_"
+                ],
+                "description": "Senior Product Designer specializing in AI, SaaS, Fintech, and Enterprise systems.",
+                "knowsAbout": [
+                  "Product Design",
+                  "User Experience Design",
+                  "User Interface Design",
+                  "Design Systems",
+                  "AI Product Design",
+                  "Fintech SaaS Design"
+                ]
+              })
+            }}
+          />
           <SmoothScroll />
           <ScrollReset />
           <NavbarClient />
