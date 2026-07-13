@@ -149,19 +149,19 @@ export default function ProposalsGallery() {
         <div className="relative">
           <div
             ref={lineEl}
-            className="absolute inset-x-0 border-t border-gray-300"
+            className="hidden md:block absolute inset-x-0 border-t border-gray-300"
             style={{ top: '50%' }}
           />
           <div className="relative flex items-baseline justify-center gap-2">
             <h2
               ref={designEl}
-              className="relative bg-white pr-3 text-2xl md:text-3xl font-light text-black shrink-0 whitespace-nowrap"
+              className="relative bg-transparent md:bg-white pr-3 text-2xl md:text-3xl font-light text-black shrink-0 whitespace-nowrap"
             >
               <span style={{ fontFamily: 'SatishCapsSans, sans-serif', fontSize: '1.5em' }}>D</span><span style={{ fontFamily: 'SatishSans, sans-serif' }}>esign</span>
             </h2>
             <h2
               ref={proposalEl}
-              className="relative bg-white pl-3 text-2xl md:text-3xl font-light text-black shrink-0 whitespace-nowrap"
+              className="relative bg-transparent md:bg-white pl-3 text-2xl md:text-3xl font-light text-black shrink-0 whitespace-nowrap"
             >
               <span style={{ fontFamily: 'SatishCapsSans, sans-serif', fontSize: '1.5em' }}>P</span><span style={{ fontFamily: 'SatishSans, sans-serif' }}>roposals</span>
             </h2>
