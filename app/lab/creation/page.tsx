@@ -16,14 +16,6 @@ export default function CreationOfAdam() {
   const [isSparked, setIsSparked] = useState(false)
   const [hasInteracted, setHasInteracted] = useState(false)
 
-  // Clean up body background style on unmount so it does not leak to other pages
-  useEffect(() => {
-    document.body.style.backgroundColor = "#dfd3bf"
-    return () => {
-      document.body.style.backgroundColor = ""
-    }
-  }, [])
-
   // Web Audio Synth Spark sound
   const playSparkSound = () => {
     try {
@@ -147,12 +139,11 @@ export default function CreationOfAdam() {
   return (
     <div
       ref={containerRef}
-      className="relative min-h-screen overflow-hidden select-none flex flex-col justify-between p-6"
+      className="relative min-h-screen overflow-hidden select-none flex flex-col justify-between p-6 bg-white"
       style={{
-        backgroundColor: "#dfd3bf",
         backgroundImage: `
-          linear-gradient(rgba(94, 139, 117, 0.11) 1px, transparent 1px),
-          linear-gradient(90deg, rgba(94, 139, 117, 0.11) 1px, transparent 1px)
+          linear-gradient(rgba(9, 9, 11, 0.04) 1px, transparent 1px),
+          linear-gradient(90deg, rgba(9, 9, 11, 0.04) 1px, transparent 1px)
         `,
         backgroundSize: "24px 24px",
       }}
@@ -161,13 +152,13 @@ export default function CreationOfAdam() {
       <header className="relative w-full max-w-5xl mx-auto flex items-center justify-between z-50">
         <Link 
           href="/" 
-          className="flex items-center gap-1 text-[11px] font-semibold text-emerald-800/80 hover:text-emerald-950 uppercase tracking-widest transition-colors duration-300"
+          className="flex items-center gap-1 text-[11px] font-semibold text-zinc-500 hover:text-black uppercase tracking-widest transition-colors duration-300"
           style={{ fontFamily: "FunnelDisplay, sans-serif" }}
         >
           ← Back to Portfolio
         </Link>
         <span 
-          className="text-[10px] text-emerald-800/60 font-mono tracking-wider"
+          className="text-[10px] text-zinc-400 font-mono tracking-wider"
         >
           LAB EXP. 07 // CREATION OF ADAM
         </span>
@@ -179,7 +170,7 @@ export default function CreationOfAdam() {
         {/* Interactive Instruction Banner */}
         {!hasInteracted && (
           <div 
-            className="absolute top-1/6 text-center animate-bounce z-40 bg-[#dfd3bf] px-4 py-1.5 border border-emerald-800/20 text-emerald-800/60 text-xs tracking-widest uppercase font-light"
+            className="absolute top-1/6 text-center animate-bounce z-40 bg-white px-4 py-1.5 border border-zinc-200 text-zinc-500 text-xs tracking-widest uppercase font-light shadow-sm"
             style={{ fontFamily: "FunnelDisplay, sans-serif" }}
           >
             Move Cursor or Drag horizontally to align fingers
@@ -189,7 +180,7 @@ export default function CreationOfAdam() {
         {/* Dynamic Schematic Lines (SVG Overlay) */}
         <svg
           ref={annotationsRef}
-          className="absolute inset-0 w-full h-full pointer-events-none select-none z-10 text-emerald-800/40"
+          className="absolute inset-0 w-full h-full pointer-events-none select-none z-10 text-zinc-300"
           style={{ mixBlendMode: "multiply" }}
         >
           {/* Main Top Dimension Line */}
@@ -200,7 +191,7 @@ export default function CreationOfAdam() {
             x="50%" 
             y="26%" 
             textAnchor="middle" 
-            className="text-[9px] font-mono tracking-widest fill-emerald-800/70"
+            className="text-[9px] font-mono tracking-widest fill-zinc-500"
           >
             SPAN: 12.5 IN // DISTANCE: {((1 - progress) * 12.5).toFixed(1)} IN
           </text>
@@ -215,7 +206,7 @@ export default function CreationOfAdam() {
           <text 
             x="30%" 
             y="43%" 
-            className="text-[8px] font-mono fill-emerald-800/60"
+            className="text-[8px] font-mono fill-zinc-400"
           >
             25° ANGLE
           </text>
@@ -228,7 +219,7 @@ export default function CreationOfAdam() {
             <text 
               x="53%" 
               y="49%" 
-              className="text-[8px] font-mono fill-emerald-800/60"
+              className="text-[8px] font-mono fill-zinc-400"
             >
               8.2 IN (GAP)
             </text>
@@ -240,7 +231,7 @@ export default function CreationOfAdam() {
             y="76%"
             textAnchor="middle"
             className={`text-sm tracking-[0.2em] font-semibold transition-all duration-300 ${
-              isSparked ? "fill-emerald-950 font-bold" : "fill-emerald-800/40"
+              isSparked ? "fill-zinc-900 font-bold" : "fill-zinc-300"
             }`}
             style={{ fontFamily: "FunnelDisplay, sans-serif" }}
           >
@@ -258,7 +249,7 @@ export default function CreationOfAdam() {
         >
           <div className="relative w-full h-full flex items-center justify-end overflow-visible">
             {/* The cloud graphic anchor */}
-            <span className="absolute left-4 text-[9px] font-mono text-emerald-800/50 tracking-widest transform -rotate-90">
+            <span className="absolute left-4 text-[9px] font-mono text-zinc-400 tracking-widest transform -rotate-90">
               DIVINE POWER
             </span>
             <Image
@@ -279,22 +270,22 @@ export default function CreationOfAdam() {
           style={{ width: 60, height: 60 }}
         >
           {/* Constant faint pulse */}
-          <div className={`absolute w-4 h-4 rounded-full bg-emerald-600/10 blur-[4px] animate-ping duration-1000 ${isSparked ? "hidden" : "block"}`} />
+          <div className={`absolute w-4 h-4 rounded-full bg-zinc-200 blur-[4px] animate-ping duration-1000 ${isSparked ? "hidden" : "block"}`} />
           
           {/* Active lightning spark flash */}
           <div
             ref={sparkRef}
-            className="absolute rounded-full bg-amber-200 blur-[8px] opacity-0"
+            className="absolute rounded-full bg-zinc-100 blur-[8px] opacity-0"
             style={{
               width: 50,
               height: 50,
-              boxShadow: "0 0 20px 10px rgba(52, 211, 153, 0.6), 0 0 40px 20px rgba(251, 243, 219, 0.4)",
+              boxShadow: "0 0 20px 10px rgba(156, 163, 175, 0.6), 0 0 40px 20px rgba(251, 243, 219, 0.4)",
             }}
           />
 
           {/* Spark star shape */}
           <div className={`transition-all duration-300 ${isSparked ? "scale-100 opacity-100 rotate-45" : "scale-0 opacity-0"}`}>
-            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" className="text-emerald-700">
+            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" className="text-zinc-800">
               <path d="M12 0L14 10L24 12L14 14L12 24L10 14L0 12L10 10Z" fill="currentColor" />
             </svg>
           </div>
@@ -309,7 +300,7 @@ export default function CreationOfAdam() {
           }}
         >
           <div className="relative w-full h-full flex items-center justify-start overflow-visible">
-            <span className="absolute right-4 text-[9px] font-mono text-emerald-800/50 tracking-widest transform rotate-90">
+            <span className="absolute right-4 text-[9px] font-mono text-zinc-400 tracking-widest transform rotate-90">
               HUMANITY
             </span>
             <Image
@@ -327,7 +318,7 @@ export default function CreationOfAdam() {
       </main>
 
       {/* ── Footer Info ── */}
-      <footer className="relative w-full max-w-5xl mx-auto flex items-center justify-between text-[9px] font-mono text-emerald-800/50 z-50">
+      <footer className="relative w-full max-w-5xl mx-auto flex items-center justify-between text-[9px] font-mono text-zinc-400 z-50">
         <span>© {new Date().getFullYear()} SHUBHAM SAH</span>
         <span>TOUCH/DRAG HORIZONTALLY TO SPARK LIFE</span>
       </footer>
