@@ -4,6 +4,7 @@ import React, { useEffect, useRef } from "react"
 import { gsap } from "gsap"
 import { ScrollTrigger } from "gsap/ScrollTrigger"
 import { Plus } from "../ui/Markers"
+import Image from "next/image"
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -12,16 +13,19 @@ const TESTIMONIALS = [
     quote: "Shubham is a top-tier designer who knows how to shape products from the early stages. He took complete ownership of our GenAI platform's interface, delivering intuitive experience layouts that our 100K+ creators love.",
     author: "Ritwika Chowdhury",
     role: "Founder, Unscript",
+    image: "/images/life/ritwika_avatar.png",
   },
   {
     quote: "A designer who moves incredibly fast without losing depth. Shubham's work on our maternal healthcare visual systems and interactive prototypes was invaluable to our scaling journey.",
     author: "Love Beejal",
     role: "Founder, Symita Inc.",
+    image: "/images/life/love_avatar.png",
   },
   {
     quote: "Shubham helped us redesign our patient management workflows into a clean, modern digital platform. His design thinking was invaluable as we scaled our product and pitched on Shark Tank India.",
     author: "Saket Asati",
     role: "CEO, DigiQure (Featured on Shark Tank India)",
+    image: "/images/life/saket_avatar.png",
   },
 ]
 
@@ -138,24 +142,34 @@ function TestimonialCard({
       </div>
 
       {/* Author — floats slightly higher */}
-      <div className="mt-8 pl-5 relative z-10" style={{ transform: "translateZ(18px)" }}>
-        <div
-          className="text-sm font-semibold text-black"
-          style={{ fontFamily: "SatishSans, sans-serif" }}
-        >
-          {t.author}
+      <div className="mt-8 pl-5 relative z-10 flex items-center gap-4" style={{ transform: "translateZ(18px)" }}>
+        <div className="w-10 h-10 rounded-full overflow-hidden border border-zinc-200 shrink-0 relative shadow-sm">
+          <Image
+            src={t.image}
+            alt={t.author}
+            fill
+            className="object-cover"
+          />
         </div>
-        {/* Underline draws on hover via scaleX */}
-        <div
-          ref={lineRef}
-          className="h-px bg-zinc-900 mt-1.5 mb-1.5"
-          style={{ transformOrigin: "left center", transform: "scaleX(0)" }}
-        />
-        <div
-          className="text-xs text-gray-400"
-          style={{ fontFamily: "FunnelDisplay, sans-serif", fontWeight: 300 }}
-        >
-          {t.role}
+        <div className="flex-1">
+          <div
+            className="text-sm font-semibold text-black"
+            style={{ fontFamily: "SatishSans, sans-serif" }}
+          >
+            {t.author}
+          </div>
+          {/* Underline draws on hover via scaleX */}
+          <div
+            ref={lineRef}
+            className="h-px bg-zinc-900 mt-1 mb-1"
+            style={{ transformOrigin: "left center", transform: "scaleX(0)" }}
+          />
+          <div
+            className="text-xs text-gray-400"
+            style={{ fontFamily: "FunnelDisplay, sans-serif", fontWeight: 300 }}
+          >
+            {t.role}
+          </div>
         </div>
       </div>
     </div>
