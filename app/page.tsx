@@ -34,7 +34,7 @@ export default function Home() {
   return (
     <div className="bg-white relative flex flex-col gap-20 md:gap-28 w-full">
       {/* Grid Background overlay (centered, matching max-w-5xl content bounds to clear decorative pillars) */}
-      <div className="absolute top-0 h-[460px] md:h-screen left-1/2 -translate-x-1/2 w-full max-w-5xl bg-grid-pattern pointer-events-none" style={{ zIndex: 0 }} />
+      <div className="absolute top-0 h-[calc(100vh-120px)] md:h-screen left-1/2 -translate-x-1/2 w-full max-w-5xl bg-grid-pattern pointer-events-none" style={{ zIndex: 0 }} />
 
       <Loader />
       <PageBranches />
@@ -63,7 +63,7 @@ export default function Home() {
 
         {/* First fold - name + description, full viewport height */}
         <MouseColorBloom />
-        <div className="relative min-h-[440px] md:min-h-[calc(100vh-120px)] flex flex-col justify-center items-center text-center gap-6 overflow-visible md:overflow-visible" style={{ zIndex: 2 }}>
+        <div className="relative min-h-[calc(100vh-120px)] flex flex-col justify-center items-center text-center gap-6 overflow-visible md:overflow-visible" style={{ zIndex: 2 }}>
 
           <ParallaxImages />
 
