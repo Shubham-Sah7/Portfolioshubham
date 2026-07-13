@@ -16,6 +16,14 @@ export default function CreationOfAdam() {
   const [isSparked, setIsSparked] = useState(false)
   const [hasInteracted, setHasInteracted] = useState(false)
 
+  // Clean up body background style on unmount so it does not leak to other pages
+  useEffect(() => {
+    document.body.style.backgroundColor = "#dfd3bf"
+    return () => {
+      document.body.style.backgroundColor = ""
+    }
+  }, [])
+
   // Web Audio Synth Spark sound
   const playSparkSound = () => {
     try {
@@ -323,13 +331,6 @@ export default function CreationOfAdam() {
         <span>© {new Date().getFullYear()} SHUBHAM SAH</span>
         <span>TOUCH/DRAG HORIZONTALLY TO SPARK LIFE</span>
       </footer>
-
-      {/* Custom Styles for Graph Grid and Spark */}
-      <style jsx global>{`
-        body {
-          background-color: #dfd3bf;
-        }
-      `}</style>
     </div>
   )
 }
