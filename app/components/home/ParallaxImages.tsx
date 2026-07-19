@@ -62,7 +62,7 @@ export default function ParallaxImages() {
       {/* ── Desktop ──────────────────────────────────────────── */}
       <div
         ref={abhayDesktop}
-        className="absolute h-auto hidden md:block"
+        className="absolute h-auto hidden md:block pointer-events-none"
         style={{
           width: ABHAY.width,
           left: ABHAY.left,
@@ -76,7 +76,7 @@ export default function ParallaxImages() {
       </div>
       <div
         ref={tejasDesktop}
-        className="absolute h-auto hidden md:block"
+        className="absolute h-auto hidden md:block pointer-events-none"
         style={{
           width: TEJAS.width,
           right: TEJAS.right,
