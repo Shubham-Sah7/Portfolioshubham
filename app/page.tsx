@@ -77,7 +77,7 @@ export default async function Home({ searchParams }: HomeProps) {
           <ParallaxImages />
 
           {/* Text isolated above the bloom layer so color blend doesn't affect it */}
-          <div className="relative flex flex-col items-center gap-3 md:gap-6 md:px-6 md:py-4" style={{ zIndex: 20 }}>
+          <div className="relative flex flex-col items-center gap-3 md:gap-6 md:px-6 md:py-4" style={{ zIndex: 20, pointerEvents: 'none' }}>
             <Image
               src="/images/logo.png"
               alt="SCR7"
@@ -114,7 +114,7 @@ export default async function Home({ searchParams }: HomeProps) {
             </p>
 
             {/* Centered "Let's Connect" CTA Section with Branches */}
-            <div className="mt-4 md:mt-8" style={{ position: 'relative', zIndex: 999 }}>
+            <div className="mt-4 md:mt-8" style={{ position: 'relative', zIndex: 999, pointerEvents: 'auto' }}>
               <EmailSection />
             </div>
           </div>
