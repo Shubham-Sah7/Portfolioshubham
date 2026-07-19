@@ -114,8 +114,8 @@ export default async function Home({ searchParams }: HomeProps) {
             </p>
 
             {/* Centered "Let's Connect" CTA Section with Branches */}
-            <div className="mt-4 md:mt-8">
-              <HeroLetsConnect />
+            <div className="mt-4 md:mt-8" style={{ position: 'relative', zIndex: 999 }}>
+              <EmailSection />
             </div>
           </div>
         </div>
