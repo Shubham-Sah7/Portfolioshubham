@@ -4,6 +4,7 @@ import WorkGallery from "./components/home/workGallery"
 import MouseColorBloom from "./components/home/MouseColorBloom"
 import ParallaxImages from "./components/home/ParallaxImages"
 import EmailSection from "./components/home/EmailSection"
+import EmailCopy from "./components/home/EmailCopy"
 // import UnpluggedGallery from "./components/home/unpluggedGallery"
 import VisualIdentityGallery from "./components/home/visualIdentityGallery"
 import ProposalsGallery from "./components/home/proposalsGallery"
@@ -114,8 +115,8 @@ export default async function Home({ searchParams }: HomeProps) {
             </p>
 
             {/* Centered "Let's Connect" CTA Section with Branches */}
-            <div className="mt-4 md:mt-8" style={{ position: 'relative', zIndex: 999, pointerEvents: 'auto' }}>
-              <EmailSection />
+            <div className="mt-4 md:mt-8" style={{ pointerEvents: 'auto' }}>
+              <EmailCopy />
             </div>
           </div>
         </div>
