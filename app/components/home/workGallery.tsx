@@ -190,26 +190,26 @@ export default function WorkGallery() {
               <Plus h="right" v="bottom" />
 
               {/* Info */}
-              <div className="p-6 md:p-10 flex flex-col justify-between order-2 md:order-1">
-                <div>
+              <div className="p-6 md:p-10 flex flex-col justify-between order-2 md:order-1 select-text">
+                <div className="select-text">
                   <h3
-                    className="text-2xl md:text-3xl font-light text-black mb-4 block"
-                    style={{ fontFamily: 'SatishSans, sans-serif' }}
+                    className="text-2xl md:text-3xl font-light text-black mb-4 block select-text cursor-text"
+                    style={{ fontFamily: 'SatishSans, sans-serif', userSelect: 'text', WebkitUserSelect: 'text' }}
                   >
                     {work.title}
                   </h3>
                   <p
-                    className="text-sm text-gray-400 leading-relaxed max-w-sm block"
-                    style={{ fontFamily: 'FunnelDisplay, sans-serif' }}
+                    className="text-sm text-gray-400 leading-relaxed max-w-sm block select-text cursor-text"
+                    style={{ fontFamily: 'FunnelDisplay, sans-serif', userSelect: 'text', WebkitUserSelect: 'text' }}
                   >
                     {work.description}
                   </p>
                 </div>
 
-                <div className="mt-8 flex items-end justify-between">
+                <div className="mt-8 flex items-end justify-between select-text">
                   <span
-                    className="text-xs text-gray-400 block"
-                    style={{ fontFamily: 'FunnelDisplay, sans-serif' }}
+                    className="text-xs text-gray-400 block select-text cursor-text"
+                    style={{ fontFamily: 'FunnelDisplay, sans-serif', userSelect: 'text', WebkitUserSelect: 'text' }}
                   >
                     {work.year}
                   </span>

@@ -102,80 +102,78 @@ export default function ProposalsGallery() {
 
       {/* Cards */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-6 md:gap-x-12 md:gap-y-8">
-        {proposals.map((item) => {
-          const inner = (
-            <>
-              <Plus h="left" v="top" />
-              <Plus h="right" v="top" />
-              <Plus h="left" v="bottom" />
-              <Plus h="right" v="bottom" />
+        {proposals.map((item) => (
+          <div
+            key={item.num}
+            className="group relative border border-gray-200 bg-white hover:border-gray-400 transition-colors duration-300 h-full"
+          >
+            <Plus h="left" v="top" />
+            <Plus h="right" v="top" />
+            <Plus h="left" v="bottom" />
+            <Plus h="right" v="bottom" />
 
-              <div className="flex flex-row items-center h-full min-h-[90px] md:min-h-[100px]">
-                {item.photo && (
-                  <div className="relative shrink-0 overflow-hidden" style={{ width: 72, height: 80 }}>
-                    <Image
-                      src={item.photo}
-                      alt={item.title}
-                      fill
-                      sizes="72px"
-                      className="object-cover object-top"
-                    />
-                  </div>
-                )}
+            {/* Clickable background overlay */}
+            {item.external ? (
+              <a
+                href={item.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="absolute inset-0 z-0"
+                aria-label={item.title}
+              />
+            ) : (
+              <Link
+                href={item.href}
+                className="absolute inset-0 z-0"
+                aria-label={item.title}
+              />
+            )}
 
-                  {/* Meta */}
-                  <div className="flex flex-1 items-center justify-between px-4 md:px-8 py-4 md:py-6 gap-4 md:gap-6">
-                    <div className="flex flex-col gap-1 min-w-0">
-                      <h3
-                        className="text-sm md:text-lg font-light text-black leading-tight"
-                        style={{ fontFamily: 'SatishSans, sans-serif' }}
-                      >
-                        {item.title}
-                      </h3>
-                      <p
-                        className="text-xs text-gray-400 leading-snug line-clamp-2"
-                        style={{ fontFamily: 'FunnelDisplay, sans-serif', fontWeight: 300 }}
-                      >
-                        {item.description}
-                      </p>
-                    </div>
-                    <span
-                      className="text-xs text-black shrink-0 group-hover:translate-x-1 transition-transform duration-200 inline-flex items-center gap-1"
-                      style={{ fontFamily: 'FunnelDisplay, sans-serif' }}
-                    >
-                      View
-                      <svg width="11" height="11" viewBox="0 0 16 16" fill="none">
-                        <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-                      </svg>
-                    </span>
-                  </div>
-
+            <div className="relative z-10 flex flex-row items-center h-full min-h-[90px] md:min-h-[100px] pointer-events-none">
+              {item.photo && (
+                <div className="relative shrink-0 overflow-hidden pointer-events-auto" style={{ width: 72, height: 80 }}>
+                  <Image
+                    src={item.photo}
+                    alt={item.title}
+                    fill
+                    sizes="72px"
+                    className="object-cover object-top"
+                  />
                 </div>
-            </>
-          )
+              )}
 
-          const cardClass = `group block relative border border-gray-200 bg-white hover:border-gray-400 transition-colors duration-300 h-full`
+              {/* Meta */}
+              <div className="flex flex-1 items-center justify-between px-4 md:px-8 py-4 md:py-6 gap-4 md:gap-6">
+                <div className="flex flex-col gap-1 min-w-0 pointer-events-auto select-text">
+                  <h3
+                    className="text-sm md:text-lg font-light text-black leading-tight select-text cursor-text"
+                    style={{ fontFamily: 'SatishSans, sans-serif', userSelect: 'text', WebkitUserSelect: 'text' }}
+                  >
+                    {item.title}
+                  </h3>
+                  <p
+                    className="text-xs text-gray-400 leading-snug line-clamp-2 select-text cursor-text"
+                    style={{ fontFamily: 'FunnelDisplay, sans-serif', fontWeight: 300, userSelect: 'text', WebkitUserSelect: 'text' }}
+                  >
+                    {item.description}
+                  </p>
+                </div>
+                <div className="pointer-events-auto shrink-0">
+                  <span
+                    className="text-xs text-black group-hover:translate-x-1 transition-transform duration-200 inline-flex items-center gap-1 pointer-events-none"
+                    style={{ fontFamily: 'FunnelDisplay, sans-serif' }}
+                  >
+                    View
+                    <svg width="11" height="11" viewBox="0 0 16 16" fill="none">
+                      <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                    </svg>
+                  </span>
+                </div>
+              </div>
 
-          return item.external ? (
-            <a
-              key={item.num}
-              href={item.href}
-              target="_blank"
-              rel="noopener noreferrer"
-              className={cardClass}
-            >
-              {inner}
-            </a>
-          ) : (
-            <Link
-              key={item.num}
-              href={item.href}
-              className={cardClass}
-            >
-              {inner}
-            </Link>
-          )
-        })}
+            </div>
+          </div>
+        ))}
       </div>
 
     </div>

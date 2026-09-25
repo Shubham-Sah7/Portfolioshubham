@@ -44,30 +44,6 @@ function TestimonialCard({
 
   const isMobile = () => typeof window !== "undefined" && window.innerWidth < 768
 
-  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
-    if (isMobile()) return
-    const el = cardRef.current
-    if (!el) return
-    const rect = el.getBoundingClientRect()
-    const x = (e.clientX - rect.left) / rect.width - 0.5   // -0.5 → 0.5
-    const y = (e.clientY - rect.top)  / rect.height - 0.5
-    gsap.to(el, {
-      rotateX: -y * 7,
-      rotateY:  x * 7,
-      transformPerspective: 800,
-      ease: "power2.out",
-      duration: 0.35,
-      overwrite: "auto",
-    })
-    // Quote glyph follows cursor with slight parallax
-    gsap.to(quoteRef.current, {
-      x: x * 7,
-      y: y * 7,
-      ease: "power2.out",
-      duration: 0.35,
-      overwrite: "auto",
-    })
-  }
 
   const handleMouseEnter = () => {
     if (isMobile()) return
@@ -77,15 +53,6 @@ function TestimonialCard({
 
   const handleMouseLeave = () => {
     if (isMobile()) return
-    const el = cardRef.current
-    if (!el) return
-    gsap.to(el, {
-      rotateX: 0,
-      rotateY: 0,
-      ease: "elastic.out(1, 0.65)",
-      duration: 1.1,
-      overwrite: "auto",
-    })
     gsap.to(quoteRef.current, {
       scale: 1, x: 0, y: 0,
       ease: "elastic.out(1, 0.65)",
@@ -95,36 +62,22 @@ function TestimonialCard({
     gsap.to(lineRef.current, { scaleX: 0, ease: "power3.in", duration: 0.22 })
   }
 
-  const handleMouseDown = () => {
-    if (isMobile()) return
-    gsap.to(cardRef.current, { scale: 0.972, duration: 0.1, ease: "power2.in", overwrite: "auto" })
-  }
-
-  const handleMouseUp = () => {
-    if (isMobile()) return
-    gsap.to(cardRef.current, { scale: 1, duration: 0.75, ease: "elastic.out(1, 0.5)", overwrite: "auto" })
-  }
-
   return (
     <div
       ref={(el) => { (cardRef as React.MutableRefObject<HTMLDivElement | null>).current = el; onRef(el) }}
-      onMouseMove={handleMouseMove}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
-      onMouseDown={handleMouseDown}
-      onMouseUp={handleMouseUp}
       className="relative border border-zinc-200 p-6 md:p-8 flex flex-col justify-between h-full bg-transparent
-        hover:bg-white hover:border-zinc-950 hover:shadow-[0_24px_60px_rgba(0,0,0,0.08)] group/card cursor-default select-text transition-all duration-300"
-      style={{ transformStyle: "preserve-3d", willChange: "transform" }}
+        hover:bg-white hover:border-zinc-950 hover:shadow-[0_24px_60px_rgba(0,0,0,0.08)] group/card select-text transition-all duration-300"
     >
       <Plus h="left"  v="top" />
       <Plus h="right" v="top" />
       <Plus h="left"  v="bottom" />
       <Plus h="right" v="bottom" />
 
-      {/* Quote + body — floats above card surface in 3D space */}
-      <div className="relative z-10 flex-1 flex flex-col pt-2" style={{ transform: "translateZ(12px)" }}>
-        <div className="relative flex-1">
+      {/* Quote + body */}
+      <div className="relative z-10 flex-1 flex flex-col pt-2 select-text">
+        <div className="relative flex-1 select-text">
           <span
             ref={quoteRef}
             className="text-4xl text-zinc-200 font-serif absolute -top-4 -left-2 select-none pointer-events-none"
@@ -133,17 +86,17 @@ function TestimonialCard({
             &ldquo;
           </span>
           <p
-            className="text-sm text-zinc-400 leading-relaxed pl-5 transition-colors duration-500 group-hover/card:text-zinc-700"
-            style={{ fontFamily: "FunnelDisplay, sans-serif", fontWeight: 300 }}
+            className="text-sm text-zinc-400 leading-relaxed pl-5 transition-colors duration-500 group-hover/card:text-zinc-700 select-text cursor-text"
+            style={{ fontFamily: "FunnelDisplay, sans-serif", fontWeight: 300, userSelect: "text", WebkitUserSelect: "text" }}
           >
             {t.quote}
           </p>
         </div>
       </div>
 
-      {/* Author — floats slightly higher */}
-      <div className="mt-8 pl-5 relative z-10 flex items-center gap-4" style={{ transform: "translateZ(18px)" }}>
-        <div className="w-10 h-10 rounded-full overflow-hidden border border-zinc-200 shrink-0 relative shadow-sm">
+      {/* Author */}
+      <div className="mt-8 pl-5 relative z-10 flex items-center gap-4 select-text">
+        <div className="w-10 h-10 rounded-full overflow-hidden border border-zinc-200 shrink-0 relative shadow-sm pointer-events-none select-none">
           <Image
             src={t.image}
             alt={t.author}
@@ -151,22 +104,22 @@ function TestimonialCard({
             className="object-cover"
           />
         </div>
-        <div className="flex-1">
+        <div className="flex-1 select-text">
           <div
-            className="text-sm font-semibold text-black"
-            style={{ fontFamily: "SatishSans, sans-serif" }}
+            className="text-sm font-semibold text-black select-text cursor-text"
+            style={{ fontFamily: "SatishSans, sans-serif", userSelect: "text", WebkitUserSelect: "text" }}
           >
             {t.author}
           </div>
           {/* Underline draws on hover via scaleX */}
           <div
             ref={lineRef}
-            className="h-px bg-zinc-900 mt-1 mb-1"
+            className="h-px bg-zinc-900 mt-1 mb-1 pointer-events-none"
             style={{ transformOrigin: "left center", transform: "scaleX(0)" }}
           />
           <div
-            className="text-xs text-gray-400"
-            style={{ fontFamily: "FunnelDisplay, sans-serif", fontWeight: 300 }}
+            className="text-xs text-gray-400 select-text cursor-text"
+            style={{ fontFamily: "FunnelDisplay, sans-serif", fontWeight: 300, userSelect: "text", WebkitUserSelect: "text" }}
           >
             {t.role}
           </div>

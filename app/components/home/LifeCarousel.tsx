@@ -102,9 +102,9 @@ export default function LifeCarousel() {
 
 function Polaroid({ label, sub, url, imgClass }: { label: string; sub?: string; url: string; imgClass?: string }) {
   return (
-    <div className="shrink-0 select-none group/polaroid">
+    <div className="shrink-0 select-text group/polaroid">
       <div
-        className="relative bg-white border border-zinc-300 shadow-[0_4px_12px_rgba(0,0,0,0.04)] group-hover/polaroid:shadow-[0_12px_28px_rgba(0,0,0,0.08)] group-hover/polaroid:-translate-y-3 flex flex-col transition-all duration-300 ease-out"
+        className="relative bg-white border border-zinc-300 shadow-[0_4px_12px_rgba(0,0,0,0.04)] group-hover/polaroid:shadow-[0_12px_28px_rgba(0,0,0,0.08)] group-hover/polaroid:-translate-y-3 flex flex-col transition-all duration-300 ease-out select-text"
         style={{ width: 264, padding: '14px 14px 30px 14px' }}
       >
         {/* Corner plus markers */}
@@ -114,11 +114,11 @@ function Polaroid({ label, sub, url, imgClass }: { label: string; sub?: string; 
         <Plus h="right" v="bottom" />
 
         {/* Square Photo Cutout */}
-        <div className="w-full aspect-square overflow-hidden bg-zinc-50 border border-zinc-200">
+        <div className="w-full aspect-square overflow-hidden bg-zinc-50 border border-zinc-200 pointer-events-none select-none">
           <img
             src={url}
             alt={label}
-            className={`w-full h-full object-cover transition-all duration-500 ${imgClass || ''}`}
+            className={`w-full h-full object-cover transition-all duration-500 pointer-events-none select-none ${imgClass || ''}`}
             loading="eager"
             decoding="async"
           />
@@ -126,15 +126,15 @@ function Polaroid({ label, sub, url, imgClass }: { label: string; sub?: string; 
         
         {/* Label below */}
         <p
-          className="mt-4 text-zinc-700 group-hover/polaroid:text-black text-sm font-light text-center tracking-wide"
-          style={{ fontFamily: 'FunnelDisplay, sans-serif' }}
+          className="mt-4 text-zinc-700 group-hover/polaroid:text-black text-sm font-light text-center tracking-wide select-text cursor-text"
+          style={{ fontFamily: 'FunnelDisplay, sans-serif', userSelect: 'text', WebkitUserSelect: 'text' }}
         >
           {label}
         </p>
         {sub && (
           <p
-            className="mt-1 text-zinc-400 text-[10px] font-light text-center tracking-wide leading-snug"
-            style={{ fontFamily: 'FunnelDisplay, sans-serif' }}
+            className="mt-1 text-zinc-400 text-[10px] font-light text-center tracking-wide leading-snug select-text cursor-text"
+            style={{ fontFamily: 'FunnelDisplay, sans-serif', userSelect: 'text', WebkitUserSelect: 'text' }}
           >
             {sub}
           </p>

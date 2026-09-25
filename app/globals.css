@@ -5,6 +5,11 @@ html, body {
   user-select: text;
 }
 
+p, h1, h2, h3, h4, h5, h6, span, blockquote, li, td, th {
+  -webkit-user-select: text;
+  user-select: text;
+}
+
 .panel-scroll::-webkit-scrollbar { display: none !important; width: 0 !important; }
 
 /* 404 page overrides */
@@ -344,9 +349,11 @@ body::-webkit-scrollbar {
 
 ::selection {
   background-color: #caf182;
+  color: #000000;
 }
 ::-moz-selection {
   background-color: #caf182;
+  color: #000000;
 }
 
 /* Advanced Gradient Blur Effect */
