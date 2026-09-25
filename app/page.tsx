@@ -50,22 +50,24 @@ export default async function Home({ searchParams }: HomeProps) {
       <PageBranches />
 
       {/* ── Pillar decorations - fixed to viewport edges ─────── */}
-      <div className="fixed top-0 h-screen hidden md:block group/left-pillar" style={{ zIndex: 5, left: '-70px' }}>
+      <div className="fixed top-0 h-screen hidden md:block group/left-pillar pointer-events-none select-none" style={{ zIndex: 5, left: '-70px' }}>
         <Image
           src="/images/HomeImages/piller-v.svg"
           alt=""
           width={120}
           height={800}
-          className="h-screen w-auto object-contain object-top select-none transition-all duration-700 ease-out opacity-[0.18] scale-100 brightness-100 group-hover/left-pillar:opacity-[0.30] group-hover/left-pillar:scale-[1.04] group-hover/left-pillar:brightness-[1.2]"
+          draggable={false}
+          className="h-screen w-auto object-contain object-top select-none pointer-events-none transition-all duration-700 ease-out opacity-[0.18] scale-100 brightness-100 group-hover/left-pillar:opacity-[0.30] group-hover/left-pillar:scale-[1.04] group-hover/left-pillar:brightness-[1.2]"
         />
       </div>
-      <div className="fixed top-0 h-screen hidden md:block group/right-pillar" style={{ zIndex: 5, right: '-40px' }}>
+      <div className="fixed top-0 h-screen hidden md:block group/right-pillar pointer-events-none select-none" style={{ zIndex: 5, right: '-40px' }}>
         <Image
           src="/images/HomeImages/piller-2-v.svg"
           alt=""
           width={120}
           height={800}
-          className="h-screen w-auto object-contain object-top select-none transition-all duration-700 ease-out opacity-[0.18] scale-100 brightness-100 group-hover/right-pillar:opacity-[0.30] group-hover/right-pillar:scale-[1.04] group-hover/right-pillar:brightness-[1.2]"
+          draggable={false}
+          className="h-screen w-auto object-contain object-top select-none pointer-events-none transition-all duration-700 ease-out opacity-[0.18] scale-100 brightness-100 group-hover/right-pillar:opacity-[0.30] group-hover/right-pillar:scale-[1.04] group-hover/right-pillar:brightness-[1.2]"
         />
       </div>
 
@@ -73,44 +75,45 @@ export default async function Home({ searchParams }: HomeProps) {
 
         {/* First fold - name + description, full viewport height */}
         <MouseColorBloom />
-        <div className="relative min-h-[calc(100vh-120px)] flex flex-col justify-center items-center text-center gap-6 overflow-visible md:overflow-visible" style={{ zIndex: 2 }}>
+        <div className="relative min-h-[calc(100vh-120px)] flex flex-col justify-center items-center text-center gap-6 overflow-visible md:overflow-visible" style={{ zIndex: 20 }}>
 
           <ParallaxImages />
 
           {/* Text isolated above the bloom layer so color blend doesn't affect it */}
-          <div className="relative flex flex-col items-center gap-3 md:gap-6 md:px-6 md:py-4 select-text" style={{ zIndex: 20 }}>
+          <div className="relative flex flex-col items-center gap-3 md:gap-6 md:px-6 md:py-4 select-text" style={{ zIndex: 30 }}>
             <Image
               src="/images/logo.png"
               alt="SCR7"
               width={62}
               height={62}
-              className="mb-0 md:mb-16"
+              draggable={false}
+              className="mb-0 md:mb-16 pointer-events-none select-none"
               style={{ mixBlendMode: 'multiply', filter: 'invert(1)', transform: 'rotate(180deg)' }}
             />
             {/* DESIGNING PRODUCTS Badge Card (our style) */}
             <div 
-              className="relative border border-zinc-200 bg-zinc-50/80 px-4 py-1 text-[9px] md:text-[10px] tracking-[0.18em] text-zinc-500 mb-1 md:mb-3"
-              style={{ fontFamily: 'Poppins, sans-serif', fontWeight: '500' }}
+              className="relative border border-zinc-200 bg-zinc-50/80 px-4 py-1 text-[9px] md:text-[10px] tracking-[0.18em] text-zinc-500 mb-1 md:mb-3 select-text cursor-text"
+              style={{ fontFamily: 'Poppins, sans-serif', fontWeight: '500', userSelect: 'text', WebkitUserSelect: 'text' }}
             >
               <Plus h="left" v="top" />
               <Plus h="right" v="top" />
               <Plus h="left" v="bottom" />
               <Plus h="right" v="bottom" />
-              <span>DESIGNING PRODUCTS</span>
+              <span className="select-text cursor-text" style={{ userSelect: 'text', WebkitUserSelect: 'text' }}>DESIGNING PRODUCTS</span>
             </div>
-            <h1 className="text-4xl md:text-5xl tracking-tight text-black select-text">
-              <span style={{ fontFamily: 'SatishCapsSans, sans-serif', fontSize: '1.5em' }}>S</span><span style={{ fontFamily: 'SatishSans, sans-serif', marginLeft: '4px' }}>hubham </span>
-              <span style={{ fontFamily: 'SatishCapsSans, sans-serif', fontSize: '1.5em' }}>S</span><span style={{ fontFamily: 'SatishSans, sans-serif', marginLeft: '4px' }}>ah</span>
+            <h1 className="text-4xl md:text-5xl tracking-tight text-black select-text cursor-text" style={{ userSelect: 'text', WebkitUserSelect: 'text' }}>
+              <span style={{ fontFamily: 'SatishCapsSans, sans-serif', fontSize: '1.5em', userSelect: 'text', WebkitUserSelect: 'text' }}>S</span><span style={{ fontFamily: 'SatishSans, sans-serif', marginLeft: '4px', userSelect: 'text', WebkitUserSelect: 'text' }}>hubham </span>
+              <span style={{ fontFamily: 'SatishCapsSans, sans-serif', fontSize: '1.5em', userSelect: 'text', WebkitUserSelect: 'text' }}>S</span><span style={{ fontFamily: 'SatishSans, sans-serif', marginLeft: '4px', userSelect: 'text', WebkitUserSelect: 'text' }}>ah</span>
             </h1>
             <p
-              className="text-sm md:text-base text-gray-400 leading-relaxed max-w-2xl flex flex-col items-center text-center gap-y-1 md:gap-y-0.5 select-text"
-              style={{ fontFamily: 'FunnelDisplay, sans-serif', fontWeight: '300' }}
+              className="text-sm md:text-base text-gray-400 leading-relaxed max-w-2xl flex flex-col items-center text-center gap-y-1 md:gap-y-0.5 select-text cursor-text"
+              style={{ fontFamily: 'FunnelDisplay, sans-serif', fontWeight: '300', userSelect: 'text', WebkitUserSelect: 'text' }}
             >
-              <span className="block">Building Products for Global Companies & Startups</span>
-              <span className="flex flex-wrap justify-center gap-x-1.5 mt-0.5 md:mt-0">
-                <span className="whitespace-nowrap">25K+ on LinkedIn <span className="text-gray-300 ml-1.5">•</span></span>
-                <span className="whitespace-nowrap">Founded a 2K+ Design Community <span className="text-gray-300 ml-1.5">•</span></span>
-                <span className="whitespace-nowrap">IIT Patna MBA</span>
+              <span className="block select-text cursor-text" style={{ userSelect: 'text', WebkitUserSelect: 'text' }}>Building Products for Global Companies & Startups</span>
+              <span className="flex flex-wrap justify-center gap-x-1.5 mt-0.5 md:mt-0 select-text cursor-text" style={{ userSelect: 'text', WebkitUserSelect: 'text' }}>
+                <span className="whitespace-nowrap select-text cursor-text" style={{ userSelect: 'text', WebkitUserSelect: 'text' }}>25K+ on LinkedIn <span className="text-gray-300 ml-1.5">•</span></span>
+                <span className="whitespace-nowrap select-text cursor-text" style={{ userSelect: 'text', WebkitUserSelect: 'text' }}>Founded a 2K+ Design Community <span className="text-gray-300 ml-1.5">•</span></span>
+                <span className="whitespace-nowrap select-text cursor-text" style={{ userSelect: 'text', WebkitUserSelect: 'text' }}>IIT Patna MBA</span>
               </span>
             </p>
 
