@@ -93,10 +93,6 @@ const Plus = ({ h, v = 'bottom' }: { h: 'left' | 'right'; v?: 'top' | 'bottom' }
 )
 
 export default function WorkGallery() {
-  const headerRef  = useRef<HTMLDivElement>(null)
-  const selectedEl = useRef<HTMLHeadingElement>(null)
-  const worksEl    = useRef<HTMLHeadingElement>(null)
-  const lineEl     = useRef<HTMLDivElement>(null)
   const branchContainerRef = useRef<HTMLDivElement>(null)
 
   // Parallax + tilt for all branches via data attributes
@@ -124,96 +120,25 @@ export default function WorkGallery() {
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 
-  useEffect(() => {
-    const header   = headerRef.current
-    const selected = selectedEl.current
-    const worksH   = worksEl.current
-    const line     = lineEl.current
-    if (!header || !selected || !worksH || !line) return
-
-    let tl: gsap.core.Timeline
-
-    const setup = () => {
-      if (window.innerWidth < 768) {
-        gsap.set(selected, { x: 0 })
-        gsap.set(worksH, { x: 0 })
-        gsap.set(line, { scaleX: 1, opacity: 1 })
-        return
-      }
-
-      // Words are centered via CSS (justify-center) - this IS the initial state.
-      // We calculate where they need to animate TO (left edge / right edge of content area).
-      const cRect = header.getBoundingClientRect()
-      const sRect = selected.getBoundingClientRect()
-      const wRect = worksH.getBoundingClientRect()
-
-      // line uses inset-x-0 on the inner wrapper (header minus its padding)
-      const paddingX    = parseFloat(window.getComputedStyle(header).paddingLeft)
-      const contentLeft  = cRect.left  + paddingX
-      const contentRight = cRect.right - paddingX
-
-      // How far each word moves from its centered position to the edge
-      const selectedFinalX = contentLeft - sRect.left               // negative → moves left
-      const worksFinalX    = (contentRight - wRect.width) - wRect.left  // positive → moves right
-
-      // Hide line at start
-      gsap.set(line, { scaleX: 0, transformOrigin: 'center center', opacity: 0 })
-
-      // One-shot animation triggered when section enters view.
-      // toggleActions: play forward on enter, reverse on leave-back.
-      tl = gsap.timeline({
-        defaults: { duration: 1.1, ease: 'power3.inOut' },
-        scrollTrigger: {
-          trigger: header,
-          start: 'top 80%',
-          toggleActions: 'play none none reverse',
-        },
-      })
-
-      tl.to(selected, { x: selectedFinalX }, 0)
-        .to(line,     { scaleX: 1, opacity: 1, ease: 'power2.inOut' }, 0)
-        .to(worksH,   { x: worksFinalX }, 0)
-    }
-
-    document.fonts.ready.then(() => requestAnimationFrame(setup))
-
-    return () => { tl?.kill() }
-  }, [])
-
   return (
     <div>
 
       {/* ── Section header ──────────────────────────────────────── */}
-      <div
-        ref={headerRef}
-        className="pb-8 md:pb-12 overflow-hidden"
-      >
-        {/* Inner wrapper: height = text height only, so top:50% = text midline */}
-        <div className="relative">
-          {/* Line: spans full content width, vertically centred with the text */}
+      <div className="pb-8 md:pb-12 overflow-hidden">
+        <div className="relative flex items-center justify-center">
           <div
-            ref={lineEl}
             className="absolute inset-x-0 border-t border-gray-300"
             style={{ top: '50%' }}
           />
-
-          {/* Words: start naturally centered side-by-side */}
-          <div className="relative flex items-baseline justify-center gap-2">
-            <h2
-              ref={selectedEl}
-              className="relative bg-white pr-3 text-2xl md:text-3xl font-light text-black shrink-0 whitespace-nowrap"
-            >
+          <h2 className="relative bg-white px-4 text-2xl md:text-3xl font-light text-black shrink-0 whitespace-nowrap flex items-baseline gap-2">
+            <span>
               <span style={{ fontFamily: 'SatishCapsSans, sans-serif', fontSize: '1.5em' }}>S</span><span style={{ fontFamily: 'SatishSans, sans-serif' }}>elected</span>
-            </h2>
-            <h2
-              ref={worksEl}
-              className="relative bg-white pl-3 text-2xl md:text-3xl font-light text-black shrink-0 whitespace-nowrap"
-            >
+            </span>
+            <span>
               <span style={{ fontFamily: 'SatishCapsSans, sans-serif', fontSize: '1.5em' }}>W</span><span style={{ fontFamily: 'SatishSans, sans-serif' }}>orks</span>
-            </h2>
-          </div>
+            </span>
+          </h2>
         </div>
-
       </div>
 
       {/* ── Works list ─────────────────────────────────────── */}

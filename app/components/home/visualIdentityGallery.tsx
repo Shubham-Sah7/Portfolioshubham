@@ -1,11 +1,7 @@
 "use client"
 
 import Image from 'next/image'
-import { useRef, useEffect, useState } from 'react'
-import { gsap } from 'gsap'
-import { ScrollTrigger } from 'gsap/ScrollTrigger'
-
-gsap.registerPlugin(ScrollTrigger)
+import { useEffect, useState } from 'react'
 
 const symitaImages = [
   '/images/Visuals/symita-V/symita-icon.png',
@@ -13,10 +9,6 @@ const symitaImages = [
 ]
 
 export default function VisualIdentityGallery() {
-  const headerRef  = useRef<HTMLDivElement>(null)
-  const visualEl   = useRef<HTMLHeadingElement>(null)
-  const identityEl = useRef<HTMLHeadingElement>(null)
-  const lineEl     = useRef<HTMLDivElement>(null)
   const [cycleIndex, setCycleIndex] = useState(0)
 
   useEffect(() => {
@@ -26,85 +18,25 @@ export default function VisualIdentityGallery() {
     return () => clearInterval(id)
   }, [])
 
-  useEffect(() => {
-    const header   = headerRef.current
-    const visual   = visualEl.current
-    const identity = identityEl.current
-    const line     = lineEl.current
-    if (!header || !visual || !identity || !line) return
-
-    let tl: gsap.core.Timeline
-
-    const setup = () => {
-      if (window.innerWidth < 768) {
-        gsap.set(visual, { x: 0 })
-        gsap.set(identity, { x: 0 })
-        gsap.set(line, { scaleX: 1, opacity: 1 })
-        return
-      }
-
-      const cRect = header.getBoundingClientRect()
-      const vRect = visual.getBoundingClientRect()
-      const iRect = identity.getBoundingClientRect()
-
-      const paddingX     = parseFloat(window.getComputedStyle(header).paddingLeft)
-      const contentLeft  = cRect.left + paddingX
-      const contentRight = cRect.right - paddingX
-
-      const visualFinalX   = contentLeft - vRect.left
-      const identityFinalX = (contentRight - iRect.width) - iRect.left
-
-      gsap.set(line, { scaleX: 0, transformOrigin: 'center center', opacity: 0 })
-
-      tl = gsap.timeline({
-        defaults: { duration: 1.1, ease: 'power3.inOut' },
-        scrollTrigger: {
-          trigger: header,
-          start: 'top 80%',
-          toggleActions: 'play none none reverse',
-        },
-      })
-
-      tl.to(visual,   { x: visualFinalX }, 0)
-        .to(line,     { scaleX: 1, opacity: 1, ease: 'power2.inOut' }, 0)
-        .to(identity, { x: identityFinalX }, 0)
-    }
-
-    document.fonts.ready.then(() => requestAnimationFrame(setup))
-
-    return () => { tl?.kill() }
-  }, [])
-
   return (
     <div>
 
       {/* ── Section header ──────────────────────────────────────── */}
-      <div
-        ref={headerRef}
-        className="pb-8 md:pb-12 overflow-hidden"
-      >
-        <div className="relative">
+      <div className="pb-8 md:pb-12 overflow-hidden">
+        <div className="relative flex items-center justify-center">
           <div
-            ref={lineEl}
             className="absolute inset-x-0 border-t border-gray-300"
             style={{ top: '50%' }}
           />
-          <div className="relative flex items-baseline justify-center gap-2">
-            <h2
-              ref={visualEl}
-              className="relative bg-white pr-3 text-2xl md:text-3xl font-light text-black shrink-0 whitespace-nowrap"
-            >
+          <h2 className="relative bg-white px-4 text-2xl md:text-3xl font-light text-black shrink-0 whitespace-nowrap flex items-baseline gap-2">
+            <span>
               <span style={{ fontFamily: 'SatishCapsSans, sans-serif', fontSize: '1.5em' }}>V</span><span style={{ fontFamily: 'SatishSans, sans-serif' }}>isual</span>
-            </h2>
-            <h2
-              ref={identityEl}
-              className="relative bg-white pl-3 text-2xl md:text-3xl font-light text-black shrink-0 whitespace-nowrap"
-            >
+            </span>
+            <span>
               <span style={{ fontFamily: 'SatishCapsSans, sans-serif', fontSize: '1.5em' }}>I</span><span style={{ fontFamily: 'SatishSans, sans-serif' }}>dentity</span>
-            </h2>
-          </div>
+            </span>
+          </h2>
         </div>
-
       </div>
 
       {/* ── Desktop collage (md+) ─────────────────────────────── */}

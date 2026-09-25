@@ -22,10 +22,6 @@ export default function FooterPlayground() {
   const drawing    = useRef(false)
   const startPos   = useRef<{ x: number; y: number } | null>(null)
   const snapshot   = useRef<ImageData | null>(null)
-  const headerRef  = useRef<HTMLDivElement>(null)
-  const footerEl   = useRef<HTMLHeadingElement>(null)
-  const playEl     = useRef<HTMLHeadingElement>(null)
-  const lineEl     = useRef<HTMLDivElement>(null)
 
   const [tool,  setTool]  = useState<Tool>('pen')
   const [color, setColor] = useState('#000000')
@@ -164,72 +160,23 @@ export default function FooterPlayground() {
 
   const cursor = tool === 'eraser' ? 'cursor-cell' : 'cursor-crosshair'
 
-  useEffect(() => {
-    const header = headerRef.current
-    const footer = footerEl.current
-    const play   = playEl.current
-    const line   = lineEl.current
-    if (!header || !footer || !play || !line) return
-
-    let tl: gsap.core.Timeline
-
-    const setup = () => {
-      if (window.innerWidth < 768) {
-        gsap.set(footer, { x: 0 })
-        gsap.set(play,   { x: 0 })
-        gsap.set(line,   { scaleX: 1, opacity: 1 })
-        return
-      }
-
-      const cRect = header.getBoundingClientRect()
-      const fRect = footer.getBoundingClientRect()
-      const pRect = play.getBoundingClientRect()
-
-      const paddingX     = parseFloat(window.getComputedStyle(header).paddingLeft)
-      const contentLeft  = cRect.left + paddingX
-      const contentRight = cRect.right - paddingX
-
-      const footerFinalX = contentLeft - fRect.left
-      const playFinalX   = (contentRight - pRect.width) - pRect.left
-
-      gsap.set(line, { scaleX: 0, transformOrigin: 'center center', opacity: 0 })
-
-      tl = gsap.timeline({
-        defaults: { duration: 1.1, ease: 'power3.inOut' },
-        scrollTrigger: {
-          trigger: header,
-          start: 'top 80%',
-          toggleActions: 'play none none reverse',
-        },
-      })
-
-      tl.to(footer, { x: footerFinalX }, 0)
-        .to(line,   { scaleX: 1, opacity: 1, ease: 'power2.inOut' }, 0)
-        .to(play,   { x: playFinalX }, 0)
-    }
-
-    document.fonts.ready.then(() => requestAnimationFrame(setup))
-
-    return () => { tl?.kill() }
-  }, [])
-
   return (
     <div style={{ fontFamily: 'FunnelDisplay, sans-serif' }}>
 
       {/* ── Section header */}
-      <div ref={headerRef} className="px-6 md:px-10 pb-8 md:pb-10 overflow-hidden max-w-5xl mx-auto">
-        <div className="relative">
-          <div ref={lineEl} className="absolute inset-x-0 border-t border-gray-300" style={{ top: '50%' }} />
-          <div className="relative flex items-baseline justify-center gap-2">
-            <h2 ref={footerEl} className="relative bg-white pr-3 text-2xl md:text-3xl font-light text-black shrink-0 whitespace-nowrap">
+      <div className="px-6 md:px-10 pb-8 md:pb-10 overflow-hidden max-w-5xl mx-auto">
+        <div className="relative flex items-center justify-center">
+          <div className="absolute inset-x-0 border-t border-gray-300" style={{ top: '50%' }} />
+          <h2 className="relative bg-white px-4 text-2xl md:text-3xl font-light text-black shrink-0 whitespace-nowrap flex items-baseline gap-2">
+            <span>
               <span style={{ fontFamily: 'SatishCapsSans, sans-serif', fontSize: '1.5em' }}>F</span>
               <span style={{ fontFamily: 'SatishSans, sans-serif' }}>ooter</span>
-            </h2>
-            <h2 ref={playEl} className="relative bg-white pl-3 text-2xl md:text-3xl font-light text-black shrink-0 whitespace-nowrap">
+            </span>
+            <span>
               <span style={{ fontFamily: 'SatishCapsSans, sans-serif', fontSize: '1.5em' }}>P</span>
               <span style={{ fontFamily: 'SatishSans, sans-serif' }}>layground</span>
-            </h2>
-          </div>
+            </span>
+          </h2>
         </div>
         <div className="flex items-center justify-center gap-4 mt-4">
           <p className="text-xs text-gray-400" style={{ fontFamily: 'FunnelDisplay, sans-serif' }}>
