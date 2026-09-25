@@ -52,30 +52,39 @@ export default function HeroLetsConnect() {
     if (rightRef.current) rightRef.current.style.transform = `translateX(${hovered ? 10 : 0}px) rotate(-${deg}deg)`
   }, [hovered])
 
-  const handleCopy = () => {
-    // Try modern clipboard API, fall back to execCommand
-    if (navigator.clipboard) {
-      navigator.clipboard.writeText(EMAIL).catch(() => {
-        fallbackCopy()
-      })
-    } else {
-      fallbackCopy()
-    }
-    setCopied(true)
-    setTimeout(() => setCopied(false), 2000)
-  }
-
-  const fallbackCopy = () => {
+  const handleCopy = async (e?: React.MouseEvent) => {
+    if (e) e.stopPropagation()
+    // 1. Synchronously execute textarea copy while user click event is fresh in the browser event loop
     try {
       const el = document.createElement('textarea')
       el.value = EMAIL
-      el.style.cssText = 'position:fixed;top:0;left:0;opacity:0;pointer-events:none;'
+      el.style.position = 'fixed'
+      el.style.top = '0'
+      el.style.left = '0'
+      el.style.width = '1px'
+      el.style.height = '1px'
+      el.style.padding = '0'
+      el.style.border = 'none'
+      el.style.outline = 'none'
+      el.style.boxShadow = 'none'
+      el.style.background = 'transparent'
       document.body.appendChild(el)
-      el.focus()
+      el.focus({ preventScroll: true })
       el.select()
+      el.setSelectionRange(0, EMAIL.length)
       document.execCommand('copy')
       document.body.removeChild(el)
     } catch { /* silent */ }
+
+    // 2. Also execute modern Clipboard API
+    if (navigator?.clipboard?.writeText) {
+      try {
+        await navigator.clipboard.writeText(EMAIL)
+      } catch { /* silent */ }
+    }
+
+    setCopied(true)
+    setTimeout(() => setCopied(false), 2000)
   }
 
   return (
@@ -133,15 +142,16 @@ export default function HeroLetsConnect() {
           <button
             type="button"
             aria-label="Copy email"
-            className="pl-2 pr-4 py-2 shrink-0 flex items-center justify-center outline-none"
+            title="Copy email to clipboard"
+            className="pl-2 pr-4 py-2 shrink-0 flex items-center justify-center outline-none cursor-pointer text-gray-400 hover:text-zinc-950 active:scale-90 transition-all"
             onClick={(e) => { e.stopPropagation(); handleCopy() }}
           >
             <CopyIcon />
           </button>
         </div>
 
-        <div className={`absolute inset-0 flex items-center justify-center gap-2 text-white text-xs transition-opacity duration-200 ${copied ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}>
-          <TickIcon /> copieeeeeeed!!!
+        <div className={`absolute inset-0 flex items-center justify-center gap-2 text-white text-xs font-medium tracking-wide transition-opacity duration-200 ${copied ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}>
+          <TickIcon /> Copied!
         </div>
       </div>
 
