@@ -37,16 +37,27 @@ export default function EmailCopy() {
 
   const handleClick = async () => {
     try {
-      await navigator.clipboard.writeText(EMAIL)
+      if (navigator?.clipboard?.writeText) {
+        await navigator.clipboard.writeText(EMAIL)
+      } else {
+        throw new Error('Clipboard API unavailable')
+      }
     } catch {
-      // Fallback for mobile / non-HTTPS
+      // Fallback for mobile / non-HTTPS / restricted contexts
       const el = document.createElement('textarea')
       el.value = EMAIL
-      el.style.cssText = 'position:fixed;opacity:0;pointer-events:none;'
+      el.setAttribute('readonly', '')
+      el.style.position = 'fixed'
+      el.style.left = '-9999px'
+      el.style.top = '0'
       document.body.appendChild(el)
       el.focus()
       el.select()
-      document.execCommand('copy')
+      try {
+        document.execCommand('copy')
+      } catch (e) {
+        console.error('execCommand copy failed', e)
+      }
       document.body.removeChild(el)
     }
     setCopied(true)
@@ -70,7 +81,7 @@ export default function EmailCopy() {
       <Plus h="right" v="bottom" />
 
       <div className={`flex items-center transition-opacity duration-200 ${copied ? 'opacity-0 pointer-events-none' : 'opacity-100'}`}>
-        <span className="pl-4 pr-2 py-2 text-xs text-gray-500 select-none">{EMAIL}</span>
+        <span className="pl-4 pr-2 py-2 text-xs text-gray-500 select-all cursor-text">{EMAIL}</span>
         <button aria-label="Copy email" className="pl-2 pr-4 py-2 shrink-0 flex items-center justify-center outline-none">
           <CopyIcon />
         </button>

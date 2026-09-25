@@ -129,7 +129,7 @@ export default function HeroLetsConnect() {
         <BranchPlus h="right" v="bottom" />
 
         <div className={`flex items-center transition-opacity duration-200 ${copied ? 'opacity-0 pointer-events-none' : 'opacity-100'}`}>
-          <span className="pl-4 pr-2 py-2 text-xs text-gray-500 select-none whitespace-nowrap">{EMAIL}</span>
+          <span className="pl-4 pr-2 py-2 text-xs text-gray-500 select-all cursor-text whitespace-nowrap">{EMAIL}</span>
           <button
             type="button"
             aria-label="Copy email"

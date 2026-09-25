@@ -44,7 +44,7 @@ export default function Footer() {
 
           <div className="flex flex-col items-center">
           <h2
-            className="text-[clamp(3rem,12vw,9rem)] leading-none tracking-tight text-black select-none"
+            className="text-[clamp(3rem,12vw,9rem)] leading-none tracking-tight text-black select-text"
             aria-hidden="true"
           >
             <span style={{ fontFamily: 'SatishCapsSans, sans-serif', fontSize: '1.4em' }}>S</span>

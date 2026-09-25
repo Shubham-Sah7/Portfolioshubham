@@ -1,5 +1,10 @@
 @import "tailwindcss";
 
+html, body {
+  -webkit-user-select: text;
+  user-select: text;
+}
+
 .panel-scroll::-webkit-scrollbar { display: none !important; width: 0 !important; }
 
 /* 404 page overrides */

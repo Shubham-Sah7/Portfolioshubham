@@ -78,7 +78,7 @@ export default async function Home({ searchParams }: HomeProps) {
           <ParallaxImages />
 
           {/* Text isolated above the bloom layer so color blend doesn't affect it */}
-          <div className="relative flex flex-col items-center gap-3 md:gap-6 md:px-6 md:py-4" style={{ zIndex: 20, pointerEvents: 'none' }}>
+          <div className="relative flex flex-col items-center gap-3 md:gap-6 md:px-6 md:py-4 select-text" style={{ zIndex: 20 }}>
             <Image
               src="/images/logo.png"
               alt="SCR7"
@@ -89,7 +89,7 @@ export default async function Home({ searchParams }: HomeProps) {
             />
             {/* DESIGNING PRODUCTS Badge Card (our style) */}
             <div 
-              className="relative border border-zinc-200 bg-zinc-50/80 px-4 py-1 text-[9px] md:text-[10px] tracking-[0.18em] text-zinc-500 select-none mb-1 md:mb-3"
+              className="relative border border-zinc-200 bg-zinc-50/80 px-4 py-1 text-[9px] md:text-[10px] tracking-[0.18em] text-zinc-500 mb-1 md:mb-3"
               style={{ fontFamily: 'Poppins, sans-serif', fontWeight: '500' }}
             >
               <Plus h="left" v="top" />
@@ -98,12 +98,12 @@ export default async function Home({ searchParams }: HomeProps) {
               <Plus h="right" v="bottom" />
               <span>DESIGNING PRODUCTS</span>
             </div>
-            <h1 className="text-4xl md:text-5xl tracking-tight text-black">
+            <h1 className="text-4xl md:text-5xl tracking-tight text-black select-text">
               <span style={{ fontFamily: 'SatishCapsSans, sans-serif', fontSize: '1.5em' }}>S</span><span style={{ fontFamily: 'SatishSans, sans-serif', marginLeft: '4px' }}>hubham </span>
               <span style={{ fontFamily: 'SatishCapsSans, sans-serif', fontSize: '1.5em' }}>S</span><span style={{ fontFamily: 'SatishSans, sans-serif', marginLeft: '4px' }}>ah</span>
             </h1>
             <p
-              className="text-sm md:text-base text-gray-400 leading-relaxed max-w-2xl flex flex-col items-center text-center gap-y-1 md:gap-y-0.5"
+              className="text-sm md:text-base text-gray-400 leading-relaxed max-w-2xl flex flex-col items-center text-center gap-y-1 md:gap-y-0.5 select-text"
               style={{ fontFamily: 'FunnelDisplay, sans-serif', fontWeight: '300' }}
             >
               <span className="block">Building Products for Global Companies & Startups</span>
@@ -115,7 +115,7 @@ export default async function Home({ searchParams }: HomeProps) {
             </p>
 
             {/* Centered "Let's Connect" CTA Section with Branches */}
-            <div className="mt-4 md:mt-8" style={{ pointerEvents: 'auto' }}>
+            <div className="mt-4 md:mt-8">
               <EmailCopy />
             </div>
           </div>

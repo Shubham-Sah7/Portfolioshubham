@@ -29,7 +29,7 @@ export default function LetsConnect() {
       onClick={handleClick}
       target="_blank"
       rel="noopener noreferrer"
-      className="group relative cursor-pointer border border-zinc-950 bg-[#caf182] text-black hover:bg-black hover:text-white hover:border-black px-6 py-2.5 transition-all duration-300 flex items-center justify-center gap-2 select-none w-fit mt-3 md:mt-5"
+      className="group relative cursor-pointer border border-zinc-950 bg-[#caf182] text-black hover:bg-black hover:text-white hover:border-black px-6 py-2.5 transition-all duration-300 flex items-center justify-center gap-2 select-text w-fit mt-3 md:mt-5"
       style={{
         fontFamily: 'FunnelDisplay, sans-serif',
         fontWeight: '400',
