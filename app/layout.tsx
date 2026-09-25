@@ -91,7 +91,7 @@ export default function RootLayout({
                 "jobTitle": "Senior Product Designer",
                 "url": "https://shubhamsah.com",
                 "sameAs": [
-                  "https://www.linkedin.com/in/shubham-sah-designer",
+                  "https://www.linkedin.com/in/shubhamdesign/",
                   "https://twitter.com/Shubhammcr7_"
                 ],
                 "description": "Senior Product Designer specializing in AI, SaaS, Fintech, and Enterprise systems.",
