@@ -4,7 +4,6 @@ import Image from 'next/image'
 import { useRef, useEffect } from 'react'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
-import { CardContainer, CardBody, CardItem } from '@/components/ui/3d-card'
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -256,8 +255,8 @@ export default function WorkGallery() {
 
       <div className="flex flex-col gap-10 md:gap-16">
         {works.map((work) => (
-          <CardContainer key={work.num} containerClassName="w-full p-0" className="w-full">
-            <CardBody className="relative border border-zinc-300 grid grid-cols-1 md:grid-cols-2 w-full items-stretch group/card">
+          <div key={work.num} className="w-full">
+            <div className="relative border border-zinc-300 grid grid-cols-1 md:grid-cols-2 w-full items-stretch bg-white">
 
               {/* Corner plus markers */}
               <Plus h="left"  v="top" />
@@ -268,29 +267,29 @@ export default function WorkGallery() {
               {/* Info */}
               <div className="p-6 md:p-10 flex flex-col justify-between order-2 md:order-1">
                 <div>
-                  <CardItem translateZ={5} as="h3"
+                  <h3
                     className="text-2xl md:text-3xl font-light text-black mb-4 block"
                     style={{ fontFamily: 'SatishSans, sans-serif' }}
                   >
                     {work.title}
-                  </CardItem>
-                  <CardItem translateZ={3} as="p"
+                  </h3>
+                  <p
                     className="text-sm text-gray-400 leading-relaxed max-w-sm block"
                     style={{ fontFamily: 'FunnelDisplay, sans-serif' }}
                   >
                     {work.description}
-                  </CardItem>
+                  </p>
                 </div>
 
                 <div className="mt-8 flex items-end justify-between">
-                  <CardItem translateZ={2} as="span"
+                  <span
                     className="text-xs text-gray-400 block"
                     style={{ fontFamily: 'FunnelDisplay, sans-serif' }}
                   >
                     {work.year}
-                  </CardItem>
+                  </span>
                   {work.available && work.href && (
-                    <CardItem translateZ={7}>
+                    <div>
                       <a
                         href={work.href}
                         target="_blank"
@@ -303,13 +302,13 @@ export default function WorkGallery() {
                           <path d="M251.77-254.23 210-296l393.62-394H245.77v-60h460v460h-60v-357.85l-394 393.62Z"/>
                         </svg>
                       </a>
-                    </CardItem>
+                    </div>
                   )}
                 </div>
               </div>
 
               {/* Image */}
-              <CardItem translateZ={9} className="w-full min-h-[280px] md:min-h-0 relative overflow-hidden order-1 md:order-2 block bg-zinc-50 border-b md:border-b-0 md:border-l border-zinc-300">
+              <div className="w-full min-h-[280px] md:min-h-0 relative overflow-hidden order-1 md:order-2 block bg-zinc-50 border-b md:border-b-0 md:border-l border-zinc-300">
                 <a
                   href={work.href ?? '#'}
                   target="_blank"
@@ -326,10 +325,10 @@ export default function WorkGallery() {
                     />
                   )}
                 </a>
-              </CardItem>
+              </div>
 
-            </CardBody>
-          </CardContainer>
+            </div>
+          </div>
         ))}
       </div>
 
