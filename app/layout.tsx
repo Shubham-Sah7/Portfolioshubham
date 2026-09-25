@@ -92,6 +92,7 @@ export default function RootLayout({
                 "url": "https://shubhamsah.com",
                 "sameAs": [
                   "https://www.linkedin.com/in/shubhamdesign/",
+                  "https://www.behance.net/shubhamsah2",
                   "https://twitter.com/Shubhammcr7_"
                 ],
                 "description": "Senior Product Designer specializing in AI, SaaS, Fintech, and Enterprise systems.",

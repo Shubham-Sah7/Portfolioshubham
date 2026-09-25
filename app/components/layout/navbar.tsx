@@ -418,7 +418,7 @@ export default function Navbar() {
                       <span className="text-zinc-300">|</span>
                       <a href="https://www.linkedin.com/in/shubhamdesign/" target="_blank" rel="noopener noreferrer" className="hover:text-black hover:underline transition-all">LinkedIn</a>
                       <span className="text-zinc-300">|</span>
-                      <a href="https://www.behance.net/sahshubham" target="_blank" rel="noopener noreferrer" className="hover:text-black hover:underline transition-all">Behance</a>
+                      <a href="https://www.behance.net/shubhamsah2" target="_blank" rel="noopener noreferrer" className="hover:text-black hover:underline transition-all">Behance</a>
                     </div>
                   </div>
 
