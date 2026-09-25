@@ -51,12 +51,16 @@ export default function LifeCarousel() {
           <div className="absolute inset-x-0 border-t border-gray-200" style={{ top: '50%' }} />
           <h2 className="relative bg-white px-4 text-2xl md:text-3xl font-light text-black shrink-0 whitespace-nowrap flex items-baseline gap-2">
             <span>
-              <span style={{ fontFamily: 'SatishCapsSans, sans-serif', fontSize: '1.5em' }}>J</span>
-              <span style={{ fontFamily: 'SatishSans, sans-serif' }}>ack of All</span>
+              <span style={{ fontFamily: 'SatishCapsSans, sans-serif', fontSize: '1.5em' }}>T</span>
+              <span style={{ fontFamily: 'SatishSans, sans-serif' }}>he</span>
             </span>
             <span>
-              <span style={{ fontFamily: 'SatishCapsSans, sans-serif', fontSize: '1.5em' }}>T</span>
-              <span style={{ fontFamily: 'SatishSans, sans-serif' }}>rades</span>
+              <span style={{ fontFamily: 'SatishCapsSans, sans-serif', fontSize: '1.5em' }}>O</span>
+              <span style={{ fontFamily: 'SatishSans, sans-serif' }}>ther</span>
+            </span>
+            <span>
+              <span style={{ fontFamily: 'SatishCapsSans, sans-serif', fontSize: '1.5em' }}>S</span>
+              <span style={{ fontFamily: 'SatishSans, sans-serif' }}>ide</span>
             </span>
           </h2>
         </div>
