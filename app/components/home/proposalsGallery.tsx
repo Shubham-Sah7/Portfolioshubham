@@ -39,9 +39,9 @@ const proposals = [
   */
   {
     num: '004',
-    title: 'AI Agent for Pharma Operations',
-    description: "AI agent for medicine factory operations and workflow management.",
-    href: 'https://karixadesign.vercel.app/',
+    title: 'Gen Z AI Personal Finance',
+    description: "Smart, visual, playful financial assistant designed for Gen Z.",
+    href: 'https://juspayfinance.vercel.app/',
     photo: null,
     external: true,
   },
