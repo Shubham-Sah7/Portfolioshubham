@@ -22,22 +22,7 @@ const CARDS = [
 // Duplicate track for seamless infinite horizontal scrolling
 const TRACK = [...CARDS, ...CARDS, ...CARDS]
 
-const Plus = ({ h, v = 'bottom' }: { h: 'left' | 'right'; v?: 'top' | 'bottom' }) => (
-  <svg
-    width="11"
-    height="11"
-    viewBox="0 0 11 11"
-    fill="none"
-    className="absolute select-none pointer-events-none text-zinc-400 group-hover/card:text-zinc-950 transition-colors duration-500"
-    style={{
-      [h]: '-6px',
-      [v]: '-6px',
-      zIndex: 10,
-    }}
-  >
-    <path d="M5.5 0V11M0 5.5H11" stroke="currentColor" strokeWidth="1" />
-  </svg>
-)
+const Plus = (_props?: any) => null
 
 export default function LifeCarousel() {
   const trackRef  = useRef<HTMLDivElement>(null)

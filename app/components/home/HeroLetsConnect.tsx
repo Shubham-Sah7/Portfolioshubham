@@ -4,15 +4,7 @@ import { useEffect, useRef, useState } from 'react'
 
 const EMAIL = 'sahshubham953@gmail.com'
 
-const BranchPlus = ({ h, v }: { h: 'left' | 'right'; v: 'top' | 'bottom' }) => (
-  <svg
-    width="11" height="11" viewBox="0 0 11 11" fill="none"
-    className="absolute select-none pointer-events-none text-zinc-400 group-hover/card:text-zinc-950 transition-colors duration-500"
-    style={{ [h]: '-6px', [v]: '-6px', zIndex: 10 }}
-  >
-    <path d="M5.5 0V11M0 5.5H11" stroke="currentColor" strokeWidth="1" />
-  </svg>
-)
+const BranchPlus = (_props?: any) => null
 
 const CopyIcon = () => (
   <svg xmlns="http://www.w3.org/2000/svg" height="16px" viewBox="0 -960 960 960" width="16px" fill="#6b7280">

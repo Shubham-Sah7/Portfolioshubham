@@ -95,6 +95,38 @@ body.page-404 { background: black; }
 
 
 @font-face {
+  font-family: 'PinyonScript';
+  src: url('/fonts/PinyonScript/PinyonScript-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'CormorantGaramond';
+  src: url('/fonts/cormorant/CormorantGaramond-500-normal.woff2') format('woff2');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'CormorantGaramond';
+  src: url('/fonts/cormorant/CormorantGaramond-600-normal.woff2') format('woff2');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'CormorantGaramond';
+  src: url('/fonts/cormorant/CormorantGaramond-700-normal.woff2') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
   font-family: 'Garamond';
   src: url('/fonts/garamond/Garamond_Condensed_Light_Regular.ttf') format('truetype');
   font-weight: normal;

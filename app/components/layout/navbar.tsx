@@ -12,22 +12,7 @@ gsap.registerPlugin(ScrollToPlugin)
 const RESUME_URL = "https://drive.google.com/file/d/1kOanHM4ByS2qRn3JO9EpEjh6wfn0aPXM/preview"
 const RESUME_VIEW_URL = "https://drive.google.com/file/d/1kOanHM4ByS2qRn3JO9EpEjh6wfn0aPXM/view?usp=sharing"
 
-const Plus = ({ h, v = 'bottom' }: { h: 'left' | 'right'; v?: 'top' | 'bottom' }) => (
-  <svg
-    width="11"
-    height="11"
-    viewBox="0 0 11 11"
-    fill="none"
-    className="absolute select-none pointer-events-none text-zinc-300 group-hover/card:text-zinc-950 transition-colors duration-500"
-    style={{
-      [h]: '-6px',
-      [v]: '-6px',
-      zIndex: 10,
-    }}
-  >
-    <path d="M5.5 0V11M0 5.5H11" stroke="currentColor" strokeWidth="1" />
-  </svg>
-)
+const Plus = (_props?: any) => null
 
 const navItems = [
   { name: "Home", href: "/" },

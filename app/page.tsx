@@ -1,8 +1,6 @@
 import Image from "next/image"
 import Loader from "./components/layout/Loader"
 import WorkGallery from "./components/home/workGallery"
-import MouseColorBloom from "./components/home/MouseColorBloom"
-import ParallaxImages from "./components/home/ParallaxImages"
 import EmailSection from "./components/home/EmailSection"
 import EmailCopy from "./components/home/EmailCopy"
 // import UnpluggedGallery from "./components/home/unpluggedGallery"
@@ -19,22 +17,7 @@ interface HomeProps {
   searchParams: Promise<{ scroll?: string }>
 }
 
-const Plus = ({ h, v }: { h: 'left' | 'right'; v: 'top' | 'bottom' }) => (
-  <svg
-    width="11"
-    height="11"
-    viewBox="0 0 11 11"
-    fill="none"
-    className="absolute select-none pointer-events-none text-zinc-300"
-    style={{
-      [h]: '-6px',
-      [v]: '-6px',
-      zIndex: 10,
-    }}
-  >
-    <path d="M5.5 0V11M0 5.5H11" stroke="currentColor" strokeWidth="1" />
-  </svg>
-)
+const Plus = (_props?: any) => null
 
 export default async function Home({ searchParams }: HomeProps) {
   const resolvedParams = await searchParams
@@ -43,41 +26,27 @@ export default async function Home({ searchParams }: HomeProps) {
   return (
     <div className="bg-white relative flex flex-col gap-20 md:gap-28 w-full">
       <HomeScrollTrigger target={scroll} />
-      {/* Grid Background overlay (centered, matching max-w-5xl content bounds to clear decorative pillars) */}
-      <div className="absolute top-0 h-[calc(100vh-120px)] md:h-screen left-1/2 -translate-x-1/2 w-full max-w-5xl bg-grid-pattern pointer-events-none" style={{ zIndex: 0 }} />
+      {/* ── Classical Pillars Hero Background ─────────────────── */}
+      <div className="absolute top-0 inset-x-0 h-[calc(100vh-120px)] md:h-screen pointer-events-none select-none overflow-hidden" style={{ zIndex: 0 }}>
+        <Image
+          src="/images/HomeImages/hero-pillars-hands-bg.jpg"
+          alt="Classical pillars background"
+          fill
+          priority
+          quality={95}
+          className="object-cover object-top select-none pointer-events-none"
+        />
+        {/* Soft bottom fade to blend with page sections */}
+        <div className="absolute bottom-0 inset-x-0 h-32 bg-gradient-to-t from-white to-transparent pointer-events-none" />
+      </div>
 
       <Loader />
       <PageBranches />
 
-      {/* ── Pillar decorations - fixed to viewport edges ─────── */}
-      <div className="fixed top-0 h-screen hidden md:block group/left-pillar pointer-events-none select-none" style={{ zIndex: 5, left: '-70px' }}>
-        <Image
-          src="/images/HomeImages/piller-v.svg"
-          alt=""
-          width={120}
-          height={800}
-          draggable={false}
-          className="h-screen w-auto object-contain object-top select-none pointer-events-none transition-all duration-700 ease-out opacity-[0.18] scale-100 brightness-100 group-hover/left-pillar:opacity-[0.30] group-hover/left-pillar:scale-[1.04] group-hover/left-pillar:brightness-[1.2]"
-        />
-      </div>
-      <div className="fixed top-0 h-screen hidden md:block group/right-pillar pointer-events-none select-none" style={{ zIndex: 5, right: '-40px' }}>
-        <Image
-          src="/images/HomeImages/piller-2-v.svg"
-          alt=""
-          width={120}
-          height={800}
-          draggable={false}
-          className="h-screen w-auto object-contain object-top select-none pointer-events-none transition-all duration-700 ease-out opacity-[0.18] scale-100 brightness-100 group-hover/right-pillar:opacity-[0.30] group-hover/right-pillar:scale-[1.04] group-hover/right-pillar:brightness-[1.2]"
-        />
-      </div>
-
       <div className="max-w-5xl mx-auto px-6 md:px-10 flex flex-col gap-20 md:gap-28">
 
         {/* First fold - name + description, full viewport height */}
-        <MouseColorBloom />
         <div className="relative min-h-[calc(100vh-120px)] flex flex-col justify-center items-center text-center gap-6 overflow-visible md:overflow-visible" style={{ zIndex: 20 }}>
-
-          <ParallaxImages />
 
           {/* Text isolated above the bloom layer so color blend doesn't affect it */}
           <div className="relative flex flex-col items-center gap-3 md:gap-6 md:px-6 md:py-4 select-text" style={{ zIndex: 30 }}>

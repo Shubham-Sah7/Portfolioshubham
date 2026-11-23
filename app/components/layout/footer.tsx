@@ -3,6 +3,8 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
+import EmailCopy from '../home/EmailCopy'
+import HalftoneWordmarkFooter from '@/components/ui/halftone-wordmark-footer'
 
 const links = [
   { label: 'LinkedIn',  href: 'https://www.linkedin.com/in/shubhamdesign/' },
@@ -11,8 +13,6 @@ const links = [
   { label: 'Twitter',   href: 'https://x.com/Shubhammcr7_' },
   { label: 'GitHub',    href: 'https://github.com/Shubham-Sah7' },
 ]
-
-import EmailCopy from '../home/EmailCopy'
 
 export default function Footer() {
   const pathname = usePathname()
@@ -23,61 +23,20 @@ export default function Footer() {
   if (pathname === '/lab/playground') return null
 
   return (
-    <footer className={`mt-16 relative overflow-visible${isUnpluggedPage ? ' md:hidden' : ''}`}>
+    <footer className={`relative overflow-hidden bg-white w-full pt-12 pb-0${isUnpluggedPage ? ' md:hidden' : ''}`}>
 
-<div className="max-w-5xl mx-auto px-6 md:px-10">
+      <div className="max-w-5xl mx-auto px-6 md:px-10">
 
-        {/* Big name */}
-        <div className="pt-4 pb-8 text-center relative flex items-center justify-center gap-0">
+        {/* Subtitle tag */}
+        <p
+          className="text-center text-sm text-gray-400 mb-6"
+          style={{ fontFamily: 'FunnelDisplay, sans-serif', fontWeight: 300 }}
+        >
+          Product Designer · Builder · IIT Patna
+        </p>
 
-          {/* Left branch */}
-          <img
-            src="/images/HomeImages/branch.svg"
-            aria-hidden="true"
-            className="hidden md:block shrink-0 pointer-events-none select-none"
-            style={{
-              height: '160px', width: 'auto',
-              transform: 'rotate(90deg)',
-              filter: 'brightness(0) opacity(0.18)',
-              marginRight: '-30px',
-            }}
-          />
-
-          <div className="flex flex-col items-center">
-          <h2
-            className="text-[clamp(3rem,12vw,9rem)] leading-none tracking-tight text-black select-text"
-            aria-hidden="true"
-          >
-            <span style={{ fontFamily: 'SatishCapsSans, sans-serif', fontSize: '1.4em' }}>S</span>
-            <span style={{ fontFamily: 'SatishSans, sans-serif', marginLeft: '6px' }}>hubham</span>
-          </h2>
-          <p
-            className="mt-4 text-sm text-gray-400"
-            style={{ fontFamily: 'FunnelDisplay, sans-serif', fontWeight: 300 }}
-          >
-            Product Designer · Builder · IIT Patna
-          </p>
-          </div>
-
-          {/* Right branch - mirrored */}
-          <img
-            src="/images/HomeImages/branch.svg"
-            aria-hidden="true"
-            className="hidden md:block shrink-0 pointer-events-none select-none"
-            style={{
-              height: '160px', width: 'auto',
-              transform: 'rotate(90deg) scaleX(-1)',
-              filter: 'brightness(0) opacity(0.18)',
-              marginLeft: '-30px',
-            }}
-          />
-
-        </div>
-
-        <div className="border-t border-gray-100" />
-
-        {/* Bottom row */}
-        <div className="py-5 flex flex-col md:grid md:grid-cols-3 items-center gap-6 w-full">
+        {/* Action & social links row */}
+        <div className="py-2 flex flex-col md:grid md:grid-cols-3 items-center gap-6 w-full">
 
           {/* Logo + year */}
           <div className="flex justify-center md:justify-start items-center w-full">
@@ -111,6 +70,30 @@ export default function Footer() {
           </div>
 
         </div>
+      </div>
+
+      {/* Interactive Halftone Wordmark */}
+      <div className="w-full mt-2 select-none overflow-hidden">
+        <HalftoneWordmarkFooter
+          wordmark="Shubham"
+          label=""
+          meta=""
+          columns={[]}
+          backToTop={false}
+          dotGap={6}
+          radius={85}
+          crop={0.12}
+          grain={0.35}
+          interactive={true}
+          fontFamily="SatishCapsSans, SatishSans, Georgia, serif"
+          height="clamp(160px, 21vw, 300px)"
+          palette={{
+            background: "#ffffff",
+            ink: "#17150f",
+            warm: "#e9762b",
+          }}
+          className="w-full"
+        />
       </div>
     </footer>
   )
