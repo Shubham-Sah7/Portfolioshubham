@@ -253,12 +253,12 @@ export default function Navbar() {
 
   return (
     <>
-    <div className="fixed top-0 left-0 right-0 flex justify-center px-3 py-4 pointer-events-none" style={{ zIndex: 10005 }}>
+    <div className="fixed top-0 left-0 right-0 flex justify-center px-3 py-3 md:py-4 pointer-events-none" style={{ zIndex: 10005 }}>
       <nav
         ref={navRef}
-        className={`flex items-center rounded-none py-1 relative transition-all duration-300 hover:shadow-lg pointer-events-auto w-full max-w-full md:w-auto justify-between md:justify-start ${
+        className={`flex items-center rounded-none py-1 relative transition-all duration-300 hover:shadow-lg pointer-events-auto w-auto max-w-[calc(100vw-24px)] justify-center md:justify-start ${
           isMounted
-            ? "gap-1 md:gap-6 px-3 md:px-6"
+            ? "gap-1 sm:gap-3 md:gap-6 px-3 sm:px-4 md:px-6"
             : "gap-1 px-3"
         }`}
         style={{

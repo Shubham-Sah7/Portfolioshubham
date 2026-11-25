@@ -4,7 +4,8 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import EmailCopy from '../home/EmailCopy'
-import HalftoneWordmarkFooter from '@/components/ui/halftone-wordmark-footer'
+import ShubhamParticleWordmark from '@/components/ui/shubham-particle-wordmark'
+import RidgelineDitherScene from '@/components/ui/ridgeline-dither-scene'
 
 const links = [
   { label: 'LinkedIn',  href: 'https://www.linkedin.com/in/shubhamdesign/' },
@@ -23,20 +24,66 @@ export default function Footer() {
   if (pathname === '/lab/playground') return null
 
   return (
-    <footer className={`relative overflow-hidden bg-white w-full pt-12 pb-0${isUnpluggedPage ? ' md:hidden' : ''}`}>
-
+    <footer className={`mt-16 relative overflow-hidden bg-white w-full${isUnpluggedPage ? ' md:hidden' : ''}`}>
       <div className="max-w-5xl mx-auto px-6 md:px-10">
 
-        {/* Subtitle tag */}
-        <p
-          className="text-center text-sm text-gray-400 mb-6"
-          style={{ fontFamily: 'FunnelDisplay, sans-serif', fontWeight: 300 }}
-        >
-          Product Designer · Builder · IIT Patna
-        </p>
+        {/* Big name with interactive halftone particle effect */}
+        <div className="pt-20 md:pt-4 pb-8 text-center relative flex items-center justify-center gap-0">
 
-        {/* Action & social links row */}
-        <div className="py-2 flex flex-col md:grid md:grid-cols-3 items-center gap-6 w-full">
+          {/* Left branch */}
+          <img
+            src="/images/HomeImages/branch.svg"
+            aria-hidden="true"
+            className="hidden md:block shrink-0 pointer-events-none select-none z-0"
+            style={{
+              height: '160px', width: 'auto',
+              transform: 'rotate(90deg)',
+              filter: 'brightness(0) opacity(0.18)',
+              marginRight: '-30px',
+            }}
+          />
+
+          <div className="flex flex-col items-center w-full max-w-3xl z-10">
+            <h2 className="sr-only">Shubham</h2>
+            
+            {/* Interactive Particle Wordmark */}
+            <div className="w-full flex justify-center py-2">
+              <ShubhamParticleWordmark
+                dotGap={5}
+                interactionRadius={90}
+                inkColor="#18181b"
+                warmColor="#e06226"
+                className="w-full max-w-[560px] md:max-w-[720px]"
+              />
+            </div>
+
+            <p
+              className="mt-3 text-sm text-gray-400 select-text"
+              style={{ fontFamily: 'FunnelDisplay, sans-serif', fontWeight: 300 }}
+            >
+              Product Designer · Builder · IIT Patna
+            </p>
+          </div>
+
+          {/* Right branch - mirrored */}
+          <img
+            src="/images/HomeImages/branch.svg"
+            aria-hidden="true"
+            className="hidden md:block shrink-0 pointer-events-none select-none z-0"
+            style={{
+              height: '160px', width: 'auto',
+              transform: 'rotate(90deg) scaleX(-1)',
+              filter: 'brightness(0) opacity(0.18)',
+              marginLeft: '-30px',
+            }}
+          />
+
+        </div>
+
+        <div className="border-t border-gray-100" />
+
+        {/* Bottom row */}
+        <div className="py-5 flex flex-col md:grid md:grid-cols-3 items-center gap-6 w-full relative z-10">
 
           {/* Logo + year */}
           <div className="flex justify-center md:justify-start items-center w-full">
@@ -44,7 +91,7 @@ export default function Footer() {
               className="text-xs text-gray-400"
               style={{ fontFamily: 'FunnelDisplay, sans-serif' }}
             >
-              © 2026 Shubham Sah
+              © {new Date().getFullYear()} Shubham Sah
             </span>
           </div>
 
@@ -72,25 +119,34 @@ export default function Footer() {
         </div>
       </div>
 
-      {/* Interactive Halftone Wordmark */}
-      <div className="w-full mt-2 select-none overflow-hidden">
-        <HalftoneWordmarkFooter
-          wordmark="Shubham"
-          label=""
-          meta=""
-          columns={[]}
-          backToTop={false}
-          dotGap={6}
-          radius={85}
-          crop={0.12}
-          grain={0.35}
+      {/* ── Bottom Mountain Ridgeline Dither Scene with 14 Peaks ──────────────── */}
+      <div className="w-full relative overflow-hidden select-none pt-6 bg-gradient-to-b from-white via-[#FAF8F5] to-[#FAF8F5] border-t border-zinc-100">
+        <RidgelineDitherScene
+          height="360px"
+          seed={23}
+          ridges={7}
+          pixel={2}
+          mist={0.7}
+          drift={1}
+          radius={140}
           interactive={true}
-          fontFamily="SatishCapsSans, SatishSans, Georgia, serif"
-          height="clamp(160px, 21vw, 300px)"
+          altimeter={true}
+          showPeaks={true}
           palette={{
-            background: "#ffffff",
-            ink: "#17150f",
-            warm: "#e9762b",
+            paper: "#FAF8F5",
+            ink: "#18181b",
+            muted: "#78716c",
+            line: "#e7e5e4",
+            heart: "#e5484d",
+            tones: [
+              "#FAF8F5",
+              "#E7E4E0",
+              "#CBC7C1",
+              "#9E9992",
+              "#6E6963",
+              "#413E39",
+              "#18181b"
+            ],
           }}
           className="w-full"
         />
